@@ -8,14 +8,14 @@ version:  0.0.1
 language: de
 -->
 
-# Konstruktive Geometrie
+# Konstruktive Geometrie (I381)
 
-This is your **course** initialization stub.
+Dieser Kurs richtet sich an Studierende der Medieninformatik im 2. Semester.
 
-Please see the [Docs](https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/docs/master/README.md)
-to find out what is possible in [LiaScript](https://liascript.github.io).
+Sie können diesen unter [Kurs](https://liascript.github.io/course/?https://github.com/marco-hamann/Geometrie/blob/main/README.md) aufrufen.
 
-If you want to use instant help in your Atom IDE, please type **lia** to see all available shortcuts.
+## Kursnformation
+hh
 
 ## Markdown
 
