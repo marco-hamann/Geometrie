@@ -11,7 +11,7 @@ script:   https://cdn.rawgit.com/davidedc/Algebrite/master/dist/algebrite.bundle
 @Algebrite.eval: <script> Algebrite.run(`@input`)</script>
 -->
 
-# Konstruktive Geometrie (I381)
+# Konstruktive Geometrie (I-381)
 
 Dieser Kurs richtet sich an Studierende der Medieninformatik im 2. Semester.
 
