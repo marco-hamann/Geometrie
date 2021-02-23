@@ -77,7 +77,7 @@ inv(A)-adj(A)/det(A)
 Eine reelle quadratische Matrix $A$ heißt regulär, wenn gilt
 
     [[ ]] $\det{A}=0$
-    [[X]] $\det{A}\not=0$
+    [[X]] $\det{A}\not= 0$
     [[X]] $A^{-1}$ existiert
     [[?]] Die inverse Matrix $A^{-1}$ existiert nicht für singuläre Matrizen.
     ****************************************
