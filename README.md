@@ -11,7 +11,7 @@ script:   https://cdn.rawgit.com/davidedc/Algebrite/master/dist/algebrite.bundle
 @Algebrite.eval: <script> Algebrite.run(`@input`)</script>
 -->
 
-# Konstruktive Geometrie (I-381)
+# Konstruktive Geometrie (I381)
 
 Dieser Kurs richtet sich an Studierende der Medieninformatik im 2. Semester.
 
@@ -77,7 +77,7 @@ inv(A)-adj(A)/det(A)
 Eine reelle quadratische Matrix $A$ heißt regulär, wenn gilt
 
     [[ ]] $\det{A}=0$
-    [[X]] $\det{A}\not= 0$
+    [[X]] $\det{A}\neq 0$
     [[X]] $A^{-1}$ existiert
     [[?]] Die inverse Matrix $A^{-1}$ existiert nicht für singuläre Matrizen.
     ****************************************
