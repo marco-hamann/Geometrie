@@ -209,6 +209,22 @@ $$
 
 Jeder Kantenzug des Parallelogramms von $O$ nach $X$, in dem jede Strecke parallel zu $g_i$ genau einmal vorkommt, heißt dabei ein **Koordinatenweg** von $X$ bezüglich des affinen Koordinatensystems $(O,E_1,E_2)$.
 
+~~Bemerkung.~~ Zur Berechnung des Teilungsverhältnis von drei Punkten auf einer Geraden $g$ können zweireihige Determinanten zu den Koordinatenvektoren der Punkte verwendet werden.
+$$
+  TV(C,B,A)=\frac{\det{\begin{pmatrix} x_A & x_C \\ y_A & y_C  \end{pmatrix}}}{\det{\begin{pmatrix} x_A & x_B \\ y_A & y_B \end{pmatrix}}}
+$$
+Überlegen Sie, in welchen Fällen sich diese Formel verwenden lässt, und in welchen Fällen nicht. Warum beschreibt diese das Teilungsverhältnis?
+
+``` javascript
+A=[xa,ya]
+B=[xb,yb]
+C=[xc,yc]
+lambda_z=[[C[1],A[1]],[C[2],A[2]]]
+lambda_n=[[B[1],A[1]],[B[2],A[2]]]
+det(lambda_z)/det(lambda_n)
+```
+@Algebrite.eval
+
 Koordinatensystem im dreidimensionalen Raum
 ===========================================
 
