@@ -219,9 +219,9 @@ $$
 A=[xa,ya]
 B=[xb,yb]
 C=[xc,yc]
-lambda_z=[[C[1],A[1]],[C[2],A[2]]]
-lambda_n=[[B[1],A[1]],[B[2],A[2]]]
-det(lambda_z)/det(lambda_n)
+zaehler=[[C[1],A[1]],[C[2],A[2]]]
+nenner=[[B[1],A[1]],[B[2],A[2]]]
+det(zaehler)/det(nenner)
 ```
 @Algebrite.eval
 
@@ -334,16 +334,19 @@ $$
 
 Werden die Argumente in $TV(\,.\,)$ permutiert, so ändert sich im Allgemeinen der Wert des Teilungsverhältnisses.
 
-> ~~Satz.~~ Für das Teilungsverhältnis eines Punktes $C\in g$ auf der Verbindungsgeraden $g=AB$ zweier Punkte $A$ und $B$ gelte
+> ~~Satz 1.~~ Für das Teilungsverhältnis eines Punktes $C\in g$ auf der Verbindungsgeraden $g=AB$ zweier verschiedener Punkte $A$ und $B$ gelte
 > $$
   \lambda=TV(C,B,A) \in\mathbb{R}
 $$
-> Aus der Definition des Teilungsverhältnisses folgen:
+> Durch Permutation der Argumente nimmt das Teilungsverhältnis - soweit erklärt - einen der Werte
+> $$ \lambda\,,\quad 1-\lambda\,,\quad \frac{1}{\lambda}\,,\quad \frac{1}{1-\lambda}\,,\quad 1-\frac{1}{\lambda}\,,\quad \frac{\lambda}{\lambda-1}
+$$
+> an. Insbesondere gelten:
 >
 > 1. Für  $C\not=A$ gilt: $\;TV({\color{blue}B},{\color{red}C},A)=TV({\color{red}C},{\color{blue}B},A)^{-1}=\frac{1}{\lambda}$
-> 2. Für  $C\not=B$ gilt: $\;TV({\color{blue}A},B,{\color{red}C})=\frac{1}{1-TV({\color{red}C},B,{\color{blue}A})}=\frac{1}{1-\lambda}$
+> 2. Es gilt: $\;TV(C,{\color{blue}A},{\color{red}B})=1-TV(C,{\color{red}B},{\color{blue}A})=1-\lambda$
 
-~~Beweis.~~ Zum Beweis der Aussagen kann ein Koeffizientenvergleich zwischen den Linearkombinationen von linker und rechter Seite angestrebt werden. Der Beweis wird hier anhand der ersten Gleichheit geführt. Die restlichen Aufgaben können analog nachgewiesen werden.
+~~Beweis.~~ Zum Beweis der beiden letzten Aussagen kann ein Koeffizientenvergleich zwischen den Linearkombinationen von linker und rechter Seite angestrebt werden.
 
 Für $\lambda\not=0$ ergibt sich schrittweise aus $\lambda=TV(C,B,A)$
 $$
@@ -355,11 +358,92 @@ $$
 $$
 Aus dem Koeffizientenvergleich der rechten Seiten ergibt sich unmittelbar $\mu=\frac{1}{\lambda}$.
 
-ToDo
-* Schwerpunkt eines Systems von $n$ Massenpunkten
-* Konvexe Punktmengen
-* Unterteilungskurven und Bézier-Kurven (de Casteljau-Algorithmus)
-* Beispiele für die Nutzung affiner Koordinatensysteme
+Des Weiteren gilt offensichtlich
+$$
+  \nu=TV(C,A,B)\quad\leftrightarrow\quad
+  c=\nu\cdot a+(1-\nu)\cdot b\quad\leftrightarrow\quad
+  \lambda=1-\nu
+$$
+
+Die beiden Permutationen
+$$
+  p=\begin{pmatrix} {\color{red}C} & {\color{blue}B} & A \\ {\color{blue}B} & {\color{red}C} & A \end{pmatrix}\,,\quad
+  q=\begin{pmatrix} C & {\color{red}B} & {\color{blue}A} \\ C & {\color{blue}A} & {\color{red}B} \end{pmatrix}
+$$
+stellen eine Transposition (Tauschung) der ersten bzw. letzten beiden Elemente dar. Mit Hilfe der Hintereinanderausführung dieser lassen sich alle Permutationen von $(A,B,C)$ darstellen, woraus sich die genannten Werte des Teilungsverhältnisses ergeben.
+$$
+  \lambda\;\stackrel{p}{\longleftrightarrow}\;
+  \frac{1}{\lambda}\;\stackrel{q}{\longleftrightarrow}\;
+  1-\frac{1}{\lambda}\;\stackrel{p}{\longleftrightarrow}\;
+  \frac{\lambda}{\lambda-1}\;\stackrel{q}{\longleftrightarrow}\;
+  \frac{1}{1-\lambda}\;\stackrel{p}{\longleftrightarrow}\;
+  1-\lambda\;\stackrel{q}{\longleftrightarrow}\;\lambda
+$$
+
+$\square$
+
+~~Beispiel 1.~~ Für den Mittelpunkt $M$ einer Strecke $[A,B]$ ergeben sich einsichtig die Teilungsverhältnisse
+
+| $(\,.\,,\,.\,,\,.\,)$   | $TV(\,.\,)$   |
+| :--------- | :--------- |
+| $(M,B,A)$ | $\frac{1}{2}$ |
+| $(B,M,A)$ | $2$           |
+| $(B,A,M)$ | $-1$          |
+| $(A,B,M)$ | $-1$          |
+| $(A,M,B)$ | $2$           |
+| $(M,A,B)$ | $\frac{1}{2}$ |
+
+Interessant scheint, dass in diesem Beispiel von den sechs verschiedenen Teilungsverhältnis-Werten lediglich drei voneinander verschieden sind.
+
+Für den Teilungspunkt $T$ einer Strecke $[P,Q]$ mit gegebenem Teilungsverhältnis $TV(P,Q,T)=\lambda$ ergibt sich unter Verwendung der Ortsvektoren
+$$
+  t=\frac{1}{1-\lambda}\cdot p-\frac{\lambda}{1-\lambda}\cdot q
+$$
+Teilt $T$ die Strecke $[P,Q]$ innen im Verhältnis $\alpha:\beta$, so ergeben sich $\lambda=-\frac{\alpha}{\beta}$ und somit die Koeffizienten
+$$
+  \frac{1}{1-\lambda}=\frac{\beta}{\alpha+\beta}\,,\quad
+  -\frac{\lambda}{1-\lambda}=\frac{\alpha}{\alpha+\beta}
+$$
+Der innere Teilungspunkt $T$ auf $[P,Q]$ stellt sich somit dar
+$$
+  t=\frac{1}{\alpha+\beta}\cdot\left(\beta\cdot p+\alpha\cdot q\right)
+$$
+$T$ lässt sich physikalisch als **Schwerpunkt** des Massesystems $\{P,Q\}$ deuten, wenn
+* $P$ das Gewicht $\beta$
+* $Q$ das Gewicht $\alpha$
+* und somit dem Massesystem $\{P,Q\}$ das Gesamtgewicht $\alpha+\beta$
+zugewiesen wird.
+
+Massenschwerpunkt
+=================
+
+> ~~Satz 2.~~ Zu einem gegebenen System von Punkten $P$ mit den Ortsvektoren $p_i$ und den Gewichten $\gamma_i>0$ ergibt
+> $$
+  s=\frac{1}{\sum_{i=1}^n{\gamma_i}}\cdot\sum_{j=1}^n{\left(\gamma_j\cdot p_j\right)}
+$$
+> den Massenschwerpunkt $S$ dieses Systems, worin $n\in\mathbb{N}$.
+
+~~Beweis.~~ Die Schwerpunktformel kann unter Benutzung des Verfahrens der vollständigen Induktion bewiesen werden.
+
+1.*Induktionsanfang*. Die Formel ist für $n=1$ offensichtlich wahr, ebenso für $n=2 nach dem voranstehenden Abschnitt.
+2.*Induktionsschluss*. Die Schwerpunktformel gelte für $n=k$. Dann folgt für $n=k+1$
+$$
+  s_{k+1}=\frac{1}{{\color{red}\gamma_{k+1}+}\sum_{i=1}^k{\gamma_i}}\cdot
+  \left({\color{red}\gamma_{k+1}\cdot p_{k+1}+}\sum_{j=1}^k{\left(\gamma_j\cdot p_j\right)}\right)=
+  \frac{1}{\sum_{i=1}^{k+1}{\gamma_i}}\cdot\sum_{j=1}^{k+1}{\left(\gamma_j\cdot p_j\right)}
+$$
+
+$\square$
+
+
+Konvexe Punktmengen
+===================
+
+Unterteilungskurven
+===================
+
+Bézier-Kurven
+=============
 
 ## Hilfe
 
