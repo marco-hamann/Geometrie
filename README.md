@@ -432,8 +432,23 @@ $$
   \left({\color{red}\gamma_{k+1}\cdot p_{k+1}+}\sum_{j=1}^k{\left(\gamma_j\cdot p_j\right)}\right)=
   \frac{1}{\sum_{i=1}^{k+1}{\gamma_i}}\cdot\sum_{j=1}^{k+1}{\left(\gamma_j\cdot p_j\right)}
 $$
-
 $\square$
+
+~~Beispiel 1.~~ Zur Berechnung des Schwerpunktes dreier Massenpunkte
+$$
+  X(x,y)\,,\;\gamma_X>0\quad\longleftrightarrow\quad(x,y,\gamma_X)
+$$
+stellt sich die Formel wie folgt dar. Beachten Sie, dass im dargestellten Minimalcode keine Spezifikation der Variablen der Gewichte $\gamma$ vorgenommen
+
+``` javascript
+A=[xA,yA,gammaA]
+B=[xB,yB,gammaB]
+C=[xC,yC,gammaC]
+m=A[3]+B[3]+C[3]
+1/m*(A[1]*A[3]+B[1]*B[3]+C[1]*C[3])
+1/m*(A[2]*A[3]+B[2]*B[3]+C[2]*C[3])
+```
+@Algebrite.eval
 
 
 Konvexe Punktmengen
@@ -444,6 +459,13 @@ Unterteilungskurven
 
 Bézier-Kurven
 =============
+
+## Kontakt
+
+| Name             | E-Mail                           |
+|------------------|---------------------------------|
+| Marco Hamann     | marco.hamann@htw-dresden.de     |
+| Michael Meinhold | michael.meinhold@htw-dresden.de |
 
 ## Hilfe
 
