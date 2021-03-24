@@ -7,13 +7,15 @@ version:  0.0.1
 
 language: de
 
+comment:  Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Medieninformatik im 2. Semester.
+
 script:   https://cdn.rawgit.com/davidedc/Algebrite/master/dist/algebrite.bundle-for-browser.js
 @Algebrite.eval: <script> Algebrite.run(`@input`)</script>
 -->
 
 # Konstruktive Geometrie (I381)
 
-Dieser Kurs richtet sich an Studierende der Medieninformatik im 2. Semester.
+ Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Fahrzeugtechnik im 2. Semester.
 
 Sie können diesen Kurs auf [LiaScript](https://liascript.github.io/course/?https://github.com/marco-hamann/Geometrie/blob/main/README.md) oder [Opal](https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/19931103237) aufrufen. Das Repository zu diesem Kurs finden Sie unter
 
@@ -134,10 +136,9 @@ und ist für alle $x$ genau dann gleich Null, wenn für alle Koeffizienten $\lam
 
 ****************************************
 
----
-[^1] Die Rechenregeln werden zur axiomatischen Festlegung eines Vektorraumes genutzt. Hier ist zusätzlich $1\cdot x=x$ zu fordern.
+[^1]: Die Rechenregeln werden zur axiomatischen Festlegung eines Vektorraumes genutzt. Hier ist zusätzlich $1\cdot x=x$ zu fordern.
 
-[^2] Die Funktionen bilden sogar die Monombasis im Vektorraum aller reellen Polynomfunktionen vom Grad $n\leq 2$.
+[^2]: Die Funktionen bilden sogar die Monombasis im Vektorraum aller reellen Polynomfunktionen vom Grad $n\leq 2$.
 
 ### Affine Koordinatensysteme
 
@@ -311,10 +312,9 @@ O     E                     O     E     O     E
 [( )] $TV(X,B,A)=-\frac{1}{3}$
 [(X)] $TV(X,B,A)=-3$
 
----
-[^1] Im zu $O\in\mathcal{A}^d$, $d\in\{2,3\}$, gehörigen Ortsvektorraum bilden die zu $E_1$ bis $E_d$ gehörenden Ortsvektoren eine Basis, worin sich der Ortsvektor eines jeden Punktes $X\in\mathcal{A}^d$ mit den Koeffizienten $(x_1,\ldots,x_d)$ eindeutig darstellen lässt.
+[^1]: Im zu $O\in\mathcal{A}^d$, $d\in\{2,3\}$, gehörigen Ortsvektorraum bilden die zu $E_1$ bis $E_d$ gehörenden Ortsvektoren eine Basis, worin sich der Ortsvektor eines jeden Punktes $X\in\mathcal{A}^d$ mit den Koeffizienten $(x_1,\ldots,x_d)$ eindeutig darstellen lässt.
 
-[^2] Diesen Einheitsstrecken wird die Länge $1$ zugewiesen.
+[^2]: Diesen Einheitsstrecken wird die Länge $1$ zugewiesen.
 
 ### Anwendungen
 
