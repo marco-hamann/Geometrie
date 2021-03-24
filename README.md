@@ -449,24 +449,3 @@ m=A[3]+B[3]+C[3]
 1/m*(A[2]*A[3]+B[2]*B[3]+C[2]*C[3])
 ```
 @Algebrite.eval
-
-
-Konvexe Punktmengen
-===================
-
-Unterteilungskurven
-===================
-
-Bézier-Kurven
-=============
-
-## Kontakt
-
-| Name             | E-Mail                           |
-|------------------|---------------------------------|
-| Marco Hamann     | marco.hamann@htw-dresden.de     |
-| Michael Meinhold | michael.meinhold@htw-dresden.de |
-
-## Hilfe
-
-https://liascript.github.io/course/?https://raw.githubusercontent.com/liaScript/docs/master/README.md
