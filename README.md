@@ -140,6 +140,7 @@ und ist für alle $x$ genau dann gleich Null, wenn für alle Koeffizienten $\lam
 
 [^2]: Die Funktionen bilden sogar die Monombasis im Vektorraum aller reellen Polynomfunktionen vom Grad $n\leq 2$.
 
+
 ### Affine Koordinatensysteme
 
 Ziel ist es, die Lage eines Punktes auf einer Geraden / in der Ebene / im Raum in einem geeigneten Koordinatensystem zu beschreiben.
@@ -176,6 +177,63 @@ $$
   x=TV(X,E,O)
 $$
 > zugewiesen.
+
+~~Beispiel 1.~~ Für den Halbierungspunkt $H$ einer Strecke $[A,B]$ gilt nach Definition $$ TV(H,B,A)=\frac{\overline{HA}}{\overline{BA}}\cdot (+1)=\frac{1}{2}$$ Das Teilungsverhältnis vergleicht die Länge der Teilstrecke $[A,H]$ mit der Länge der Gesamtstrecke $[A,B]$. Das Vorzeichen ist $+1$, da $A$ die Punkte $B$ und $H$ nicht trennt.
+
+Soll ein Punkt $T$ der Strecke $[A,B]$ diese im Verhältnis $1:3$ der Teillängen teilen, so ergeben sich zwei Mögliche Lagen von $T$.[^3]
+
+<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 615px;" -->
+```````````````````````````````````````````````````````````````````
+A                 B     A                 B     A                 B
+*--------*--------*     *----*------------*     *------------*----*
+         H                   T                               T
+```````````````````````````````````````````````````````````````````
+
+Für das Teilungsverhältnis ergibt sich entsprechend $TV(T,B,A)=\frac{1}{4}$ beziehungsweise $TV(T,B,A)=\frac{3}{4}$. Siehe Abschnitt [Teilungspunkt einer Strecke](#Anwendungen)
+
+~~Bemerkung.~~ Das Teilungsverhältnis bleibt unter Parallelprojektionen erhalten, d. h. es ändert sich dabei nicht .[^4] Man sagt, es ist invariant unter Parallelprojektionen.
+
+<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 415px;" -->
+``````````````````````````````````````````````````
+     \
+--- A *-------------*---------------*---- h
+     / \           / B''           / C''
+    =   \         =               =
+   /     \       /               /
+--*-------\-----*---------------*---- g'
+  A'       \   / B'            / C'
+            \ /               /
+             *  B            /
+              \             /
+               \           /
+                \         /
+                 \       /
+                  \     /
+                   \   /
+                    \ /
+                     * C
+                      \
+                       g
+``````````````````````````````````````````````````
+
+Durch Parallelprojektion werden alle Punkte der Geraden $g$ abgebildet auf Punkte der Geraden $g'$ mithilfe untereinander paralleler Projektionsgeraden
+$$
+  AA'\,,\quad BB'\,,\quad CC'
+$$
+Wähle eine Gerade $h$ parallel zu $g'$ durch $A$. Durch Parallelprojektion ergeben sich die Punkte
+$$
+  B''=BB'\cap h\,,\quad C''=CC'\cap h
+$$
+mit den Abständen
+$$
+  \overline{A'B'}=\overline{AB''}\,,\quad \overline{A'C'}=\overline{AC''}
+$$
+Mit dem Strahlensatz gilt schließlich
+$$
+  \frac{\overline{AB}}{\overline{AC}}=\frac{\overline{AB''}}{\overline{AC''}}=\frac{\overline{A'B'}}{\overline{A'C'}}
+$$
+$\square$
+
 
 Koordinatensystem in einer Ebene
 ================================
@@ -226,6 +284,7 @@ det(zaehler)/det(nenner)
 ```
 @Algebrite.eval
 
+
 Koordinatensystem im dreidimensionalen Raum
 ===========================================
 
@@ -258,7 +317,7 @@ Jeder Kantenzug des Parallelepipeds von $O$ nach $X$, in dem jede Strecke parall
 
 > ~~Definition.~~ Ein affines Koordinatensystem heißt **kartesisch**, wenn die Koordinatenachsen paarweise orthogonal sind und die Längen der Einheitsstrecken übereinstimmen.[^2]
 
-~~Beispiel 1.~~ Das natürliche Koordinatensystem in $\mathbb{R}^3$ mit Ursprung und den Einheitspunkten
+~~Beispiel 2.~~ Das natürliche Koordinatensystem in $\mathbb{R}^3$ mit Ursprung und den Einheitspunkten
 $$
   O(0,0,0)\,,\quad E_1(1,0,0)\,,\quad E_2(0,1,0)\,,\quad E_3(0,0,1)
 $$
@@ -272,7 +331,7 @@ $$
 $$
 für beliebige $(j,k)\in\{1,2,3\}^2$ mit $j\not=k$.
 
-~~Beispiel 2.~~ Der Abstand zweier Punkte $X$ und $Y$ in der Ebene $\mathcal{A}^2$ berechnet sich bezüglich eines affinen Koordinatensystems $(O,E_1,E_2)$ mithilfe des Kosinus\-satzes in einem allgemeinen Dreieck
+~~Beispiel 3.~~ Der Abstand zweier Punkte $X$ und $Y$ in der Ebene $\mathcal{A}^2$ berechnet sich bezüglich eines affinen Koordinatensystems $(O,E_1,E_2)$ mithilfe des Kosinus\-satzes in einem allgemeinen Dreieck
 $$
   \overline{XY}^2=
   (y_1-x_1)^2\cdot (e_1)^2+(y_2-x_2)^2\cdot (e_2)^2 \\
@@ -286,7 +345,7 @@ $$
 Sicher gewusst?
 ===============
 
-**Frage 1:** Nachstehend sind drei grundsätzlich zu unterscheidende Lagen von $X$ bezüglich des Paares $(O,E)$ angegeben. Ordnen Sie die Abbildungen den Größenangaben für
+~~Frage 1:~~ Nachstehend sind drei grundsätzlich zu unterscheidende Lagen von $X$ bezüglich des Paares $(O,E)$ angegeben. Ordnen Sie die Abbildungen den Größenangaben für
 $$
   x=TV(X,E,O)
 $$
@@ -306,7 +365,7 @@ O     E                     O     E     O     E
 [( ) (X) ( )]  $x<0$
 
 
-**Frage 2:** Das Teilungsverhältnis des Punktes $X$ bezüglich $(A,B)$ mit $$ A(1,0)\,,\quad B(3,0)\,,\quad X(-5,0)$$ berechnet sich
+~~Frage 2:~~ Das Teilungsverhältnis des Punktes $X$ bezüglich $(A,B)$ mit $$ A(1,0)\,,\quad B(3,0)\,,\quad X(-5,0)$$ berechnet sich
 
 [( )] $TV(X,B,A)=-5$
 [( )] $TV(X,B,A)=-\frac{1}{3}$
@@ -315,6 +374,11 @@ O     E                     O     E     O     E
 [^1]: Im zu $O\in\mathcal{A}^d$, $d\in\{2,3\}$, gehörigen Ortsvektorraum bilden die zu $E_1$ bis $E_d$ gehörenden Ortsvektoren eine Basis, worin sich der Ortsvektor eines jeden Punktes $X\in\mathcal{A}^d$ mit den Koeffizienten $(x_1,\ldots,x_d)$ eindeutig darstellen lässt.
 
 [^2]: Diesen Einheitsstrecken wird die Länge $1$ zugewiesen.
+
+[^3]: Soll eine Strecke durch einen Punkt der Strecke im Verhältnis $m:n$ geteilt werden, so existieren für $m\in\mathbb{N}$ und $n\in\mathbb{N}$ mit $m$ verschieden von $n$ stets zwei Möglichkeiten.
+
+[^4]: Sofern nicht in Richtung der Geraden $g$ projiziert wird.
+
 
 ### Anwendungen
 
