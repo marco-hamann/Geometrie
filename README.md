@@ -549,7 +549,7 @@ m=A[3]+B[3]+C[3]
 
 **Beispiel 2.** Der Schwerpunkt der Ecken eines Dreiecks, die jeweils mit *gleichen Massen* belegt sind, ist der gemeinsame Punkt der drei (!) Seitenhalbierenden.
 
-![Schwerpunkt](/img/geo-bild03.png "_Fig._ Schwerpunkt $S$ eines Dreiecks $ABC$ bei gleicher Masseverteilung in den Ecken.")
+![Schwerpunkt](img/geo-bild03.png "_Fig._ Schwerpunkt $S$ eines Dreiecks $ABC$ bei gleicher Masseverteilung in den Ecken.")
 
 Für den Nachweis wird ein affines Koordinatensystem mit Ursprung $O=A$ und den Einheitspunkten $E_1=B$ sowie $E_2=C$ gewählt.
 
