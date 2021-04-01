@@ -669,7 +669,7 @@ Entscheiden Sie, welche der Punktmengen das rot umrandete Gebiet als konvexe Hü
 [[?]] Stellen Sie die Punktmengen in einem kartesischen Koordinatensystem graphisch dar.
 ****************************************
 
-Die Punktmenge $$ \{(x,y)\; (0\leq x\leq4\;\wedge\;0\leq y\leq2)\} $$ bildet ein achsenparalleles Rechteck mit den Seitenlängen vier und zwei: Es ist eine konvexe Menge, jedoch nicht die dargestellte. Die Punktmenge $$ (0,0)$, $(0,1)$, $(1,2)$, $(3,1)$ und $(4,0) $$ enhält nicht den Eckpunkt $(2,2)$ des dargestellten Polygons. Die beiden anderen Punktmengen besitzen das rot umrandete Gebiet als konvexe Hülle.
+Die Punktmenge $$ \{(x,y)\; (0\leq x\leq4\;\wedge\;0\leq y\leq2)\} $$ bildet ein achsenparalleles Rechteck mit den Seitenlängen vier und zwei: Es ist eine konvexe Menge, jedoch nicht die dargestellte. Die Punktmenge $(0,0)$, $(0,1)$, $(1,2)$, $(3,1)$ und $(4,0)$ enhält nicht den Eckpunkt $(2,2)$ des dargestellten Polygons. Die beiden anderen Punktmengen besitzen das rot umrandete Gebiet als konvexe Hülle.
 
 ****************************************
 
