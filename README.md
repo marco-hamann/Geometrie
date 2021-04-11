@@ -522,7 +522,7 @@ $$
 
 **Beweis.** Die Schwerpunktformel kann unter Benutzung des Verfahrens der vollständigen Induktion bewiesen werden.
 
-1.*Induktionsanfang*. Die Formel ist für $n=1$ offensichtlich wahr, ebenso für $n=2 nach dem voranstehenden Abschnitt.
+1.*Induktionsanfang*. Die Formel ist für $n=1$ offensichtlich wahr, ebenso für $n=2$ nach dem voranstehenden Abschnitt.
 2.*Induktionsschluss*. Die Schwerpunktformel gelte für $n=k$. Dann folgt für $n=k+1$
 $$
   s_{k+1}=\frac{1}{{\color{red}\gamma_{k+1}+}\sum_{i=1}^k{\gamma_i}}\cdot
@@ -870,3 +870,167 @@ Die Bézierkurve $c$ interpoliert den ersten und letzten Punkt des Kontrollpolyg
 
 
 ## Affine Transformationen
+
+In diesem Kapitel werden folgende Themen behandelt:
+
+* Affine Abbildungen, darunter Affinitäten und deren Eigenschaften
+* Basis- und Koordinatentransformationen
+* Spezielle Affinitäten
+* Kongruenzen und Ähnlichkeiten
+* Abbildungsgeometrische Erzeugung geometrischer Figuren
+
+
+### Definition und Eigenschaften
+
+Definition affiner Abbildungen
+==============================
+
+>**Definition.** Eine Abbildung $\alpha:\mathcal{A}^d\to \mathcal{A}^d$ des $d$-dimensionalen affinen Raumes ($d\in\mathbb{N},\,d\geq1$), die Punkte $X$ auf Punkte $X^\prime=\alpha(X)$ abbildet, heißt **affine Abbildung**, wenn sie bezogen auf ein affines Koordinatensystem $[O,E_1,...,E_d]$ mit Ortsvektor $x=\overrightarrow{OX}$ und $x^\prime=\overrightarrow{OX^\prime}$ in der Form $$ x\mapsto x^\prime=A\cdot x+a $$ mit $A\in\mathbb{R}^{d,d}$ und $a\in\mathbb{R}^{d}$ beschrieben werden kann.
+
+Die reelle, quadratische Matrix $A$ wird Abbildungsmatrix (Transformationsmatrix), der reelle Vektor $a$ Translationsvektor von $\alpha$ genannt. Für $d=2$ heißt $\alpha$ affine Abbildung der Ebene, für $d=3$ affine Abbildung des dreidimensionalen Raumes.
+
+**Beispiel 1.** Die affine Abbildung $\alpha$ mit $$
+  A=\mathrm{diag}{(1,1)}\,,\quad a=(2,-3)^\top
+$$ worin $A$ die zweireihige Einheitsmatrix ist, beschreibt eine Translation aller Punkte $X$ der Ebene $\mathcal{A}^2$ mit dem Translationsvektor $a$.
+
+```javascript
+A=[[1,0],[0,1]]
+a=[[2],[-3]]
+x=[[x1],[x2]]
+dot(A,x)+a
+```
+@Algebrite.eval
+
+**Beispiel 2.** Die affine Abbildung $\alpha$ mit $$
+  A=\mathrm{diag}{(1,1,0)}\,,\quad a=(0,0,0)^\top
+$$ beschreibt die Projektion aller Punkte $X$ des dreidimensionalen Raumes $\mathcal{A}^3$ in die Ebene $z=0$ (*"Grundrissprojektion"*).
+
+```javascript
+A=[[1,0,0],[0,1,0],[0,0,0]]
+a=[[0],[0],[0]]
+x=[[x1],[x2],[x3]]
+dot(A[1],x)+a[1]
+dot(A[2],x)+a[2]
+dot(A[3],x)+a[3]
+```
+@Algebrite.eval
+
+>**Definition.** Eine affine Abbildung $$ x\mapsto x^\prime=A\cdot x+a $$ heißt **Affinität**, falls $A$ eine reguläre Matrix ist, d. h. falls $\det{A}\not=0$.
+
+Das Beispiel 1 beschreibt eine Affinität, da $\det{A}=1$, Beispiel 2 hingegen eine affine Abbildung, die keine Affinität ist: Hier ist $\det{A}=0$.
+
+
+Folgerungen
+===========
+
+Die nachstehenden Eigenschaften werden für den Fall $d=3$ formuliert, können jedoch für jede Wahl $d\geq 2$ in gleicher Weise angegeben werden.
+
+
+Eigenschaft 1
+-------------
+
+Die Koordinaten des Bildpunktes $X'$ unter einer affinen Abbildung $\alpha$ berechnen sich linear in den Koordinaten des Urbildes $X$.
+
+```javascript
+A=[[a11,a12,a13],[a21,a22,a23],[a31,a32,a33]]
+a=[[a1],[a2],[a3]]
+x=[[x1],[x2],[x3]]
+i=1
+inner(A[i],x)+a[i]
+```
+@Algebrite.eval
+
+In Matrixdarstellung stellt sich der Ortsvektor des Bildpunktes $X'$ für den Fall $d=3$ dar mittels
+$$
+  \begin{pmatrix} x_1' \\ x_2' \\ x_3' \end{pmatrix}=
+  \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}+\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}
+$$
+worin die Komponenten der Transformationsmatrix $A$ mit $a_{ij}$, die Komponenten des Translationsvektors $a$ mit $a_i$ bezeichnet sind.
+
+
+Eigenschaft 2
+-------------
+
+Der Translationsvektor $a$ ist Ortsvektor des Bildpunktes $O'=\alpha(O)$ (Bild des Koordinatenursprungs), denn
+$$
+  \begin{pmatrix} o_1 \\ o_2 \\ o_3 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\mapsto
+  \begin{pmatrix} o_1' \\ o_2' \\ o_3' \end{pmatrix}=
+  \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}+\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}=\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}
+$$
+
+
+Eigenschaft 3
+-------------
+
+Für die Bilder der Einheitspunkte $E_i$, $i\in\{1,2,3\}$, mit den Ortsvektoren $e_i$ gelten
+$$
+  \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\mapsto
+  \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}+\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}=\textcolor{magenta}{\begin{pmatrix} a_{11} \\ a_{21} \\ a_{31} \end{pmatrix}}+\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}
+$$
+und
+$$
+  \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}\mapsto
+  \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}+\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}=\textcolor{magenta}{\begin{pmatrix} a_{12} \\ a_{22} \\ a_{32} \end{pmatrix}}+\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}
+$$
+sowie
+$$
+  \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}\mapsto
+  \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}+\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}=\textcolor{magenta}{\begin{pmatrix} a_{13} \\ a_{23} \\ a_{33} \end{pmatrix}}+\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}
+$$
+Das ist jeweils die Summe aus dem $i$-ten Spaltenvektor von $A$ und dem Translationsvektor $a$. Es gilt mit Eigenschaft 2
+$$
+  \overrightarrow{\alpha(O)\alpha(E_i)}=e_i'-o'=s_i\,,\quad i\in\{1,2,3\}
+$$
+
+Der $i$-te Spaltenvektor $s_i$ in der Spaltenvektordarstellung von $A$ $$ A=\begin{pmatrix} s_1 & s_2 & s_3 \end{pmatrix} $$ ist der Richtungsvektor $\overrightarrow{O'E_i'}$, der von $O'=\alpha(O)$ nach $E_i'=\alpha(E_i)$ zielt, dargestellt im affinen Koordinatensystem $(O,E_1,E_2,E_3)$.
+
+![test](img/geo-bild06.png "*Fig.* Affines Koordinatensystem und dessen Bild unter der affinen Abbildung (mit oberem Index gekennzeichnet).")<!-- style="width: 100%;" -->
+
+<!-- style="color:magenta" -->**Merkregel.** "Willst die Matrix du erhalten, schreib die Bilder der Basis in die Spalten."
+
+**Bemerkung.** Mit den Eigenschaften 2 und 3 haben Transformationsmatrix $A$ und Translationsvektor $a$ einer affinen Abbildung $\alpha$ geometrische Bedeutung. (Definition)
+
+
+Eigenschaft 4
+-------------
+
+Für einen Punkt $X\in\mathcal{A}^3$ in allgemeiner Lage mit Ortsvektor / Koordinaten
+$$
+  x=\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=
+  \sum_{i=1}^3{x_i\cdot e_i}
+$$
+bezüglich der Basis $(e_1,e_2,e_3)$ ergibt sich der Bildvektor unter $\alpha$ gemäß
+$$
+  x'=\begin{pmatrix} x_1' \\ x_2' \\ x_3' \end{pmatrix}=
+  A\cdot\left(\sum_{i=1}^3{x_i\cdot e_i}\right)+a=
+  \left(\sum_{i=1}^3{x_i\cdot A\cdot e_i}\right)+a=
+  \left(\sum_{i=1}^3{x_i\cdot s_i}\right)+a
+$$
+Aus dieser Darstellung lässt sich erkennen, dass $X$ im affinen Koordinatensystem $(O,E_1,E_2,E_3)$ dieselben Koordinaten besitzt wie Koeffizienten in der vorstehenden Linearkombination.
+
+Ist die Transfomationsmatrix $A$ regulär[^1], so sind deren Spaltenvektoren linear unabhängig, so dass $\left(O',E_1',E_2',E_3'\right)$ wieder ein affines Koordinatensystem ist. Siehe Abschnitt [Affine Koordinatensysteme](#Affine-Koordinatensysteme). Hieraus ergibt sich folgende Erzeugungsmöglichkeit einer Affinität.
+
+> **Erzeugung einer Affinität.** Sind zwei affine Koordinatensysteme $$
+  \left(O,E_1,E_2,E_3\right)\,,\quad \left(O',E_1',E_2',E_3'\right)
+$$ gegeben, so lässt sich eine Affinität $$
+  \alpha:X\mapsto X'=\alpha(X)
+$$ durch gleiche Koordinaten angeben: Das Urbild $X$ besitzt den Ortsvektor $$
+  x=\begin{pmatrix} \blue{x_1} \\ \blue{x_2} \\ \blue{x_3} \end{pmatrix} \quad\text{bezüglich}\quad \left(O,E_1,E_2,E_3\right)
+$$ und das Bild $X'=\alpha(X)$ besitzt den gleichen Ortsvektor $$
+  x'=\begin{pmatrix} \blue{x_1} \\ \blue{x_2} \\ \blue{x_3} \end{pmatrix} \quad\text{bezüglich}\quad \left(O',E_1',E_2',E_3'\right)
+$$
+
+
+Eigenschaft 5
+-------------
+
+Der Differenzvektor zweier Punkte $X$ und $Y$ mit den Ortsvektoren $x$ beziehungsweise $y$
+$$
+  \overrightarrow{XY}=y-x=:z
+$$
+wird unter der affinen Abbildung $\alpha$ abgebildet auf
+$$
+  \overrightarrow{\alpha(X)\alpha(Y)}=y'-x'
+
+[^1]: Ist die Transformationsmatrix $A$ eine reguläre Matrix, so ist die dadurch beschriebene affine Abbildung sogar eine Affinität.
