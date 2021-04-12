@@ -880,7 +880,7 @@ In diesem Kapitel werden folgende Themen behandelt:
 * Abbildungsgeometrische Erzeugung geometrischer Figuren
 
 
-### Definition und Eigenschaften
+### Definition und Grundlagen
 
 Definition affiner Abbildungen
 ==============================
@@ -1031,6 +1031,36 @@ $$
 $$
 wird unter der affinen Abbildung $\alpha$ abgebildet auf
 $$
-  \overrightarrow{\alpha(X)\alpha(Y)}=y'-x'
+  \overrightarrow{\alpha(X)\alpha(Y)}=y'-x'=(A\cdot y+a)-(A\cdot x+a)=A\cdot(y-x)=A\cdot z
+$$
+worin $x'$ beziehungsweise $y'$ die Ortsvektoren der Bilder $X'=\alpha(X)$ beziehungsweise $Y'=\alpha(Y)$ bezeichnen.
+
+>**Definition.** Ist der Translationsvektor $a$ einer affinen Abbildung $\alpha$ der Nullvektor, d. h. $$
+  \alpha:X\mapsto X'\quad\text{mit}\quad x\mapsto x'=A\cdot x
+$$ so heißt $\alpha$ eine **lineare Abbildung**. Der Ursprung $O$ des Koordinatensystems $(O,E_1,E_2,E_3)$ ist unter $\alpha$ ein Fixpunkt.[^2]
+
+**Beispiel 3.** Zu bestimmen ist eine analytische Darstellung der Spiegelung (der Punkte) der Ebene an der $x_1$-Achse eines gewählten kartesischen Koordinatensystems.
+
+Bezeichnen $(x_1,x_2)$ die kartesischen Koordinaten eines Punktes $X$ in allgemeiner Lage, so gilt für dessen Spiegelbild $X'=\alpha(X)$
+$$
+    x_1'=x_1\quad\wedge\quad y_1'=-y_1
+$$
+Hieraus ergibt sich die Matrixdarstellung der affinen Abbildung $$
+  \alpha:\,\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+$$
+Aus der Darstellung von $\alpha$ ist erkennbar, dass der Translationsvektor $a$ der Nullvektor und die Transformationsmatrix regulär ist, die Abbildung somit eine Affinität und sogar linear ist.
+
+Im nachstehenden Video ist dieses Beispiel im Kontext der linearen Abbildungen erläutert.
+
+!?[Lineare Abbildung](https://www.youtube.com/watch?v=lg1oYbkzauk)
 
 [^1]: Ist die Transformationsmatrix $A$ eine reguläre Matrix, so ist die dadurch beschriebene affine Abbildung sogar eine Affinität.
+
+[^2]: Ein Punkt $X$ heißt Fixpunkt unter der affinen Abbildung $\alpha$, falls $X=\alpha(X)$, d. h. wenn Bild und Urbild des Punktes übereinstimmen. Für lineare Abbildungen ergibt sich hieraus $$
+  \left(x\mapsto x=A\cdot x\right)\quad\leftrightarrow\quad \left(A-E\right)\cdot x=0
+$$ worin $E$ die dreireihige Einheitsmatrix bezeichnet. Aus der Darstellung folgt, dass sich die (Ortsvektoren der) Fixpunkte als Eigenvektoren von $A$ zum Eigenwert $1$ berechnen lassen.
+
+### Eigenschaften
