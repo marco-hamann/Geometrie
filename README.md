@@ -685,7 +685,7 @@ Das Konzept der Bézierkurven wurde unabhängig voneinander von Pierre Bézier b
 
 **Beispiel 1.** Gegeben ist ein aus zwei Strecken bestehendes Polygon mit den Eckpunkten $P_0$, $P_1$ und $P_2$. Diese werden Kontrollpunkte genannt und bilden die Eckpunkte eines Kontrollpolygons $P_0-P_1-P_2$.
 
-![Bézierkurve](img/geo-bild04.png "_Fig._ Bézierkurve vom Grad $2$ mit Konstrollpolygon $P_0-P_1-P_2$.")<!-- style="width: 100%;" -->
+![Bézierkurve](img/geo-bild04.png "_Fig._ Bézierkurve vom Grad $2$ mit Konstrollpolygon $P_0-P_1-P_2$.")
 
 Verfahren für $n=2$
 -------------------
@@ -702,7 +702,7 @@ $$ Das Verfahren endet hier.[^1]
   & = (1-t)^2\cdot p_0+2\cdot t\cdot (1-t)\cdot p_1+t^2\cdot p_2
 \end{array}$$ Im Beispiel entspricht dies einer quadratischen Parametrisierung der Menge aller Punkte $P_0^2(t)$, die **Bézierkurve** $c$ der Ordnung $n=2$ zum Kontrollpolygon $P_0-P_1-P_2$ genannt wird.
 
-![geogebra](img/geo-animation-1.png "*Fig.* Konstruktion einer Bézierkurve zu ihrem Kontrollpolygon $P_0-P_1-P_2$ nach dem de Casteljau Algorithmus.")<!-- style="width: 100%;" -->
+![geogebra](img/geo-animation-1.png "*Fig.* Konstruktion einer Bézierkurve zu ihrem Kontrollpolygon $P_0-P_1-P_2$ nach dem de Casteljau Algorithmus.")
 
 **Bemerkung 1.** Die Koeffizienten der angegebenen Linearkombination sind Polynome zweiten Grades $$
   B_0^2(t)=(1-t)^2\,,\quad B_1^2(t)=2\cdot t\cdot (1-t)\,,\quad B_2^2(t)=t^2
@@ -750,11 +750,11 @@ x-2*(p11-p01)
 
 
 Verfahren für allgemeines $n\in\mathbb{N}$
------
+------------------------------------------
 
 Das Verfahren zur Konstruktion einer Bézierkurve zweiter Ordnung kann auf den Fall $n>2$ verallgemeinert werden. Hierfür wird das Kontrollpolygon $$ P_0-P_1-...-P_{n-1}-P_n $$ vorausgesetzt. Das nachfolgende Schema zeigt das wiederholte Bestimmen der Teilungspunkte $P_j^k$ $k$-ter Stufe auf den Polygonen $(k-1)$-ter Stufe ($k\in\mathbb{N},1\leq k\leq n$), wobei $k-1=0$ für das Kontrollpolygon gesetzt wird.
 
-<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 415px;" -->
+<!-- style="display: block; margin-left: auto; margin-right: auto;" -->
 ![Bézierkurve2](img/geo-bild05.png "_Fig._ Schema zur Bildung der Teilungspunkte nach dem de Casteljau Algorithmus.")
 
 Die Konstruktion einer Bézierkurve vom Grad $n=3$ nach dem de Casteljau Algorithmus finden Sie im folgenden Video.
