@@ -674,12 +674,9 @@ Die Punktmenge $$ \{(x,y)\; (0\leq x\leq4\;\wedge\;0\leq y\leq2)\} $$ bildet ein
 ****************************************
 
 
-### Bézierkurven
+### De Casteljau Algorithmus
 
-De Casteljau Algorithmus
-========================
-
-Unter Verwendung des Teilverhältnisses auf Strecken lassen sich ebenso Kurven konstruieren. In diesem Abschnitt wird das Konzept einer **Bézierkurve** vorgestellt, die sich interaktiv und koordinatenunabhängig über ihr Kontrollpolygon konstruieren lässt. Siehe [geogebra](https://www.geogebra.org/m/Ger7Xvut#material/PvCmYWMZ "de casteljau Algorithmus für Bézierkurve ")
+Unter Verwendung des Teilverhältnisses auf Strecken lassen sich ebenso Kurven konstruieren. In diesem Abschnitt wird das Konzept einer **Bézierkurve** vorgestellt, die sich interaktiv und koordinatenunabhängig über ihr Kontrollpolygon konstruieren lässt. Siehe [Bézierkurve](https://www.geogebra.org/m/Ger7Xvut#material/PvCmYWMZ "de casteljau Algorithmus für Bézierkurve ").
 
 Das Konzept der Bézierkurven wurde unabhängig voneinander von Pierre Bézier bei Renault (1959) und von Paul de Casteljau bei Citroën (1962) für die computerunterstützte Konstruktion entwickelt.
 
@@ -688,16 +685,27 @@ Das Konzept der Bézierkurven wurde unabhängig voneinander von Pierre Bézier b
 ![Bézierkurve](img/geo-bild04.png "_Fig._ Bézierkurve vom Grad $2$ mit Konstrollpolygon $P_0-P_1-P_2$.")
 
 Verfahren für $n=2$
--------------------
+===================
 
-1. Bilde auf den Seiten des Kontrollpolygons den Teilungspunkt $P_i^1$ zum gleichen Wert $t\in[0,1]$ des Teilverhältnisses. Unter Verwendung der Ortsvektoren der Kontrollpunkte stellen sich die Teilungspunkte dar $$
+1. Stufe
+--------
+
+Bilde auf den Seiten des Kontrollpolygons den Teilungspunkt $P_i^1$ zum gleichen Wert $t\in[0,1]$ des Teilverhältnisses. Unter Verwendung der Ortsvektoren der Kontrollpunkte stellen sich die Teilungspunkte dar $$
   p_0^1=(1-t)\cdot p_0+t\cdot p_1\,,\quad
   p_1^1=(1-t)\cdot p_1+t\cdot p_2
 $$ Diese bilden Teilungspunkte $1$-ter Stufe.
-2. Die Teilungspunkte $P_0^1$ und $P_1^1$ auf den Seiten des Kontrollpolygons bilden eine neue Strecke. Konstruiere auf dieser den Teilungspunkt $P_0^2$ zweiter Stufe zum gleichen Wert $t\in[0,1]$ des Teilverhältnisses. $$
+
+2. Stufe
+--------
+
+Die Teilungspunkte $P_0^1$ und $P_1^1$ auf den Seiten des Kontrollpolygons bilden eine neue Strecke. Konstruiere auf dieser den Teilungspunkt $P_0^2$ zweiter Stufe zum gleichen Wert $t\in[0,1]$ des Teilverhältnisses. $$
   p_0^2=(1-t)\cdot p_0^1+t\cdot p_1^1
 $$ Das Verfahren endet hier.[^1]
-3. Wird der Parameter $t\in[0,1]$ variiert, so entstehen verschiedene Lagen des Punktes $P_0^2(t)$, die als Linearkombination der Ortsvektoren der Kontrollpunkte dargestellt werden können $$\begin{array}{rl}
+
+Variation des Parameters
+------------------------
+
+Wird der Parameter $t\in[0,1]$ variiert, so entstehen verschiedene Lagen des Punktes $P_0^2(t)$, die als Linearkombination der Ortsvektoren der Kontrollpunkte dargestellt werden können $$\begin{array}{rl}
   x(t)=p_0^2(t) & =(1-t)\cdot\left((1-t)\cdot p_0+t\cdot p_1\right)+t\cdot\left((1-t)\cdot p_1+t\cdot p_2\right) \\
   & = (1-t)^2\cdot p_0+2\cdot t\cdot (1-t)\cdot p_1+t^2\cdot p_2
 \end{array}$$ Im Beispiel entspricht dies einer quadratischen Parametrisierung der Menge aller Punkte $P_0^2(t)$, die **Bézierkurve** $c$ der Ordnung $n=2$ zum Kontrollpolygon $P_0-P_1-P_2$ genannt wird.
@@ -750,7 +758,7 @@ x-2*(p11-p01)
 
 
 Verfahren für allgemeines $n\in\mathbb{N}$
-------------------------------------------
+==========================================
 
 Das Verfahren zur Konstruktion einer Bézierkurve zweiter Ordnung kann auf den Fall $n>2$ verallgemeinert werden. Hierfür wird das Kontrollpolygon $$ P_0-P_1-...-P_{n-1}-P_n $$ vorausgesetzt. Das nachfolgende Schema zeigt das wiederholte Bestimmen der Teilungspunkte $P_j^k$ $k$-ter Stufe auf den Polygonen $(k-1)$-ter Stufe ($k\in\mathbb{N},1\leq k\leq n$), wobei $k-1=0$ für das Kontrollpolygon gesetzt wird.
 
@@ -889,6 +897,10 @@ Definition affiner Abbildungen
 
 Die reelle, quadratische Matrix $A$ wird Abbildungsmatrix (Transformationsmatrix), der reelle Vektor $a$ Translationsvektor von $\alpha$ genannt. Für $d=2$ heißt $\alpha$ affine Abbildung der Ebene, für $d=3$ affine Abbildung des dreidimensionalen Raumes.
 
+Die Abbildung von Punkten der Ebene beziehungsweise des dreidimensionalen Raumes wird in nachstehendem Video an Beispielen erläutert. (Der Translationsvektor ist in diesen Beispielen jeweils der Nullvektor.)
+
+!?[Affine Abbildung](https://www.youtube.com/watch?v=r0CNAI2rHfY)
+
 **Beispiel 1.** Die affine Abbildung $\alpha$ mit $$
   A=\mathrm{diag}{(1,1)}\,,\quad a=(2,-3)^\top
 $$ worin $A$ die zweireihige Einheitsmatrix ist, beschreibt eine Translation aller Punkte $X$ der Ebene $\mathcal{A}^2$ mit dem Translationsvektor $a$.
@@ -985,7 +997,7 @@ $$
 
 Der $i$-te Spaltenvektor $s_i$ in der Spaltenvektordarstellung von $A$ $$ A=\begin{pmatrix} s_1 & s_2 & s_3 \end{pmatrix} $$ ist der Richtungsvektor $\overrightarrow{O'E_i'}$, der von $O'=\alpha(O)$ nach $E_i'=\alpha(E_i)$ zielt, dargestellt im affinen Koordinatensystem $(O,E_1,E_2,E_3)$.
 
-![test](img/geo-bild06.png "*Fig.* Affines Koordinatensystem und dessen Bild unter der affinen Abbildung (mit oberem Index gekennzeichnet).")<!-- style="width: 100%;" -->
+![test](img/geo-bild06.png "*Fig.* Affines Koordinatensystem und dessen Bild unter der affinen Abbildung (mit oberem Index gekennzeichnet).")
 
 <!-- style="color:magenta" -->**Merkregel.** "Willst die Matrix du erhalten, schreib die Bilder der Basis in die Spalten."
 
@@ -1057,10 +1069,31 @@ Im nachstehenden Video ist dieses Beispiel im Kontext der linearen Abbildungen e
 
 !?[Lineare Abbildung](https://www.youtube.com/watch?v=lg1oYbkzauk)
 
+Eine Möglichkeit der Berechnung des Bildes einer Geraden unter einer linearen Abbildung ist an einem Beispiel im nachstehenden Video erläutert.
+
+!?[Lineares Bild](https://www.youtube.com/watch?v=9FBulSYvlF0)
+
+
+Sicher gewusst?
+===============
+
+**Frage.** Gegeben sind die folgenden Abbildungsmatrizen affiner Abbildungen
+$$
+  A_1=\begin{pmatrix} 1 & 2 \\ -2 & 4 \end{pmatrix}\quad\text{sowie}\quad
+  A_2=\begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 4 \\ -1 & 2 & -3 \end{pmatrix}
+$$
+Welche dieser beschreibt ~~keine~~ Affinität?
+
+[[X]] $A_1$
+[[X]] $A_2$
+****************************************
+
+Für beide Matrizen gilt $\det{A_1}=\det{A_2}=0$, daher sind die durch diese Matrizen beschriebenen affinen Abbildungen keine Affinitäten.
+
+****************************************
+
 [^1]: Ist die Transformationsmatrix $A$ eine reguläre Matrix, so ist die dadurch beschriebene affine Abbildung sogar eine Affinität.
 
 [^2]: Ein Punkt $X$ heißt Fixpunkt unter der affinen Abbildung $\alpha$, falls $X=\alpha(X)$, d. h. wenn Bild und Urbild des Punktes übereinstimmen. Für lineare Abbildungen ergibt sich hieraus $$
   \left(x\mapsto x=A\cdot x\right)\quad\leftrightarrow\quad \left(A-E\right)\cdot x=0
 $$ worin $E$ die dreireihige Einheitsmatrix bezeichnet. Aus der Darstellung folgt, dass sich die (Ortsvektoren der) Fixpunkte als Eigenvektoren von $A$ zum Eigenwert $1$ berechnen lassen.
-
-### Eigenschaften
