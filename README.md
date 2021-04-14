@@ -757,15 +757,15 @@ Das Verfahren zur Konstruktion einer Bézierkurve zweiter Ordnung kann auf den F
 <!-- style="display: block; margin-left: auto; margin-right: auto;" -->
 ![Bézierkurve2](img/geo-bild05.png "_Fig._ Schema zur Bildung der Teilungspunkte nach dem de Casteljau Algorithmus.")
 
-Die Konstruktion einer Bézierkurve vom Grad $n=3$ nach dem de Casteljau Algorithmus finden Sie im folgenden Video.
-
-!?[youtube](https://www.youtube.com/watch?v=YATikPP2q70)
-
 Der Teilungspunkt $X(t)=P_0^{n}(t)$ ist Kurvenpunkt der **Bézierkurve** $n$-ter Ordnung zum Kontrollpolygon $P_0-P_1-...-P_{n-1}-P_n$ und besitzt die Parametrisierung $$
   x(t)=\sum_{i=0}^n{B_i^n(t)\cdot p_i}\,,\quad n\in\mathbb{N},\;n\geq2
 $$ worin $p_i$ die Ortsvektoren der Kontrollpunkte $P_i$ und $$
   B_i^n(t)=\binom{n}{i}\cdot(1-t)^{n-i}\cdot t^i
 $$ die **Bernsteinpolynome** $n$-ten Grades bezeichnen.[^2]
+
+Die Konstruktion einer Bézierkurve vom Grad $n=3$ nach dem de Casteljau Algorithmus finden Sie im folgenden Video.
+
+!?[youtube](https://www.youtube.com/watch?v=YATikPP2q70)
 
 **Bemerkung 3.** *Exkurs Mathematik.* Die in der Darstellung der Bernsteinpolynome auftretenden [Binomialkoeffizienten](https://de.wikipedia.org/wiki/Binomialkoeffizient) lassen sich definieren als $$
   \binom{n}{i}=\frac{n!}{i!\cdot(n-i)!}\,,\quad n\in\mathbb{N}\,,\;i\in\mathbb{N}\,,\; i\leq n
