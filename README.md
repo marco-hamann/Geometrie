@@ -635,7 +635,7 @@ Eine Erklärung der Konvexität von Mengen finden Sie alternativ in folgendem Vi
 
 !?[youtube](https://www.youtube.com/watch?v=C1xN4KpySn0)
 
-In der folgenden Abbildung sind ein konvexes Sechseck (links) und ein nicht-konvexes Sechseck abbgebildet.
+In der folgenden Abbildung sind ein konvexes Sechseck (links) und ein nicht-konvexes Sechseck abgebildet.
 
 <!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 415px;" -->
 ``````````````````````````````````````````````````
@@ -1077,7 +1077,7 @@ Eine Möglichkeit der Berechnung des Bildes einer Geraden unter einer linearen A
 Sicher gewusst?
 ===============
 
-**Frage.** Gegeben sind die folgenden Abbildungsmatrizen affiner Abbildungen
+**Frage 1.** Gegeben sind die folgenden Abbildungsmatrizen affiner Abbildungen
 $$
   A_1=\begin{pmatrix} 1 & 2 \\ -2 & 4 \end{pmatrix}\quad\text{sowie}\quad
   A_2=\begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 4 \\ -1 & 2 & -3 \end{pmatrix}
@@ -1091,6 +1091,30 @@ Welche dieser beschreibt ~~keine~~ Affinität?
 Für beide Matrizen gilt $\det{A_1}=\det{A_2}=0$, daher sind die durch diese Matrizen beschriebenen affinen Abbildungen keine Affinitäten.
 
 ****************************************
+
+**Frage 2.** Unter einer affinen Abbildung der Ebene werden abgebildet
+$$
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}\mapsto\begin{pmatrix} 1 \\ 2 \end{pmatrix}\,,\quad
+  \begin{pmatrix} 1 \\ 0 \end{pmatrix}\mapsto\begin{pmatrix} 3 \\ 2 \end{pmatrix}\,,\quad
+  \begin{pmatrix} 0 \\ 1 \end{pmatrix}\mapsto\begin{pmatrix} 2 \\ -4 \end{pmatrix}
+$$
+Geben Sie die Matrixdarstellung der linearen Abbildung an.
+
+[(X)] $\begin{pmatrix} x' \\ y' \end{pmatrix}=\begin{pmatrix} 2 & 1 \\ 0 & -6 \end{pmatrix}\cdot\begin{pmatrix} x \\ y \end{pmatrix}+\begin{pmatrix} 1 \\ 2 \end{pmatrix}$
+[( )] $\begin{pmatrix} x' \\ y' \end{pmatrix}=\begin{pmatrix} 3 & 2 \\ 2 & -4 \end{pmatrix}\cdot\begin{pmatrix} x \\ y \end{pmatrix}+\begin{pmatrix} 1 \\ 2 \end{pmatrix}$
+[[?]] Setzen Sie jeweils Urbild- und Bildvektor in die Matrixdarstellung ein.
+****************************************
+
+Die Basisvektoren sind $$
+  \begin{pmatrix} 1 \\ 0 \end{pmatrix}\quad\text{und}\quad
+  \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+$$ Deren Bilder ergeben sich als Differenzen $$
+  \begin{pmatrix} 3-1 \\ 2-2 \end{pmatrix}\quad\text{und}\quad
+  \begin{pmatrix} 2-1 \\ -4-2 \end{pmatrix}
+$$ und bilden die Spalten der Transformationsmatrix.
+
+****************************************
+
 
 [^1]: Ist die Transformationsmatrix $A$ eine reguläre Matrix, so ist die dadurch beschriebene affine Abbildung sogar eine Affinität.
 
