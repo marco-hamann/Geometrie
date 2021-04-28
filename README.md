@@ -888,7 +888,7 @@ In diesem Kapitel werden folgende Themen behandelt:
 * Abbildungsgeometrische Erzeugung geometrischer Figuren
 
 
-### Definition und Grundlagen
+### Definition und allgemeine Eigenschaften
 
 Definition affiner Abbildungen
 ==============================
@@ -1079,16 +1079,17 @@ Sicher gewusst?
 
 **Frage 1.** Gegeben sind die folgenden Abbildungsmatrizen affiner Abbildungen
 $$
-  A_1=\begin{pmatrix} 1 & 2 \\ -2 & 4 \end{pmatrix}\quad\text{sowie}\quad
-  A_2=\begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 4 \\ -1 & 2 & -3 \end{pmatrix}
+  A_1=\begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}\quad\text{sowie}\quad
+  A_2=\begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 4 \\ -3 & -6 & -9 \end{pmatrix}
 $$
 Welche dieser beschreibt ~~keine~~ Affinität?
 
 [[X]] $A_1$
 [[X]] $A_2$
+[[?]] Die Matrix $A$ legt eine Affinität fest, falls die Matrix regulär ist, d. h. $\det{A}\not=0$.
 ****************************************
 
-Für beide Matrizen gilt $\det{A_1}=\det{A_2}=0$, daher sind die durch diese Matrizen beschriebenen affinen Abbildungen keine Affinitäten.
+Für beide Matrizen gilt $\det{A_1}=\det{A_2}=0$: je zwei Zeilen sind linear abhängig. Daher sind die durch diese Matrizen beschriebenen affinen Abbildungen keine Affinitäten.
 
 ****************************************
 
@@ -1115,9 +1116,388 @@ $$ und bilden die Spalten der Transformationsmatrix.
 
 ****************************************
 
-
 [^1]: Ist die Transformationsmatrix $A$ eine reguläre Matrix, so ist die dadurch beschriebene affine Abbildung sogar eine Affinität.
 
 [^2]: Ein Punkt $X$ heißt Fixpunkt unter der affinen Abbildung $\alpha$, falls $X=\alpha(X)$, d. h. wenn Bild und Urbild des Punktes übereinstimmen. Für lineare Abbildungen ergibt sich hieraus $$
   \left(x\mapsto x=A\cdot x\right)\quad\leftrightarrow\quad \left(A-E\right)\cdot x=0
 $$ worin $E$ die dreireihige Einheitsmatrix bezeichnet. Aus der Darstellung folgt, dass sich die (Ortsvektoren der) Fixpunkte als Eigenvektoren von $A$ zum Eigenwert $1$ berechnen lassen.
+
+
+### Algebrische Eigenschaften
+
+In diesem Abschnitt werden algebraische Eigenschaften von Affinitäten besprochen. Zentraler Begriff ist die [Transformationsgruppe](https://de.wikipedia.org/wiki/Gruppenoperation) der Affinitäten des $\mathcal{A}^d$, die schrittweise eingeführt wird.
+
+Für die nachfolgenden Betrachtungen bezeichne
+$$
+  \alpha:\mathcal{A}^d\to\mathcal{A}^d\,,\quad d\in\{2,3\}
+$$
+eine Affinität, d. h. unter Benutzung von Ortsvektoren bezüglich eines gewählten affinen Koordinatensystems
+$$
+  \alpha:x\mapsto x'=\alpha(x)=A\cdot x+a
+$$
+mit regulärer Transformationsmatrix $A\in\mathbb{R}^{d,d}$ ($\det{A}\not=0$) und Translationsvektor $a\in\mathbb{R}^d$.
+
+
+Komposition
+===========
+
+Aus der Schulmathematik ist bekannt, dass die Summe / das Produkt reeller Zahlen wieder eine reelle Zahl ist. Diese sind naheliegende Beispiele für Verknüpfungen.
+
+Im nachstehenden Video werden an Beispielen Verknüpfungen und Verknüpfungsgebilde erläutert.
+
+!?[Verknüpfung](https://www.youtube.com/watch?v=vrh1y9bwhls)
+
+Für beliebige Affinitäten $\alpha_1$ und $\alpha_2$ in $\mathcal{A}^d$ ist eine Verknüpfung, die Hintereinanderausführung (Komposition) zweier Affinitäten, erklärt: Besitzen Affinitäten die Matrixdarstellungen
+$$
+  \alpha_1:x\mapsto x'=A_1\cdot x+a_1\quad\text{und}\quad
+  \alpha_2:x\mapsto x'=A_2\cdot x+a_2
+$$
+mit $\det{A_i}\not=0$ und $i\in\{1,2\}$, so lässt sich die Komposition[^0] dieser erklären vermöge
+$$
+  \alpha_2\circ\alpha_1:x\mapsto \alpha_2(\alpha_1(x))
+$$
+(lies: "$\alpha_2$ nach $\alpha_1$") mit der Matrixdarstellung
+$$
+  \alpha_2(\textcolor{magenta}{\alpha_1(x)})=A_2\cdot\left(\textcolor{magenta}{A_1\cdot x+a_1}\right)+a_2=B\cdot x+b
+$$
+worin
+$$
+  B=A_2\cdot A_1\quad\text{und}\quad b=A_2\cdot a_1+a_2
+$$
+die Transformationsmatrix beziehungsweise den Translationsvektor bezeichnen. Mit dem [Multiplikationssatz für Determinanten](https://de.wikipedia.org/wiki/Determinante) folgt für die Determinante der Komposition
+$$
+  \det{B}=\det{(A_2\cdot A_1)}=\det{A_2}\cdot\det{A_1}\not=0
+$$
+Damit gilt folgender Satz.
+
+>**Satz 1.** Die Komposition zweier Affinitäten in $\mathcal{A}^d$ ist wieder eine Affinität.
+
+**Bemerkung 1.** Eine wichtige Folgerung aus der Komposition von Affinitäten ist, dass die Hintereinanderausführung von beliebigen Affinitäten des $\mathcal{A}^d$ nicht aus der Menge herausführt.
+
+Aus der Eigenschaft, dass die Matrizenmultiplikation im Allgemeinen ~~nicht~~ kommutativ ist, folgt, dass die Komposition von Affinitäten im Allgemeinen ~~nicht~~ kommutativ ist. Es gilt
+$$
+  \alpha_2\circ\alpha_1=\alpha_1\circ\alpha_2\quad\leftrightarrow\quad
+  \left(A_2\cdot A_1=A_1\cdot A_2\quad\wedge\quad A_2\cdot a_1+a_2=A_1\cdot a_2+a_1\right)
+$$
+
+Die Eigenschaft der Kommutativität für allgemeine Verknüpfungsgebilde ist an Beispielen im nachstehenden Video erläutert.
+
+!?[Kommutativität](https://www.youtube.com/watch?v=tPAHFqAZ6W4)
+
+**Gegenbeispiel 1.** Die Komposition zweier Translationen der Ebene mit den Matrixdarstellungen
+$$
+  \tau_1: x\mapsto x'=E\cdot x+t_1 \quad\text{und}\quad
+  \tau_2: x\mapsto x'=E\cdot x+t_2
+$$
+worin $E=\mathrm{diag}{(1,1)}$ die zweireihige Einheitsmatrix sowie $t_i\in\mathbb{R}^2$ mit $i\in\{1,2\}$ die Translationsvektoren bezeichnen, ist offensichtlich kommutativ, d. h. die Reihenfolge der Hintereinanderausführung beider Translationen ist vertauschbar.
+
+Des Weiteren gilt der nachstehende Satz.
+
+>**Satz 2.** Für beliebige Affinitäten $\alpha_1$, $\alpha_2$ und $\alpha_3$ gilt $$
+  \alpha_3\circ\left(\alpha_2\circ\alpha_1\right)=\left(\alpha_3\circ\alpha_2\right)\circ\alpha_1
+$$ d. h. die Komposition von Affinitäten ist **assoziativ**.[^1]
+
+**Beweis.** Der Beweis vorstehender Aussage nutzt die Assoziativität der Multiplikation von Matrizen aus. Unter Verwendung der Matrixdarstellungen der Affinitäten
+$$
+  \alpha_i:x\mapsto x'=A_i\cdot x+a_i\,,\quad i\in\{1,2,3\}
+$$
+ergeben sich einerseits schrittweise die Kompositionen
+$$
+  \alpha_2\circ\alpha_1:x\mapsto x'=A_2\cdot A_1\cdot x+A_2\cdot a_1+a_2
+$$
+sowie
+$$
+  \begin{array}{rrrrl}
+    \alpha_3\circ(\alpha_2\circ\alpha_1) & : & x\mapsto x' & = & A_3\cdot(\textcolor{magenta}{A_2\cdot A_1\cdot x+A_2\cdot a_1+a_2})+a_3 \\ & & & = & A_3\cdot A_2\cdot A_1\cdot x+A_3\cdot A_2\cdot a_1 +A_3\cdot a_2+a_3 \\
+    & & & = & B\cdot x+b
+  \end{array}
+$$
+worin
+$$
+  B= A_3\cdot A_2\cdot A_1\quad\text{bzw.}\quad b=A_3\cdot A_2\cdot a_1 +A_3\cdot a_2+a_3
+$$
+Transformationsmatrix beziehungsweise Translationsvektor beschreiben. Analog bilden sich anderseits die Kompositionen
+$$
+  \alpha_3\circ\alpha_2:x\mapsto x'=A_3\cdot A_2\cdot x+A_3\cdot a_2+a_3
+$$
+sowie
+$$
+\begin{array}{rrrrl}
+  (\alpha_3\circ\alpha_2)\circ\alpha_1 & : & x\mapsto x' & = & A_3\cdot A_2\cdot(\textcolor{magenta}{A_1\cdot x+a_1})+A_3\cdot a_2+a_3 \\
+  & & & = & A_3\cdot A_2\cdot A_1\cdot x+A_3\cdot A_2\cdot a_1 +A_3\cdot a_2+a_3 \\
+  & & & = & B\cdot x+b
+\end{array}
+$$
+worin
+$$
+C= A_3\cdot A_2\cdot A_1\quad\text{bzw.}\quad c=A_3\cdot A_2\cdot a_1 +A_3\cdot a_2+a_3
+$$
+Im Vergleich ergeben sich $B=C$ und $b=c$, wonach die Gleichheit aus Satz 2 folgt. $\square$
+
+Die Eigenschaft der Assoziativität für allgemeine Verknüpfungsgebilde ist an Beispielen im nachstehenden Video erläutert.
+
+!?[Assoziativität](https://www.youtube.com/watch?v=uDi_UKcDLdQ)
+
+
+Existenz der Umkehrabbildung
+============================
+
+Da die Transformationsmatrix $A$ zu $\alpha$ regulär angenommen wird, existiert die zu $A$ (multiplikativ) inverse Matrix und es gilt umkehrbar
+$$
+  x'=A\cdot x+a\quad\leftrightarrow\quad \textcolor{magenta}{A^{-1}}\cdot x'=\textcolor{magenta}{A^{-1}}\cdot A\cdot x+\textcolor{magenta}{A^{-1}}\cdot a \quad\leftrightarrow\quad x=A^{-1}\cdot x'-A^{-1}\cdot a
+$$
+Daher existiert zu jeder Affinität $\alpha$ eine eindeutig bestimmte **Umkehrabbildung** $\alpha^{-1}$ mit
+$$
+  \alpha^{-1}:x'\mapsto x=A^{-1}\cdot x'-A^{-1}\cdot a
+$$
+d. h. jedem Ortsvektor $x$ eines Punktes $X$ kann umkehrbar eindeutig ein Bildvektor $x'$ zu $X'$ zugeordnet werden. Des Weiteren ist die Komposition
+$$
+  \alpha^{-1}\circ\alpha:\;x\stackrel{\alpha}{\longmapsto}x'\stackrel{\alpha^{-1}}{\longmapsto}x
+$$
+die identische Abbildung, denn
+$$
+  x=A^{-1}\cdot\left(A\cdot x+a\right)-A^{-1}\cdot a=A^{-1}\cdot A\cdot x+A^{-1}\cdot a-A^{-1}\cdot a = E\cdot x = x
+$$
+worin $E=\mathrm{diag}{(1,..,1)}$ die $d$-reihige Einheitsmatrix in $\mathbb{R}^{d,d}$ bezeichnet. Analoges gilt auch für die Komposition
+$$
+  \alpha\circ\alpha^{-1}:\;x'\stackrel{\alpha^{-1}}{\longmapsto}x\stackrel{\alpha}{\longmapsto}x'
+$$
+
+Mit Satz 1 folgen:
+
+>**Satz 3.** Zu jeder Affinität $\alpha$ existiert eine eindeutig bestimmte Umkehrabbildung $\alpha^{-1}$, die wieder eine Affinität ist.
+
+>**Folgerung 4.** Jede Affinität $\alpha$ ist [bijektiv](https://de.wikipedia.org/wiki/Bijektive_Funktion), d. h. injektiv und surjektiv.
+
+**Beispiel 2.** Zur Affinität $\alpha$ mit der Matrixdarstellung
+$$
+  \alpha:
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+  \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}+
+  \begin{pmatrix} -2 \\ 3 \end{pmatrix}
+$$
+ist die Umkehrabbildung $\alpha^{-1}$ zu berechnen.
+
+Die Transformationsmatrix
+$$
+  A=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}
+$$
+besitzt die inverse Matrix
+$$
+  A^{-1}=\frac{1}{\det{A}}\cdot\begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix}=-\frac{1}{2}\cdot\begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix}
+$$
+denn es gilt einsichtig
+$$
+  A\cdot A^{-1}=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}\cdot\left(-\frac{1}{2}\right)\cdot\begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix}=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}=A^{-1}\cdot A
+$$
+für die Matrizenmultiplikation.[^2]
+
+Damit lässt sich $\alpha^{-1}$ angeben zu
+$$
+  \alpha^{-1}:
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}
+  \mapsto
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=\left(-\frac{1}{2}\right)\cdot
+  \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}-
+  \left(-\frac{1}{2}\right)\cdot
+  \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix}\cdot
+  \begin{pmatrix} -2 \\ 3 \end{pmatrix}
+$$
+worin sich der Translationsvektor der Umkehrabbildung zu
+$$
+  b=-\left(-\frac{1}{2}\right)\cdot
+  \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix}\cdot
+  \begin{pmatrix} -2 \\ 3 \end{pmatrix}=
+  \begin{pmatrix} 7 \\ -\frac{9}{4} \end{pmatrix}
+$$
+berechnet.
+
+Die Eigenschaft der inversen Elemente für allgemeine Verknüpfungsgebilde ist an Beispielen im nachstehenden Video erläutert.
+
+!?[Inverses Element](https://www.youtube.com/watch?v=Dmbbash4PrM)
+
+
+Neutrales Element
+=================
+
+In der Menge der Affinitäten des $\mathcal{A}^d$ ist eine Abbildung $\alpha_{id}$ gesucht, für die
+$$
+  \alpha\circ\alpha_{id}=\alpha_{id}\circ\alpha=\alpha
+$$
+für alle Affinitäten $\alpha$ des $\mathcal{A}^d$ gilt. Diese wird **neutrales Element** der Komposition genannt. Die Abbildung $\alpha_{id}$ soll sich also wie die "Eins" bei der Multiplikation beziehungsweise wie die "Null" bei der Addition reeller Zahlen verhalten.[^3]
+
+Ihre Existenz folgt unmittelbar aus der nachstehenden Äquivalenz, die sich aus der Existenz der Umkehrabbildung für Affinitäten unter Anwendung des Assoziativgesetzes ergibt.
+$$
+  \left(\alpha_{id}\circ\alpha\right)\textcolor{magenta}{\circ\alpha^{-1}}=\alpha\textcolor{magenta}{\circ\alpha^{-1}}\quad\leftrightarrow\quad
+  \alpha_{id}=\alpha\circ\alpha^{-1}
+$$
+beziehungsweise
+$$
+  \textcolor{magenta}{\alpha^{-1}\circ}\left(\alpha\circ\alpha_{id}\right)=\textcolor{magenta}{\alpha^{-1}\circ}\alpha\quad\leftrightarrow\quad
+  \alpha_{id}=\alpha^{-1}\circ\alpha
+$$
+Das neutrale Element ist also die identische Abbildung
+$$
+  \alpha_{id}:x\mapsto x'=x=E\cdot x+o
+$$
+deren Transformationsmatrix $E$ die $d$-reihige Einheitsmatrix und deren Translationsvektor $o$ der $d$-dimensionale Nullvektor sind. Offensichtlich gilt $\det{E}=1$, wonach die Matrix $E$ regulär ist.
+
+>**Satz 5.** Es existiert eine eindeutig bestimmte Affinität $\alpha_{id}$ mit $$
+  \alpha\circ\alpha_{id}=\alpha_{id}\circ\alpha=\alpha
+$$ für alle Affinitäten $\alpha$ des affinen Raumes $\mathcal{A}^d$.
+
+Die Eigenschaft der Existenz des neutralen Elementes für allgemeine Verknüpfungsgebilde ist an Beispielen im nachstehenden Video erläutert.
+
+!?[Neutrales Element](https://www.youtube.com/watch?v=TSXp1yZBZZ4)
+
+
+Transformationsgruppe der Affinitäten
+=====================================
+
+Die Aussagen aus den Sätzen 2, 3 und 5 können benutzt werden, um folgenden Satz zu beweisen.
+
+>**Satz 6.** Die Menge aller Affinitäten $$
+  \alpha:\mathcal{A}^d\to\mathcal{A}^d
+$$ bildet bezüglich der Komposition eine **Gruppe**.
+
+**Bemerkung 2.** Der Begriff einer Gruppe ist eine mathematische Struktur. Andere mathematische Strukturen sind beispielsweise *Körper* oder *Vektorraum*. Die axiomatische Definition einer Gruppe ist in nachstehendem Video erläutert.
+
+!?[Gruppe](https://www.youtube.com/watch?v=LyFCkZXkly0)
+
+Im Rahmen dieser Vorlesungen werden Transformationsgruppen benutzt, um beispielsweise periodische Muster, so genannte Ornamente zu analysieren beziehungsweise aus einem Grundmuster zu erzeugen.
+
+**Beispiel 3.** Ein Beispiel für ein Ornament ist in nachfolgender Abbildung dargestellt. Es ist ein ~~Fries~~ (Bandornament). Siehe https://de.wikipedia.org/wiki/Friesgruppe.
+
+![Fries](img/Fries.png "Periodische Fortsetzung der Grundeinheit durch wiederholte Translation $\tau$ mit fester Translationsrichtung und festem Translationsbetrag.")
+
+Die periodische Fortsetzung der Grundeinheit wird durch wiederholte Translation $\tau$ mit fester Translationsrichtung und festem Translationsbetrag erzeugt.
+
+Die Menge aller Abbildungen, die sich wiederholtes Verknüpfen von $\tau$ (und ihrer Umkehrabbildung) ergeben, bildet die Gruppe dieses Frieses, dessen **Friesgruppe**. Die von $\tau$ erzeugte Friesgruppe enthält sowohl die $k$-fachen Kompositionen
+$$
+  \tau^k:=(...((\tau\circ\tau)\circ\tau)\circ...)\circ\tau
+$$
+worin $k\in\mathbb{N}$, als auch
+$$
+  \tau^{-k}:=(...((\tau^{-1}\circ\tau^{-1})\circ\tau^{-1})\circ...)\circ\tau^{-1}
+$$
+Mit $\tau^{-1}\circ\tau$ ist auch die identische Abbildung in der Friesgruppe enthalten.
+
+Wird die Grundeinheit "ausgetauscht", so entsteht ein anderes Fries zur selben Friesgruppe.
+
+Eine interaktive Möglichkeit, Friese aus einer Grundeinheit durch Anwenden verschiedener Friesgruppen zu erzeugen, finden Sie unter [Friesgruppen](https://www.geogebra.org/m/wjpjzrce). Viel Spaß damit ;)
+
+>**Definition.** Sei $\alpha$ mit $$
+  \alpha:x\mapsto x'=A\cdot x+a
+$$ eine Affinität. Ist $A=E=\mathrm{diag}{(1,...,1)}$ die $d$-reihige Einheitsmatrix, so heißt $$
+  \alpha:x\mapsto x'= x+a
+$$ **Translation** mit Translationsvektor $a$.
+
+>**Satz 7.** Jede Affinität des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$ ist Komposition einer linearen Abbildung und einer Translation.[^4]
+
+**Beweis.** Eine Affinität mit der Matrixdarstellung
+$$
+  \alpha:x\mapsto x'=A\cdot x+a\,,\quad\det{A}\not=0
+$$
+worin $A\in\mathbb{R}^{d,d}$ die (reguläre) Transformationsmatrix und $a\in\mathbb{R}^d$ den Translationsvektor bezeichnen, lässt sich als Komposition
+$$
+  \tau\circ\gamma:x\mapsto x''=E\cdot(\textcolor{magenta}{A\cdot x})+a
+$$
+der Affinitäten
+$$
+  \gamma:x\mapsto x'=A\cdot x\quad\text{sowie}\quad \tau:x'\mapsto x''=E\cdot x'+a
+$$
+darstellen, worin $E$ die $d$-reihige Einheitsmatrix beschreibt. $\square$
+
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Entscheiden Sie, ob die folgende affine Abbildung umkehrbar ist.
+$$
+  \alpha:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+  \begin{pmatrix} 1 & -2 \\ -2 & 4 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}+
+  \begin{pmatrix} 7 \\ -3 \end{pmatrix}
+$$
+
+[( )] Die Umkehrabbildung $\alpha^{-1}$ zu $\alpha$ kann dargestellt werden durch $$ \alpha^{-1}:\begin{pmatrix} x_1' \\ x_2' \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \begin{pmatrix} 1 & -2 \\ -2 & 4 \end{pmatrix}^{-1}\cdot
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}-
+  \begin{pmatrix} 1 & -2 \\ -2 & 4 \end{pmatrix}^{-1}\cdot
+  \begin{pmatrix} 7 \\ -3 \end{pmatrix}
+$$ und existiert also.
+[(X)] Die Abbildung $\alpha$ ist nicht umkehrbar.
+[[?]] Die Umkehrbarkeit von affinen Abbildungen $\alpha$ des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$ ist an die Regularität der Transformationsmatrix gekoppelt.
+****************************************
+
+Die Determinante der Transformationsmatrix berechnet sich $$ \det{\begin{pmatrix} 1 & -2 \\ -2 & 4 \end{pmatrix}}=1\cdot 4-(-2)^2=0 $$ wonach die Transformationsmatrix nicht regulär ist. Die inverse Matrix $$ \begin{pmatrix} 1 & -2 \\ -2 & 4 \end{pmatrix}^{-1} $$ existiert nicht, die Umkehrabbildung demnach auch nicht.
+
+****************************************
+
+**Frage 2.** Ist die Komposition der beiden affinen Abbildungen $$
+\alpha_1:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+\begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\cdot
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+$$ sowie $$
+\alpha_2:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+\begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}\cdot
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}+
+\begin{pmatrix} 1 \\ 1 \end{pmatrix}
+$$ kommutativ?
+
+[(X)] Ja.
+[( )] Nein.
+[[?]] Es ist zu prüfen, ob hier $$ \alpha_1\circ\alpha_2=\alpha_2\circ\alpha_1 $$ gilt. Berechnen Sie zur Entscheidung der Frage die Matrixdrstellungen von $\alpha_1\circ\alpha_2$ und $\alpha_2\circ\alpha_1$.
+****************************************
+
+Es gilt einerseits $$ \alpha_1\circ\textcolor{magenta}{\alpha_2}: \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+\begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\cdot\left(\textcolor{magenta}{
+\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}\cdot
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}+
+\begin{pmatrix} 1 \\ 1 \end{pmatrix}}\right)=
+\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\cdot
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}+
+\begin{pmatrix} 1 \\ 1 \end{pmatrix}
+$$ Der Translationsvektor von $\alpha_2$ ist offenbar ein Eigenvektor der Transformationsmatrix von $\alpha_1$ zum Eigenwert Eins. Andererseits berechnet sich $$ \alpha_2\circ\textcolor{magenta}{\alpha_1}: \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+\begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+\begin{pmatrix} 1 & 0 \\ 0 & 1  \end{pmatrix}\cdot\left(\textcolor{magenta}{
+\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\cdot
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}}\right)+
+\begin{pmatrix} 1 \\ 1 \end{pmatrix}=
+\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\cdot
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}+
+\begin{pmatrix} 1 \\ 1 \end{pmatrix}
+$$ d. h. mit gleichem Ergebnis.[^5]
+
+****************************************
+
+[^0]: Das Verknüpfungszeichen der Komposition ist "$\circ$" und sollte nicht mit dem Verknüpfungssymbol beim Bilden des Skalarproduktes verwechselt werden.
+
+[^1]: Diese Aussage gilt allgemeiner sogar für affine Abbildungen in $\mathcal{A}^d$.
+
+[^2]: Das Produkt zweier quadratischer Matrizen gleichen Typs im Allgemeinen ~~nicht~~ kommutativ ist.
+
+[^3]: Die Existenz einer solchen Affinität $\alpha_{id}$ ist für den Nachweis der Gruppeneigenschaft der Affinitäten des $\mathcal{A}^d$ von struktureller Bedeutung.
+
+[^4]: Diese Aussage gilt sogar allgemeiner für affine Abbildungen.
+
+[^5]: Im Allgemeinen ist die Hintereinanderausführung zweier Abbildungen nicht kommutativ.
+
+
+### Geometrische Eigenschaften
+
+In diesem Abschnitt werden ausgewählte geometrische Eigenschaften von Affinitäten des $d$-dimensionalen Raumes $\mathcal{A}^d$ betrachtet.
+
+
+Erhalt von Geraden
+==================
+
+...
