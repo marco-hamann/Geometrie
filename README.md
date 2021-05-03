@@ -1123,7 +1123,7 @@ $$ und bilden die Spalten der Transformationsmatrix.
 $$ worin $E$ die dreireihige Einheitsmatrix bezeichnet. Aus der Darstellung folgt, dass sich die (Ortsvektoren der) Fixpunkte als Eigenvektoren von $A$ zum Eigenwert $1$ berechnen lassen.
 
 
-### Algebrische Eigenschaften
+### Algebraische Eigenschaften
 
 In diesem Abschnitt werden algebraische Eigenschaften von Affinitäten besprochen. Zentraler Begriff ist die [Transformationsgruppe](https://de.wikipedia.org/wiki/Gruppenoperation) der Affinitäten des $\mathcal{A}^d$, die schrittweise eingeführt wird.
 
@@ -1494,10 +1494,233 @@ $$ d. h. mit gleichem Ergebnis.[^5]
 
 ### Geometrische Eigenschaften
 
-In diesem Abschnitt werden ausgewählte geometrische Eigenschaften von Affinitäten des $d$-dimensionalen Raumes $\mathcal{A}^d$ betrachtet.
+In diesem Abschnitt werden ausgewählte geometrische Eigenschaften von Affinitäten des $d$-dimensionalen Raumes $\mathcal{A}^d$ untersucht.
+
+Eine Eigenschaft ist an den Erhalt unter Affinitäten gekoppelt, in diesem Sinne eine affine Eigenschaft. Beispielsweise werden Parallelogramme unter Affinitäten auf Parallelogramme abgebildet: Die Parallelität von Geraden bleibt unter Affinitäten erhalten, Seitenlängen oder Winkelgrößen in einer geometrischen Figur hingegen im Allgemeinen nicht.
+
+In diesem Sinne ist auch die Kongruenz (Deckungsgleichheit) geometrischer Figuren an Längen und Winkel erhaltende Abbildungen gekoppelt, die sogenannten Kongruenzen. Diese werden an späterer Stelle untersucht.
 
 
 Erhalt von Geraden
 ==================
 
-...
+Eine Gerade $g$ des $d$-dimensionalen Raumes $\mathcal{A}^d$, $d=\{2,3\}$, lässt sich mithilfe einer Parameterdarstellung beschreiben
+$$
+  g:\;x=s+\lambda\cdot t\,,\quad \lambda\in\mathbb{R}
+$$
+worin $s\in\mathbb{R}^d$ den Ortsvektor eines Punktes der Geraden (Stützvektor) und $t\in\mathbb{R}^d\setminus\{o\}$ einen Richtungsvektor der Geraden bezeichnet.
+
+Das Bild dieser Gerade unter einer Affinität
+$$
+  \alpha:\mathcal{A}^d\to\mathcal{A}^d,x\mapsto x'=A\cdot x+a
+$$
+mit regulärer Transformationsmatrix $A\in\mathbb{R}^{d,d}$ und Translationsvektor $a\in\mathbb{R}$ berechnet sich zu
+$$
+  g':\;x'=A\cdot\left(s+\lambda\cdot t\right)+a=s'+\lambda\cdot A\cdot t
+$$
+worin $s'=\alpha(s)$ das Bild von $s$ unter $\alpha$ und $A\cdot t$ als affines Bild eines "Differenzvektors" gedeutet werden kann (Siehe Eigenschaft 5 im Abschnitt [Definition und allgemeine Eigenschaften](#Definition-und-allgemeine-Eigenschaften).) Das heißt $x'$ ist wieder Parameterdarstellung einer Geraden, sofern $A\cdot t\not=o$ (Nullvektor). Es gilt
+$$
+  A\cdot t\not=o\quad\leftrightarrow\quad \det{A}\not=0
+$$
+Die Gerade $g'$ heißt die Bildgerade von $g$ unter der Affinität $\alpha$.
+
+**Beispiel 1.** Gegeben ist die Parameterdarstellung einer Geraden $g$ in der Ebene $\mathbb{R}^2$
+$$
+  g:\;\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \begin{pmatrix} 2 \\ 3 \end{pmatrix}+
+  \lambda\cdot\begin{pmatrix} 2 \\ 1 \end{pmatrix}\,,\quad\lambda\in\mathbb{R}
+$$
+Zu berechnen ist das Bild $g'$ der Geraden $g$ unter der Affinität
+$$
+  \alpha:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}+
+  \begin{pmatrix} 2 \\ 0 \end{pmatrix}
+$$
+Dies ist eine Spiegelung der Ebene an der Achse $x_2=0$ mit anschließender Translation in Richtung dieser Achse.[^1] Sie nachstehende Abbildung
+
+![Spiegelung](img/geo-bild07.png "Gerade $g$ und deren Bildgerade $g'$ unter der Affinität $\alpha$: Diese ist die Hintereinanderausführung der Spiegelung an der $x_1$-Achse und anschließender Translation in Richtung $a=(2,0)^\top$.")
+
+Das affine Bild $s'$ des Stützvektors $s$ von $g$ unter $\alpha$ besitzt die Koordinatendarstellung
+$$
+  \begin{pmatrix} s_1' \\ s_2' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot
+  \begin{pmatrix} 2 \\ 3 \end{pmatrix}+
+  \begin{pmatrix} 2 \\ 1 \end{pmatrix}=
+  \begin{pmatrix} 4 \\ 3 \end{pmatrix}
+$$
+das affine Bild $t'$ des Stützvektors $t$ von $g$ (als Differenzvektor)
+$$
+  \begin{pmatrix} t_1' \\ t_2' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot
+  \begin{pmatrix} 2 \\ 1 \end{pmatrix}=
+  \begin{pmatrix} 2 \\ -1 \end{pmatrix}
+$$
+Die Bildgerade $g'$ besitzt damit eine Parameterdarstellung
+$$
+  g':\;\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \begin{pmatrix} 4 \\ -3 \end{pmatrix}+
+  \lambda\cdot\begin{pmatrix} 2 \\ -1 \end{pmatrix}\,,\quad\lambda\in\mathbb{R}
+$$
+
+Die Berechnung der Bildgerade unter einer Affinität ist an einem Beispiel im nachstehenden Video erläutert.
+
+!?[Bildgerade](https://www.youtube.com/watch?v=9FBulSYvlF0)
+
+**Bemerkung 1.** Für die Berechnung des Richtungsvektors $t'$ von $g'$ ist ~~lediglich~~ die Transformationsmatrix $A$ von links mit $t$ zu multiplizieren. Die Äquivalenz  
+$$
+  A\cdot t\not=o\quad\leftrightarrow\quad \det{A}\not=0
+$$
+lässt sich mit Hilfe des Kerns einer linearen Abbildung deuten, welche der quadratischen Matrix $A$ zugeordnet ist.
+
+Im nachstehenden Video ist der Kern[^2] einer linearen Abbildung / Matrix an einem Beispiel erläutert.
+
+!?[Kern einer linearen Abbildung](https://www.youtube.com/watch?v=1JpqMmOSDoI)
+
+**Bemerkung 2.** Wie der Erhalt von Geraden unter Affinitäten lässt sich der **Erhalt von Ebenen** unter einer Affinität im dreidimensionalen Raum beweisen.
+
+Aus beiden Eigenschaften folgt, dass unter Affinitiäten der Ebene / des dreidimensionalen Raumes
+
+1. Dreiecke auf Dreieck / ebene Polygone auf ebene Polygone mit gleicher Seiten- und Eckenzahlen
+2. Polyeder auf Polyeder mit gleichen Flächen-, Kanten- und Eckenzahlen etc.
+
+abgebildet werden. Siehe auch das interaktive Beispiel [Bild unter Affinität](https://www.geogebra.org/m/mZ8N3n6N).
+
+
+Erhalt von Parallelität
+=======================
+
+Parallele Geraden werden unter einer Affinität auf parallele Geraden abgebildet, d. h.
+$$
+  g\parallel h\quad\stackrel{\alpha}{\longrightarrow}\quad g'\parallel h'
+$$
+für $g'=\alpha(g)$ und $h'=\alpha(h)$. Es gilt nämlich für Richtungsvektoren der Geraden $g$ und $h$
+$$
+  t_g=\lambda\cdot t_h
+$$
+für einen Parameterwert $\lambda\in\mathbb{R}\setminus\{0\}$: Die Vektoren $t_g$, $t_h$ sind linear abhängig. Für deren affine Bilder folgt
+$$
+  t_g'=A\cdot t_g=A\cdot\left(\lambda\cdot t_h\right)=\lambda\cdot\left(A\cdot t_h\right)=\lambda\cdot t_h'
+$$
+d. h. aus der linearen Abhängigkeit der Urbilder folgt die lineare Abhängigkeit der Bilder unter der Affinität
+$$
+  \alpha:\mathcal{A}^d\to\mathcal{A}^d,x\mapsto x'=A\cdot x+a
+$$
+mit $\det{A}\not=0$.
+
+
+Erhalt des Teilverhältnisses
+============================
+
+Da das Bild einer Geraden unter einer Affinität wieder eine Gerade ist, stellt sich die Frage, wie sich das Teilverhältnis von drei Punkten der Gerade transformiert.
+
+Für die folgende Betrachtung bezeichnen $P$, $Q$ und $T$ drei Punkte auf einer Geraden $g$ mit dem Teilverhältnis
+$$
+  TV(P,Q,T)=\lambda\quad\leftrightarrow\quad t=\frac{1}{1-\lambda}\cdot p-\frac{\lambda}{1-\lambda}\cdot q
+$$
+vergleiche Abschnitt [Teilungspunkt einer Strecke](#Teilungspunkt-einer-Strecke).
+
+Werden die Punkte $P$, $Q$ und $T$ unter einer Affinität
+$$
+  \alpha:\mathcal{A}^d\to\mathcal{A}^d,x\mapsto x'=A\cdot x+a
+$$
+mit $\det{A}\not=0$ abgebildet auf die Punkte $P'$, $Q'$ und $T'$ mit Ortsvektoren
+$$
+  p'=A\cdot p+a\,,\quad q'=A\cdot q+a\quad\text{und}\quad
+  t'=A\cdot t+a
+$$
+so folgt für die Konvexkombination
+$$
+  \frac{1}{1-\lambda}\cdot p'-\frac{\lambda}{1-\lambda}\cdot q'=
+  \frac{1}{1-\lambda}\cdot (A\cdot p+a)-\frac{\lambda}{1-\lambda}\cdot (A\cdot q+a)=a+A\cdot\left(\frac{1}{1-\lambda}\cdot p-\frac{\lambda}{1-\lambda}\cdot q\right)=t'
+$$
+d. h. es gilt allgemein für drei Punkte auf einer Geraden
+$$
+TV(P,Q,T)=TV(P',Q',T')  
+$$
+falls dieses erklärt ist.
+
+**Bemerkung 3.** Da das Teilverhältnis von drei Punkten auf einer Geraden unter Affinitäten erhalten bleibt, wird insbesondere der Mittelpunkt einer Strecke auf den Mittelpunkt der Bildstrecke abgebildet.
+
+
+**Beispiel 2.** Ein Kreis $k$ zur Gleichung $x_1^2+x_2^2=1$ mit zweireihiger Einheitsmatrix $E$ wird unter der Affinität
+$$
+  \alpha:x\mapsto x'=B\cdot x+b
+$$
+mit
+$$
+  B=\begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}\quad\text{und}\quad
+  b=\begin{pmatrix} 1 \\ -1 \end{pmatrix}
+$$
+vermöge
+$$
+  x_1'=2\cdot x+1\;\wedge\; x_2'=3\cdot x_2-1\quad\rightarrow\quad
+  x_1=\frac{1}{2}\cdot(x_1'-1)\;\wedge\; x_2=\frac{1}{3}\cdot(x_2'+1)
+$$
+abgebildet auf eine Ellipse $k'$ mit der quadratischen Gleichung
+$$
+  \frac{(x_1'-1)^2}{4}+\frac{(x_2'+1)^2}{9}=1
+$$
+Dies ist die Gleichung einer Ellipse mit Mittelpunkt $M'(1,-1)$ in achsenparalleler Lage mit den Achsenlängen $a_1=2$ und $a_2=3$.
+
+
+Ein interaktives Beispiel der Affinität eines Kreises auf eine Ellipse ist unter [Ellipse als affines Bild eines Kreises](https://www.geogebra.org/m/RkhYxK5m) erläutert.
+
+
+Erhalt des Schwerpunktes
+========================
+
+>**Satz.** Gegeben ist ein System von Massepunkten $P_i$, $i\in\{1,...,n\}$, mit den Ortsvektoren $p_i$ und Gewichten $\gamma_i\geq0$. Der Schwerpunkt $S$ dieses Massesystems besitzt den Ortsvektor $$
+  s=\frac{1}{\sum_{j=1}^n{\gamma_j}}\cdot\sum_{i=1}^n{p_i}
+$$ Das Bild $\alpha(S)$ unter einer Affinität $\alpha:x\mapsto x'=A\cdot x+a$ ist Schwerpunkt des Massesystems $$
+  \alpha(P_1)\,,...\,,\alpha(P_n)
+$$ mit den Gewichten $\gamma_i$.
+
+**Beweis.** Der Schwerpunkt $S'$ des Massesystems
+$$
+  \alpha(P_1)\,,...\,,\alpha(P_n)
+$$
+mit den Gewichten $\gamma_i$ besitzt den Ortsvektor
+$$
+  s'=\frac{1}{\sum_{j=1}^n{\gamma_j}}\cdot\sum_{i=1}^n{\gamma_i\cdot(A\cdot p_i+a)}=
+  \frac{1}{\sum_{j=1}^n{\gamma_j}}\cdot\left[\left(\sum_{i=1}^n{\gamma_i}\right)\cdot a+A\cdot\sum_{i=1}^n{\left(\gamma_i\cdot p_i\right)}\right]=\alpha(s)
+$$
+
+$\square$
+
+
+Affines Bild einer Bézierkurve
+==============================
+
+>**Satz.** Das Bild einer Bézierkurve $c$ mit den Kontrollpunkten $$
+  P_0\,,\, P_1\,,\,...\,,\,P_n
+$$ unter einer Affinität $\alpha:x\mapsto x'=A\cdot x+a$ ist die Bézierkurve zum affinen Bild $$
+  \alpha(P_0)\,,\alpha(P_1)\,,...\,,\alpha(P_n)
+$$ der Kontrollstruktur.
+
+**Beweis.** Das affine Bild der Bézierkurve berechnet sich unter Verwendung der Ortsvektoren $p_i$ der Kontrollpunkte $P_i$
+$$
+  \alpha(c)=A\cdot\left(\sum_{i=0}^n{\left(B_i^n(t)\cdot p_i\right)}\right)+a
+$$
+Zu zeigen ist, dass sich diese Darstellung in die folgende äquivalent überführen lässt
+$$
+  \alpha(c)=\sum_{i=0}^n{\left(B_i^n(t)\cdot(A\cdot p_i+a)\right)}=\sum_{i=0}^n{\left(B_i^n(t)\cdot\alpha(p_i)\right)}
+$$
+d. h. die Wirkung von $\alpha$ auf $c$ lässt sich durch die affine Transformation der Kontrollpunkte $\alpha(P_i)$ beschreiben.
+
+Unter Anwendung des Satzes 2 aus dem Abschnitt [De Casteljau Algorithmus](#De-Casteljau-Algorithmus) kann der Translationsvektor $a$
+$$
+  a=a\cdot 1=a\cdot\sum_{i=0}^n{B_i^n(t)}\quad\forall\; t\in[0,1]
+$$
+Unter Verwendung der Rechenregeln für Summen folgt hieraus
+$$
+  \alpha(c)=\sum_{i=0}^n{\left(B_i^n(t)\cdot A\cdot p_i\right)}+\sum_{i=0}^n{\left(B_i^n(t)\cdot a\right)}=\sum_{i=0}^n{\left(B_i^n(t)\cdot(A\cdot p_i+a)\right)}
+$$
+und damit die Behauptung. $\square$
+
+Die Möglichkeit einer interaktiven Erzeugung von drehsymmetrischen Ornamenten unter Benutzung von Bézierkurven ist unter [Bézier-Rosette](https://www.geogebra.org/m/YdNJrPfp) zu probieren.
+
+[^1]: Diese Affinität hat die zusätzliche Eigenschaft, Längen von Strecken / Kurven zu erhalten, des Weiteren die Größe von Winkeln. Sie gehört zu den so genannten Kongruenzen.
+
+[^2]: Der Kern $\ker{\alpha}$ einer linearen Abbildung $\alpha$ ist die Menge der Vektoren $x$, die durch $\alpha$ auf den Nullvektor $o$ abgebildet werden, d. h. alle Lösungen der Gleichung $\alpha(x)=o$.
