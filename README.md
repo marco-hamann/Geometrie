@@ -1514,13 +1514,13 @@ Das Bild dieser Gerade unter einer Affinität
 $$
   \alpha:\mathcal{A}^d\to\mathcal{A}^d,x\mapsto x'=A\cdot x+a
 $$
-mit regulärer Transformationsmatrix $A\in\mathbb{R}^{d,d}$ und Translationsvektor $a\in\mathbb{R}$ berechnet sich zu
+mit regulärer Transformationsmatrix $A\in\mathbb{R}^{d,d}$ und Translationsvektor $a\in\mathbb{R}^d$ berechnet sich zu
 $$
   g':\;x'=A\cdot\left(s+\lambda\cdot t\right)+a=s'+\lambda\cdot A\cdot t
 $$
 worin $s'=\alpha(s)$ das Bild von $s$ unter $\alpha$ und $A\cdot t$ als affines Bild eines "Differenzvektors" gedeutet werden kann (Siehe Eigenschaft 5 im Abschnitt [Definition und allgemeine Eigenschaften](#Definition-und-allgemeine-Eigenschaften).) Das heißt $x'$ ist wieder Parameterdarstellung einer Geraden, sofern $A\cdot t\not=o$ (Nullvektor). Es gilt
 $$
-  A\cdot t\not=o\quad\leftrightarrow\quad \det{A}\not=0
+  \forall\, t\not=o\;\left(A\cdot t\not=o\right)\quad\leftrightarrow\quad \det{A}\not=0
 $$
 Die Gerade $g'$ heißt die Bildgerade von $g$ unter der Affinität $\alpha$.
 
@@ -1538,7 +1538,7 @@ $$
   \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}+
   \begin{pmatrix} 2 \\ 0 \end{pmatrix}
 $$
-Dies ist eine Spiegelung der Ebene an der Achse $x_2=0$ mit anschließender Translation in Richtung dieser Achse.[^1] Sie nachstehende Abbildung
+Dies ist eine Spiegelung der Ebene an der $x_1$-Achse ($x_2=0$) mit anschließender Translation in Richtung dieser Achse.[^1] Sie nachstehende Abbildung
 
 ![Spiegelung](img/geo-bild07.png "Gerade $g$ und deren Bildgerade $g'$ unter der Affinität $\alpha$: Diese ist die Hintereinanderausführung der Spiegelung an der $x_1$-Achse und anschließender Translation in Richtung $a=(2,0)^\top$.")
 
@@ -1547,8 +1547,8 @@ $$
   \begin{pmatrix} s_1' \\ s_2' \end{pmatrix}=
   \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot
   \begin{pmatrix} 2 \\ 3 \end{pmatrix}+
-  \begin{pmatrix} 2 \\ 1 \end{pmatrix}=
-  \begin{pmatrix} 4 \\ 3 \end{pmatrix}
+  \begin{pmatrix} 2 \\ 0 \end{pmatrix}=
+  \begin{pmatrix} 4 \\ -3 \end{pmatrix}
 $$
 das affine Bild $t'$ des Stützvektors $t$ von $g$ (als Differenzvektor)
 $$
@@ -1570,7 +1570,7 @@ Die Berechnung der Bildgerade unter einer Affinität ist an einem Beispiel im na
 
 **Bemerkung 1.** Für die Berechnung des Richtungsvektors $t'$ von $g'$ ist ~~lediglich~~ die Transformationsmatrix $A$ von links mit $t$ zu multiplizieren. Die Äquivalenz  
 $$
-  A\cdot t\not=o\quad\leftrightarrow\quad \det{A}\not=0
+  \forall\, t\not=o\;\left(A\cdot t\not=o\right)\quad\leftrightarrow\quad \det{A}\not=0
 $$
 lässt sich mit Hilfe des Kerns einer linearen Abbildung deuten, welche der quadratischen Matrix $A$ zugeordnet ist.
 
@@ -1582,8 +1582,8 @@ Im nachstehenden Video ist der Kern[^2] einer linearen Abbildung / Matrix an ein
 
 Aus beiden Eigenschaften folgt, dass unter Affinitiäten der Ebene / des dreidimensionalen Raumes
 
-1. Dreiecke auf Dreieck / ebene Polygone auf ebene Polygone mit gleicher Seiten- und Eckenzahlen
-2. Polyeder auf Polyeder mit gleichen Flächen-, Kanten- und Eckenzahlen etc.
+1. Dreiecke auf Dreiecke / ebene Polygone auf ebene Polygone mit gleicher Seiten- und Eckenzahlen
+2. [Polyeder](https://de.wikipedia.org/wiki/Polyeder) auf Polyeder mit gleichen Flächen-, Kanten- und Eckenzahlen etc.
 
 abgebildet werden. Siehe auch das interaktive Beispiel [Bild unter Affinität](https://www.geogebra.org/m/mZ8N3n6N).
 
@@ -1643,8 +1643,7 @@ falls dieses erklärt ist.
 
 **Bemerkung 3.** Da das Teilverhältnis von drei Punkten auf einer Geraden unter Affinitäten erhalten bleibt, wird insbesondere der Mittelpunkt einer Strecke auf den Mittelpunkt der Bildstrecke abgebildet.
 
-
-**Beispiel 2.** Ein Kreis $k$ zur Gleichung $x_1^2+x_2^2=1$ mit zweireihiger Einheitsmatrix $E$ wird unter der Affinität
+**Beispiel 2.** Ein Kreis $k$ zur Gleichung $x_1^2+x_2^2=1$ besitzt den Mittelpunkt $O(0,0)$ und den Radius $r=1$. Dieser wird unter der Affinität
 $$
   \alpha:x\mapsto x'=B\cdot x+b
 $$
@@ -1662,7 +1661,7 @@ abgebildet auf eine Ellipse $k'$ mit der quadratischen Gleichung
 $$
   \frac{(x_1'-1)^2}{4}+\frac{(x_2'+1)^2}{9}=1
 $$
-Dies ist die Gleichung einer Ellipse mit Mittelpunkt $M'(1,-1)$ in achsenparalleler Lage mit den Achsenlängen $a_1=2$ und $a_2=3$.
+Dies ist die Gleichung einer Ellipse mit Mittelpunkt $M'(1,-1)$ in achsenparalleler Lage mit den Halbachsenlängen $a_1=2$ und $a_2=3$.
 
 
 Ein interaktives Beispiel der Affinität eines Kreises auf eine Ellipse ist unter [Ellipse als affines Bild eines Kreises](https://www.geogebra.org/m/RkhYxK5m) erläutert.
@@ -1672,7 +1671,7 @@ Erhalt des Schwerpunktes
 ========================
 
 >**Satz.** Gegeben ist ein System von Massepunkten $P_i$, $i\in\{1,...,n\}$, mit den Ortsvektoren $p_i$ und Gewichten $\gamma_i\geq0$. Der Schwerpunkt $S$ dieses Massesystems besitzt den Ortsvektor $$
-  s=\frac{1}{\sum_{j=1}^n{\gamma_j}}\cdot\sum_{i=1}^n{p_i}
+  s=\frac{1}{\sum_{j=1}^n{\gamma_j}}\cdot\sum_{i=1}^n{\gamma_i\cdot p_i}
 $$ Das Bild $\alpha(S)$ unter einer Affinität $\alpha:x\mapsto x'=A\cdot x+a$ ist Schwerpunkt des Massesystems $$
   \alpha(P_1)\,,...\,,\alpha(P_n)
 $$ mit den Gewichten $\gamma_i$.
