@@ -1580,12 +1580,48 @@ Im nachstehenden Video ist der Kern[^2] einer linearen Abbildung / Matrix an ein
 
 **Bemerkung 2.** Wie der Erhalt von Geraden unter Affinitäten lässt sich der **Erhalt von Ebenen** unter einer Affinität im dreidimensionalen Raum beweisen.
 
-Aus beiden Eigenschaften folgt, dass unter Affinitiäten der Ebene / des dreidimensionalen Raumes
+Aus beiden Eigenschaften folgt, dass unter Affinitäten der Ebene / des dreidimensionalen Raumes
 
 1. Dreiecke auf Dreiecke / ebene Polygone auf ebene Polygone mit gleicher Seiten- und Eckenzahlen
 2. [Polyeder](https://de.wikipedia.org/wiki/Polyeder) auf Polyeder mit gleichen Flächen-, Kanten- und Eckenzahlen etc.
 
 abgebildet werden. Siehe auch das interaktive Beispiel [Bild unter Affinität](https://www.geogebra.org/m/mZ8N3n6N).
+
+**Beispiel 2.** Gegeben sind ein Kreis $k$ um den Koordinatenursprung $O(0,0)$ mit Radius $r=1$, des Weiteren die Punkte
+$$
+  E_1=(1,0)\,,\quad E_2=(0,1)\quad\text{sowie}\quad P\left(\frac{1}{2},\frac{1}{2}\cdot\sqrt{3}\right)
+$$
+auf $k$.
+
+Zu berechnen ist die affine Abbildung $\alpha$ mit der Matrixdarstellung $$
+  \alpha:x\mapsto x'=A\cdot x+a
+  $$ welche die Punkte $$
+  O\mapsto O'=O\,,\quad E_1\mapsto E_1'=E_1\quad\text{und}\quad E_2\mapsto E_2'=P
+$$ abbildet. Der Koordinatenursprung wird unter $\alpha$ auf sich abgebildet, woraus sich der Translationsvektor $a=\overrightarrow{OO'}=(0,0)^\top$ ergibt. Die Spaltenvektoren der Transformationsmatrix $A$ ergeben sich zu $$
+  s_1=\overrightarrow{O'E_1'}=(1,0)^\top\quad\text{und}\quad
+  s_2=\overrightarrow{O'E_2'}=\left(\frac{1}{2},\frac{1}{2}\cdot\sqrt{2}\right)^\top
+$$ woraus schließlich die Matrixdarstellung $$
+  \alpha:\begin{pmatrix} x \\ y \end{pmatrix}\mapsto
+  \begin{pmatrix} x' \\ y' \end{pmatrix}=
+  \begin{pmatrix} 1 & \frac{1}{2} \\ 0 & \frac{1}{2}\cdot\sqrt{2}\end{pmatrix}\cdot
+  \begin{pmatrix} x \\ y \end{pmatrix}
+$$ Es gilt einsichtig $\det{A}=\frac{1}{2}\cdot\sqrt{3}$, wonach $\alpha$ eine Affinität ist.
+
+![Affinität](img/geo-bild08.png "Affinität $\alpha$, die das Dreieck mit den Eckpunkten $O$, $E_1$ und $E_2$ auf das Dreieck mit den Eckpunkten $O'$, $E_1'$ und $E_2'$ abbildet.")
+
+Mit bekannter Matrixdarstellung ist nun das affine Bild $q'$ des Quadrates $q$ mit den Eckpunkten $O$, $E_1$, $E(1,1)$ und $E_2$ zu berechnen. Da Vierecke unter Affinitäten wieder auf Vierecke abgebildet werden, ist zur Bestimmung des Quadratbildes unter $\alpha$ das affine Bild $E'$ zu $E$ zu berechnen.
+$$
+  \begin{pmatrix} 1 \\ 1 \end{pmatrix}\mapsto
+  \begin{pmatrix} x' \\ y' \end{pmatrix}=
+  \begin{pmatrix} 1 & \frac{1}{2} \\ 0 & \frac{1}{2}\cdot\sqrt{2}\end{pmatrix}\cdot
+  \begin{pmatrix} 1 \\ 1 \end{pmatrix}=
+  \begin{pmatrix} \frac{3}{2} \\ \frac{1}{2}\cdot\sqrt{3} \end{pmatrix}
+$$
+Das sind die Koordinaten von $E'$ im affinen Koordinatensystem $(O,E_1,E_2)$. Im affinen Koordinatensystem $(O',E_1',E_2')$ besitzt $E'$ die Koordinaten $(1,1)$. Siehe 'Erzeugung einer Affinität' im Abschnitt [Definition und allgemeine Eigenschaften](#Definition-und-allgemeine-Eigenschaften).
+
+Das affine Bild $q'$ des Quadrates $q$ unter $\alpha$ ist ein Parallelogramm (hier sogar eine Raute). Siehe die nachstehende Abbildung.
+
+![Affinität](img/geo-bild09.png "Quadrat und dessen affines Bild unter der Affinität $\alpha$.")
 
 
 Erhalt von Parallelität
@@ -1608,6 +1644,8 @@ $$
   \alpha:\mathcal{A}^d\to\mathcal{A}^d,x\mapsto x'=A\cdot x+a
 $$
 mit $\det{A}\not=0$.
+
+**Bemerkung 3.** Analog wie im vorstehenden Beispiel ein Quadrat unter $\alpha$ auf ein Parallelogramm abgebildet wird, ist das Bild einer Würfeloberfläche unter einer Affinität des dreidimensionalen Raumes ein [Parallelepiped](https://de.wikipedia.org/wiki/Parallelepiped).
 
 
 Erhalt des Teilverhältnisses
@@ -1641,9 +1679,9 @@ TV(P,Q,T)=TV(P',Q',T')
 $$
 falls dieses erklärt ist.
 
-**Bemerkung 3.** Da das Teilverhältnis von drei Punkten auf einer Geraden unter Affinitäten erhalten bleibt, wird insbesondere der Mittelpunkt einer Strecke auf den Mittelpunkt der Bildstrecke abgebildet.
+**Bemerkung 4.** Da das Teilverhältnis von drei Punkten auf einer Geraden unter Affinitäten erhalten bleibt, wird insbesondere der Mittelpunkt einer Strecke auf den Mittelpunkt der Bildstrecke abgebildet.
 
-**Beispiel 2.** Ein Kreis $k$ zur Gleichung $x_1^2+x_2^2=1$ besitzt den Mittelpunkt $O(0,0)$ und den Radius $r=1$. Dieser wird unter der Affinität
+**Beispiel 3.** Ein Kreis $k$ zur Gleichung $x_1^2+x_2^2=1$ besitzt den Mittelpunkt $O(0,0)$ und den Radius $r=1$. Dieser wird unter der Affinität
 $$
   \alpha:x\mapsto x'=B\cdot x+b
 $$
@@ -1723,3 +1761,169 @@ Die Möglichkeit einer interaktiven Erzeugung von drehsymmetrischen Ornamenten u
 [^1]: Diese Affinität hat die zusätzliche Eigenschaft, Längen von Strecken / Kurven zu erhalten, des Weiteren die Größe von Winkeln. Sie gehört zu den so genannten Kongruenzen.
 
 [^2]: Der Kern $\ker{\alpha}$ einer linearen Abbildung $\alpha$ ist die Menge der Vektoren $x$, die durch $\alpha$ auf den Nullvektor $o$ abgebildet werden, d. h. alle Lösungen der Gleichung $\alpha(x)=o$.
+
+
+### Spezielle Affinitäten
+
+In diesem Abschnitt werden spezielle Affinitäten, die sich als "Grundabbildungen" zur Modellierung verwenden lassen, näher untersucht. Die Aufzählung der Abbildungen erhebt keinen Anspruch auf Vollständigkeit und kann beliebig ergänzt werden.
+
+Interaktive Beispiele von Affinitäten der Ebene finden sich beispielsweise unter [Strecken, Drehen und Verschieben](https://www.geogebra.org/m/fsx5ntDY).
+
+
+Skalierung
+==========
+
+>**Definition 1.** Eine Affinität $\alpha$ des des $d$-dimensionalen Raumes $\mathcal{A}^d$ mit der Matrixdarstellung $$
+  \alpha:x\mapsto x'=A\cdot x\,,\quad A=\mathrm{diag}{(\lambda_1,...,\lambda_d)}\;\;\text{mit}\;\;\lambda_i\not=0\;\;\forall\,i\in\{1,...,d\}
+$$ heißt **Skalierung** / Maßstabsänderung entlang der Koordinatenachsen. Die Komponenten $\lambda_i$ werden Skalierungsfaktoren entlang der $i$-ten Koordinatenachse genannt.[^1]
+
+**Beispiel 1.** Gegeben ist eine Skalierung $\alpha$ der Ebene entlang der $x_2$-Achse mit
+$$
+  \alpha:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 \\ 0 & \lambda \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+$$
+d. h. mit Skalierungsfaktoren Eins bzw. $\lambda\not=0$ entlang der $x_1$- bzw. der $x_2$-Achse.
+
+![Skalierung1](img/geo-bild10.png "Skalierung entlang der zweiten Koordinatenachse mit einem Faktor $\lambda\not=0$: Dargestellt ist die Wirkung dieser Skalierung auf einen Punkt, $X\mapsto X'$.")
+
+1. Für $\lambda>0$ beschreibt $\alpha$ eine Streckung / Stauchung in Richtung der $x_2$-Achse.
+2. Für $\lambda<0$ erfolgt zusätzlich eine "Richtungsumkehr".
+3. Für $\lambda=-1$ heißt $\alpha$ eine Affinspiegelung.
+
+Eine interaktive Darstellung der Wirkung des Skalierungsfaktors $\lambda$ entlang der zweiten Koordinatenachse findet sich unter [Skalierung](https://www.geogebra.org/m/Yj12Hl4W#material/HAwGHnlx).
+
+Die Skalierung $\alpha$ besitzt die folgenden Eigenschaften:
+
+1. Für alle Punkte $X$ der Ebene sind die Verbindungsgeraden $XX'$ zugeordneter Punkte $X\stackrel{\alpha}{\longmapsto} X'$ parallel zur $x_2$-Achse.
+2. Die Punkte $X$ auf der $x_1$-Achse werden unter $\alpha$ auf sich selbst abgebildet
+$$
+  X(x_1,x_2)\;\text{mit}\; x_2=0\quad\rightarrow\quad X'=\alpha(X)=X
+$$
+
+>**Definition 2.** Eine Affinität $\alpha$ der Ebene $$
+  \alpha:X\mapsto X'=\alpha(X)
+$$ mit den Eigenschaften
+>
+>1. Ist $X\not=X'$, so ist $XX'\parallel s$ zu einer festen Gerade $s$.
+>2. Es existiert eine Gerade $a\not\parallel s$ mit $Y=Y'$ für alle Punkte $Y\in a$ (Fixpunktgerade).
+>
+> heißt **perspektive Affinität** der Ebene.
+
+Sofern bestimmt, werden die Geraden $XX'\parallel s$ *Affinitätsgeraden* durch $X$ genannt, $s$ könnte als *Affinitätsrichtung* bezeichnet werden. Die Fixpunktgerade $a$ einer perspektiven Affinität wird *Affinitätsachse* genannt.
+
+**Bemerkung 1.** Gilt für die Affinitätsrichtung $s$ und die Affinitätsachse $a$ einer perspektiven Affinität $\alpha$ die Relation $s\perp a$, so wird $\alpha$ **orthogonale** perspektive Affinität genannt.
+
+**Bemerkung 2.** Die Bestimmung eines Bildpunktes einer perspektiven Affinität kann auch konstruktiv-geometrisch erfolgen. Hierfür seien die Achse $a$ und ein Punkt-Bildpunktpaar $(X,X')$ mit $X\not=X'$ einer perspektiven Affinität $\alpha$ gegeben.
+
+Die Konstruktion des Bildpunktes $Y'$ eines weiteren Punktes $Y$ unter $\alpha$ erfolgt entsprechend der nachstehenden Konstruktion.
+
+![Perspektive Affinität](img/geo-bild11.png "Perspektive Affinität mit Affinitätsachse $a$ und zulässiges Punktepaar $(X,X')$: Die Konstruktion des affinen Bildes $Y'$ zu einem Punkt $Y$ erfolgt durch Anwendung des Strahlensatzes.")
+
+1. Konstruiere die Affinitätsgerade $g$ durch $Y$ ($g\parallel XX'$)
+2. Verbinde $X$ mit $Y$ und schneide diese Gerade mit der Affinitätsachse $a$, d. h. $$ XY\cap a=\{H\}\,,\quad (H=H') $$
+3. Schneide die Verbindungsgerade $H'X'$ mit der Affinitätsgerade $g$ durch $Y$, d. h. $$ H'X'\cap g=\{Y'\} $$
+
+~~Begründung.~~ Mit dem Strahlensatz gilt einerseits für die Punkte $X$, $X'$ und $\{F\}=XX'\cap a$ $$
+  TV(X',X,F)=\lambda
+$$ anderseits gilt für die Punkte $Y$, $Y'$ und $\{G\}=YY'\cap a$ $$
+  TV(Y',Y,G)=\lambda
+$$
+wodurch der Punkt $Y'$ eindeutig bestimmt ist.
+
+Einige Konstruktionsmethoden der Darstellenden Geometrie nutzen perspektive Affinitäten, beispielsweise die Konstruktion einer [Ellipse](https://www.geogebra.org/m/urEjRpeY) als perspektiv affines Bild eines Kreises.
+
+
+Scherung
+========
+
+>**Definition 3.** Eine Affinität $\alpha$ der Ebene mit der Matrixdarstellungen $$
+  \alpha:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+  \begin{pmatrix} 1 & \lambda \\ 0 & 1 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\,,\quad \lambda\in\mathbb{R}
+$$ heißt **Scherung** entlang der $x_1$-Achse.
+
+Der in vorstehender Definition auftretende reelle Parameter $\lambda$ wird *Scherungsparameter* genannt. Unter $\alpha$ wird ein Punkt abgebildet vermöge
+$$
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+  \begin{pmatrix} x_1+\lambda\cdot x_2 \\ x_2 \end{pmatrix}
+$$
+d. h. dieser wird entsprechend seiner zweiten Koordinate um $\lambda\cdot x_2$ entlang der ersten Achse verschoben. Die Scherung eines Rechtecks in ein flächeninhaltsgleiches Parallelogramm ist in nachstehender Abbildung dargestellt.
+
+![Scherung](img/geo-bild12.png "Scherung eines achsenparallelen Rechtecks $r$ in ein flächeninhaltsgleiches Parallelogramm $p$: Die Eckpunkte $O$ und $X$ sind unter der Scherung fest, der Eckpunkt $Y$ von $r$ wird auf den Eckpunkt $Y'$ von $p$ abgebildet.")
+
+Für den Flächeninhalt des Rechtecks $r$ gilt unter Benutzung der zweidimensionalen Ortsvektoren $x$ bzw. $y$ der Eckpunkte des Rechtecks sowie des Vektorproduktes in $\mathbb{R}^3$
+$$
+  I=\left\Vert{\begin{pmatrix} x \\ 0 \end{pmatrix}-\begin{pmatrix} y \\ 0 \end{pmatrix}}\right\Vert=
+  \left\Vert{\begin{pmatrix} 0 \\ 0 \\ \det{(x,y)}\end{pmatrix}}\right\Vert=|\det{(x,y)}|
+$$
+d. h. der Flächeninhalt $I$ kann durch den Absolutbetrag einer Determinante berechnet werden.
+
+durch Scherung wird das Rechteck $r$ auf das Parallelogramm $p$ abgebildet, dessen Flächeninhalt sich entsprechend berechnet
+$$
+  \det{(x,y')}=\det{\begin{pmatrix} x_1+\lambda\cdot x_2 & y_1+\lambda\cdot y_2 \\ x_2 & y_2 \end{pmatrix}} = (x_1+\lambda\cdot x_2)\cdot y_2-x_2\cdot(y_1+\lambda\cdot y_2)=\det{(x,y)}
+$$
+d. h. der Flächeninhalt von $r$ gleicht dem des entlang der $x_1$-Achse aus $r$ gescherten Parallelogramms $p$. Es gilt $I_r=I_p$.
+
+**Bemerkung 3.** Für den Spat zweier beziehungsweise dreier Vektoren in $\mathbb{R}^2$ beziehungsweise $\mathbb{R}^3$ gilt $I=\vert\det{(x,y)}\vert$ beziehungsweise $I=\vert\det{(x,y,z)}\vert$.
+
+Unter einer Affinität $\alpha:x\mapsto x'=A\cdot x$ wird $I$ transformiert in
+$$
+  I'=\vert\det{(x',y',z')}\vert=\vert\det{(A\cdot x,A\cdot y,A\cdot z)}\vert=
+  \vert\det{(A\cdot (x,y,z))}\vert=
+  \vert\det{A}\vert\cdot\vert\det{(x,y,z)}\vert=\vert\det{A}\vert\cdot I
+$$
+
+>**Definition 4.** Eine Affinität $\alpha$ mit $$
+  \alpha:x\mapsto x'=\alpha(x)=A\cdot x\quad\text{und}\quad
+  \vert\det{A}\vert=1
+$$ heißt eine **inhaltstreue Affinität**.
+
+>**Definition 5.** Eine Affinität $\alpha$ mit $$
+  \alpha:x\mapsto x'=\alpha(x)=A\cdot x
+$$ und $\det{A}>0$ wird **orientierungserhaltend** genannt. Ist hingegen $\det{A}<0$, so heißt $\alpha$ **orientierungsumkehrend**.
+
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Sind $\alpha$ und $\beta$ zwei inhaltstreue Affinitäten des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$, so
+
+[[ ]] ist die Verkettung $\beta\circ\alpha$ orientierungserhaltend.
+[[X]] sind die Umkehrabbildungen $\alpha^{-1}$ und $\beta^{-1}$ ebenso inhaltstreu.
+[[ ]] sind diese auch orientierungserhaltend.
+[[X]] ist die Verkettung $\beta\circ\alpha$ ebenso inhaltstreu.
+[[?]] Nutzen Sie, dass sich die Transformationsmatrizen zweier verketteter Affinitäten multiplizieren. Die Verkettung einer Affinität des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$ mit ihrer Umkehrabbildung ist nach Definition die identische Abbildung.
+****************************************
+
+Für die Festlegung der Inhaltstreue gilt unter Benutzung der Transformationsmatrix $A$ $$
+  |\det{A}|=1\quad\rightarrow\quad \det{A}=1>0\;\;\vee\;\;\det{A}=-1<0
+$$ Für die Hintereinanderausführung zweier inhaltstreuer Affinitäten mit den Transformationsmatrizen $A$ und $B$ folgt durch Anwendung des Produktsatzes für Determinanten $$
+  |\det{(A\cdot B)}|=|\det{A}\cdot\det{B}|=|\det{A}|\cdot|\det{B}|=1\cdot 1=1
+$$
+d. h. die Komposition ist wieder inhaltstreu.
+
+****************************************
+
+**Frage 2.** Entscheiden Sie: Eine affine Abbildung der Ebene, die verschieden von der identischen Abbildung ist, besitzt entweder genau einen Fixpunkt, eine Fixpunktgerade oder keinen Fixpunkt.
+
+[(X)] Wahr.
+[( )] Falsch.
+[[?]] Für einen Fixpunkt $X$ unter einer affinen Abbildung $\alpha$ gilt $X=\alpha(X)$.
+****************************************
+
+Besitzt die affine Abbildung der Ebene die Matrixdarstellung $$
+  \alpha:x\mapsto x'=A\cdot x+a
+$$ mit Transformationsmatrix $A\in\mathbb{R}^{2,2}$ und Translationsvektor $a\in\mathbb{R}^2$, so berechnen sich die Fixpunkte vermöge $$
+  A\cdot x+a=x\quad\leftrightarrow\quad (A-E)\cdot x=-a
+$$ mit zweireihiger Einheitsmatrix $E$. Dies ist ein lineares Gleichungssystem, dessen Lösungsmenge entweder leer, einelementig oder ein affiner Unterraum der Dimension $1$ ist.
+
+****************************************
+
+
+[^1]: Für die Determinante der Transformationsmatrix $A$ folgt $$
+  \det{A}=\det{\mathrm{diag}{(\lambda_1,...,\lambda_d)}}=\prod_{i=1}^d{\lambda_i}\not=0\quad\leftrightarrow\quad\lambda_i\not=0\;\;\forall\,i\in\{1,...,d\}
+$$ wonach $\alpha$ eine Affinität darstellt.
