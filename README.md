@@ -1621,7 +1621,7 @@ Das sind die Koordinaten von $E'$ im affinen Koordinatensystem $(O,E_1,E_2)$. Im
 
 Das affine Bild $q'$ des Quadrates $q$ unter $\alpha$ ist ein Parallelogramm (hier sogar eine Raute). Siehe die nachstehende Abbildung.
 
-![Affinität](img/geo-bild09.png "Quadrat und dessen affines Bild unter der Affinität $\alpha$.")
+![Affinität1](img/geo-bild09.png "Quadrat und dessen affines Bild unter der Affinität $\alpha$.")
 
 
 Erhalt von Parallelität
@@ -1857,7 +1857,7 @@ d. h. dieser wird entsprechend seiner zweiten Koordinate um $\lambda\cdot x_2$ e
 
 Für den Flächeninhalt des Rechtecks $r$ gilt unter Benutzung der zweidimensionalen Ortsvektoren $x$ bzw. $y$ der Eckpunkte des Rechtecks sowie des Vektorproduktes in $\mathbb{R}^3$
 $$
-  I=\left\Vert{\begin{pmatrix} x \\ 0 \end{pmatrix}-\begin{pmatrix} y \\ 0 \end{pmatrix}}\right\Vert=
+  I=\left\Vert{\begin{pmatrix} x \\ 0 \end{pmatrix}\times\begin{pmatrix} y \\ 0 \end{pmatrix}}\right\Vert=
   \left\Vert{\begin{pmatrix} 0 \\ 0 \\ \det{(x,y)}\end{pmatrix}}\right\Vert=|\det{(x,y)}|
 $$
 d. h. der Flächeninhalt $I$ kann durch den Absolutbetrag einer Determinante berechnet werden.
