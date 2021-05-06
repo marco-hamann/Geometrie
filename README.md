@@ -1621,7 +1621,7 @@ Das sind die Koordinaten von $E'$ im affinen Koordinatensystem $(O,E_1,E_2)$. Im
 
 Das affine Bild $q'$ des Quadrates $q$ unter $\alpha$ ist ein Parallelogramm (hier sogar eine Raute). Siehe die nachstehende Abbildung.
 
-![Affinität1](img/geo-bild09.png "Quadrat und dessen affines Bild unter der Affinität $\alpha$.")
+![Bild unter Affinität](img/geo-bild09.png "Quadrat und dessen affines Bild unter der Affinität $\alpha$.")
 
 
 Erhalt von Parallelität
