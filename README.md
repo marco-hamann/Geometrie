@@ -1908,7 +1908,9 @@ d. h. die Komposition ist wieder inhaltstreu.
 
 ****************************************
 
-**Frage 2.** Entscheiden Sie: Eine affine Abbildung der Ebene, die verschieden von der identischen Abbildung ist, besitzt entweder genau einen Fixpunkt, eine Fixpunktgerade oder keinen Fixpunkt.
+**Frage 2.** Entscheiden Sie:
+
+Eine affine Abbildung der Ebene, die verschieden von der identischen Abbildung ist, besitzt entweder genau einen Fixpunkt, eine Fixpunktgerade oder keinen Fixpunkt.
 
 [(X)] Wahr.
 [( )] Falsch.
@@ -1923,7 +1925,175 @@ $$ mit zweireihiger Einheitsmatrix $E$. Dies ist ein lineares Gleichungssystem, 
 
 ****************************************
 
-
 [^1]: Für die Determinante der Transformationsmatrix $A$ folgt $$
   \det{A}=\det{\mathrm{diag}{(\lambda_1,...,\lambda_d)}}=\prod_{i=1}^d{\lambda_i}\not=0\quad\leftrightarrow\quad\lambda_i\not=0\;\;\forall\,i\in\{1,...,d\}
 $$ wonach $\alpha$ eine Affinität darstellt.
+
+
+### Kongruenzen und Ähnlichkeiten
+
+Die Ausführungen dieses Kapitels beziehen sich auf ein kartesisches rechtsorientiertes[^1] Koordinatensystem.
+
+**Definition 1.** Eine winkeltreue Affinität des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$ heißt **Ähnlichkeit**, eine längentreue Ähnlichkeit heißt **Kongruenz**.
+
+
+Erhalt von Winkelgrößen
+=======================
+
+Betrachtet wird ein Winkel $\angle{ASB}$ (mit Scheitelpunkt $S$), für dessen Winkelmaß unter Benutzung der Ortsvektoren $a$, $b$ und $s$ gilt $$
+  \cos{\measuredangle{ASB}}=\frac{(b-a)\cdot(a-s)}{\Vert b-s\Vert\cdot\Vert a-s\Vert}
+$$
+Ohne Beschränkung der Allgemeinheit kann $S$ mit dem Koordinatenursprung identifiziert werden. Gelten speziell $$
+  A=E_i\,,\quad B=E_j
+$$ für $i\not=j$, so gelten für die Ortsvektoren $e_i\cdot e_j=0$, d. h. das Skalarprodukt der Vektoren ergibt den Wert Null. Für eine Ähnlichkeit folgt, dass die Spaltenvektoren der Transformationsmatrix paarweise orthogonal sind. Es gilt $$
+  s_i\cdot s_j=0\quad\forall i\not=j
+$$
+
+~~Aber~~: Diese Eigenschaft ist für Transformationsmatrizen nicht hinreichend, da z. B. die Matrix $$
+  A=\begin{pmatrix} 1 & 0 & 0 \\ 0 & \sqrt{2} & 0 \\ 0 & 0 & \pi \end{pmatrix}
+$$ wegen $\det{A}=\sqrt{2}\cdot\pi\not=0$ eine Affinität $\alpha$ mit
+$$
+  \alpha:x\mapsto x'=A\cdot x
+$$
+festlegt. Die Spaltenvektoren der Matrix $A$ $$
+  s_1=\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\,,\quad
+  s_2=\begin{pmatrix} 0 \\ \sqrt{2} \\ 0 \end{pmatrix}\quad\text{und}\quad
+  s_3=\begin{pmatrix} 0 \\ 0 \\ \pi \end{pmatrix}
+$$ sind paarweise orthogonal, da $$
+  s_i\cdot s_j=0\quad\forall i\not=j\,,\;i\in\{1,2,3\}\,,\;j\in\{1,2,3\}
+$$ Jedoch gelten mit den Ortsvektoren $$
+  x=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}\,,\quad
+  y=\begin{pmatrix} 1 \\ 0 \\ -1\end{pmatrix}
+$$ und $x\cdot y=0$ unter der Affinität $\alpha$ für deren affine Bilder $$
+  x'=A\cdot x=\begin{pmatrix} 1 \\ \sqrt{2} \\ \pi \end{pmatrix}\,,\quad
+  y'=A\cdot y=\begin{pmatrix} 1 \\ 0 \\ -\pi \end{pmatrix}
+$$ mit $x'\cdot y'=1-\pi^2\not=0$. Das heißt $\alpha$ ist ~~nicht~~ winkeltreu.
+
+Für den Erhalt der Winkeltreue unter einer Affinität ist die Forderung, dass die Raumdiagonale in einem Würfel orthogonal zu den Flächendiagonalen ist. In der nachfolgenden Abbildung ist der Würfel mit Eckpunkten $$
+  O(0,0,0)\,,\quad E_1(1,0,0)\,,\quad E_2(0,1,0)\,,\quad E_3(0,0,1)\quad\text{usw.}
+$$ betrachtet. Die $O$ gegenüberliegende Ecke $E(1,1,1)$ des Würfels bildet die Raumdiagonale $OE$, die Einheitspunkte auf den Achsen bilden Flächendiagonalen des Würfels.
+
+![Würfel](img/geo-bild13.png "_Fig._ Würfel mit der Raumdiagonale $[O,E]$ sowie den Flächendiagonalen $[E_1,E_2]$, $[E_2,E_3]$ und $[E_3,E_1]$.")
+
+Für die Paare von Vektoren $(x,x')$ beziehungsweise $(y,y')$ unter einer Affinität $$
+  \alpha:x\mapsto x'=A\cdot x\,,\quad A=(s_1,s_2,s_3)\,,\quad\det{A}\not=0
+$$ berechnen sich $$
+  x=\overrightarrow{OE}=e_1+e_2+e_3\stackrel{\alpha}{\longmapsto}s_1+s_2+s_3=x'
+$$ sowie $$
+  y=\overrightarrow{E_1E_3}=-e_1+e_3\stackrel{\alpha}{\longmapsto}-s_1+s_3=y'
+$$ und schließlich $$
+  x\cdot y=0\quad\stackrel{\alpha}{\longmapsto}\quad \left(x'\cdot y'=0\leftrightarrow s_1^2=s_3^2\right)
+$$ Analoges berechnet sich für $y=\overrightarrow{E_1E_2}$.
+
+>**Definition 2.** Eine Matrix $A$ der Form $$
+  A=(s_1,...,s_d)\in\mathbb{R}^{(d,d)}
+$$ mit den Eigenschaften
+>
+>1. $s_i\cdot s_j=0\quad\forall\;i\not=j$ (paarweise Orthogonalität)
+>2. $s_i\cdot s_i=s_i^2=1\quad\forall\;i$ (Einheitsvektor)
+>
+> mit $i\in\{1,...,d\}$ und $j\in\{1,...,d\}$ heißt **orthogonal**.
+
+**Bemerkung 1.** Die Definition orthogonaler Matrizen schließt allgemeiner auch jene quadratischen Matrizen ein, die neben Eigenschaft 1 die Eigenschaft $$
+  s_i\cdot s_i=s_i^2=e>0\quad\forall\;i
+$$ erfüllen. D. h. die Spaltenvektoren besitzen alle die gleiche Länge $e$. Aus beiden Eigenschaften folgt durch direkt $$
+  A\cdot A^\top=A^\top\cdot A=E\quad\leftrightarrow\quad A^\top=A^{-1}
+$$ als äquivalente Definition orthogonaler Matrizen, worin $E=\mathrm{diag}{(1,...,1)}$ die $d$-reihige Einheitsmatrix bezeichnet.
+
+Für eine orthogonale Matrix $B$ sowie einen Skalar $\mu\in\mathbb{R}\setminus\{0\}$ und die $\mu$-fache Matrix $A=\mu\cdot B$ berechnen sich die affinen Bilder zweier beliebiger Vektoren $x=(x_1,...,x_d)^\top$ und $y=(y_1,...,y_d)^\top$ unter der Affinität $$
+  \alpha:x\mapsto x'=A\cdot x\,,\quad\det{A}\not=0
+$$ vermöge $$
+  x\mapsto x'=A\cdot x=\sum_{i=1}^d{x_i\cdot s_i}\,,\quad
+  y\mapsto y'=A\cdot y=\sum_{i=1}^d{y_i\cdot s_i}
+$$ Hieraus folgt für den zwischen $x$ und $y$ eingeschlossenen Winkel $$
+  \cos{\measuredangle{(x',y')}}=
+  \frac{x_1\cdot y_1\cdot s_1^2+...+x_d\cdot y_d\cdot s_d^2}{\sqrt{x_1^2\cdot s_1^2+...x_d^2\cdot s_d^2}\cdot\sqrt{y_1^2\cdot s_1^2+...y_d^2\cdot s_d^2}}=
+  \frac{\Vert s_1\Vert^2\cdot\left(\sum_{i=1}^d{x_i\cdot y_i}\right)}{\Vert s_1\Vert\cdot\sqrt{\sum_{i=1}^d{x_1^2}}\cdot\Vert s_1\Vert\cdot\sqrt{\sum_{i=1}^d{x_1^2}}}=
+  \cos{\measuredangle{(x,y)}}
+$$
+
+>**Satz 1.** Jede Ähnlichkeit $\alpha$ des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$ lässt sich beschreiben durch $$
+  \alpha:x\mapsto x'=\mu\cdot B\cdot x+b
+$$ mit orthogonaler Matrix $B\in\mathbb{R}^{d,d}$, Ähnlichkeitsfaktor $\mu\in\mathbb{R}\setminus\{0\}$ und Translationsvektor $b\in\mathbb{R}^d$.
+
+**Bemerkung 2.** Unter einer Ähnlichkeit $\alpha$ wird jede Strecke auf eine Strecke der $\vert\mu\vert$-fachen Länge abgebildet.
+
+
+Erhalt von Längen
+=================
+
+Für $\mu=1$ beschreibt die Matrixdarstellung in Satz 1 eine Kongruenz. Diese ist winkeltreu und längentreu.
+
+Besitzt die Transformationsmatrix $A=1\cdot B$ die Spaltendarstellung $$
+  A=(s_1,s_2,s_3)
+$$ so gilt $\det{A}=\pm1$, denn $$
+  \det{A}=\det{(s_1,s_2,s_3)}=s_1\cdot(s_2\times s_3)=\pm s_1^2=\pm1
+$$
+Mit Definition 5 aus dem Abschnitt [Spezielle Affinitäten](#Spezielle-Affinitäten) werden unterschieden:
+
+1. Orientierungserhaltende Kongruenzen, falls $\det{A}=1$
+2. Orientierungsumkehrende Kongruenzen, falls $\det{A}=-1$
+
+Einfache Beispiele für orientierungserhaltende Kongruenzen sind *Translationen* und *Drehungen* der Ebene bzw. des dreidimensionalen Raumes. Hierbei wird ein mit einem Quadrat / Würfel verbundenes kartesisches Koordinatensystem unter Beibehaltung der Orientierung ('Rechte- bzw. Linke-Hand-Regel') kongruent verlagert.
+
+Beispiele für orientierungsumkehrende Kongruenzen sind *Spiegelungen* der Ebene an einer Geraden bzw. Spiegelungen des dreidimensionalen Raumes an einer Ebene. Ein kartesisches Koordinatensystem wird hierbei unter Umkehr seiner Orientierung kongruent verlagert.
+
+
+Drehungen in der Ebene
+======================
+
+Definition
+----------
+
+In diesem Abschnitt werden Drehungen der Ebene um den Koordinatenursprung mit Drehwinkel $\varphi$ betrachtet. Siehe nachstehende Abbildung.
+
+![Drehung](img/geo-bild14.png "_Fig._ Drehung der Ebene um den Koordinatenursprung mit Drehwinkel $\varphi$.")
+
+Für die Matrixdarstellung dieser Drehung $\alpha$ $$
+  \alpha: x\mapsto x'=A\cdot x+a
+$$ ergeben sich unmittelbar:
+
+1. Der Translationsvektor ist der Nullvektor, also $a=(0,0)^\top$.
+2. Für die Darstellung der Transformationsmatrix $A=(s_1,s_2)^\top$ sind die Bilder der natürlichen Basis $$
+  e_1=\begin{pmatrix} 1 \\ 0 \end{pmatrix}\,,\quad
+  e_2=\begin{pmatrix} 0 \\ 1 \end{pmatrix}
+$$ in der Basis $[e_1,e_2]$ zu bestimmen. Es ergeben sich unmittelbar $$
+  s_1=e_1'=\begin{pmatrix} \cos{\varphi} \\ \sin{\varphi} \end{pmatrix}\,,\quad
+  s_2=e_2'=\begin{pmatrix} -\sin{\varphi} \\ \cos{\varphi} \end{pmatrix}
+$$ und somit $$
+  A=\begin{pmatrix} \cos{\varphi} & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi} \end{pmatrix}\,,\quad \varphi\in[-\pi,\pi)
+$$ Die Transformationsmatrix $A$ wird **Drehmatrix** genannt und ist orthogonal im Sinne von Definition 2. Außerdem gilt $\det{A}=1$.
+
+Eine Herleitung der Transformationsmatrix für Drehungen der Ebene um den Koordinatenursprung ist im nachstehenden Video erläutert.
+
+!?[Drehung in der Ebene](https://www.youtube.com/watch?v=Z85UyxiXubk)
+
+
+Eigenschaften
+-------------
+
+Zur Bestimmung der ~~Umkehrabbildung~~ einer Drehung der Ebene um den Koordinatenursprung $O$ mit Drehwinkel $\varphi$ ist Drehmatrix zu transponieren. Es gilt $$
+  \alpha^{-1}:x'\mapsto x=A^{-1}\cdot x=A^\top\cdot x'
+$$ worin wegen der Beziehungen[^2] $\cos{\varphi}=\cos{(-\varphi)}$ und $\sin{\varphi}=-\sin{(-\varphi)}$ für beliebige Winkel $\varphi\in\mathbb{R}$ gilt $$
+  A^\top=
+  \begin{pmatrix} \cos{\varphi} & \sin{\varphi} \\ -\sin{\varphi} & \cos{\varphi} \end{pmatrix}=
+  \begin{pmatrix} \cos{(-\varphi)} & -\sin{(-\varphi)} \\ \sin{(-\varphi)} & \cos{(-\varphi)} \end{pmatrix}
+$$ Die entspricht einer Ersetzung des Drehwinkels $\varphi$ in der Matrixdarstellung durch den Drehwinkel $\psi=-\varphi$ (Drehung um den gleichen Winkel bei umgekehrtem Drehsinn).
+
+Die Hintereinanderausführung zweier Drehungen $$
+  \rho_1:x\mapsto x'=A_1\cdot x\quad\text{sowie}\quad
+  \rho_2:x'\mapsto x''=A_2\cdot x'
+$$ mit den Drehmatrizen $$
+  A_i=\begin{pmatrix} \cos{\varphi_i} & -\sin{\varphi_i} \\ \sin{\varphi_i} & \cos{\varphi_i} \end{pmatrix}\,,\quad \varphi_i\in[-\pi,\pi)
+$$ ergibt sich $$
+  \alpha=\rho_2\circ\rho_1:x\stackrel{\rho_1}{\longmapsto}x'\stackrel{\rho_2}{\longmapsto}x''
+$$ mit der Matrixdarstellung $$
+  x''=A_2\cdot(A_1\cdot x)=(A_2\cdot A_1)\cdot x
+$$ worin sich das Matrizenprodukt unter Nutzung der Additionstheoreme für Sinus und Kosinus berechnet zu $$
+  A_2\cdot A_1=\begin{pmatrix} \cos{(\varphi_1+\varphi_2)} & -\sin{(\varphi_1+\varphi_2)} \\ \sin{(\varphi_1+\varphi_2)} & \cos{(\varphi_1+\varphi_2)} \end{pmatrix}\,,\quad (\varphi_1+\varphi_2)\in[-\pi,\pi)
+$$ Die Komposition $\alpha$ beschreibt also wieder eine Drehung um den Koordinatenursprung $O$ mit Drehwinkel $\varphi_1+\varphi_2$.
+
+
+[^1]: Diese Aussage bezieht sich auf ein kartesisches Koordinatensystem im dreidimensionalen affinen Raum, lässt sich jedoch allgemein für affine Räume der Dimension $d\geq2$ formulieren: Zeigen Daumen, Zeigefinger beziehungsweise Mittelfinger der ~~rechten~~ Hand in Richtung der ersten, zweiten beziehungsweise dritten Achse eines kartesischen Koordinatensystems, so liegt ein räumliches, ~~rechts~~orientiertes Koordinatensystem vor. Entsprechend lässt sich ein linksgerichtetes kartesisches Koordinatensystem festlegen.
+
+[^2]: Die reelle Sinusfunktion ist eine ungerade Funktion, die reelle Kosinusfunktion ist hingegen gerade. Siehe [Gerade und ungerade Funktion](https://de.wikipedia.org/wiki/Gerade_und_ungerade_Funktionen).
