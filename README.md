@@ -1941,7 +1941,7 @@ Erhalt von Winkelgrößen
 =======================
 
 Betrachtet wird ein Winkel $\angle{ASB}$ (mit Scheitelpunkt $S$), für dessen Winkelmaß unter Benutzung der Ortsvektoren $a$, $b$ und $s$ gilt $$
-  \cos{\measuredangle{ASB}}=\frac{(b-a)\cdot(a-s)}{\Vert b-s\Vert\cdot\Vert a-s\Vert}
+  \cos{\measuredangle{ASB}}=\frac{(b-s)\cdot(a-s)}{\Vert b-s\Vert\cdot\Vert a-s\Vert}
 $$
 Ohne Beschränkung der Allgemeinheit kann $S$ mit dem Koordinatenursprung identifiziert werden. Gelten speziell $$
   A=E_i\,,\quad B=E_j
@@ -2064,6 +2064,8 @@ $$ und somit $$
   A=\begin{pmatrix} \cos{\varphi} & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi} \end{pmatrix}\,,\quad \varphi\in[-\pi,\pi)
 $$ Die Transformationsmatrix $A$ wird **Drehmatrix** genannt und ist orthogonal im Sinne von Definition 2. Außerdem gilt $\det{A}=1$.
 
+**Bemerkung 3.** Drehmatrizen mit Drehwinkeln $\varphi$ und $\varphi+2\cdot\pi$ beschreiben dieselbe Drehung. Insofern ist es für manche Anwendungen ausreichend, sich auf Winkel $\varphi\in[-\pi,\pi)$ zu beziehen.
+
 Eine Herleitung der Transformationsmatrix für Drehungen der Ebene um den Koordinatenursprung ist im nachstehenden Video erläutert.
 
 !?[Drehung in der Ebene](https://www.youtube.com/watch?v=Z85UyxiXubk)
@@ -2072,8 +2074,8 @@ Eine Herleitung der Transformationsmatrix für Drehungen der Ebene um den Koordi
 Eigenschaften
 -------------
 
-Zur Bestimmung der ~~Umkehrabbildung~~ einer Drehung der Ebene um den Koordinatenursprung $O$ mit Drehwinkel $\varphi$ ist Drehmatrix zu transponieren. Es gilt $$
-  \alpha^{-1}:x'\mapsto x=A^{-1}\cdot x=A^\top\cdot x'
+Zur Bestimmung der ~~Umkehrabbildung~~ einer Drehung der Ebene um den Koordinatenursprung $O$ mit Drehwinkel $\varphi$ ist die Drehmatrix zu transponieren. Es gilt $$
+  \alpha^{-1}:x'\mapsto x=A^{-1}\cdot x'=A^\top\cdot x'
 $$ worin wegen der Beziehungen[^2] $\cos{\varphi}=\cos{(-\varphi)}$ und $\sin{\varphi}=-\sin{(-\varphi)}$ für beliebige Winkel $\varphi\in\mathbb{R}$ gilt $$
   A^\top=
   \begin{pmatrix} \cos{\varphi} & \sin{\varphi} \\ -\sin{\varphi} & \cos{\varphi} \end{pmatrix}=
@@ -2090,10 +2092,235 @@ $$ ergibt sich $$
 $$ mit der Matrixdarstellung $$
   x''=A_2\cdot(A_1\cdot x)=(A_2\cdot A_1)\cdot x
 $$ worin sich das Matrizenprodukt unter Nutzung der Additionstheoreme für Sinus und Kosinus berechnet zu $$
-  A_2\cdot A_1=\begin{pmatrix} \cos{(\varphi_1+\varphi_2)} & -\sin{(\varphi_1+\varphi_2)} \\ \sin{(\varphi_1+\varphi_2)} & \cos{(\varphi_1+\varphi_2)} \end{pmatrix}\,,\quad (\varphi_1+\varphi_2)\in[-\pi,\pi)
+  A_2\cdot A_1=
+  \begin{pmatrix} \cos{\varphi_2} & -\sin{\varphi_2} \\ \sin{\varphi_2} & \cos{\varphi_2} \end{pmatrix}\cdot\begin{pmatrix} \cos{\varphi_1} & -\sin{\varphi_1} \\ \sin{\varphi_1} & \cos{\varphi_1} \end{pmatrix}=
+  \begin{pmatrix} \cos{(\varphi_1+\varphi_2)} & -\sin{(\varphi_1+\varphi_2)} \\ \sin{(\varphi_1+\varphi_2)} & \cos{(\varphi_1+\varphi_2)} \end{pmatrix}\,,\quad (\varphi_1+\varphi_2)\in[-\pi,\pi)
 $$ Die Komposition $\alpha$ beschreibt also wieder eine Drehung um den Koordinatenursprung $O$ mit Drehwinkel $\varphi_1+\varphi_2$.
 
+Speziell für $\varphi_1=\varphi$ und $\varphi_2=-\varphi$ mit $\varphi\in[-\pi,\pi)$ ergibt sich mit $$
+  \alpha:x\mapsto x''=\begin{pmatrix} \cos{0} & -\sin{0} \\ \sin{0} & \cos{0} \end{pmatrix}\cdot x=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}\cdot x=x
+$$ die identische Abbildung $\alpha_{id}$.
+
+Zusammenfassend ergibt sich aus den genannten Eigenschaften
+
+>**Satz 2.** Die Menge der Drehungen $\rho$ der Ebene um den Koordinatenursprung eines kartesischen, rechtsgerichteten  Koordinatensystems mit reellem Drehwinkel bildet bezüglich der Hintereinanderausführung eine Gruppe, die $SO(2)$ genannt wird.
+
+**Beispiel 2.** Untergruppen von $SO(2)$ sind die Drehungen mit Drehwinkeln $$
+  \varphi_k=k\cdot\frac{2\cdot\pi}{n}\,,\quad k\in\{1,2,...,n\}
+$$ zu festem Parameter $n\in\mathbb{N}\setminus\{0\}$. Zum Beispiel für $n=4$ die Drehungen mit den Drehwinkeln $$
+  \varphi\in\left\{\frac{\pi}{2},\pi,\frac{3\cdot\pi}{2},2\cdot\pi\right\}
+$$ Diese lassen sich deuten als die Drehungen um das Zentrum eines Quadrates, die das Quadrat auf sich abbilden. Sie gehören zu den *Symmetrieabbildungen* des Quadrates, die bezüglich der Hintereinanderausführung eine Gruppe bilden: Die *Symmetriegruppe* des Quadrates.
+
+![Symmetrien des Quadrates](img/geo-bild15.png "_Fig._ Ein Quadrat wird durch Drehung um sein Zentrum mit Winkeln $90^\circ$, $180^\circ$, $270^\circ$ und $360^\circ$ auf sich abgebildet.")
+
+
+Drehungen im dreidimensionalen Raum
+===================================
+
+Drehung um die Koordinatenachsen
+--------------------------------
+
+Im dreidimensionalen Raum können Drehungen um Geraden ausgeführt werden, für deren Beschreibung mehr Freiheitsgrade existieren.[^3]
+
+Zum Beispiel eine Drehung $\rho$ um die $x_3$-Achse des kartesischen Koordinatensystems mit Drehwinkel $\varphi\in[-\pi,\pi)$.
+
+1. Durch die räumliche Drehung $\rho$ werden die Punkte der $xy$-Ebene ($z=0$) in dieser Ebene um den Koordinatenursprung $O$ gedreht, $\rho$ kann in der $xy$-Ebene durch eine ebene Drehung beschrieben werden.
+2. Die Punkte in der Ebene $z=c$ mit $c\in\mathbb{R}$ werden unter der räumlichen Drehung $\rho$ in dieser Ebene um den Punkt $M_c(0,0,c)$ gedreht. D. h. $\rho$ beschreibt in den Ebenen $z=c$ ebene Drehungen, die $x_3$-Koordinate jedes Punktes ist unter $\rho$ fest.
+3. Die Punkte der Drehachse sind unter der Drehung $\rho$ fest (Fixpunktgerade).
+
+Für die Festlegung der Matrixdarstellung $$
+  \rho:x\mapsto x'=D_3\cdot x+a\,,\quad D_3\in\mathbb{R}^{3,3}\,,\; a\in\mathbb{R}^3
+$$ ist damit zu bemerken:
+
+1. Der Koordinatenursprung $O$ ist - als Punkt der Drehachse - unter der Drehung $\rho$ fest. Hieraus folgt, dass der Translationsvektor der Nullvektor ist, $a=o$.
+2. Die Einheitspunkte $E_i$, $i\in\{1,2,3\}$, des kartesischen Koordinatensystems werden unter der Drehung $\rho$ abgebildet auf $$
+  E_1'(\cos{\varphi},\sin{\varphi},0)\,,\quad
+  E_2'(-\sin{\varphi},\cos{\varphi},0)\quad\text{und}\quad
+  E_3'(0,0,1)
+$$ Die Ortsvektoren dieser Punkte entsprechen den Spaltenvektoren der Transformationsmatrix $D_3$ $$
+  D_3=\begin{pmatrix}
+    \cos{\varphi} & -\sin{\varphi} & 0 \\
+    \sin{\varphi} & \cos{\varphi} & 0 \\
+    0 & 0 & 1
+  \end{pmatrix}
+$$ Die Matrix $D_3$ wird *Drehmatrix* bezogen auf die $x_3$-Achse genannt.
+
+Die Drehmatrix $D_3$ ist eine orthogonale Matrix, da gilt $$
+  D_3\cdot D_3^\top=
+  \begin{pmatrix}
+    \cos{\varphi} & -\sin{\varphi} & 0 \\
+    \sin{\varphi} & \cos{\varphi} & 0 \\
+    0 & 0 & 1
+  \end{pmatrix}\cdot
+  \begin{pmatrix}
+    \cos{\varphi} & \sin{\varphi} & 0 \\
+    -\sin{\varphi} & \cos{\varphi} & 0 \\
+    0 & 0 & 1
+  \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+$$ Außerdem gilt $\det{D_3}=1$. Dies bedeutet, dass die Drehung eine orientierungserhaltende Kongruenz ist.
+
+**Bemerkung 4.** Bei Drehung um die $x_1$-Achse beziehungsweise um die $x_2$-Achse besitzt die Drehmatrix die Gestalt $$
+  D_1=\begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos{\varphi} & -\sin{\varphi} \\ 0 & \sin{\varphi} & \cos{\varphi} \end{pmatrix}\quad\text{bzw.}\quad
+  D_2=\begin{pmatrix} \cos{\varphi} & 0 & \sin{\varphi} \\ 0 & 1 & 0 \\ -\sin{\varphi} & 0 & \cos{\varphi} \end{pmatrix}
+$$ worin $\varphi\in[-\pi,\pi)$ den Drehwinkel bezüglich der in positiver Richtung der Koordinatenachse orientierten Drehachse entspricht.[^4]
+
+
+Drehung um Achsen durch den Koordinatenursprung
+-----------------------------------------------
+
+Eine Drehung um eine Achse $g$ durch den Koordinatenursprung $O$ in allgemeiner Lage kann als Drehung um die erste Achse bezüglich eines angepassten Koordinatensystems beschrieben werden. Für den Wechsel des Koordinatensystems können ["geographische" Koordinaten](https://www.geogebra.org/m/zzvraxdj) verwendet werden.
+
+Die "Länge" beziehungsweise "Breite" eines Richtungsvektors $g$ der Geraden sind durch die Winkel $$
+  \varphi\in[0,2\cdot\pi)\quad\text{bzw.}\quad
+  \theta\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right]
+$$ beschrieben. Dabei wird der Winkel
+
+1. $\varphi$ als Winkel in der $x_1x_2$-Ebene ("Äquatorebene") zwischen der positiven $x_1$-Richtung / dem Vektor $e_1$ und dem 'Grundriss' des Richtungsvektors $g$ festgelegt. Orientierung bezogen auf die positive $x_3$-Richtung.
+2. $\theta$ als Winkel zwischen $g$ und dem Vektor $e_3$. Für den Winkel $\theta$ ist festgelegt $$
+  \left.\begin{array}{r} \theta>0 \\ \theta=0 \\ \theta<0 \end{array}\right\}
+  \quad\leftrightarrow\quad
+  \left\{\begin{array}{r} g\cdot e_3>0 \\ g\cdot e_3=0 \\ g\cdot e_3<0 \end{array}\right.
+$$
+
+Die (Richtung der) Drehachse $g$ kann dann vermöge $$
+  D_3(\varphi)\cdot D_2(-\theta)\cdot e_1=
+  \begin{pmatrix}
+    \cos{\varphi} & -\sin{\varphi} & 0 \\
+    \sin{\varphi} & \cos{\varphi} & 0 \\
+    0 & 0 & 1
+  \end{pmatrix}\cdot
+  \begin{pmatrix} \cos{\theta} & 0 & -\sin{\theta} \\ 0 & 1 & 0 \\ \sin{\theta} & 0 & \cos{\theta} \end{pmatrix}\cdot
+  \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}=
+  \begin{pmatrix} \cos{\varphi}\cdot\cos{\theta} \\ \sin{\varphi}\cdot\cos{\theta} \\ \sin{\theta} \end{pmatrix}
+$$ berechnet werden. Der Wechsel des Koordinatensystems ist demnach durch $$
+  B=D_3(\varphi)\cdot D_2(-\theta)
+$$ beschrieben, einer Komposition aus zwei Drehungen um die Koordinatenachsen. Der Wechsel des Koordinatensystems kann rückgängig gemacht werden durch $$
+  B^{-1}=D_2(\theta)\cdot D_3(-\varphi)
+$$ Für die Drehung um $g$ mit dem Drehwinkel $\gamma$ folgt schließlich
+$$
+  \textcolor{magenta}{D_2(\theta)\cdot D_3(-\varphi)}\cdot x'=D_1(\gamma)\cdot \textcolor{magenta}{D_2(\theta)\cdot D_3(-\varphi)}\cdot x
+$$ und nach Multiplikation mit $B$ von links $$
+  x'=\textcolor{magenta}{D_3(\varphi)\cdot D_2(-\theta)}\cdot D_1(\gamma)\cdot \textcolor{magenta}{D_2(\theta)\cdot D_3(-\varphi)}\cdot x
+$$ Hieraus folgt, dass sich eine Drehung $\rho$ um eine Gerade $g\ni O$ mit den "geographischen" Koordinaten $(\varphi,\theta)$ durch Hintereinanderausführung von Drehungen um die Koordinatenachsen des kartesischen Koordinatensystems $[O,E_1,E_2,E_3]$ darstellen lässt. Die Frage, ob die Hintereinanderausführung von Drehungen wieder eine Drehung beschreibt, wird in den Sätzen 3 und 4 in diesem Abschnitt besprochen.
+
+**Beispiel 3.** Es ist die Drehung eines Punktes $P(x_1,x_2,x_3)$ um die Ursprungsgerade $g$ mit Richtungsvektor $$
+  g=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+$$ um den Winkel $\gamma=120^\circ$ zu berechnen.
+
+Die Koordinaten $(\varphi,\theta)$ lassen sich durch räumliche Überlegungen direkt bestimmen. Da der 'Grundriss' von $g$ die Komponenten $$
+  \begin{pmatrix} \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}} & 0 \end{pmatrix}^\top
+$$ folgt unmittelbar $\varphi=\frac{\pi}{4}$. Der Winkel $\theta$ ergibt sich nach der folgenden Abbildung zu $$
+  \tan{\theta}=\frac{\sqrt{2}}{2}\quad\leftrightarrow\quad \theta=\arctan{\left(\frac{\sqrt{2}}{2}\right)}\approx0.615
+$$
+
+![Winkel der Raumdiagonale im Würfel](img/geo-bild16.png "_Fig._ Grundriss eines Würfels der Kantenlänge Eins mit umgeklappten Steigungsdreieck einer Raumdiagonale. Der Winkel $\theta$ ergibt sich als Innenwinkel mit Scheitelpunkt $O$.")
+
+Die Berechnung des Bildpunktes $P'$ eines Punktes $P(x_1,x_2,x_3)$ in allgemeiner Lage ist nachfolgend unter Benutzung der Javascript Bibliothek Algebrite ausgeführt.
+
+``` javascript
+P=[[x],[y],[z]]
+gamma0=2/3*pi
+theta0=arctan(1/2*sqrt(2))
+phi0=pi/4
+D1=[[1,0,0],[0,cos(gamma),-sin(gamma)],[0,sin(gamma),cos(gamma)]]
+D2=[[cos(theta),0,sin(theta)],[0,1,0],[-sin(theta),0,cos(theta)]]
+D3=[[cos(phi),-sin(phi),0],[sin(phi),cos(phi),0],[0,0,1]]
+inner(
+    subst(phi0,phi,D3),
+    subst(-theta0,theta,D2),
+    subst(gamma0,gamma,D1),
+    subst(theta0,theta,D2),
+    subst(-phi0,phi,D3),
+    P
+)
+```
+@Algebrite.eval
+
+Prüfen Sie die Wirkung der Drehung $\rho$ auf die Eckpunkte $$
+  \begin{array}{llll}
+    (0,0,0)\,, & (1,0,0)\,,& (1,1,0)\,,& (0,1,0) \\
+    (0,0,1)\,, & (1,0,1)\,,& (1,1,1)\,,& (0,1,1)
+  \end{array}
+$$ Begründen Sie, dass durch $\rho$ eine Symmetrieabbildung des Würfels beschrieben ist.
+
+![Drehung des Würfels](img/geo-bild17.png "_Fig._ Drehung eines Punktes $P$ in allgemeiner Lage um eine Raumdiagonale eines Würfels mit Drehwinkel $\gamma=120^\circ$.")
+
+>**Satz 3.** Jede Kongruenz $\rho:\mathcal{A}^3\to\mathcal{A}^3$ mit $$
+  \rho:x\mapsto x'=A\cdot x\,,\quad A\cdot A^\top=E\,,\quad \det{A}=1
+$$ worin $E$ die dreireihige Einheitsmatrix bezeichnet, ist eine Drehung um eine Gerade durch den Ursprung des Koordinatensystems.
+
+**Beweis.** Siehe *Gert Bär, Geometrie, Abschnitt 7.4, S.146, Satz 1.*
+
+>**Satz 4.** Die Menge aller Drehungen des dreidimensionealen affinen Raumes $\mathcal{A}^3$ um Geraden durch den Ursprung eines kartesischen Koordinatensystems bildet bezüglich der Hintereinanderausführung eine Gruppe. Diese wird mit $SO(3)$ bezeichnet.
+
+**Beweisidee.** Es reicht zu zeigen, dass die Menge der orthogonalen dreireihigen Matrizen mit Determinate Eins eine Matrixgruppe bezogen auf die Multiplikation als Verknüpfung bilden. Es gelten:
+
+1. ~~Abgeschlossenheit.~~ Sind $A$ und $B$ zwei orthogonale Matrizen mit $\det{A}=\det{B}=1$, so gilt für das Matrixprodukt $C=A\cdot B$ einerseits unter Benutzung der Rechenregeln für das Transponieren von Matrizen $$
+  (A\cdot B)^\top\cdot(A\cdot B)=B^\top\cdot A^\top\cdot A\cdot B=B^\top\cdot B=E
+$$ Anderseits folgt unter Benutzung des Produktsatzes für Determinanten $$
+  \det{(A\cdot B)}=\det{A}\cdot \det{B}=1\cdot 1=1
+$$ D. h. das Produkt $C$ ist erneut eine orthogonale Matrix mit determinante Eins.
+2. ~~Assoziativität~~
+3. ~~Neutrales Element.~~ Das neutrale Element in der Menge der orthogonalen dreireihigen Matrizen mit Determinate Eins ist die dreireihige Einheitsmatrix. Diese ist Transformationsmatrix der identischen Abbildung $\rho_{id}$.
+4. ~~Inverses Element.~~ Für alle orthogonalen dreireihigen Matrizen $A$ mit Determinate Eins existiert eine eindeutig bestimmte Matrix $$
+  A^{-1}=A^\top\quad\left(A^\top\cdot A=A\cdot A^\top=E\right)
+$$ Die Matrix $A^\top$ ist offensichtlich orthogonal und besitzt die einsichtig die Determinante Eins. $\square$
+
+**Bemerkung 5.** Im Gegensatz zur Gruppe $SO(2)$ ist die Reihenfolge der Faktoren im Matrixprodukt in $SO(3)$ im Allgemeinen nicht vertauschbar.
+
+
+Translationen
+=============
+
+Translationen $\tau$ sind bereits im Abschnitt [Algebraische Eigenschaften](#Algebraische-Eigenschaften) eingeführt worden.
+
+Jeder Punkt $P\in\mathcal{A}^d$ wird in dieselbe Richtung mit demselben Richtungssinn und Betrag verschoben. Für $d=3$ ergibt sich die Matrixdarstellung $$
+  \tau: \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \\ x_3' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}+
+  \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}
+$$ worin $a=(a_1,a_2,a_3)^\top$ den Translationsvektor beschreibt. Dessen Länge $$
+  \Vert a\Vert=\sqrt{a_1^2+a_2^2+a_3^2}
+$$ legt den Translationsbetrag fest.
+
+
+Eigenschaften
+-------------
+
+1. Die Hintereinanderausführung zweier Translationen des $d$-dimensionalen affinen Raumes ist erneut eine Translation, denn mit Translationen $$
+  \tau_1:x\mapsto x'=E\cdot x+a\,,\quad
+  \tau_2:x'\mapsto x''=E\cdot x'+b\,,\quad
+$$ mit $d$-dimensionalen Translationsvektoren $a$ und $b$ und $d$-reihiger Einheitsmatrix $E$ folgt $$
+  \tau_2\circ\tau_1:x\mapsto x''=E\cdot (E\cdot x+a)+b=E\cdot x+(a+b)
+$$ das ist eine Translation mit Translationsvektor $a+b$.
+2. Für $a=b=o$ (Nullvektor) ist die Hintereinanderausführung $\tau_2\circ\tau_1=\alpha_{id}$ die identische Abbildung.
+3. Die Hintereinanderausführung zweier Translationen des $d$-dimensionalen Raumes ist kommutativ, d. h. es gilt $$
+  \tau_2\circ\tau_1=\tau_1\circ\tau_2
+$$
+
+Nahezu analog zur Gruppeneigenschaft der Drehungen in $SO(3)$ lässt sich zeigen
+
+>**Satz 5.** Die Menge der Translationen des $\mathcal{A}^d$ bildet bezüglich der Hintereinanderausführung eine kommutative Gruppe, die mit $\mathbb{R}^d$ bezeichnet wird.[^6]
+
+
+Sicher gewusst?
+===============
+
+...
 
 [^1]: Diese Aussage bezieht sich auf ein kartesisches Koordinatensystem im dreidimensionalen affinen Raum, lässt sich jedoch allgemein für affine Räume der Dimension $d\geq2$ formulieren: Zeigen Daumen, Zeigefinger beziehungsweise Mittelfinger der ~~rechten~~ Hand in Richtung der ersten, zweiten beziehungsweise dritten Achse eines kartesischen Koordinatensystems, so liegt ein räumliches, ~~rechts~~orientiertes Koordinatensystem vor. Entsprechend lässt sich ein linksgerichtetes kartesisches Koordinatensystem festlegen.
 
 [^2]: Die reelle Sinusfunktion ist eine ungerade Funktion, die reelle Kosinusfunktion ist hingegen gerade. Siehe [Gerade und ungerade Funktion](https://de.wikipedia.org/wiki/Gerade_und_ungerade_Funktionen).
+
+[^3]: Bei einer ebenen Drehung wird das Drehzentrum durch seine kartesischen Koordinaten festgelegt. Zur Festlegung der Drehachse einer räumlichen Drehung sind beispielsweise die kartesischen (räumlichen) Koordinaten eines Punktes der Drehachse sowie die drei Komponenten eines Richtungsvektors anzugeben.
+
+[^4]: Die Angabe eines Winkels im Raum benötigt den Bezug auf eine Orientierung der Trägerebene des Winkels. Zur räumlichen Vorstellung der Orientierung des Drehwinkels kann helfen, den Daumen der rechten Hand in Richtung der orientierten Drehachse zu richten, während die gekrümmten Finger den orientierten Winkel anzeigen.
+
+[^5]: Die "geographischen" Koordinaten $(\varphi,\theta)$ können alternativ aus dem Ansatz $$
+  \frac{1}{\sqrt{3}}\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}=
+  \begin{pmatrix} \cos{\varphi}\cdot\cos{\theta} \\ \sin{\varphi}\cdot\cos{\theta} \\ \sin{\theta} \end{pmatrix}
+$$ berechnet werden. Hierfür ist allerdings der Vektor $g$ zu normieren, da die rechte Seite für jede Wahl von $(\varphi,\theta)$ ein Vektor der Länge Eins ist: Der Vektor $g$ besitzt die Länge $\Vert g\Vert=\sqrt{3}$.
+
+[^6]: Die Hintereinanderausführung in $\mathbb{R}^d$ kann durch eine Vektoraddition beschrieben werden.
