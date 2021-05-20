@@ -1994,11 +1994,9 @@ $$ mit den Eigenschaften
 >
 > mit $i\in\{1,...,d\}$ und $j\in\{1,...,d\}$ heißt **orthogonal**.
 
-**Bemerkung 1.** Die Definition orthogonaler Matrizen schließt allgemeiner auch jene quadratischen Matrizen ein, die neben Eigenschaft 1 die Eigenschaft $$
-  s_i\cdot s_i=s_i^2=e>0\quad\forall\;i
-$$ erfüllen. D. h. die Spaltenvektoren besitzen alle die gleiche Länge $e$. Aus beiden Eigenschaften folgt durch direkt $$
+**Bemerkung 1.** Aus beiden Eigenschaften folgt äquivalent $$
   A\cdot A^\top=A^\top\cdot A=E\quad\leftrightarrow\quad A^\top=A^{-1}
-$$ als äquivalente Definition orthogonaler Matrizen, worin $E=\mathrm{diag}{(1,...,1)}$ die $d$-reihige Einheitsmatrix bezeichnet.
+$$ worin $E=\mathrm{diag}{(1,...,1)}$ die $d$-reihige Einheitsmatrix bezeichnet. Mit Hilfe dieser Matrixgleichung lässt sich eine Matrix auf Orthogonalität prüfen.
 
 Für eine orthogonale Matrix $B$ sowie einen Skalar $\mu\in\mathbb{R}\setminus\{0\}$ und die $\mu$-fache Matrix $A=\mu\cdot B$ berechnen sich die affinen Bilder zweier beliebiger Vektoren $x=(x_1,...,x_d)^\top$ und $y=(y_1,...,y_d)^\top$ unter der Affinität $$
   \alpha:x\mapsto x'=A\cdot x\,,\quad\det{A}\not=0
@@ -2261,7 +2259,7 @@ $$ worin $E$ die dreireihige Einheitsmatrix bezeichnet, ist eine Drehung um eine
 $$ Anderseits folgt unter Benutzung des Produktsatzes für Determinanten $$
   \det{(A\cdot B)}=\det{A}\cdot \det{B}=1\cdot 1=1
 $$ D. h. das Produkt $C$ ist erneut eine orthogonale Matrix mit determinante Eins.
-2. ~~Assoziativität~~
+2. ~~Assoziativität~~ Klar.
 3. ~~Neutrales Element.~~ Das neutrale Element in der Menge der orthogonalen dreireihigen Matrizen mit Determinate Eins ist die dreireihige Einheitsmatrix. Diese ist Transformationsmatrix der identischen Abbildung $\rho_{id}$.
 4. ~~Inverses Element.~~ Für alle orthogonalen dreireihigen Matrizen $A$ mit Determinate Eins existiert eine eindeutig bestimmte Matrix $$
   A^{-1}=A^\top\quad\left(A^\top\cdot A=A\cdot A^\top=E\right)
@@ -2305,10 +2303,60 @@ Nahezu analog zur Gruppeneigenschaft der Drehungen in $SO(3)$ lässt sich zeigen
 >**Satz 5.** Die Menge der Translationen des $\mathcal{A}^d$ bildet bezüglich der Hintereinanderausführung eine kommutative Gruppe, die mit $\mathbb{R}^d$ bezeichnet wird.[^6]
 
 
+Schraubungen
+============
+
+Eine Schraubung des dreidimensionalen Raumes entsteht durch Hintereinanderausführung einer Drehung um eine Achse $a$ und Translation entlang $a$.
+
+Ein Beispiel für eine kontinuierliche Schraubung um die $x_3$-Achse eines kartesischen Koordinatensystems kann unter [Schraublinie](https://www.geogebra.org/m/dWVkRc4Q) betrachtet werden.
+
+**Beispiel 4.** Zu berechnen ist die Schraubung um die $x_1$-Achse eines kartesischen Koordinatensystems mit Schraubwinkel $\varphi\in[0,2\cdot\pi)$ und Schubvektor $a=p\cdot e_1$, $p\in\mathbb{R}$.
+
+
 Sicher gewusst?
 ===============
 
-...
+**Frage 1.** Gegeben ist eine quadratische Matrix der Form $$
+  A=\mu\cdot\begin{pmatrix} \sqrt{2} & 0 & 0 \\ 0 & 1 & 1 \\ 0 & -1 & 1 \end{pmatrix}
+$$ mit Parameter $\mu\in\mathbb{R}$.
+
+Geben Sie alle Werte $\mu$ an, für die $A$ Transformationsmatrix einer Kongruenz ist.
+
+[[ ]] $\mu=-\sqrt{2}$
+[[X]] $\mu=\frac{1}{2}\cdot\sqrt{2}$
+[[X]] $\mu=-\frac{1}{\sqrt{2}}$
+[[ ]] Es gibt keinen Parameterwert $\mu$, so dass $A$ die gesuchte Eigenschaft besitzt.
+[[ ]] $\mu=\sqrt{2}$
+[[?]] Berechnen Sie das Produkt $A\cdot A^\top$. Beachten Sie den skalaren Faktor $\mu$.
+****************************************
+
+$$
+  A\cdot A^\top=\mu^2\cdot\begin{pmatrix} \sqrt{2} & 0 & 0 \\ 0 & 1 & 1 \\ 0 & -1 & 1 \end{pmatrix}\cdot\begin{pmatrix} \sqrt{2} & 0 & 0 \\ 0 & 1 & -1 \\ 0 & 1 & 1 \end{pmatrix}=\mu^2\cdot\begin{pmatrix} 2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 2 \end{pmatrix}
+$$ Damit ist $A$ eine orthogonale Matrix genau dann, wenn $\mu^2\cdot 2=1$, d. h. $\mu=\pm\frac{1}{\sqrt{2}}$.
+
+****************************************
+
+**Frage 2.** Gegeben ist ein gleichseitiges Dreieck mit Mittelpunkt im Ursprung $O$ eines kartesischen Koordinatensystems.
+
+Geben Sie jene Transformationsmatrizen $A_i$ an, die eine Drehung des Dreiecks um $O$ auf sich beschreiben.
+
+[[ ]] $$ A_1=\begin{pmatrix} \frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2} \\ \frac{1}{2} & \frac{1}{2}\cdot\sqrt{3}  \end{pmatrix} $$
+[[X]] $$ A_2=\begin{pmatrix} -\frac{1}{2} & -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2}  \end{pmatrix} $$
+[[ ]] $$ A_3=\begin{pmatrix} \frac{1}{2} & -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2}\cdot\sqrt{3} & \frac{1}{2}  \end{pmatrix} $$
+[[X]] $$ A_4=\begin{pmatrix} -\frac{1}{2} & \frac{1}{2}\cdot\sqrt{3} \\ -\frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2}  \end{pmatrix} $$
+[[?]] Die Transformationmatrix zur Beschreibung einer Drehung um den Ursprung des kartesischen Koordinatensystems in $\mathbb{R}^2$ ist $$
+  A=\begin{pmatrix} \cos{\varphi} & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi} \end{pmatrix}
+$$ worin $\varphi\in[0,2\cdot\pi)$ gewählt werden kann.
+****************************************
+
+Drehungen des Dreiecks um dessen Mittelpunkt mit Drehwinkeln $\frac{2}{3}\cdot\pi$, $\frac{4}{3}\cdot\pi$ sowie $0$ (innerhalb des Grundintervalls) bilden da gleichseitige Dreieck auf sich ab. Es berechnen sich $$
+  \sin{\left(\frac{2}{3}\cdot\pi\right)}=\frac{1}{2}\cdot\sqrt{3}\,,\quad
+  \cos{\left(\frac{2}{3}\cdot\pi\right)}=-\frac{1}{2}\,,\quad
+  \sin{\left(\frac{4}{3}\cdot\pi\right)}=-\frac{1}{2}\cdot\sqrt{3}\,,\quad
+  \cos{\left(\frac{4}{3}\cdot\pi\right)}=-\frac{1}{2}
+$$ Neben der Einheitsmatrix beschreiben die Matrizen $A_2$ und $A_4$ gesuchten Drehungen.
+
+****************************************
 
 [^1]: Diese Aussage bezieht sich auf ein kartesisches Koordinatensystem im dreidimensionalen affinen Raum, lässt sich jedoch allgemein für affine Räume der Dimension $d\geq2$ formulieren: Zeigen Daumen, Zeigefinger beziehungsweise Mittelfinger der ~~rechten~~ Hand in Richtung der ersten, zweiten beziehungsweise dritten Achse eines kartesischen Koordinatensystems, so liegt ein räumliches, ~~rechts~~orientiertes Koordinatensystem vor. Entsprechend lässt sich ein linksgerichtetes kartesisches Koordinatensystem festlegen.
 
