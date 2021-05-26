@@ -2036,6 +2036,47 @@ Einfache Beispiele für orientierungserhaltende Kongruenzen sind *Translationen*
 
 Beispiele für orientierungsumkehrende Kongruenzen sind *Spiegelungen* der Ebene an einer Geraden bzw. Spiegelungen des dreidimensionalen Raumes an einer Ebene. Ein kartesisches Koordinatensystem wird hierbei unter Umkehr seiner Orientierung kongruent verlagert.
 
+[^1]: Diese Aussage bezieht sich auf ein kartesisches Koordinatensystem im dreidimensionalen affinen Raum, lässt sich jedoch allgemein für affine Räume der Dimension $d\geq2$ formulieren: Zeigen Daumen, Zeigefinger beziehungsweise Mittelfinger der ~~rechten~~ Hand in Richtung der ersten, zweiten beziehungsweise dritten Achse eines kartesischen Koordinatensystems, so liegt ein räumliches, ~~rechts~~orientiertes Koordinatensystem vor. Entsprechend lässt sich ein linksgerichtetes kartesisches Koordinatensystem festlegen.
+
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Gegeben ist eine quadratische Matrix der Form $$
+  A=\mu\cdot\begin{pmatrix} \sqrt{2} & 0 & 0 \\ 0 & 1 & 1 \\ 0 & -1 & 1 \end{pmatrix}
+$$ mit Parameter $\mu\in\mathbb{R}$.
+
+Geben Sie alle Werte $\mu$ an, für die $A$ Transformationsmatrix einer Kongruenz ist.
+
+[[ ]] $\mu=-\sqrt{2}$
+[[X]] $\mu=\frac{1}{2}\cdot\sqrt{2}$
+[[X]] $\mu=-\frac{1}{\sqrt{2}}$
+[[ ]] Es gibt keinen Parameterwert $\mu$, so dass $A$ die gesuchte Eigenschaft besitzt.
+[[ ]] $\mu=\sqrt{2}$
+[[?]] Berechnen Sie das Produkt $A\cdot A^\top$. Beachten Sie den skalaren Faktor $\mu$.
+****************************************
+
+$$
+  A\cdot A^\top=\mu^2\cdot\begin{pmatrix} \sqrt{2} & 0 & 0 \\ 0 & 1 & 1 \\ 0 & -1 & 1 \end{pmatrix}\cdot\begin{pmatrix} \sqrt{2} & 0 & 0 \\ 0 & 1 & -1 \\ 0 & 1 & 1 \end{pmatrix}=\mu^2\cdot\begin{pmatrix} 2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 2 \end{pmatrix}
+$$ Damit ist $A$ eine orthogonale Matrix genau dann, wenn $\mu^2\cdot 2=1$, d. h. $\mu=\pm\frac{1}{\sqrt{2}}$.
+
+****************************************
+
+**Frage 2.** Welche der nachstehenden Matrizen $A$ bzw. $B$ ist Transformationsmatrix einer Ähnlichkeit?
+
+[( )] $$ A=\begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix} $$
+[(X)] $$ B=\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} $$
+[[?]] Die Wirkung der bezüglich $A$ bzw. $B$ beschriebenen Affinität auf einen Kreis $k$ ist in der folgenden Abbildung dargestellt. ![test](img/geo-bild18.png)
+****************************************
+
+Die Spaltenvektoren der Matrix $A$ sind orthogonal, jedoch besitzen sie verschiedene Längen. Im Sinne der Definition orthogonaler Matrizen ist $A$ weder orthogonal noch ein skalares Vielfaches einer orthogonalen Matrix, beschreibt demnach ~~keine~~ Ähnlichkeit. Die Matrix $A$ beschreibt eine Skalierung, siehe Abschnitt [Spezielle Affinitäten](#Spezielle-Affinitäten).
+
+Für die Matrix $B$ gilt $B=2\cdot E$ mit zweireihiger Einheitsmatrix $E$. Demnach beschreibt $B$ nach Satz 1 eine Ähnlichkeit.
+
+****************************************
+
+
+### Drehungen
 
 Drehungen in der Ebene
 ======================
@@ -2060,9 +2101,9 @@ $$ in der Basis $[e_1,e_2]$ zu bestimmen. Es ergeben sich unmittelbar $$
   s_2=e_2'=\begin{pmatrix} -\sin{\varphi} \\ \cos{\varphi} \end{pmatrix}
 $$ und somit $$
   A=\begin{pmatrix} \cos{\varphi} & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi} \end{pmatrix}\,,\quad \varphi\in[-\pi,\pi)
-$$ Die Transformationsmatrix $A$ wird **Drehmatrix** genannt und ist orthogonal im Sinne von Definition 2. Außerdem gilt $\det{A}=1$.
+$$ Die Transformationsmatrix $A$ wird **Drehmatrix** genannt und ist orthogonal im Sinne von Definition 2 im Abschnitt [Kongruenzen und Ähnlichkeiten](#Kongruenzen-und-Ähnlichkeiten). Außerdem gilt $\det{A}=1$.
 
-**Bemerkung 3.** Drehmatrizen mit Drehwinkeln $\varphi$ und $\varphi+2\cdot\pi$ beschreiben dieselbe Drehung. Insofern ist es für manche Anwendungen ausreichend, sich auf Winkel $\varphi\in[-\pi,\pi)$ zu beziehen.
+**Bemerkung 1.** Drehmatrizen mit Drehwinkeln $\varphi$ und $\varphi+2\cdot\pi$ beschreiben dieselbe Drehung. Insofern ist es für manche Anwendungen ausreichend, sich auf Winkel $\varphi\in[-\pi,\pi)$ zu beziehen.
 
 Eine Herleitung der Transformationsmatrix für Drehungen der Ebene um den Koordinatenursprung ist im nachstehenden Video erläutert.
 
@@ -2074,7 +2115,7 @@ Eigenschaften
 
 Zur Bestimmung der ~~Umkehrabbildung~~ einer Drehung der Ebene um den Koordinatenursprung $O$ mit Drehwinkel $\varphi$ ist die Drehmatrix zu transponieren. Es gilt $$
   \alpha^{-1}:x'\mapsto x=A^{-1}\cdot x'=A^\top\cdot x'
-$$ worin wegen der Beziehungen[^2] $\cos{\varphi}=\cos{(-\varphi)}$ und $\sin{\varphi}=-\sin{(-\varphi)}$ für beliebige Winkel $\varphi\in\mathbb{R}$ gilt $$
+$$ worin wegen der Beziehungen[^1] $\cos{\varphi}=\cos{(-\varphi)}$ und $\sin{\varphi}=-\sin{(-\varphi)}$ für beliebige Winkel $\varphi\in\mathbb{R}$ gilt $$
   A^\top=
   \begin{pmatrix} \cos{\varphi} & \sin{\varphi} \\ -\sin{\varphi} & \cos{\varphi} \end{pmatrix}=
   \begin{pmatrix} \cos{(-\varphi)} & -\sin{(-\varphi)} \\ \sin{(-\varphi)} & \cos{(-\varphi)} \end{pmatrix}
@@ -2101,7 +2142,7 @@ $$ die identische Abbildung $\alpha_{id}$.
 
 Zusammenfassend ergibt sich aus den genannten Eigenschaften
 
->**Satz 2.** Die Menge der Drehungen $\rho$ der Ebene um den Koordinatenursprung eines kartesischen, rechtsgerichteten  Koordinatensystems mit reellem Drehwinkel bildet bezüglich der Hintereinanderausführung eine Gruppe, die $SO(2)$ genannt wird.
+>**Satz 1.** Die Menge der Drehungen $\rho$ der Ebene um den Koordinatenursprung eines kartesischen, rechtsgerichteten  Koordinatensystems mit reellem Drehwinkel bildet bezüglich der Hintereinanderausführung eine Gruppe, die $SO(2)$ genannt wird.
 
 **Beispiel 2.** Untergruppen von $SO(2)$ sind die Drehungen mit Drehwinkeln $$
   \varphi_k=k\cdot\frac{2\cdot\pi}{n}\,,\quad k\in\{1,2,...,n\}
@@ -2118,7 +2159,7 @@ Drehungen im dreidimensionalen Raum
 Drehung um die Koordinatenachsen
 --------------------------------
 
-Im dreidimensionalen Raum können Drehungen um Geraden ausgeführt werden, für deren Beschreibung mehr Freiheitsgrade existieren.[^3]
+Im dreidimensionalen Raum können Drehungen um Geraden ausgeführt werden, für deren Beschreibung mehr Freiheitsgrade existieren.[^2]
 
 Zum Beispiel eine Drehung $\rho$ um die $x_3$-Achse des kartesischen Koordinatensystems mit Drehwinkel $\varphi\in[-\pi,\pi)$.
 
@@ -2158,10 +2199,10 @@ Die Drehmatrix $D_3$ ist eine orthogonale Matrix, da gilt $$
   \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}
 $$ Außerdem gilt $\det{D_3}=1$. Dies bedeutet, dass die Drehung eine orientierungserhaltende Kongruenz ist.
 
-**Bemerkung 4.** Bei Drehung um die $x_1$-Achse beziehungsweise um die $x_2$-Achse besitzt die Drehmatrix die Gestalt $$
+**Bemerkung 2.** Bei Drehung um die $x_1$-Achse beziehungsweise um die $x_2$-Achse besitzt die Drehmatrix die Gestalt $$
   D_1=\begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos{\varphi} & -\sin{\varphi} \\ 0 & \sin{\varphi} & \cos{\varphi} \end{pmatrix}\quad\text{bzw.}\quad
   D_2=\begin{pmatrix} \cos{\varphi} & 0 & \sin{\varphi} \\ 0 & 1 & 0 \\ -\sin{\varphi} & 0 & \cos{\varphi} \end{pmatrix}
-$$ worin $\varphi\in[-\pi,\pi)$ den Drehwinkel bezüglich der in positiver Richtung der Koordinatenachse orientierten Drehachse entspricht.[^4]
+$$ worin $\varphi\in[-\pi,\pi)$ den Drehwinkel bezüglich der in positiver Richtung der Koordinatenachse orientierten Drehachse entspricht.[^3]
 
 
 Drehung um Achsen durch den Koordinatenursprung
@@ -2175,11 +2216,11 @@ Die "Länge" beziehungsweise "Breite" eines Richtungsvektors $g$ der Geraden sin
 $$ beschrieben. Dabei wird der Winkel
 
 1. $\varphi$ als Winkel in der $x_1x_2$-Ebene ("Äquatorebene") zwischen der positiven $x_1$-Richtung / dem Vektor $e_1$ und dem 'Grundriss' des Richtungsvektors $g$ festgelegt. Orientierung bezogen auf die positive $x_3$-Richtung.
-2. $\theta$ als Winkel zwischen $g$ und dem Vektor $e_3$. Für den Winkel $\theta$ ist festgelegt $$
+2. $\theta$ als Winkel zwischen $g$ und der Ebene $x_3=0$. Für den Winkel $\theta$ ist festgelegt $$
   \left.\begin{array}{r} \theta>0 \\ \theta=0 \\ \theta<0 \end{array}\right\}
   \quad\leftrightarrow\quad
   \left\{\begin{array}{r} g\cdot e_3>0 \\ g\cdot e_3=0 \\ g\cdot e_3<0 \end{array}\right.
-$$
+$$ worin $e_3=(1,0,0)^\top$ einen Normalenvektor der Ebene $x_3=0$ bezeichnet.   
 
 Die (Richtung der) Drehachse $g$ kann dann vermöge $$
   D_3(\varphi)\cdot D_2(-\theta)\cdot e_1=
@@ -2200,14 +2241,14 @@ $$
   \textcolor{magenta}{D_2(\theta)\cdot D_3(-\varphi)}\cdot x'=D_1(\gamma)\cdot \textcolor{magenta}{D_2(\theta)\cdot D_3(-\varphi)}\cdot x
 $$ und nach Multiplikation mit $B$ von links $$
   x'=\textcolor{magenta}{D_3(\varphi)\cdot D_2(-\theta)}\cdot D_1(\gamma)\cdot \textcolor{magenta}{D_2(\theta)\cdot D_3(-\varphi)}\cdot x
-$$ Hieraus folgt, dass sich eine Drehung $\rho$ um eine Gerade $g\ni O$ mit den "geographischen" Koordinaten $(\varphi,\theta)$ durch Hintereinanderausführung von Drehungen um die Koordinatenachsen des kartesischen Koordinatensystems $[O,E_1,E_2,E_3]$ darstellen lässt. Die Frage, ob die Hintereinanderausführung von Drehungen wieder eine Drehung beschreibt, wird in den Sätzen 3 und 4 in diesem Abschnitt besprochen.
+$$ Hieraus folgt, dass sich eine Drehung $\rho$ um eine Gerade $g\ni O$ mit den "geographischen" Koordinaten $(\varphi,\theta)$ durch Hintereinanderausführung von Drehungen um die Koordinatenachsen des kartesischen Koordinatensystems $[O,E_1,E_2,E_3]$ darstellen lässt. Die Frage, ob die Hintereinanderausführung von Drehungen wieder eine Drehung beschreibt, wird in den Sätzen 2 und 3 in diesem Abschnitt besprochen.
 
 **Beispiel 3.** Es ist die Drehung eines Punktes $P(x_1,x_2,x_3)$ um die Ursprungsgerade $g$ mit Richtungsvektor $$
   g=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
 $$ um den Winkel $\gamma=120^\circ$ zu berechnen.
 
-Die Koordinaten $(\varphi,\theta)$ lassen sich durch räumliche Überlegungen direkt bestimmen. Da der 'Grundriss' von $g$ die Komponenten $$
-  \begin{pmatrix} \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}} & 0 \end{pmatrix}^\top
+Die Koordinaten $(\varphi,\theta)$ lassen sich durch räumliche Überlegungen direkt bestimmen.[^4] Da der 'Grundriss' von $g$ die Komponenten $$
+  \begin{pmatrix} 1 & 1 & 0 \end{pmatrix}^\top
 $$ folgt unmittelbar $\varphi=\frac{\pi}{4}$. Der Winkel $\theta$ ergibt sich nach der folgenden Abbildung zu $$
   \tan{\theta}=\frac{\sqrt{2}}{2}\quad\leftrightarrow\quad \theta=\arctan{\left(\frac{\sqrt{2}}{2}\right)}\approx0.615
 $$
@@ -2244,29 +2285,96 @@ $$ Begründen Sie, dass durch $\rho$ eine Symmetrieabbildung des Würfels beschr
 
 ![Drehung des Würfels](img/geo-bild17.png "_Fig._ Drehung eines Punktes $P$ in allgemeiner Lage um eine Raumdiagonale eines Würfels mit Drehwinkel $\gamma=120^\circ$.")
 
->**Satz 3.** Jede Kongruenz $\rho:\mathcal{A}^3\to\mathcal{A}^3$ mit $$
+>**Satz 2.** Jede Kongruenz $\rho:\mathcal{A}^3\to\mathcal{A}^3$ mit $$
   \rho:x\mapsto x'=A\cdot x\,,\quad A\cdot A^\top=E\,,\quad \det{A}=1
 $$ worin $E$ die dreireihige Einheitsmatrix bezeichnet, ist eine Drehung um eine Gerade durch den Ursprung des Koordinatensystems.
 
 **Beweis.** Siehe *Gert Bär, Geometrie, Abschnitt 7.4, S.146, Satz 1.*
 
->**Satz 4.** Die Menge aller Drehungen des dreidimensionealen affinen Raumes $\mathcal{A}^3$ um Geraden durch den Ursprung eines kartesischen Koordinatensystems bildet bezüglich der Hintereinanderausführung eine Gruppe. Diese wird mit $SO(3)$ bezeichnet.
+>**Satz 3.** Die Menge aller Drehungen des dreidimensionealen affinen Raumes $\mathcal{A}^3$ um Geraden durch den Ursprung eines kartesischen Koordinatensystems bildet bezüglich der Hintereinanderausführung eine Gruppe. Diese wird mit $SO(3)$ bezeichnet.
 
 **Beweisidee.** Es reicht zu zeigen, dass die Menge der orthogonalen dreireihigen Matrizen mit Determinate Eins eine Matrixgruppe bezogen auf die Multiplikation als Verknüpfung bilden. Es gelten:
 
-1. ~~Abgeschlossenheit.~~ Sind $A$ und $B$ zwei orthogonale Matrizen mit $\det{A}=\det{B}=1$, so gilt für das Matrixprodukt $C=A\cdot B$ einerseits unter Benutzung der Rechenregeln für das Transponieren von Matrizen $$
+1. ~~Abgeschlossenheit~~. Sind $A$ und $B$ zwei orthogonale Matrizen mit $\det{A}=\det{B}=1$, so gilt für das Matrixprodukt $C=A\cdot B$ einerseits unter Benutzung der Rechenregeln für das Transponieren von Matrizen $$
   (A\cdot B)^\top\cdot(A\cdot B)=B^\top\cdot A^\top\cdot A\cdot B=B^\top\cdot B=E
 $$ Anderseits folgt unter Benutzung des Produktsatzes für Determinanten $$
   \det{(A\cdot B)}=\det{A}\cdot \det{B}=1\cdot 1=1
 $$ D. h. das Produkt $C$ ist erneut eine orthogonale Matrix mit determinante Eins.
-2. ~~Assoziativität~~ Klar.
-3. ~~Neutrales Element.~~ Das neutrale Element in der Menge der orthogonalen dreireihigen Matrizen mit Determinate Eins ist die dreireihige Einheitsmatrix. Diese ist Transformationsmatrix der identischen Abbildung $\rho_{id}$.
-4. ~~Inverses Element.~~ Für alle orthogonalen dreireihigen Matrizen $A$ mit Determinate Eins existiert eine eindeutig bestimmte Matrix $$
+2. ~~Assoziativität~~. Klar.
+3. ~~Neutrales Element~~. Das neutrale Element in der Menge der orthogonalen dreireihigen Matrizen mit Determinate Eins ist die dreireihige Einheitsmatrix $E$. Diese ist Transformationsmatrix der identischen Abbildung $\rho_{id}$.
+4. ~~Inverses Element~~. Für alle orthogonalen dreireihigen Matrizen $A$ mit Determinate Eins existiert eine eindeutig bestimmte Matrix $$
   A^{-1}=A^\top\quad\left(A^\top\cdot A=A\cdot A^\top=E\right)
 $$ Die Matrix $A^\top$ ist offensichtlich orthogonal und besitzt die einsichtig die Determinante Eins. $\square$
 
-**Bemerkung 5.** Im Gegensatz zur Gruppe $SO(2)$ ist die Reihenfolge der Faktoren im Matrixprodukt in $SO(3)$ im Allgemeinen nicht vertauschbar.
+**Bemerkung 3.** Im Gegensatz zur Gruppe $SO(2)$ ist die Reihenfolge der Faktoren im Matrixprodukt in $SO(3)$ im Allgemeinen nicht vertauschbar.
 
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Gegeben ist ein gleichseitiges Dreieck mit Mittelpunkt im Ursprung $O$ eines kartesischen Koordinatensystems.
+
+Geben Sie jene Transformationsmatrizen $A_i$ an, die eine Drehung des Dreiecks um $O$ auf sich beschreiben.
+
+[[ ]] $$ A_1=\begin{pmatrix} \frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2} \\ \frac{1}{2} & \frac{1}{2}\cdot\sqrt{3}  \end{pmatrix} $$
+[[X]] $$ A_2=\begin{pmatrix} -\frac{1}{2} & -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2}  \end{pmatrix} $$
+[[ ]] $$ A_3=\begin{pmatrix} \frac{1}{2} & -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2}\cdot\sqrt{3} & \frac{1}{2}  \end{pmatrix} $$
+[[X]] $$ A_4=\begin{pmatrix} -\frac{1}{2} & \frac{1}{2}\cdot\sqrt{3} \\ -\frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2}  \end{pmatrix} $$
+[[?]] Die Transformationmatrix zur Beschreibung einer Drehung um den Ursprung des kartesischen Koordinatensystems in $\mathbb{R}^2$ ist $$
+  A=\begin{pmatrix} \cos{\varphi} & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi} \end{pmatrix}
+$$ worin $\varphi\in[0,2\cdot\pi)$ gewählt werden kann.
+****************************************
+
+Drehungen des Dreiecks um dessen Mittelpunkt mit Drehwinkeln $\frac{2}{3}\cdot\pi$, $\frac{4}{3}\cdot\pi$ sowie $0$ (innerhalb des Grundintervalls) bilden da gleichseitige Dreieck auf sich ab. Es berechnen sich $$
+  \sin{\left(\frac{2}{3}\cdot\pi\right)}=\frac{1}{2}\cdot\sqrt{3}\,,\quad
+  \cos{\left(\frac{2}{3}\cdot\pi\right)}=-\frac{1}{2}\,,\quad
+  \sin{\left(\frac{4}{3}\cdot\pi\right)}=-\frac{1}{2}\cdot\sqrt{3}\,,\quad
+  \cos{\left(\frac{4}{3}\cdot\pi\right)}=-\frac{1}{2}
+$$ Neben der Einheitsmatrix beschreiben die Matrizen $A_2$ und $A_4$ gesuchten Drehungen.
+
+****************************************
+
+**Frage 2.** Berechnen Sie für die Richtung $$
+  g=\begin{pmatrix} 0 \\ 1 \\ -1 \end{pmatrix}
+  $$ die "geographischen" Koordinaten $(\varphi,\theta)$ mit $$
+  \varphi\in[0,2\cdot\pi)\quad\text{und}\quad\theta\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right]
+$$
+
+[( )] $$ (\varphi,\theta)=\left(\frac{\pi}{2},0\right) $$
+[(X)] $$ (\varphi,\theta)=\left(\frac{\pi}{2},-\frac{\pi}{4}\right) $$
+[( )] $$ (\varphi,\theta)=\left(\frac{3}{2}\cdot\pi,-\frac{\pi}{4}\right) $$
+[(X)] $$ (\varphi,\theta)=\left(\frac{\pi}{2},\frac{\pi}{4}\right) $$
+[[?]] Die "geographischen" Koordinaten $(\varphi,\theta)$ bestimmen einen Vektor $$
+  \begin{pmatrix} \cos{\varphi}\cdot\cos{\theta} \\ \sin{\varphi}\cdot\cos{\theta} \\ \sin{\theta} \end{pmatrix}
+$$ der Länge Eins.
+****************************************
+
+Der Vektor $g$ ist zunächst zu normieren $$
+  g=\Vert g\Vert\cdot g_0\quad\text{mit}\quad \Vert d\Vert=\sqrt{2}\quad\text{und}\quad
+  g_0=\begin{pmatrix} 0 \\ \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \end{pmatrix}
+$$ Aus dem Ansatz $$
+  g_0=\begin{pmatrix} 0 \\ \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \end{pmatrix}=\begin{pmatrix} \cos{\varphi}\cdot\cos{\theta} \\ \sin{\varphi}\cdot\cos{\theta} \\ \sin{\theta} \end{pmatrix}
+$$ folgen in den angegebenen Intervallen $$
+  \sin{\theta}=-\frac{1}{\sqrt{2}}\quad\rightarrow\quad \theta=-\frac{\pi}{4}
+$$ sowie $$
+  \left(\cos{\varphi}=0\;\wedge\; \sin{\varphi}\cdot\cos{\theta}=\frac{1}{\sqrt{2}}\right)\quad\rightarrow\quad \varphi=\frac{\pi}{2}
+$$
+
+****************************************
+
+[^1]: Die reelle Sinusfunktion ist eine ungerade Funktion, die reelle Kosinusfunktion ist hingegen gerade. Siehe [Gerade und ungerade Funktion](https://de.wikipedia.org/wiki/Gerade_und_ungerade_Funktionen).
+
+[^2]: Bei einer ebenen Drehung wird das Drehzentrum durch seine kartesischen Koordinaten festgelegt. Zur Festlegung der Drehachse einer räumlichen Drehung sind beispielsweise die kartesischen (räumlichen) Koordinaten eines Punktes der Drehachse sowie die drei Komponenten eines Richtungsvektors anzugeben.
+
+[^3]: Die Angabe eines Winkels im Raum benötigt den Bezug auf eine Orientierung der Trägerebene des Winkels. Zur räumlichen Vorstellung der Orientierung des Drehwinkels kann helfen, den Daumen der rechten Hand in Richtung der orientierten Drehachse zu richten, während die gekrümmten Finger den orientierten Winkel anzeigen.
+
+[^4]: Die "geographischen" Koordinaten $(\varphi,\theta)$ können alternativ aus dem Ansatz $$
+  \frac{1}{\sqrt{3}}\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}=
+  \begin{pmatrix} \cos{\varphi}\cdot\cos{\theta} \\ \sin{\varphi}\cdot\cos{\theta} \\ \sin{\theta} \end{pmatrix}
+$$ berechnet werden. Hierfür ist allerdings der Vektor $g$ zu normieren, da die rechte Seite für jede Wahl von $(\varphi,\theta)$ ein Vektor der Länge Eins ist: Der Vektor $g$ besitzt die Länge $\Vert g\Vert=\sqrt{3}$.
+
+
+### Translationen und Schraubungen
 
 Translationen
 =============
@@ -2300,75 +2408,438 @@ $$
 
 Nahezu analog zur Gruppeneigenschaft der Drehungen in $SO(3)$ lässt sich zeigen
 
->**Satz 5.** Die Menge der Translationen des $\mathcal{A}^d$ bildet bezüglich der Hintereinanderausführung eine kommutative Gruppe, die mit $\mathbb{R}^d$ bezeichnet wird.[^6]
+>**Satz 1.** Die Menge der Translationen des $\mathcal{A}^d$ bildet bezüglich der Hintereinanderausführung eine kommutative Gruppe, die mit $\mathbb{R}^d$ bezeichnet wird.[^1]
 
 
 Schraubungen
 ============
 
-Eine Schraubung des dreidimensionalen Raumes entsteht durch Hintereinanderausführung einer Drehung um eine Achse $a$ und Translation entlang $a$.
+Eine Schraubung $\kappa$ des dreidimensionalen Raumes entsteht durch Hintereinanderausführung einer Drehung $\rho$ um eine Achse $g$ mit Drehwinkel $\varphi$ und Translation $\tau$ entlang $a$ mit Betrag $|p|$ mit $p\in\mathbb{R}$ $$
+  \kappa=\tau(g,p)\circ\rho(g,\varphi)
+$$
 
 Ein Beispiel für eine kontinuierliche Schraubung um die $x_3$-Achse eines kartesischen Koordinatensystems kann unter [Schraublinie](https://www.geogebra.org/m/dWVkRc4Q) betrachtet werden.
 
-**Beispiel 4.** Zu berechnen ist die Schraubung um die $x_1$-Achse eines kartesischen Koordinatensystems mit Schraubwinkel $\varphi\in[0,2\cdot\pi)$ und Schubvektor $a=p\cdot e_1$, $p\in\mathbb{R}$.
+**Beispiel.** Zu berechnen ist die Schraubung um die $x_1$-Achse eines kartesischen Koordinatensystems mit Drehwinkel $\varphi\in[0,2\cdot\pi)$ und Schubvektor $a=p\cdot e_1$, $p\in\mathbb{R}$, in Richtung der ersten Achse.
+
+1. Eine Drehung $\rho$ um die $x_1$-Achse eines kartesischen Koordinatensystems besitzt die Matrixdarstellung $$
+  \rho:\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \\ x_3' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos{\varphi} & -\sin{\varphi} \\ 0 & \sin{\varphi} & \cos{\varphi} \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+$$ worin $\varphi$ den Drehwinkel angibt. Siehe Abschnitt [Drehungen](#Drehungen).
+2. Eine Translation in Richting der Drehachse $e_1$ besitzt den Translationsvektor $$
+  a=p\cdot e_1=p\cdot \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}=
+  \begin{pmatrix} p \\ 0 \\ 0 \end{pmatrix}\,,\quad p\in\mathbb{R}
+$$
+3. Für die Hintereinanderausführung folgt unmittelbar
+$$
+  \kappa:\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \\ x_3' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\cdot\left(\begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos{\varphi} & -\sin{\varphi} \\ 0 & \sin{\varphi} & \cos{\varphi} \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\right)+\begin{pmatrix} p \\ 0 \\ 0 \end{pmatrix}
+$$ also $$
+  \kappa:\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \\ x_3' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos{\varphi} & -\sin{\varphi} \\ 0 & \sin{\varphi} & \cos{\varphi} \end{pmatrix}\cdot
+\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}+\begin{pmatrix} p \\ 0 \\ 0 \end{pmatrix}
+$$ Hierin wird $p$ **Schraubparameter** genannt.
+
+**Bemerkung 1.** Für Schraubparameter $p=0$ sind *Drehungen* $$
+ \kappa=\tau(\textcolor{magenta}{0})\circ\rho(\varphi)=\rho(\varphi)
+$$ mit Drehwinkel $\varphi$ beschrieben, hingegen für $\varphi=0$ *Translationen* $$
+  \kappa=\tau(p)\circ\rho(\textcolor{magenta}{0})=\tau(p)
+$$ mit dem Translationsvektor $$
+  a=\begin{pmatrix} p \\ 0 \\ 0 \end{pmatrix}
+$$ Eine Schraubung umfasst somit alle anderen orientierungserhaltenden Kongruenzen des dreidimensionalen Raumes.
+
+Die Matrixdarstellung einer Schraubung lässt sich in **homogener Darstellung**[^2] unter alleiniger Verwendung der Matrixmultiplikation darstellen. Für das vorstehende Beispiel ergibt sich beispielsweise $$
+  \kappa:\begin{pmatrix} \textcolor{magenta}{1} \\ x_1 \\ x_2 \\ x_3 \end{pmatrix}\mapsto
+  \begin{pmatrix} \textcolor{magenta}{1} \\ x_1' \\ x_2' \\ x_3' \end{pmatrix}=
+  \begin{pmatrix} \textcolor{magenta}{1} & \textcolor{magenta}{0} & \textcolor{magenta}{0} & \textcolor{magenta}{0} \\ \textcolor{blue}{p} & 1 & 0 & 0 \\ \textcolor{blue}{0} & 0 & \cos{\varphi} & -\sin{\varphi} \\ \textcolor{blue}{0} & 0 & \sin{\varphi} & \cos{\varphi} \end{pmatrix}\cdot
+  \begin{pmatrix} \textcolor{magenta}{1} \\ x_1 \\ x_2 \\ x_3 \end{pmatrix}
+$$ Translationsvektor und Transformationsmatrix der Schraubung entsprechen Untermatrizen der vierreihigen (homogenen) Transformationmatrix $T$.
+
+Für eine Translation beziehungsweise Skalierung (im Allgemeinen keine Kongruenz!) des dreidimensionalen Raumes ergeben sich die homogenen Transformationsmatrizen $$
+  \begin{pmatrix} \textcolor{magenta}{1} & \textcolor{magenta}{0} & \textcolor{magenta}{0} & \textcolor{magenta}{0} \\ \textcolor{blue}{a_1} & 1 & 0 & 0 \\ \textcolor{blue}{a_2} & 0 & 1 & 0 \\ \textcolor{blue}{a_3} & 0 & 0 & 1 \end{pmatrix}\quad\text{bzw.}\quad
+  \begin{pmatrix} \textcolor{magenta}{1} & \textcolor{magenta}{0} & \textcolor{magenta}{0} & \textcolor{magenta}{0} \\ \textcolor{blue}{0} & \lambda_1 & 0 & 0 \\ \textcolor{blue}{0} & 0 & \lambda_2 & 0 \\ \textcolor{blue}{0} & 0 & 0 & \lambda_3 \end{pmatrix}
+$$ Entsprechend für andere affine Abbildungen.
+
+Hintereinanderausführungen von orientierungserhaltenden Kongruenzen lassen sich so durch Multiplikation homogener Transformationsmatrizen allein darstellen.
+
+**Bemerkung 2.** Jede Schraubung $\kappa=\tau\circ\rho$ um eine Gerade $g$ des dreidimensionalen Raumes mit Drehwinkel $\varphi$ und Schraubparameter $p$ kann bezogen auf ein angepasstes, kartesisches Rechtskoordinatensystem als Schraubung um die $x_1$-Achse beschrieben werden.
 
 
 Sicher gewusst?
 ===============
 
-**Frage 1.** Gegeben ist eine quadratische Matrix der Form $$
-  A=\mu\cdot\begin{pmatrix} \sqrt{2} & 0 & 0 \\ 0 & 1 & 1 \\ 0 & -1 & 1 \end{pmatrix}
-$$ mit Parameter $\mu\in\mathbb{R}$.
+**Frage 1.** Eine Schraubung $\kappa$ um die $x_1$-Achse mit Drehwinkel $\varphi$ und Schraubparameter $p$ besitzt die Matrixdarstellung $$
+  \kappa:x\mapsto x'=D_1(\varphi)\cdot x+p\cdot e_1
+$$ mit Drehmatrix $D_1(\varphi)$ und Vektor $e_1=(1,0,0)^\top$.
 
-Geben Sie alle Werte $\mu$ an, für die $A$ Transformationsmatrix einer Kongruenz ist.
+Geben Sie die Matrixdarstellung der Umkehrabbildung an.
 
-[[ ]] $\mu=-\sqrt{2}$
-[[X]] $\mu=\frac{1}{2}\cdot\sqrt{2}$
-[[X]] $\mu=-\frac{1}{\sqrt{2}}$
-[[ ]] Es gibt keinen Parameterwert $\mu$, so dass $A$ die gesuchte Eigenschaft besitzt.
-[[ ]] $\mu=\sqrt{2}$
-[[?]] Berechnen Sie das Produkt $A\cdot A^\top$. Beachten Sie den skalaren Faktor $\mu$.
+[( )] $$ \kappa^{-1}:x'\mapsto x=D_1(\varphi)\cdot x'-p\cdot e_1 $$
+[( )] $$ \kappa^{-1}:x'\mapsto x=D_1(-\varphi)\cdot x'+p\cdot e_1 $$
+[(X)] $$ \kappa^{-1}:x'\mapsto x=D_1(-\varphi)\cdot x'-p\cdot e_1 $$
+[( )] $$ \kappa^{-1}:x\mapsto x'=D_1(-\varphi)\cdot x-p\cdot e_1 $$
+[[?]] Stellen Sie $$
+  x'=D_1(\varphi)\cdot x+p\cdot e_1
+$$ nach $x$ um.
 ****************************************
 
+Es ergibt sich $$
+  x'=D_1(\varphi)\cdot x+p\cdot e_1\quad\leftrightarrow\quad
+  x'-p\cdot e_1=D_1(\varphi)\cdot x
+$$ sowie nach Multiplikation mit $\textcolor{magenta}{D_1^{-1}(\varphi)}=D_1(-\varphi)$ von links $$
+  \textcolor{magenta}{D_1(-\varphi)}\cdot\left(x'-p\cdot e_1\right)=\textcolor{magenta}{D_1(-\varphi)}\cdot D_1(\varphi)\cdot x
+$$ und äquivalent $$
+  D_1(-\varphi)\cdot x'-p\cdot e_1=E\cdot x=x
 $$
-  A\cdot A^\top=\mu^2\cdot\begin{pmatrix} \sqrt{2} & 0 & 0 \\ 0 & 1 & 1 \\ 0 & -1 & 1 \end{pmatrix}\cdot\begin{pmatrix} \sqrt{2} & 0 & 0 \\ 0 & 1 & -1 \\ 0 & 1 & 1 \end{pmatrix}=\mu^2\cdot\begin{pmatrix} 2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 2 \end{pmatrix}
-$$ Damit ist $A$ eine orthogonale Matrix genau dann, wenn $\mu^2\cdot 2=1$, d. h. $\mu=\pm\frac{1}{\sqrt{2}}$.
+worin $E$ die dreireihige Einheitsmatrix bezeichnet.
 
 ****************************************
 
-**Frage 2.** Gegeben ist ein gleichseitiges Dreieck mit Mittelpunkt im Ursprung $O$ eines kartesischen Koordinatensystems.
+**Frage 2.** Gegeben sind zwei Schraubungen $\kappa_i$ mit den Matrixdarstellungen $$
+  \kappa_i:x\mapsto x'=D_1(\varphi_i)\cdot x+p_i\cdot e_1\,,\quad i\in\{1,2\}
+$$ worin $D_1(\varphi_i)$ die die Drehung um die $x_1$-Achse beschreibende Matrix, der Parameter $\varphi_i\in\mathbb{R}$ den Drehwinkel und $p_i\in\mathbb{R}$ den Schraubparameter beschreiben. Des Weiteren $e_1=(1,0,0)^\top$.
 
-Geben Sie jene Transformationsmatrizen $A_i$ an, die eine Drehung des Dreiecks um $O$ auf sich beschreiben.
+Wählen Sie unter den nachfolgenden Aufgaben die wahren Aussagen.
 
-[[ ]] $$ A_1=\begin{pmatrix} \frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2} \\ \frac{1}{2} & \frac{1}{2}\cdot\sqrt{3}  \end{pmatrix} $$
-[[X]] $$ A_2=\begin{pmatrix} -\frac{1}{2} & -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2}  \end{pmatrix} $$
-[[ ]] $$ A_3=\begin{pmatrix} \frac{1}{2} & -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2}\cdot\sqrt{3} & \frac{1}{2}  \end{pmatrix} $$
-[[X]] $$ A_4=\begin{pmatrix} -\frac{1}{2} & \frac{1}{2}\cdot\sqrt{3} \\ -\frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2}  \end{pmatrix} $$
-[[?]] Die Transformationmatrix zur Beschreibung einer Drehung um den Ursprung des kartesischen Koordinatensystems in $\mathbb{R}^2$ ist $$
-  A=\begin{pmatrix} \cos{\varphi} & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi} \end{pmatrix}
-$$ worin $\varphi\in[0,2\cdot\pi)$ gewählt werden kann.
+[[X]] $$ D_1(\varphi_1)\cdot D_1(\varphi_2)=D_1(\varphi_1+\varphi_2) $$
+[[X]] $$ \kappa_1\circ\kappa_2=\kappa_2\circ\kappa_1 $$
+[[X]] Die Hintereinanderausführung $\kappa_2\circ\kappa_1$ ist wieder eine Schraubung um die $x_1$-Achse.
+[[X]] $$ \kappa_1\circ\kappa_2=\alpha_{id}\quad\leftrightarrow\quad \varphi_1+\varphi_2=0\;\wedge\; p_1+p_2=0 $$
+[[?]] Berechnen Sie die Matrixdarstellung für die Abbildung $\kappa_2\circ\kappa_1$. Beachten Sie, dass dabei $D_1(\varphi)\cdot p\cdot e_1$ gilt. Warum?
 ****************************************
 
-Drehungen des Dreiecks um dessen Mittelpunkt mit Drehwinkeln $\frac{2}{3}\cdot\pi$, $\frac{4}{3}\cdot\pi$ sowie $0$ (innerhalb des Grundintervalls) bilden da gleichseitige Dreieck auf sich ab. Es berechnen sich $$
-  \sin{\left(\frac{2}{3}\cdot\pi\right)}=\frac{1}{2}\cdot\sqrt{3}\,,\quad
-  \cos{\left(\frac{2}{3}\cdot\pi\right)}=-\frac{1}{2}\,,\quad
-  \sin{\left(\frac{4}{3}\cdot\pi\right)}=-\frac{1}{2}\cdot\sqrt{3}\,,\quad
-  \cos{\left(\frac{4}{3}\cdot\pi\right)}=-\frac{1}{2}
-$$ Neben der Einheitsmatrix beschreiben die Matrizen $A_2$ und $A_4$ gesuchten Drehungen.
+Es gilt $$
+  \kappa_2\circ\kappa_1:x\mapsto x'=D_1(\varphi_1+\varphi_2)\cdot x+(p_1+p_2)\cdot e_1
+$$ Die Hintereinanderausführung beider Schraubungen um die $x_1$-Achse ist wieder eine Schraubung um dieselbe Achse. Insbesondere ist $\kappa_1\circ\kappa_2=\alpha_{id}$ (identische Abbildung) dann und nur dann, wenn $$
+  \varphi_1+\varphi_2=0\quad\wedge\quad p_1+p_2=0
+$$ Wegen der Vertauschbarkeit von $$
+  \varphi_1+\varphi_2=\varphi_2+\varphi_1\quad\wedge\quad
+  p_1+p_2=p_2+p_1
+$$ in den reellen Zahlen folgen $$
+  D_1(\varphi_1)\cdot D_1(\varphi_2)=D_1(\varphi_1+\varphi_2)
+$$ sowie schließlich $$
+  \kappa_1\circ\kappa_2=\kappa_2\circ\kappa_1
+$$ $\square$
 
 ****************************************
 
-[^1]: Diese Aussage bezieht sich auf ein kartesisches Koordinatensystem im dreidimensionalen affinen Raum, lässt sich jedoch allgemein für affine Räume der Dimension $d\geq2$ formulieren: Zeigen Daumen, Zeigefinger beziehungsweise Mittelfinger der ~~rechten~~ Hand in Richtung der ersten, zweiten beziehungsweise dritten Achse eines kartesischen Koordinatensystems, so liegt ein räumliches, ~~rechts~~orientiertes Koordinatensystem vor. Entsprechend lässt sich ein linksgerichtetes kartesisches Koordinatensystem festlegen.
+[^1]: Die Hintereinanderausführung in $\mathbb{R}^d$ kann durch eine Vektoraddition beschrieben werden.
 
-[^2]: Die reelle Sinusfunktion ist eine ungerade Funktion, die reelle Kosinusfunktion ist hingegen gerade. Siehe [Gerade und ungerade Funktion](https://de.wikipedia.org/wiki/Gerade_und_ungerade_Funktionen).
+[^2]: Die geometrische Bedeutung der zusätzlichen Nullen und Einsen (Magenta\left(n\cdot n^\top\right)) in der Matrixdarstellung wird im Kapitel zur projektiven Geometrie erklärt.
 
-[^3]: Bei einer ebenen Drehung wird das Drehzentrum durch seine kartesischen Koordinaten festgelegt. Zur Festlegung der Drehachse einer räumlichen Drehung sind beispielsweise die kartesischen (räumlichen) Koordinaten eines Punktes der Drehachse sowie die drei Komponenten eines Richtungsvektors anzugeben.
 
-[^4]: Die Angabe eines Winkels im Raum benötigt den Bezug auf eine Orientierung der Trägerebene des Winkels. Zur räumlichen Vorstellung der Orientierung des Drehwinkels kann helfen, den Daumen der rechten Hand in Richtung der orientierten Drehachse zu richten, während die gekrümmten Finger den orientierten Winkel anzeigen.
+### Spiegelungen und Gleitspiegelungen
 
-[^5]: Die "geographischen" Koordinaten $(\varphi,\theta)$ können alternativ aus dem Ansatz $$
-  \frac{1}{\sqrt{3}}\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}=
-  \begin{pmatrix} \cos{\varphi}\cdot\cos{\theta} \\ \sin{\varphi}\cdot\cos{\theta} \\ \sin{\theta} \end{pmatrix}
-$$ berechnet werden. Hierfür ist allerdings der Vektor $g$ zu normieren, da die rechte Seite für jede Wahl von $(\varphi,\theta)$ ein Vektor der Länge Eins ist: Der Vektor $g$ besitzt die Länge $\Vert g\Vert=\sqrt{3}$.
+In diesem Abschnitt werden [Spiegelungen](https://www.geogebra.org/m/H8H7W7WZ#material/ZErTPYqq) der Ebene $\mathcal{A}^2$ an Geraden $s$ dieser Ebene beziehungsweise Spiegelungen des dreidimensionalen Raumes $\mathcal{A}^3$ an Ebenen $\Sigma$ untersucht.[^1]
 
-[^6]: Die Hintereinanderausführung in $\mathbb{R}^d$ kann durch eine Vektoraddition beschrieben werden.
+Das geometrische Abbildungsprinzip des 'Spiegelns' des dreidimensionalen Raumes wird für verschiedene Bezugselemente wie Spiegelachse / -ebene / -punkt im nachstehenden Video erläutert.
+
+!?[Spiegeln0](https://www.youtube.com/watch?v=uGGGwCChnmI)
+
+Unter Spiegelungen werden kartesische, rechtsgerichtete Koordinatensysteme unter Orientierungsumkehr auf kartesische, linksgerichtete Koordinatensystem abgebildet. Zur Orientierung von Koordinatensystemen, siehe [Drei-Finger-Regel](https://de.wikipedia.org/wiki/Drei-Finger-Regel).
+
+
+Spiegelgerade durch Koordinatenursprung
+=======================================
+
+Matrixdarstellung
+-----------------
+
+Enthält die Spiegelgerade /-achse $s$ den Koordinatenursprung, so besitzt ihre Gleichung die Gestalt $$
+  n_1\cdot x_1+n_2\cdot x_2=0\,,\quad (n_1,n_2)\in\mathbb{R}^2\quad\text{mit}\quad n_1^2+n_2^2\not=0
+$$ worin $(x_1,x_2)$ die kartesischen Koordinaten eines Punktes $X$ der Geraden bezeichnen. Wird speziell $$
+  n_1^2+n_2^2=1
+$$ gewählt (durch geeignete Multiplikation beider Seiten der Geradengleichung), so lässt sich die Geradengleichung von $s$ darstellen als Matrixprodukt $$
+  n^\top\cdot x=0\quad\text{mit}\quad |n|^2=n^\top\cdot n=n_1^2+n_2^2=1
+$$ sowie $n=(n_1,n_2)^\top$ und $x=(x_1,x_2)^\top$. Der Vektor ist ein Einheitsnormalenvektor der Geraden $s$, die Gleichungsdarstellung wird *Hesse-Normalform* der Geradengleichung genannt.
+
+![Spiegelung1](img/geo-bild19.png "_Fig._ Spiegelgerade $s$ sowie Paar $(X,X')$ aus Punkt $X$ und dessen Bildpunkt $X'$ unter der Spiegelung an $s$.")
+
+Für die Bestimmung der Matrixdarstellung der Spiegelung $\sigma$ an der Geraden $s$ ist zunächst die Normalprojektion (orthogonale-) des Ortsvektors $x$ zu $X$ auf das orthogonale Komplement $[n]$ von $s$ zu betrachten. Es gilt $$
+  y=\frac{x^\top\cdot n}{n^\top\cdot n}\cdot n=\left(x^\top\cdot n\right)\cdot n
+$$ Vergleiche [Orthogonalprojektion](https://de.wikipedia.org/wiki/Skalarprodukt) eines Vektors.
+
+Die Abbildungsgleichung ergibt sich hiermit aus der vorstehenden Abbildung zu $$
+  x'=x-2\cdot y=x-2\cdot\left(x^\top\cdot n\right)\cdot n
+$$ Unter Verwendung des [dyadischen Produktes](https://de.wikipedia.org/wiki/Dyadisches_Produkt) $$
+  \left(x^\top\cdot n\right)\cdot n=
+  (x_1\cdot n_1+x_2\cdot n_2)\cdot\begin{pmatrix} n_1 \\ n_2 \end{pmatrix}=
+  \begin{pmatrix} x_1\cdot n_1^2+x_2\cdot n_2\cdot n_1 \\ x_1\cdot n_1\cdot n_2+x_2\cdot n_2^2 \end{pmatrix}=
+  \begin{pmatrix} n_1^2 & n_1\cdot n_2 \\ n_2\cdot n_1 & n_2^2 \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \left(n\cdot n^\top\right)\cdot x
+$$ ergibt sich schließlich
+
+>**Satz 1.** Die Spiegelung $\sigma$ eines Punktes $X$ an der Geraden $s$ mit der Hesse-Normalform $$
+  n^\top\cdot x=0\quad\text{mit}\quad |n|^2=n^\top\cdot n=n_1^2+n_2^2=1
+$$ besitzt die Matrixdarstellung $$
+  \sigma:x\mapsto x'=\left(E-2\cdot(n\cdot n^\top)\right)\cdot x
+$$ unter Benutzung der Ortsvektoren der Punkte  $X$ bzw. $X'$.
+
+**Bemerkung 1.** Die Transformationsmatrix $T=E-2\cdot(n\cdot n^\top)$ ist durch den Einheitsnormalenvektor $n$ der Spiegelachse $s$ eindeutig bestimmt und wird als *Spiegelungsoperator* bezeichnet.
+
+**Beispiel 1.** Zu berechnen ist der Operator der Spiegelung an der Geraden $s$ mit der Gleichung $$
+  x_1=x_2
+$$ das ist die Winkelsymmetrale des ersten und dritten Quadranten. Der Normalenvektor $n=(1,-1)^\top$ von $s$ besitzt die Norm $$
+  |n|=\sqrt{1^2+(-1)^2}=\sqrt{2}
+$$ wonach sich die Hesse-Normalform der Geraden berechnet zu $$
+  \frac{1}{2}\cdot\sqrt{2}\cdot x_1-\frac{1}{2}\cdot\sqrt{2}\cdot x_2=0
+$$ Mit dem normierten Vektor $$
+  n=\frac{1}{2}\cdot\sqrt{2}\cdot\begin{pmatrix} 1 \\ -1 \end{pmatrix}
+$$ berechnet sich die Transformationsmatrix der Spiegelung (Spiegelungsoperator) an $s$ zu $$
+  T=E-2\cdot(n\cdot n^\top)=
+  \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}-
+  2\cdot \left(\frac{1}{2}\cdot\sqrt{2}\right)^2\cdot
+  \left(\begin{pmatrix} 1 \\ -1 \end{pmatrix}\cdot\begin{pmatrix} 1 & -1 \end{pmatrix}\right)=
+  \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
+$$ Die Spiegelung $\sigma$ an der Geraden $s$ bestzt damit die Matrixdarstellung $$
+  \sigma:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+  \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+$$
+
+``` javascript
+E=unit(2)
+n=[1,-1]
+b=abs(n)
+E-2*1/b^2*[[n[1]*n[1],n[1]*n[2]],[n[2]*n[1],n[2]*n[2]]]
+```
+@Algebrite.eval
+
+
+Involutorische Abbildung
+------------------------
+
+Für die Hintereinanderausführung $\sigma\circ\sigma=\sigma^2$ ist das Quadrat der Transformationsmatrix $$
+  T^2=\left(E-2\cdot\left(n\cdot n^\top\right)\right)^2
+$$ zu berechnen. Es ergibt sich einsichtig $$
+  \left(E-2\cdot\left(n\cdot n^\top\right)\right)\cdot \left(E-2\cdot\left(n\cdot n^\top\right)\right)=
+  E^2-2\cdot E\cdot\left(n\cdot n^\top\right)-2\cdot \left(n\cdot n^\top\right)\cdot E+4\cdot\left(n\cdot n^\top\right)^2
+$$ Nach kurzer Rechnung $$
+  \left(n\cdot n^\top\right)^2=
+  \left(\frac{1}{2}\cdot\sqrt{2}\right)^2\cdot\begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}^2=\begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}
+$$ folgt schließlich $$
+  T^2=E
+$$ d. h. die zweimalige Ausführung der Spiegelung $\sigma$ ergibt die identische Abbildung, $\sigma^2=\alpha_{id}$.
+
+**Bemerkung 2.** Eine Abbildung $\alpha$ mit $\alpha^2=\alpha_{id}$ wird **involutorische Abbildung** genannt. Neben Geradenspiegelungen $\sigma$ besitzt auch Drehungen um einen Punkt mit Drehwinkel $180^\circ$ diese Eigenschaft.
+
+
+Spiegelgerade ~~nicht~~ durch Koordinatenursprung
+=======================================
+
+Für Geraden $s$ nicht durch den Koordinatenursprung ergibt sich die Hesse-Normalform der Geradengleichung vermöge $$
+  n\cdot(x-p)=n\cdot x-d=0\quad\text{mit}\quad |n|^2=n^\top\cdot n=1
+$$ mit Einheitsnormalenvektor $n$, Stützvektor $p$ zu einem Punkt $P\in s$ sowie mit Ortsvektor $x$ eines (allgemeinen) Punktes $X$ auf $s$. Die skalare Größe $d$ bezeichnet darin den (vorzeichenbehafteten) Abstand von $s$ vom Ursprung des kartesischen Koordinatensystems, gemessen in Richtung $n$.
+
+Zur Ermittlung der Matrixdarstellung der Spiegelung an der Geraden $s$ ist eine zusätzliche Translation $$
+  \tau_d:x\mapsto x'=E\cdot x+d\cdot n=x+d\cdot n
+$$ mit dem Translationsvektor $d\cdot n$ zu betrachten. Mit $\tau_d^{-1}$ lässt sich $s$ in den Koordinatenursprung verschieben mit Lage $\bar{s}\parallel s$. Nach erfolgter Spiegelung an $\bar{s}$ wird die Translation rückgängig gemacht. Es ergibt sich schließlich $$
+  \sigma_s=\tau_d\circ\sigma_{\bar{s}}\circ\tau_d^{-1}
+$$ mit der Matrixdarstellung $$
+  \sigma_s:x\mapsto x'=\left(E-2\cdot\left(n\cdot n^\top\right)\right)\cdot \left(x-d\cdot n\right)+d\cdot n
+$$ Nach kurzer Rechnung ergibt sich hieraus $$
+  \sigma_s:x\mapsto x'=\left(E-2\cdot\left(n\cdot n^\top\right)\right)\cdot x+2\cdot d\cdot n
+$$
+
+>**Satz 2.** Eine Spiegelung der Ebene an einer Geraden $s$ in allgemeiner Lage lässt sich darstellen als Hintereinanderausführung $$
+  \sigma_s=\tau_{2\cdot d}\circ\sigma_{\bar{s}}
+$$ worin die Abbildungen
+>
+>1. $\sigma_{\bar{s}}$ die Geradenspiegelung an der parallel zu  $s$ nach $O$ verschobenen Spiegelgerade $\bar{s}$
+>2. $\tau_{2\cdot d}$ die Translation mit dem Schiebvektor $2\cdot d\cdot n$ mit Normaleneinheitsvektor $n$ der Spiegelachse $s$ und $|d|=\mathrm{dist}{(s,\bar{s})}$
+>
+> bezeichnen.
+
+**Bemerkung 3.** Die vorstehenden Überlegungen - insbesondere auch die Sätze 1 und 2 - lassen sich analog auf Spiegelungen des dreidimensionalen Raumes an Ebenen mit $$
+  n^\top\cdot x-n^\top\cdot p=0\quad\text{mit}\quad |n|^2=n^\top\cdot n=1
+$$ verallgemeinern.
+
+
+Hintereinanderausführung von Spiegelungen
+=========================================
+
+Gegeben sind zwei Spiegelungen $\sigma_i$, $i\in\{1,2\}$, an zwei verschiedenen Geraden $s_i\subset\mathcal{A}^2$. Letztere sind durch die Hesse-Normalform der Geradengleichungen $$
+  n_i^\top\cdot x-d_i=0\quad\text{mit}\quad |n_i|^2=n_i^\top\cdot n_i=1
+$$ gegeben.
+
+Für die Untersuchung der Hintereinanderausführung beider Spiegelungen wird ein angepasstes kartesisches Koordinatensystem verwendet.
+
+
+Fall 1.
+-------
+
+Es wird $s_1\not\parallel s_2$ vorausgesetzt. Dann werden vereinbart:
+
+1. Der Schnittpunkt $D=s_1\cap s_2$ ist Koordinatenursprung
+2. Die Gerade $s_1$ ist erste Koordinatenachse
+
+eines kartesischen Koordinatensystems in der Ebene $\mathcal{A}^2$. Damit lassen sich beide Spiegelungen durch den Spiegelungsoperator $$
+  T_1=E-2\cdot\left(n_1^\top\cdot n_1\right)\quad\text{bzw.}\quad
+  T_2=E-2\cdot\left(n_2^\top\cdot n_2\right)
+$$ mit Normaleneinheitsvektoren $n_i$ bestimmen. Für die folgenden Betrachtungen werde $$
+  \measuredangle{(s_1,s_2)}=\gamma
+$$ bezeichnet.
+
+1. $$ \sigma_1:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+\begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+\left(\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}-2\cdot\begin{pmatrix} 0 \\ 1 \end{pmatrix}\cdot\begin{pmatrix} 0 & 1 \end{pmatrix}\right)\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+$$
+2. $$ \sigma_2:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+\begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+\left(\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}-2\cdot\begin{pmatrix} -\sin{\gamma} \\ \cos{\gamma} \end{pmatrix}\cdot\begin{pmatrix} -\sin{\gamma} & \cos{\gamma} \end{pmatrix}\right)\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+\begin{pmatrix} 1-2\cdot\sin^2{\gamma} & 2\cdot\sin{\gamma}\cdot\cos{\gamma} \\ 2\cdot\sin{\gamma}\cdot\cos{\gamma} & 1-2\cdot\cos^2{\gamma} \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+$$ Unter Benutzung des trigonometrischen Pythagoras und der Additionstheoreme für Sinus und Kosinus ergibt sich $$
+  T_2=\begin{pmatrix} \cos{(2\cdot\gamma)} & \sin{(2\cdot\gamma)} \\ \sin{(2\cdot\gamma)} & -\cos{(2\cdot\gamma)} \end{pmatrix}
+$$
+3. Die Hintereinanderausführung $\sigma_2\circ\sigma_1$ ist durch das Matrixprodukt $$
+  T_2\cdot T_1=
+  \begin{pmatrix} \cos{(2\cdot\gamma)} & \sin{(2\cdot\gamma)} \\ \sin{(2\cdot\gamma)} & -\cos{(2\cdot\gamma)} \end{pmatrix}\cdot
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}=
+  \begin{pmatrix} \cos{(2\cdot\gamma)} & -\sin{(2\cdot\gamma)} \\ \sin{(2\cdot\gamma)} & \cos{(2\cdot\gamma)} \end{pmatrix}
+$$ beschrieben.
+
+>**Satz 3.** Die Hintereinanderausführung zweier Geradenspiegelungen an sich schneidenden, verschiedenen Geraden ist eine Drehung um den gemeinsamen Punkt. Der (orientierte!)[^2] Drehwinkel entspricht dem Doppelten des von den Spiegelachsen eingeschlossenen Winkels.
+
+**Bemerkung 4.** Die "Zerlegung" einer [Drehung](https://www.geogebra.org/m/bUFxr7g4) um einen Punkt $D$ mit Drehwinkel $\varphi=2\cdot\gamma$ in ein "Produkt" zweier Geradenspiegelungen ist ebenso möglich, wenn auch nicht eindeutig.
+
+1. Die Spiegelachsen schließen den Winkel $\measuredangle{s_1,s_2}=\gamma$ ein. (Orientierung beachten!)
+2. Der Drehpunkt $D$ ist gemeinsamer Punkt der Spiegelachsen.
+
+Hierdurch ist die relative Lage der Spiegelachsen zueinander bestimmt: Wird eine der beiden Spiegelachsen fest gewählt, so ist die andere eindeutig in ihrer Lage bestimmt. Siehe auch die nachstehende Abbildung.
+
+![Spiegelung2](img/geo-bild20.png "_Fig._Paar $(X,X'')$, bestehend aus Urbild und Bild eines Punktes unter einer Drehung um den Ursprung eines kartesischen Koordinatensystems. Der Punkt $X''$ wird ebenso nach Spiegelung von $X$ an $s_1$ und anschließender Spiegelung des Bildes $X'$ an $s_2$ erhalten.")
+
+
+Fall 2.
+-------
+
+Es wird $s_1\parallel s_2$ vorausgesetzt. Dann werden vereinbart:
+
+1. Ein beliebiger Punkt $D\in s_1$ ist Koordinatenursprung
+2. Die Gerade $s_1$ ist erste Koordinatenachse
+
+eines kartesischen Koordinatensystems in der Ebene $\mathcal{A}^2$.
+
+Damit lassen sich beide Spiegelungen durch den Spiegelungsoperator $$
+  T_1=E-2\cdot\left(n_1^\top\cdot n_1\right)\quad\text{bzw.}\quad
+  T_2=E-2\cdot\left(n_2^\top\cdot n_2\right)
+$$ mit Normaleneinheitsvektoren $n_1=\pm n_2$ bestimmen. Für die folgenden Betrachtungen werde $$
+  \mathrm{dist}{(s_1,s_2)}=|d|
+$$ bezeichnet.
+
+1. $$ \sigma_1:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+\begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+$$ wie in Fall 1.
+2. $$ \sigma_2:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+\begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}+2\cdot d\cdot \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+$$ Siehe Satz 2.
+3. Die Hintereinanderausführung $\sigma_2\circ\sigma_1$ ist durch das Matrixprodukt $$
+  T_2\cdot T_1=
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+$$ als Transformationsmatrix sowie den Translationsvektor $$
+  2\cdot d\cdot \begin{pmatrix} 0 \\ 1 \end{pmatrix}=\begin{pmatrix} 0 \\ 2\cdot d \end{pmatrix}
+$$ beschrieben.
+
+>**Satz 4.** Die Hintereinanderausführung zweier Geradenspiegelungen an parallelen, verschiedenen Geraden ist eine Translation in Richtung der gemeinsamen Normalenrichtung. Der (orientierte!)[^2] Translationsbetrag entspricht dem Doppelten des Abstandes beider Spiegelachsen.
+
+**Bemerkung 5.** Die "Zerlegung" einer Translation mit Translationsvektor $a=2\cdot d\cdot n$ in ein "Produkt" zweier Geradenspiegelungen ist ebenso möglich, wenn auch nicht eindeutig.
+
+1. Die parallelen Spiegelachsen besitzen den Abstand $\mathrm{dist}{(s_1,s_2)}=|d|$ ein. (Orientierung beachten!)
+2. Der gemeinsame Normaleneinheitsvektor ist $n$.
+
+Hierdurch ist die relative Lage der Spiegelachsen zueinander bestimmt: Wird eine der beiden Spiegelachsen fest gewählt, so ist die andere eindeutig in ihrer Lage bestimmt. Siehe auch die nachstehende Abbildung.
+
+![Spiegelung2](img/geo-bild21.png "_Fig._Paar $(X,X'')$, bestehend aus Urbild und Bild eines Punktes unter einer Translation mit Vektor $2\cdot d\cdot n$. Der Punkt $X''$ wird ebenso nach Spiegelung von $X$ an $s_1$ und anschließender Spiegelung des Bildes $X'$ an $s_2$ erhalten.")
+
+**Bemerkung 6.** Alternativ kann der dreidimensionale Raum / die ebene auch an einem *Punkt* gespiegelt werden. Das geometrische Abbildungsprinzip unter Benutzung analytischer Geometrie wird an einem Beispiel im nachstehenden Video erläutert.
+
+!?[Spiegelung3](https://www.youtube.com/watch?v=_-EJb97xg_o)
+
+
+Gleitspiegelung
+===============
+
+>**Definition 1.** Das kommutative Produkt $\gamma=\sigma\circ\tau$ einer Spiegelung $\sigma$ an einer Geraden $s$ und einer Translation $\tau\not=\alpha_{id}$ in Richtung von $s$ heißt **Gleitspiegelung** mit der Gleitspiegelachse $s$.
+
+Fällt $s$ mit der $x_1$-Achse eines kartesischen, rechtsorientierten Koordinatensystem zusammen, ist die Matrixdarstellung von $\gamma$ gegeben durch $$
+  \gamma:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
+  \begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}+p\cdot\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+$$ mit Parameter $p\in\mathbb{R}$.
+
+**Bemerkung 7.** Im Gegensatz zur Gruppe $\mathbb{R}^2$ der Translationen der Ebene $\mathcal{A}^2$ bilden die Gleitspiegelungen bezogen auf eine gemeinsame Gleitspiegelachse keine Gruppe: Die Hintereinanderausführung zweier Gleitspiegelungen bezogen auf eine Achse $s$ ist eine orientierungserhaltende Kongruenz, die Komposition führt also aus der Menge der Gleitspiegelungen heraus.
+
+Analog zu Satz 2 im Abschnitt [Drehungen](#Drehungen) kann formuliert werden:
+
+>**Satz 5.** Jede orientierungsumkehrende Kongruenz der Ebene $\mathcal{A}^2$ ist eine Spiegelung beziehungsweise eine Gleitspiegelung.
+
+**Beweisidee.** Gegeben sind zwei kartesische Koordinatensysteme der Ebene $$
+  (O,E_1,E_2)\quad\text{und}\quad (O',E_1',E_2')
+$$ mit verschiedenen Orientierungen. Nach der Translation $\tau$ mit Translationsvektor $$
+  a=\overrightarrow{OO'}
+$$ fallen die Koordinatenursprünge beider kartesischen Koordinatensysteme zusammen, das Bild $\tau{(O,E_1,E_2)}$ ist dabei symmetrisch zu $(O',E_1',E_2')$ bezogen auf eine Achse $\hat{s}\ni O$. Damit existiert eine Gleitspiegelachse / Spiegel- $s\parallel \hat{s}$, diese verläuft durch den Mittelpunkt $M$ der Strecke $[O,O']$.
+
+1. Ist $OO'\perp\hat{s}$, so ist $\gamma$ die Spiegelung an $s$ (Fixpunktgerade). Für jede Gerade $g\perp s$ gilt ebenso $\gamma(s)=s$.
+2. Gilt $OO'\not\perp\hat{s}$, so existiert eine Translation $\tau_1$ in Richtung $\hat{s}$, so dass $O^{\tau_1}O'\perp\hat{s}$ (Fall 1).
+
+Hiermit können die folgenden Aussagen (**Dreispiegelungssatz**) begründet werden.
+
+>**Satz 6.** Sind $a$, $b$ und $c$ drei Geraden durch einen gemeinsamen Punkt $P$, so beschreibt die Hintereinanderausführung der Geradenspiegelungen $$
+  \sigma_a\circ\sigma_b\circ\sigma_c=:\sigma
+$$ wieder eine Geradenspiegelung $\sigma$ an einer Geraden $d\ni P$.
+
+>**Satz 7.** Sind $a$, $b$ und $c$ drei parallele Geraden, so beschreibt die Hintereinanderausführung der Geradenspiegelungen $$
+  \sigma_a\circ\sigma_b\circ\sigma_c=:\sigma
+$$ wieder eine Geradenspiegelung $\sigma$ an einer Geraden $d\parallel a$.
+
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Unter dem [Link](https://www.geogebra.org/m/NXYQravq) ist die Billardaufgabe 'Spiel-über-eine-Bande' konstruktiv-geometrisch zu lösen.
+
+Geben Sie die korrekte Reihenfolge der auszuführenden Konstruktionsschritte an. Führen Sie die Konstruktion aus.
+
+[[1] [2] [3]]
+[( ) (X) ( )]  Schneide die Gerade $R'W$ mit der Bande: Schnittpunkt $Q$
+[( ) ( ) (X)]  Zeichne das Polygon $W-Q-R$
+[(X) ( ) ( )]  Spiegele den Ort $R$ an der Bande: Bildpunkt $R'$
+[[?]] Beim Bandenspiel eines "geometrischen" Billards gilt das Reflexionsgesetz, d. h. die geradlinige Bahn der gespielten Kugel vor und nach Bandenberührung schließen mit der Bande jeweils Winkel gleicher Größe ein.
+
+**Frage 2.** Zu bestimmen ist der Spiegelungsoperator $T$ für die Spiegelung an der Winkelsymmetralen des zweiten und vierten Quadranten.
+
+[( )] $$ T_1=\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} $$
+[( )] $$ T_2=\begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix} $$
+[(X)] $$ T_3=\begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix} $$
+[( )] $$ T_4=\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} $$
+[[?]] Die Winkelsymmetrale des zweiten und vierten Quadranten besitzt den Einheitsnormalenvektor $$
+  n=\frac{1}{2}\cdot\sqrt{2}\cdot\begin{pmatrix} 1 \\ 1 \end{pmatrix}
+$$ Berechnen Sie das dyadische Produkt $n\cdot n^\top$ und daraus den Spiegelungsoperator $$
+  T=E-2\cdot\left(n\cdot n^\top\right)
+$$
+****************************************
+
+Es berechnen sich $$
+  n\cdot n^\top=\left(\frac{1}{2}\cdot\sqrt{2}\right)^2\cdot\begin{pmatrix} 1 \\ 1 \end{pmatrix}\cdot\begin{pmatrix} 1 & 1 \end{pmatrix}=
+  \frac{1}{2}\cdot\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}
+$$ und weiter $$
+  E-2\cdot\left(n\cdot n^\top\right)=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}-\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}=\begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix}=T_3
+$$ Die Transformationsmatrizen $T_1$ bzw. $T_2$ beschreiben Spiegelungen an den Koordinatenachsen, Transformationsmatrix $T_4$ eine (orientierungserhaltende!) Drehung um den Koordinatenursprung mit Drehwinkel $\varphi=-\frac{\pi}{2}$.
+
+****************************************
+
+
+[^1]: Diese werden üblicherweise Geradenspiegelungen beziehungsweise Ebenenspiegelungen genannt.
+
+[^2]: Der Richtungssinn ist durch die Reihenfolge der Spiegelungen festgelegt.
