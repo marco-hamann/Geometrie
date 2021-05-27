@@ -2846,3 +2846,21 @@ $$ Die Transformationsmatrizen $T_1$ bzw. $T_2$ beschreiben Spiegelungen an den 
 [^1]: Diese werden üblicherweise Geradenspiegelungen beziehungsweise Ebenenspiegelungen genannt.
 
 [^2]: Der Richtungssinn ist durch die Reihenfolge der Spiegelungen festgelegt.
+
+
+### Erzeugung geometrischer Figuren
+
+Kurven- und Flächenparametrisierung
+===================================
+
+...
+
+Ornamente
+=========
+
+...
+
+
+## Projektive Geometrie
+
+...
