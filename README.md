@@ -2414,7 +2414,7 @@ Nahezu analog zur Gruppeneigenschaft der Drehungen in $SO(3)$ lässt sich zeigen
 Schraubungen
 ============
 
-Eine Schraubung $\kappa$ des dreidimensionalen Raumes entsteht durch Hintereinanderausführung einer Drehung $\rho$ um eine Achse $g$ mit Drehwinkel $\varphi$ und Translation $\tau$ entlang $a$ mit Betrag $|p|$ mit $p\in\mathbb{R}$ $$
+Eine Schraubung $\kappa$ des dreidimensionalen Raumes entsteht durch Hintereinanderausführung einer Drehung $\rho$ um eine Achse $g$ mit Drehwinkel $\varphi$ und Translation $\tau$ entlang $g$ mit Betrag $|p|$ mit $p\in\mathbb{R}$ $$
   \kappa=\tau(g,p)\circ\rho(g,\varphi)
 $$
 
@@ -2491,9 +2491,9 @@ $$ nach $x$ um.
 Es ergibt sich $$
   x'=D_1(\varphi)\cdot x+p\cdot e_1\quad\leftrightarrow\quad
   x'-p\cdot e_1=D_1(\varphi)\cdot x
-$$ sowie nach Multiplikation mit $\textcolor{magenta}{D_1^{-1}(\varphi)}=D_1(-\varphi)$ von links $$
-  \textcolor{magenta}{D_1(-\varphi)}\cdot\left(x'-p\cdot e_1\right)=\textcolor{magenta}{D_1(-\varphi)}\cdot D_1(\varphi)\cdot x
-$$ und äquivalent $$
+$$ sowie nach Multiplikation mit $D_1^{-1}(\varphi)=\textcolor{magenta}{D_1(-\varphi)}$ von links $$
+  \textcolor{magenta}{D_1(-\varphi)}\cdot\left(x'-p\cdot e_1\right)=\textcolor{magenta}{D_1(-\varphi)}\cdot D_1(\varphi)\cdot x-\textcolor{magenta}{D_1(-\varphi)}\cdot p\cdot e_1
+$$ und mit $D_1(-\varphi)\cdot e_1=e_1$ äquivalent $$
   D_1(-\varphi)\cdot x'-p\cdot e_1=E\cdot x=x
 $$
 worin $E$ die dreireihige Einheitsmatrix bezeichnet.
@@ -2604,10 +2604,13 @@ $$ Die Spiegelung $\sigma$ an der Geraden $s$ bestzt damit die Matrixdarstellung
 $$
 
 ``` javascript
+x=[x1,x2]
 E=unit(2)
 n=[1,-1]
 b=abs(n)
-E-2*1/b^2*[[n[1]*n[1],n[1]*n[2]],[n[2]*n[1],n[2]*n[2]]]
+T=E-2*1/b^2*[[n[1]*n[1],n[1]*n[2]],[n[2]*n[1],n[2]*n[2]]]
+T
+inner(T,x)
 ```
 @Algebrite.eval
 
@@ -2627,7 +2630,7 @@ $$ folgt schließlich $$
   T^2=E
 $$ d. h. die zweimalige Ausführung der Spiegelung $\sigma$ ergibt die identische Abbildung, $\sigma^2=\alpha_{id}$.
 
-**Bemerkung 2.** Eine Abbildung $\alpha$ mit $\alpha^2=\alpha_{id}$ wird **involutorische Abbildung** genannt. Neben Geradenspiegelungen $\sigma$ besitzt auch Drehungen um einen Punkt mit Drehwinkel $180^\circ$ diese Eigenschaft.
+**Bemerkung 2.** Eine Abbildung $\alpha\not=\alpha_{id}$ mit $\alpha^2=\alpha_{id}$ wird **involutorische Abbildung** genannt. Neben Geradenspiegelungen $\sigma$ besitzt auch Drehungen um einen Punkt mit Drehwinkel $180^\circ$ diese Eigenschaft.
 
 
 Spiegelgerade ~~nicht~~ durch Koordinatenursprung
@@ -2793,7 +2796,7 @@ $$ fallen die Koordinatenursprünge beider kartesischen Koordinatensysteme zusam
 1. Ist $OO'\perp\hat{s}$, so ist $\gamma$ die Spiegelung an $s$ (Fixpunktgerade). Für jede Gerade $g\perp s$ gilt ebenso $\gamma(s)=s$.
 2. Gilt $OO'\not\perp\hat{s}$, so existiert eine Translation $\tau_1$ in Richtung $\hat{s}$, so dass $O^{\tau_1}O'\perp\hat{s}$ (Fall 1).
 
-Hiermit können die folgenden Aussagen (**Dreispiegelungssatz**) begründet werden.
+Unter Argumentation der Existenz von Fixpunkten können hiermit die folgenden Aussagen (**Dreispiegelungssatz**) begründet werden.
 
 >**Satz 6.** Sind $a$, $b$ und $c$ drei Geraden durch einen gemeinsamen Punkt $P$, so beschreibt die Hintereinanderausführung der Geradenspiegelungen $$
   \sigma_a\circ\sigma_b\circ\sigma_c=:\sigma
