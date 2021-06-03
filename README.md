@@ -2920,7 +2920,7 @@ Mit den Eigenschaften von Affinitäten folgt darüber hinaus der folgende Satz.
 
 **Definition 1.** Paare $(d,\bar{d})$ von Durchmessern einer Ellipse mit der Eigenschaft aus Satz 1 werden zueinander **konjugierte Durchmesser** genannt.
 
-![Konjugierte Durchmesser](img/geo-bild24.png "Perspektive Affinität zwischen Ellipse und ihrem Hauptscheitelkreis: Ein Paar orthogonaler Durchmesser des Kreises wird abgebildet auf ein Paar konjugierter Ellipsendurchmesser.")
+![Konjugierte Durchmesser](img/geo-bild24.png "_Fig._ Perspektive Affinität zwischen Ellipse und ihrem Hauptscheitelkreis: Ein Paar orthogonaler Durchmesser des Kreises wird abgebildet auf ein Paar konjugierter Ellipsendurchmesser.")
 
 Das aus Haupt- und Nebenachse einer (echten) Ellipse bestehende Paar ist das einzige Paar konjugierter Durchmesser, welches zusätzlich orthogonal ist.
 
@@ -2931,7 +2931,7 @@ Die Ellipse ist in ein gegebenes, umschließendes (Tangenten-) Parallelogramm ei
 1. Die Verbindungsgeraden gegenüberliegender Seitenmitten bilden ein konjugiertes Durchmesserpaar.
 2. Insbesondere besteht für Tangentenrechtecke das Durchmedderpaar aus Haupt- und Nebenachse.
 
-![Freihandzeichnen](img/geo-bild25.png "Gegebenes Parallelogramm mit einbeschriebener Ellipse. Diese berührt die Parallelogrammseiten in den Seitenmitten.")
+![Freihandzeichnen](img/geo-bild25.png "_Fig._ Gegebenes Parallelogramm mit einbeschriebener Ellipse. Diese berührt die Parallelogrammseiten in den Seitenmitten.")
 
 
 Flächenparametrisierung
@@ -2945,11 +2945,41 @@ $$
 2. Der Halbkreis $k$ wird stetig um die $x_3$-Achse gedreht. Die dadurch überstrichene Kugeloberfläche stellt sich dar $$
   x'=\begin{pmatrix} \cos{\psi} & -\sin{\psi} & 0 \\ \sin{\psi} & \cos{\psi} & 0 \\ 0 & 0 & 1 \end{pmatrix}\cdot
   \begin{pmatrix} \cos{\varphi} \\ 0 \\ \sin{\varphi} \end{pmatrix}=
-  \begin{pmatrix} \cos{\varphi}\cdot\cos{\psi} \\ \sin{\psi}\cdot\cos{\varphi} \\ \sin{\varphi} \end{pmatrix}\,,\quad\psi\in[0,2\cdot\pi)
+  \begin{pmatrix} \cos{\psi}\cdot\cos{\varphi} \\ \sin{\psi}\cdot\cos{\varphi} \\ \sin{\varphi} \end{pmatrix}\,,\quad\psi\in[0,2\cdot\pi)
+$$ Dies entspricht einer Parametrisierung der [Kugel](https://de.wikipedia.org/wiki/Kugel) vom Radius Eins mit Mittelpunkt im Koordinatenursprung. Das Parameterpaar $(\varphi,\psi)$ entspricht den im Abschnitt [Drehungen](#Drehungen) eingeführten, an geographische Koordinaten angelehnten Parametern.
+
+**Beispiel 4.** Wird ein Kreis $k(M,r)$ mit Mittelpunkt $M$ und Radius $r$ um eine Gerade $a$ in der Kreisebene gedreht, für die $M\not\in a$ gilt, so entsteht ein [Kreistorus](https://de.wikipedia.org/wiki/Torus).
+
+1. Mit dem Ziel einer an die Erzeugung angepassten Parametrisierung eines Torus wird ein Kreis in der $x_1x_3$-Koordinatenebene um den Mittelpunkt $M(R,0,0)$ mit Radius $r>0$ betrachtet. Dessen Parametrisierung ergibt sich einsichtig zu $$
+  k:\varphi\mapsto\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=f(\varphi)=
+  \begin{pmatrix} R \\ 0 \\ 0 \end{pmatrix}+r\cdot
+  \begin{pmatrix} \cos{\varphi} \\ 0 \\ \sin{\varphi} \end{pmatrix}=\begin{pmatrix} R+r\cdot\cos{\varphi} \\ 0 \\ r\cdot\sin{\varphi} \end{pmatrix}\,,\quad
+  \varphi\in[-\pi,\pi)
+$$ Zur Festlegung des Parameters $\varphi$, siehe nachstehende Abbildung.
+2. Bei steiger Rotation von $k$ um die $x_3$-Koordinatenachse wird der Torus als Bahnfläche von $k$ erzeugt. $$
+  \psi\mapsto\begin{pmatrix} x_1' \\ x_2' \\ x_3' \end{pmatrix}=g(\psi)=
+  \begin{pmatrix} \cos{\psi} & -\sin{\psi} & 0 \\ \sin{\psi} & \cos{\psi} & 0 \\ 0 & 0 & 1 \end{pmatrix}\cdot
+  \begin{pmatrix} R+r\cdot\cos{\varphi} \\ 0 \\ r\cdot\sin{\varphi} \end{pmatrix}=\begin{pmatrix} R\cdot\cos{\psi}+r\cdot\cos{\psi}\cdot\cos{\varphi} \\ R\cdot\sin{\psi}+r\cdot\sin{\psi}\cdot\cos{\varphi} \\ r\cdot\sin{\varphi} \end{pmatrix}\,,\quad
+  \psi\in[0,2\cdot\pi)
 $$
 
+![Torus](img/geo-bild26.png "_Fig._ Kreistorus mit erzeugendem Kreis $k$, der bei stetigem Rotieren um die $x_3$-Achse des kartesischen Koordinatensystems die Oberfläche des Torus überstreicht.")
 
-[^1]: Der Kreis besitzt diese die Gleichung $k_1$ wird *Hauptscheitelkreis* von $k$ genannt, hingegen $k_2$ Nebenscheitelkreis von $k$.
+Mit Blick auf die Parameter $R>0$ und $r>0$ sind zu unterscheiden:
+
+1. $r<R$: Ringtorus
+2. $r=R$: Horntorus (das "Torusloch"schließt sich.)
+3. $r>R$: [Spindeltorus](https://de.wikipedia.org/wiki/Spindeltorus)
+
+Für $R=0$ und $r>0$ wird daneben die Kugeloberfläche beschrieben.
+
+Ebene Schnitte eines Torus, deren Trägerebenen:
+
+1. die Drehachse $a$ enthalten, sind Kreispaare
+2. orthogonal zur Drehachse verlaufen, sind Kreispaare oder ein Kreis oder leer
+3. zwei Lagen ...
+
+[^1]: Der Kreis besitzt diese die Gleichung $k_1$ wirdvon *Hauptscheitelkreis* von $k$ genannt, hingegen $k_2$ Nebenscheitelkreis von $k$.
 
 
 Ornamente
