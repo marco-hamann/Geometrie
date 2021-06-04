@@ -2868,21 +2868,42 @@ Bezeichnen $M(m_1,m_2)$ das Drehzentrum sowie $X(x_1,x_2)$ einen beliebig, aber 
     \,,\quad \varphi\in[0,2\cdot\pi)
 $$ beziehungsweise, unter Verwendung der Ortsvektoren $$
   \varphi\mapsto x'=f(\varphi)=D\cdot (x-m)+m
-$$ eine Kurve $k\in\mathcal{A}^2$, die **Trajektorie** des Punktes $X$ unter der kontinuierlichen Drehung genannt wird.
+$$ eine Kurve $k\in\mathcal{A}^2$, die **Trajektorie** des Punktes $X$ unter der kontinuierlichen Drehung genannt wird. Für $M(0,0)$ und $X(1,0)$ berechnet sich die Parametrisierung der Trajektorie zu $$
+  x'=(\cos{\varphi},\sin{\varphi})^\top\,,\quad \varphi\in[0,2\cdot\pi)
+$$ beschreibt also einen Kreis.
+
+Die Berechnung einer Parametrisierung der Kreislinie kann unter Verwendung der Javascript Bibliothek [Algebrite](http://algebrite.org/) an einem Beispiel nachvollzogen werden.
+
+``` javascript
+D = [[cos(t),-sin(t)],[sin(t),cos(t)]]
+X = [7,2]
+M = [4,2]
+inner(D,X-M)+M
+```
+@Algebrite.eval
 
 Unter Berechnung der Längen $$
   |x'-m|=|D\cdot (x-m)|=|x-m|
-$$ ergibt sich unmittelbar, dass $k$ eine Kreislinie um den Punkt $M$ ist. Ist $$
+$$ lässt sich allgemein zeigen, dass $k$ eine Kreislinie um den Punkt $M$ ist.
+
+Die Berechnung der Abstandsgleichheit eines Punktes $Y$ bzw. seines Bildes unter der Drehung um einen Punkt $N$ ist nachfolgend unter Verwendung der Javascript Bibliothek [Algebrite](http://algebrite.org/) allgemein ausgeführt.
+
+``` javascript
+Y = [y1,y2]
+N = [n1,n2]
+Y1 = inner(D,Y-N)+N
+abs(Y-N)-abs(Y1-N)
+```
+@Algebrite.eval
+
+**Bemerkung 1.**
+Ist in der Parametrisierung von $k$ abweichend $$
   \varphi\in[\varphi_1,\varphi_2]\quad\text{mit}\quad\Delta\varphi=\varphi_2-\varphi_1
 $$ so entsteht ein Kreisbogen zum Zentriwinkel $\Delta\varphi$. Siehe nachfolgende Abbildung.
 
-Werden speziell $M(0,0)$ und $X(1,0)$ gewählt, so besitzt der Kreis (als Punktmenge) die Parametrisierung $$
-  x'=(\cos{\varphi},\sin{\varphi})^\top
-$$
+Wird der den Kreis erzeugende Punkt $X$ durch eine Gerade $g$ mit $M\not\in g$ ersetzt, so hüllt $g$ einen Kreis $k$ um $M$ mit Radius $r=\mathrm{dist}{(M,g)}$ ein.
 
 ![Kreis als Trajektorie](img/geo-bild22.png "_Fig._ Kreislinie als Trajektorie eines Punktes $X$ in beliebiger, aber fester Lage bei Drehung um einen festen Punkt $M$. Der Punkt $M$ wird zunächst mit Translationsvektor $-m$ verschoben, das Bild anschließend um den Koordinatenursprung $O$ gedreht und danach mit $m$ zurück verschoben.")
-
-**Bemerkung 1.** Wird der den Kreis erzeugende Punkt $X$ durch eine Gerade $g$ mit $M\not\in g$ ersetzt, so hüllt $g$ einen Kreis $k$ um $M$ mit Radius $r=\mathrm{dist}{(M,g)}$ ein.
 
 **Beispiel 2.** Ellipsen lassen sich als perspektiv affine Bilder von Kreisen erzeugen.
 
@@ -2905,7 +2926,7 @@ $$ Werden diese einer Skalierung in Richtung der zweiten Achse mit Skalierungsfa
   \begin{pmatrix} a\cdot\cos{\varphi} \\ \pm b\cdot\sin{\varphi} \end{pmatrix}\,,\quad\varphi\in[0,2\cdot\pi)
 $$ Dies ist eine Parametrisierung der Ellipse $k$, denn es gilt nach Einsetzen $$
   \frac{(x_1')^2}{a^2}+\frac{(x_2')^2}{b^2}=
-  \frac{a^2\cdot\cos^2{\varphi}}{a^2}+\frac{b^2\cdot\cos^2{\varphi}}{b^2}=1
+  \frac{a^2\cdot\cos^2{\varphi}}{a^2}+\frac{b^2\cdot\sin^2{\varphi}}{b^2}=1
 $$ Die Ellipse $k$ lässt sich also als perspektiv affines Bild (Skalierung) ihres Hauptscheitelkreises $k_1$ erzeugen. Analog erzeugt die Skalierung $$
   \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto\begin{pmatrix} x_1' \\ x_2' \end{pmatrix}=
   \begin{pmatrix} \pm\frac{a}{b} & 0 \\ 0 & 1 \end{pmatrix}\cdot
@@ -2916,9 +2937,9 @@ $$ die Ellipse $k$ als perspektiv affines Bild des Nebenscheitelkreises $k_2$.
 
 Mit den Eigenschaften von Affinitäten folgt darüber hinaus der folgende Satz.
 
-**Satz 1.** Zu jedem Durchmesser $d$ einer Ellipse $k$ existiert genau ein Durchmesser $\bar{d}$, bei dem die parallelen Tangenten in den Punkten $\bar{D}_1$ und $\bar{D}_2$ der Ellipse parallel zu $d$ sind. Diese Relation ist symmetrisch bezogen auf jedes Paar $(d,\bar{d})$.
+>**Proposition 1.** Zu jedem Durchmesser $d$ einer Ellipse $k$ existiert genau ein Durchmesser $\bar{d}$, bei dem die parallelen Tangenten in den Punkten $\bar{D}_1$ und $\bar{D}_2$ der Ellipse parallel zu $d$ sind. Diese Relation ist symmetrisch bezogen auf jedes Paar $(d,\bar{d})$.
 
-**Definition 1.** Paare $(d,\bar{d})$ von Durchmessern einer Ellipse mit der Eigenschaft aus Satz 1 werden zueinander **konjugierte Durchmesser** genannt.
+>**Definition 1.** Paare $(d,\bar{d})$ von Durchmessern einer Ellipse mit der Eigenschaft aus Satz 1 werden zueinander **konjugierte Durchmesser** genannt.
 
 ![Konjugierte Durchmesser](img/geo-bild24.png "_Fig._ Perspektive Affinität zwischen Ellipse und ihrem Hauptscheitelkreis: Ein Paar orthogonaler Durchmesser des Kreises wird abgebildet auf ein Paar konjugierter Ellipsendurchmesser.")
 
@@ -2973,11 +2994,10 @@ Mit Blick auf die Parameter $R>0$ und $r>0$ sind zu unterscheiden:
 
 Für $R=0$ und $r>0$ wird daneben die Kugeloberfläche beschrieben.
 
-Ebene Schnitte eines Torus, deren Trägerebenen:
+Ebene Schnitte eines Torus:
 
-1. die Drehachse $a$ enthalten, sind Kreispaare
-2. orthogonal zur Drehachse verlaufen, sind Kreispaare oder ein Kreis oder leer
-3. zwei Lagen ...
+1. deren Trägerebenen die Drehachse $a$ enthalten, sind Kreispaare
+2. deren Trägerebenen orthogonal zur Drehachse verlaufen, sind Kreispaare oder ein Kreis oder leer
 
 [^1]: Der Kreis besitzt diese die Gleichung $k_1$ wirdvon *Hauptscheitelkreis* von $k$ genannt, hingegen $k_2$ Nebenscheitelkreis von $k$.
 
