@@ -1994,6 +1994,18 @@ $$ mit den Eigenschaften
 >
 > mit $i\in\{1,...,d\}$ und $j\in\{1,...,d\}$ heißt **orthogonal**.
 
+**Beispiel 1.** Gegeben sind die nachstehenden quadratischen Matrizen $$
+  A_1=\begin{pmatrix} \frac{1}{2} & -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2}\cdot\sqrt{3} & \frac{1}{2} \end{pmatrix}\,,\quad
+  A_2=\begin{pmatrix} 1 & a \\ 0 & b \end{pmatrix}\,,\quad
+  A_3=\begin{pmatrix} 1 & -1 \\ 0 & 0 \end{pmatrix}\quad\text{und}\quad
+  A_4=\begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos{\varphi} & -\sin{\varphi} \\ 0 & \sin{\varphi} & \cos{\varphi} \end{pmatrix}
+$$ Die Matrizen sind auf Orthogonalität zu prüfen.
+
+1. Die Matrix $A_1$ ist orthogonal, da für die Spaltenvektoren $$
+  s_1=\begin{pmatrix} \frac{1}{2} \\ \frac{1}{2}\cdot\sqrt{3} \end{pmatrix}\quad\text{und}\quad s_2=\begin{pmatrix} -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2} \end{pmatrix}
+$$
+
+
 **Bemerkung 1.** Aus beiden Eigenschaften folgt äquivalent $$
   A\cdot A^\top=A^\top\cdot A=E\quad\leftrightarrow\quad A^\top=A^{-1}
 $$ worin $E=\mathrm{diag}{(1,...,1)}$ die $d$-reihige Einheitsmatrix bezeichnet. Mit Hilfe dieser Matrixgleichung lässt sich eine Matrix auf Orthogonalität prüfen.
@@ -3005,7 +3017,121 @@ Ebene Schnitte eines Torus:
 Ornamente
 =========
 
-...
+Im Abschnitt [Algebraische Eigenschaften](#Algebraische-Eigenschaften), Beispiel 3 wurde durch eine einzelne Translation $\tau$ (der Ebene) und die Potenzen $\tau^k$, $k\in\mathbb{Z}$, eine Friesgruppe $\left\{\tau^k,\circ\right\}$ bezogen auf die Hintereinanderausführung von Abbildungen erzeugt. Angewendet auf ein Grundmuster entsteht ein ogenanntes *Fries*.
+
+In diesem Abschnitt soll auf die Erzeugung von ebenen Ornamenten eingegangen werden. Des Weiteren wird die Äquivalenzklassenbildung von Ornamenten hinsichtlich der zugehörigen Ornamentgruppen thematisiert. Die - hier nicht angesprochene - Frage nach räumlichen Ornamenten führt u. a. zu den in der Kristallographie verwendeten [kristallographischen Raumgruppen](https://de.wikipedia.org/wiki/Ebene_kristallographische_Gruppe).
+
+
+Ornamentgruppen
+---------------
+
+>**Definition 2.** Eine Gruppe von Transformationen von $\mathcal{A}^2$ heißt diskret, wenn jeder Punkt von $\mathcal{A}^2$ eine diskrete Bildpunktmenge[^1] besitzt. Diskrete Kongruenzgruppen heißen *Ornamentgruppen*.
+
+**Bemerkung 4.** Formal benötigt es für den Begriff 'diskrete Punktmenge' einen Umgebungsbegriff, d. h. eine Topologie. Hier wird der euklidische Abstand $|x-y|\in[0,\infty)$ implizit angenommen.
+
+**Beispiel 5.** In der nachstehenden Abbildung ist ein regelmäßiges Achteck dargestellt. Die Eckpunkte lassen sich als Bildpunktmenge der Gruppe aller Drehungen $\rho$ um den Koordinatenursprung $O$ eines kartesischen Koordinatensystems der Ebene mit Drehwinkeln $\varphi$ interpretieren. $$
+  \left\{\rho(O,\varphi)\;\left(\varphi=k\cdot \frac{\pi}{4}\;\wedge\; k\in\mathbb{Z}_8\right)\right\}
+$$ Hierbei ist zu beachten, dass die Drehungen für Drehwinkel $$
+  \varphi_k=k\cdot\frac{\pi}{4}\quad\text{und}\quad \varphi_{k+8\cdot m}=(k+8\cdot m)\cdot\frac{\pi}{4}=k\cdot\frac{\pi}{4}+m\cdot 2\cdot\pi\,,\; m\in\mathbb{Z}
+$$ wegen der Periodizität von $\sin{\varphi}$ und $\cos{\varphi}$ gleich sind. Daher reicht es aus, $k\in\mathbb{Z}_8$ (Restklassen (-ring) bei Division natürlicher Zahlen durch 8) zu betrachten.
+
+Wird ein Grundmuster unter der Wirkung der Gruppe betrachtet, entsteht ein sogenanntes [Rosettenmuster](https://www.geogebra.org/m/YdNJrPfp) / -ornament.
+
+![Achteck](img/geo-bild27.png "_Fig._ Regelmäßiges Achteck mit den Eckpunkten $0$, $1$ bis $7$. Die Eckpunkte $k$ bilden eine diskrete Bildpunktmenge unter den Drehungen $\rho^k(O,k\cdot\frac{\pi}{4})$ mit $k\in\mathbb{Z}_8$.")
+
+**Bemerkung 5.** Eng verwandt mit Ornamenten / Ornamentgruppen sind die Symmetriegruppen von Figuren. Bezeichnet $\mathcal{F}\subset\mathcal{A}^2$ eine ebene Figur, so heißt eine Kongruenz $\sigma$ mit $\sigma(\mathcal{F})=\mathcal{F}$ eine Symmetrieabbildung der Figur. Die Menge aller solcher Abbildungen bildet die Symmetriegruppe der Figur $\mathcal{F}$. (Nachweis!) Besteht die Symmetriegruppe nur aus der identischen Abbildung, so heißt $\mathcal{F}$ **asymmetrisch**.
+
+![Piazza del Popolo](https://upload.wikimedia.org/wikipedia/commons/0/0c/Roma_Piazza_del_Popolo_BW_1.JPG "_Fig._ Piazza del Popolo mit den beiden (näherungsweise) spiegelsymmetrischen Kirchen Santa Maria di Monte Santo und Santa Maria dei Miracoli.[^2]")
+
+Aus den vorangegangenen Abschnitten ist bekannt, dass zwischen orientierungserhaltenden und orientierungsumkehrenden Kongruenzen zu unterscheiden ist.
+
+1. *Orientierungserhaltende Kongruenzen* sind entweder die identische Abbildung oder Drehungen um einen Punkt der Ebene oder Translationen.
+2. *Orientierungsumkehrende Kongruenzen* sind entweder Spiegelungen an Geraden oder Gleitspiegelung entlang Geraden.
+
+Einen Überblick über die verschiedenen ebenen Kongruenzen gibt die nachstehende Tabelle.
+
+|  | Translation | Drehung | Spiegelung | Gleitspiegelung | Identität |
+| :----- | :----- | :----- | :----- | :----- | :----- |
+| Fixpunkte | $\emptyset$ | Drehzentrum $Z$ | Spiegelachse $a$ | Gleitspiegelachse $a$ | alle Punkte |
+| Fixgeraden | alle Geraden parallel zur Translationsrichtung | $\emptyset$ bzw. alle Geraden durch $Z$ | $a$ und alle Geraden orthogonal zu $a$ | $a$ | alle Geraden |
+| Orientierung| erhaltend | erhaltend | umkehrend | umkehrend | erhaltend |
+
+
+Friesgruppen
+------------
+
+>**Definition 3.** Durch Translationen $\tau$ oder Gleitspiegelungen $\gamma$ erzeugte Ornamentgruppen $$
+  \mathcal{O}=\left\{\tau^k\;(k\in\mathbb{Z}),\circ\right\}\quad\text{bzw.}\quad
+  \mathcal{O}=\left\{\gamma^k\;(k\in\mathbb{Z}),\circ\right\}
+$$ werden **Friesgruppen** / Bandmustergruppen genannt.
+
+Der Orbit eines Punktes $P$ unter $\mathcal{O}$ ist eine unendliche Punktmenge. Das aus der Wirkung von $\mathcal{O}$ auf eine Grundfigur erzeugte Ornament wird **Fries** / Bandmuster genannt.
+
+**Beispiel 6.** Einfache Beispiele für Friese sind die Folgenden.
+
+1. $$ \mathrm{L\quad L\quad L\quad L }\quad\text{bzw.}\quad\mathrm{\Gamma\quad \Gamma\quad \Gamma\quad \Gamma }$$
+2. $$ \mathrm{L\quad \Gamma\quad L\quad \Gamma }$$
+3. $$ \mathrm{\Sigma\quad \Sigma\quad \Sigma\quad \Sigma }$$
+
+Während die Friese aus 1. durch wiederholte Translationen des Buchstabens  $\mathrm{L}$ beziehungsweise $\mathrm{\Gamma}$ erzeugt werden, ist das Fries aus 2. durch Potenzen einer Gleitspiegelung von $\mathrm{\Gamma}$ oder $\mathrm{L}$ entstanden. Die Bandmuster aus 1. und 2. gehören also zu verschiedenen Friesgruppen.
+
+Der Buchstabe $\mathrm{\Sigma}$ besitzt eine zusätzliche Symmetrie: er besitzt eine Spiegelachse in Translationsrichtung. Das dazugehörige Fries kann damit durch Translationen beziehungsweise Gleitspiegelungen erzeugt werden.
+
+Interaktive Beispiele zur Erzeugung von Bandmustern sind unter [Friese](https://www.geogebra.org/m/wjpjzrce) zu finden.
+
+**Bemerkung 6.** Eine Analyse der Friese ist durch Bestimmung der zugehörigen Friesgruppe möglich. Hierfür sind zusätzliche Symmetrien des Grundmusters zu betrachten. Diese Symmetrien müssen die Fixgeradenmenge der erzeugenden Translationen bzw. Gleitspiegelungen fest lassen. Mithin sind möglich:
+
+1. Spiegelung $\sigma_1$ an Gerade parallel zur Translationsrichtung (siehe Beispiel 6 (3))
+2. Spiegelung $\sigma_2$ an Gerade orthogonal zur Translationsrichtung
+3. Drehung $\rho$ mit Winkel $\varphi=\pi$
+4. Gleitspiegelung $\gamma$ entlang Gerade parallel zur Translationsrichtung
+
+Eine [Klassifikation](https://de.wikipedia.org/wiki/Friesgruppe) der Friesgruppen ist nach der Existenz von Drehungen und der Existenz von Spiegelungen bzw.Gleitspiegelungen möglich. (Die in jeder Friesgruppe existierenden Translationen sind zur Klassifikation ungeeignet.)
+
+>**Satz 2.** Es existieren insgesamt sieben verschiedene Friesgruppen. (Ohne Nachweis.)
+
+
+Wandornamentgruppen
+-------------------
+
+>**Definition 4.** Werden auf ein durch Potenzen $\tau_1^k$, $k\in\mathbb{Z}$, einer Translation erzeugtes Fries Translationen $\tau_2^m$, $m\in\mathbb{Z}$, in einer zu $\tau_1$ linear unabhängigen Richtung ausgeführt, so entsteht ein *Wandornament.*
+
+Eine Analyse der Wandornamente ist durch Bestimmung der zugehörigen Wandornamentgruppe möglich. Hierfür sind zusätzliche Symmetrien des Grundmusters zu betrachten. Diese Symmetrien müssen die Fixgeradenmenge der erzeugenden Translationen in Richtungen $\tau_1$ und $\tau_2$ jeweils als Ganzes fest lassen beziehungsweise vertauschen. Mithin sind möglich:
+
+1. Spiegelung $\sigma_1$ an Gerade parallel zur Translationsrichtung von $\tau_1$, falls die Translationsrichtung von $\tau_2$ hierzu orthogonal ist.
+2. Spiegelung $\sigma_2$ an Gerade parallel zur Translationsrichtung von $\tau_2$, falls die Translationsrichtung von $\tau_1$ hierzu orthogonal ist.
+3. Gleitspiegelung $\gamma_i$ entlang Gerade $a_i$ parallel zur Translationsrichtung von $\tau_i$, $i=1,2$
+4. Drehungen mit Drehwinkeln $$
+  \frac{1}{6}\cdot\pi\,,\quad\frac{1}{4}\cdot\pi\,,\quad\frac{1}{3}\cdot\pi\,,\quad\frac{1}{2}\cdot\pi
+$$
+
+Eine Klassifikation der Wandornamentgruppen ist nach der Existenz von Drehungen und der Existenz von Spiegelungen beziehungsweise Gleitspiegelungen möglich. (Die in jeder Wandornamentgruppe existierenden unabhängigen Translationen sind zur Klassifikation ungeeignet.)
+
+>**Satz 3.** Es existieren insgesamt siebzehn verschiedene Wandornamentgruppen. (Ohne Nachweis.)
+
+Die Klassifikation der zu Wandornamenten zugehörigen Wandornamentgruppen ist unter [Kristallographische Gruppe](https://de.wikipedia.org/wiki/Ebene_kristallographische_Gruppe) erläutert.
+
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Auf der Seite von Wikipedia zu Friesgruppen sind die folgenden Bandmuster abgebildet ![Bandmuster](https://upload.wikimedia.org/wikipedia/de/9/93/Friestypen.gif)
+
+Kennzeichnen Sie das Vorhandensein der in Beispiel 6 genannten  Symmetrien des Grundmusters.
+
+[[$\sigma_1$] [$\sigma_2$] [$\rho$] [$\gamma$]]
+[[ ] [ ] [ ] [ ]]  $F1$
+[[ ] [ ] [X] [ ]]  $F2$
+[[ ] [X] [ ] [ ]]  $F3$
+[[X] [ ] [ ] [X]]  $F4.1$
+[[ ] [ ] [ ] [X]]  $F4.2$
+[[X] [X] [X] [X]]  $F5.1$
+[[ ] [X] [X] [X]]  $F5.2$
+
+
+[^1]: Die Menge aller Bildpunkte $\sigma(P)$ eines Punktes $P$ unter einer Transformationsgruppe wird **Orbit** von $P$ unter dieser Gruppe genannt.
+
+[^2]: Quelle: Von Berthold Werner - Eigenes Werk, Gemeinfrei, [Wikipedia](https://commons.wikimedia.org/w/index.php?curid=3258859).
 
 
 ## Projektive Geometrie
