@@ -76,6 +76,8 @@ Addition von **Vektoren** aus $\mathbb{R}^k$ $(k\in\mathbb{N})$ und Vielfachbild
 >
 > für beliebige $\{x,y,z\}\subset\mathbb{R}^k$ und $\{\lambda,\mu\}\subset\mathbb{R}$.
 
+Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) können die Axiome für Vektoren nachgerechnet werden.
+
 ``` javascript
 A = [[a],[b]]
 B = [[c],[d]]
@@ -94,6 +96,27 @@ $$
 $$
 andernfalls linear abhängig.
 
+**Beispiel 1.** Mit Hilfe der linearen Unabhängigkeit von Vektoren lässt sich etwa nachweisen, dass sich die Diagonalen in einem Parallelogramm halbieren. Gegeben ist hierfür ein Parallelogramm mit den Eckpunkten $A$, $B$, $C$ und $D$, die Seiten $[A,B]$ bzw. $[A,D]$ werden durch die Vektoren $a$ bzw. $b$ aufgespannt. Es wird vorausgesetzt, dass die Vektoren $a$ und $b$ linear unabhängig sind. Siehe nachstehende Abbildung.
+
+![Diagonalen](img/geo-bild31.png "_Fig._ Parallelogramm mit Diagonalen. Die Diagonalen schneiden einander in ihrem Mittelpunkt.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 615px;" -->
+
+Für den Nachweis wird das Dreieck mit den Eckpunkten $A$, $B$ und $M$ betrachtet, worin $M$ den gemeinsamen Punkt der Diagonalen bezeichnet. Es gilt offensichtlich die Vektorgleichheit $$
+  \overrightarrow{AM}+\overrightarrow{MB}+\overrightarrow{BA}=o
+$$ mit dem Nullvektor $o$. Unter Benutzung der Vektoren $a$ und $b$ schreibt sich diese Identität $$
+  t\cdot(a+b)+s\cdot(a-b)-a=o\quad\leftrightarrow\quad a\cdot(t+s-1)+b\cdot(t-s)=o
+$$ worin $t$ und $s$ zu bestimmende reelle parameter bezeichnen. Da $a$ und $b$ linear unabhängig vorausgesetzt werden, ist diese Gleichung genau dann $o$, wenn beide Koeffizienten verschwinden, d. h. $$
+  t+s-1=0\quad\wedge\quad t-s=0
+$$ Das ist ein System aus zwei linearen Gleichungen in den zu bestimmenden Parametern $t$ und $s$ mit den Lösungen $t=s=\frac{1}{2}$. Damit ergeben sich die Vektoren $$
+  \overrightarrow{AM}=\frac{1}{2}\cdot\overrightarrow{AC}=\frac{1}{2}\cdot(a+b)\quad\text{und}\quad
+  \overrightarrow{MB}=\frac{1}{2}\cdot\overrightarrow{DB}
+$$
+
+$\square$
+
+Im nachstehenden Video ist der Beweis anhand der Figur $ABCD$ ausgeführt.
+
+!?[Diagonalen](https://www.youtube.com/watch?v=1SGRLDFTaFE&t=169s)
+
 Punkte $P$ der Ebene bzw. des dreidimensionalen Raumes werden mit ihren Ortsvektoren bezüglich eines Ortsvektorraumes identifiziert.
 $$ P(x,y,z) \leftrightarrow p=\begin{pmatrix} x \\ y \\ z \end{pmatrix} $$
 Bezüglich der kanonischen Basis im Ortsvektorraum stellt sich $p$ dar
@@ -111,6 +134,8 @@ Matrizen
 Die Menge der reellen Matrizen gleichen Typs bilden bezüglich der erklärten Addition und Skalarvielfachbildung einen Vektorraum, genügen also den gleichen Rechengesetzen wie Vektoren (aus $\mathbb{R}^k$).
 
 Für das Rechnen mit **quadratischen Matrizen** benötigen wir des Weiteren *inverse Matrix*, *Determinante* etc.
+
+Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) ist nachfolgend die Berechnung der Inversen -, der Adjunkten - und der Determinante einer quadratischen Matrix ausgeführt.
 
 ``` javascript
 A=[[a,b],[c,d]]
@@ -216,7 +241,7 @@ A                 B     A                 B     A                 B
          H                   T                               T
 ```````````````````````````````````````````````````````````````````
 
-Für das Teilverhältnis ergibt sich entsprechend $TV(T,B,A)=\frac{1}{4}$ beziehungsweise $TV(T,B,A)=\frac{3}{4}$. Siehe Abschnitt [Teilungspunkt einer Strecke](#Teilungspunkt-einer-Strecke)
+Für das Teilverhältnis ergibt sich entsprechend $TV(T,B,A)=\frac{1}{4}$ beziehungsweise $TV(T,B,A)=\frac{3}{4}$. Siehe Abschnitt [Teilungspunkt einer Strecke](#Teilungspunkt-einer-Strecke).
 
 **Bemerkung.** Das Teilverhältnis bleibt unter Parallelprojektionen erhalten, d. h. es ändert sich dabei nicht .[^4] Man sagt, es ist invariant unter Parallelprojektionen.
 
@@ -300,6 +325,8 @@ $$
   TV(C,B,A)=\frac{\det{\begin{pmatrix} x_A & x_C \\ y_A & y_C  \end{pmatrix}}}{\det{\begin{pmatrix} x_A & x_B \\ y_A & y_B \end{pmatrix}}}
 $$
 Überlegen Sie, in welchen Fällen sich diese Formel verwenden lässt, und in welchen Fällen nicht. Warum beschreibt diese das Teilverhältnis?
+
+Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) ist nachfolgend die Berechnung des Teilverhältnis der drei Punkte ausgeführt.
 
 ``` javascript
 A=[xa,ya]
@@ -390,6 +417,13 @@ O     E                     O     E     O     E
 [( ) ( ) (X)]  $x=0$
 [(X) ( ) ( )]  $x>0$
 [( ) (X) ( )]  $x<0$
+[[?]] Der Punkt $O$ wird als Ursprung, $E$ als Einheitspunkt eines affinen Koordinatensystems auf der Gerade $OE$ verwendet.
+****************************************
+
+Im Bild (a) trennt $O$ die beiden übrigen Punkte nicht, jedoch in (b). Im Fall (c) fällt $X$ mit $O$ zusammen.
+
+****************************************
+---
 
 
 **Frage 2.** Das Teilverhältnis des Punktes $X$ bezüglich $(A,B)$ mit $$ A(1,0)\,,\quad B(3,0)\,,\quad X(-5,0)$$ berechnet sich
@@ -397,6 +431,16 @@ O     E                     O     E     O     E
 [( )] $TV(X,B,A)=-5$
 [( )] $TV(X,B,A)=-\frac{1}{3}$
 [(X)] $TV(X,B,A)=-3$
+[[?]] An der Reihenfolge der Argumente in $TV(.)$ ist abzulesen, dass der Punkt $A$ als Ursprung, $B$ als Einheitspunkt eines affinen Koordinatensystems auf der Gerade $AB$ interpretiert wird. Es berechnet sich $$
+  TV(X,B,A)=\epsilon\cdot\frac{\overline{XA}}{\overline{BA}}
+$$
+****************************************
+
+Die Punkte $A$,$B$ und $X$ liegen auf der $x$-Achse eines Koordinatensystems, wobei $B$ und $X$ durch $A$ (Ursprung des affinen Koordinatensystems) getrennt sind. Es berechnet sich $$
+  TV(X,B,A)=(-1)\cdot)\cdot\frac{6}{2}=-3
+$$
+
+****************************************
 
 [^1]: Im zu $O\in\mathcal{A}^d$, $d\in\{2,3\}$, gehörigen Ortsvektorraum bilden die zu $E_1$ bis $E_d$ gehörenden Ortsvektoren eine Basis, worin sich der Ortsvektor eines jeden Punktes $X\in\mathcal{A}^d$ mit den Koeffizienten $(x_1,\ldots,x_d)$ eindeutig darstellen lässt.
 
@@ -492,14 +536,16 @@ $$
   \frac{1}{1-\lambda}=\frac{\beta}{\alpha+\beta}\,,\quad
   -\frac{\lambda}{1-\lambda}=\frac{\alpha}{\alpha+\beta}
 $$
-Der innere Teilungspunkt $T$ auf $[P,Q]$ stellt sich somit dar
-$$
+Der innere Teilungspunkt $T$ auf $[P,Q]$ stellt sich somit dar $$
   t=\frac{1}{\alpha+\beta}\cdot\left(\beta\cdot p+\alpha\cdot q\right)
 $$
+
 $T$ lässt sich physikalisch als [Schwerpunkt](#Massenschwerpunkt) des Massesystems $\{P,Q\}$ deuten, wenn
+
 * $P$ das Gewicht $\beta$
 * $Q$ das Gewicht $\alpha$
 * und somit dem Massesystem $\{P,Q\}$ das Gesamtgewicht $\alpha+\beta$
+
 zugewiesen wird.
 
 <!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 415px;" -->
@@ -512,6 +558,10 @@ zugewiesen wird.
                                            #
                                            a
 ``````````````````````````````````````````````````
+
+Im nachstehenden Video wird die Berechnung des Mittelpunktes einer Strecke unter Nutzung der analytischen Geometrie erklärt.
+
+!?[Mittelpunkt](https://www.youtube.com/watch?v=JU7YspTgFew&t=2s)
 
 
 ### Massenschwerpunkt
