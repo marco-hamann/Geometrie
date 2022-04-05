@@ -563,6 +563,85 @@ Im nachstehenden Video wird die Berechnung des Mittelpunktes einer Strecke unter
 
 !?[Mittelpunkt](https://www.youtube.com/watch?v=JU7YspTgFew&t=2s)
 
+**Beispiel.** *Methode des Eckenabschneidens nach G. Chaikin*
+
+Durch Konstruktion von Teilungspunkten auf den Seiten eines Polygons soll ein Unterteilungspolygon durch 'Abschneiden der Ecken' des ersten Polygons erzeugt werden.
+
+Gegeben sind die Eckpunkte eines Würfels $\Phi$ durch ihre kartesischen Koordinaten $$
+  A(+2,-2,-2)\,,\quad B(+2,+2,-2)\,,\quad C(-2,+2,-2)\,,\quad D(-2,-2,-2) \\ E(+2,-2,+2)\,,\quad F(+2,+2,+2)\,,\quad G(-2,+2,+2)\,,\quad H(-2,-2,+2)
+$$ Das geschlossene Polygon $$
+  A-B-C-G-F-E-H-D-A
+$$ ist als Teilmenge der Ecken- und Kantenmenge eines Würfels mit der Kantenlänge 'vier' in nachstehender Abbildung graphisch dargestellt. Es besitzt je acht (gleichlangen) Kanten und Punkte: $n=8$.
+
+![Chaikin-0](img/subdiv0.png "_Fig._ Geschlossenes Polygon $A-B-C-G-F-E-H-D-A$ (blau) auf den Kanten eines Würfels.")<!-- style="width: 50%;" -->
+
+Alle Seiten dieses Polygons werden nun durch je zwei Teilungspunkte $Q_{j}$ und $R_{j}$ mit $$
+  j\in\{AB,BC,CG,GF,FE,EH,HD,DA\}
+$$ im Verhältnis $\alpha:\beta:\alpha=1:3:1$ unterteilt. Die Punkte bilden ein so genanntes Unterteilungspolygon erster Stufe (magenta) des Ausgangspolygons $$
+   Q_{AB}-R_{AB}-Q_{BC}-R_{BC}-Q_{CG}-R_{CG}-Q_{GF}-R_{GF}-Q_{FE}-R_{FE}-
+   Q_{EH}-R_{EH}-Q_{HD}-R_{HD}-Q_{DA}-R_{DA}-Q_{AB}
+$$ welches aus $n_1=2\cdot n=16$ (nicht gleichlangen) Kanten besteht. $$
+  \left[
+  \left[\begin{array}{r} 2.0\\-1.2\\-2.0\end{array}\right],
+  \left[\begin{array}{r} 2.0\\ 1.2\\-2.0\end{array}\right],
+  \left[\begin{array}{r} 1.2\\ 2.0\\-2.0\end{array}\right],
+  \left[\begin{array}{r}-1.2\\ 2.0\\-2.0\end{array}\right],
+  \left[\begin{array}{r}-2.0\\ 2.0\\-1.2\end{array}\right],
+  \left[\begin{array}{r}-2.0\\ 2.0\\ 1.2\end{array}\right],
+  \left[\begin{array}{r}-1.2\\ 2.0\\ 2.0\end{array}\right],
+  \left[\begin{array}{r} 1.2\\ 2.0\\ 2.0\end{array}\right],\right. \\
+  \hspace{0.2cm}\left.\left[\begin{array}{r} 2.0\\ 1.2\\ 2.0\end{array}\right],
+  \left[\begin{array}{r} 2.0\\-1.2\\ 2.0\end{array}\right],
+  \left[\begin{array}{r} 1.2\\-2.0\\ 2.0\end{array}\right],
+  \left[\begin{array}{r}-1.2\\-2.0\\ 2.0\end{array}\right],
+  \left[\begin{array}{r}-2.0\\-2.0\\ 1.2\end{array}\right],
+  \left[\begin{array}{r}-2.0\\-2.0\\-1.2\end{array}\right],
+  \left[\begin{array}{r}-1.2\\-2.0\\-2.0\end{array}\right],
+  \left[\begin{array}{r} 1.2\\-2.0\\-2.0\end{array}\right] \right]
+$$ Das Unterteilungspolygon ist in der nachstehenden Abbildung dargestellt.
+
+![Chaikin-1](img/subdiv1.png" _Fig._ Geschlossenes Unterteilungspolygon erster Stufe (magenta) des Ausgangspolygons.")<!-- style="width: 50%;" -->
+
+Das Verfahren des 'Eckenabschneidens' kann nun erneut auf das Unterteilungspolygon erster Stufe angewendet werden. Die nachstehende Abbildung zeigt die Unterteilungspolygone zweiter (rot, $32$ Seiten) und dritter Stufe (grün, $64$ Seiten).
+
+![Chaikin-2](img/subdiv2.png)
+![Chaikin-3](img/subdiv3.png)
+
+**Programmierübung.** Nachfolgend ist der Pseudo-Code einer Prozedur angegeben, mit der zu einer gegebenen Liste von Koordinatenvektoren zu $n$ Punkten eines geschlossenen Polygons, zum Beispiel $$
+    P:=[[30,20],[70,15],[80,90],[20,70],[30,20]]
+$$ eine Liste von Koordinaten zu $2\cdot n$ Unterteilungspunkten auf den Seiten des ursprünglichen Polygons berechnet und ausgegeben wird. Siehe Chaikin-Methode des 'Eckenabschneidens' im vorangestellten Beispiel.
+
+<!-- data-showGutter="false" -->
+```javascript
+// PSEUDO-CODE
+// Eingabe: Liste P mit Koordinatenvektoren zu n Punkten, Parameter u mit 0<u<0.5
+// L: leere Liste
+// n: Anzahl der Elemente von P
+// v: 1-2*u
+// Wiederhole für i=1 bis n-1
+//    q: (u+v)*P[i]+u*P[i+1]
+//    r: u*P[i]+(u+v)*P[i+1]
+//    Erweitere L um die Elemente der Liste [q,r]
+// Ende Wiederholen
+// Erweitere L um das Element L[1]
+// Ausgabe: Liste L mit 2*n Punkten
+// ENDE PSEUDO-CODE
+```
+
+Vollziehen Sie den dargestellten Pseudo-Code nach. Beantworten Sie hierfür die nachstehenden Fragen.
+
+1. Begründen Sie, dass die im Pseudo-Code aufgeführten Linearkombinationen konvexe Linearkombinationen sind.
+2. Kennzeichnen Sie den Einfluss des zu wählenden Parameters $u$ auf die Teilungsverhältnisse der Punkte $q$ und $r$ auf den Seiten des Polygons $P$.
+3. Implementieren Sie diese Prozedur mithilfe einer Programmiersprache Ihrer Wahl.
+
+
+Sicher gewusst?
+===============
+
+**Frage 1.** Gegeben ist ein Dreieck mit den Eckpunkten $A$, $B$ und $C$ sowie ein weiterer Punkt $O$. Die Verbindungsgeraden $AO$, $BO$ und $CO$ der Eckpunkte des Dreiecks mit dem Punkt $O$ besitzen im Fall der nichtparallelen Lage mit der dem Eckpunkt gegenüberliegenden Seite einen gemeinsamen Punkt $$
+  D=AO\cap BC\,,\quad E=BO\cap AC\quad\text{und}\quad F=CO\cap AB
+$$ 
+
 
 ### Massenschwerpunkt
 
