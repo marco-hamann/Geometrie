@@ -563,7 +563,7 @@ Im nachstehenden Video wird die Berechnung des Mittelpunktes einer Strecke unter
 
 !?[Mittelpunkt](https://www.youtube.com/watch?v=JU7YspTgFew&t=2s)
 
-**Beispiel.** *Methode des Eckenabschneidens nach G. Chaikin*
+**Beispiel 2.** *Methode des Eckenabschneidens nach G. Chaikin*
 
 Durch Konstruktion von Teilungspunkten auf den Seiten eines Polygons soll ein Unterteilungspolygon durch 'Abschneiden der Ecken' des ersten Polygons erzeugt werden.
 
@@ -607,7 +607,7 @@ Das Verfahren des 'Eckenabschneidens' kann nun erneut auf das Unterteilungspolyg
 ![Chaikin-2](img/subdiv2.png)
 ![Chaikin-3](img/subdiv3.png)
 
-**Programmierübung.** Nachfolgend ist der Pseudo-Code einer Prozedur angegeben, mit der zu einer gegebenen Liste von Koordinatenvektoren zu $n$ Punkten eines geschlossenen Polygons, zum Beispiel $$
+**Bemerkung.** Nachfolgend ist der Pseudo-Code einer Prozedur angegeben, mit der zu einer gegebenen Liste von Koordinatenvektoren zu $n$ Punkten eines geschlossenen Polygons, zum Beispiel $$
     P:=[[30,20],[70,15],[80,90],[20,70],[30,20]]
 $$ eine Liste von Koordinaten zu $2\cdot n$ Unterteilungspunkten auf den Seiten des ursprünglichen Polygons berechnet und ausgegeben wird. Siehe Chaikin-Methode des 'Eckenabschneidens' im vorangestellten Beispiel.
 
@@ -638,9 +638,71 @@ Vollziehen Sie den dargestellten Pseudo-Code nach. Beantworten Sie hierfür die 
 Sicher gewusst?
 ===============
 
-**Frage 1.** Gegeben ist ein Dreieck mit den Eckpunkten $A$, $B$ und $C$ sowie ein weiterer Punkt $O$. Die Verbindungsgeraden $AO$, $BO$ und $CO$ der Eckpunkte des Dreiecks mit dem Punkt $O$ besitzen im Fall der nichtparallelen Lage mit der dem Eckpunkt gegenüberliegenden Seite einen gemeinsamen Punkt $$
+**Frage.** Gegeben ist ein Dreieck mit den Eckpunkten $A$, $B$ und $C$ sowie ein weiterer Punkt $O$. Die Verbindungsgeraden $$
+  AO\,,\quad BO\quad\text{und}\quad CO
+$$ der Eckpunkte des Dreiecks mit dem Punkt $O$ besitzen im Fall der nichtparallelen Lage mit der dem Eckpunkt gegenüberliegenden Seite einen gemeinsamen Punkt $$
   D=AO\cap BC\,,\quad E=BO\cap AC\quad\text{und}\quad F=CO\cap AB
-$$ 
+$$ Berechnen Sie in Abhängigkeit der Koordinaten $O(x_0,y_0)$ die nachstehenden Teilverhältnisse für ein angepasstes affines Koordinatensystem $(U,E_1,E_2)$ der Ebene mit dem Ursprung $U=A$, und den Einheitspunkten $E_1=B$ bzw. $E_2=C$ auf der ersten - bzw. zweiten Koordinatenachse.
+
+[(X)] $$TV(E,C,A)=\frac{y_0}{1-x_0}$$
+[( )] $$TV(E,C,A)=\frac{1-x_0}{y_0}$$
+[( )] $$TV(E,C,A)=\frac{x_0+y_0-1}{y_0}$$
+[[?]] Bestimmen Sie eine Gleichung der Geraden $BO$ - beispielsweise in der Form $0=\lambda\cdot x+\mu\cdot y+\nu$ - und berechnen Sie den Schnittpunkt mit der Geraden $AC$. Berechnen Sie das gesuchte Teilverhältnis.
+****************************************
+
+Die Gleichung der Geraden $BO$ besitzt die Gleichung $$
+  0=-y_0\cdot x-(1-x_0)\cdot y+y_0\quad\leftarrow\quad
+  y=-\frac{y_0}{1-x_0}\cdot x+\frac{y_0}{1-x_0}
+$$ Mit der Geraden $AC$ (zweite Koordinatenachse, $x=0$) besitzt diese den Punkt $$
+  E\left(0,\frac{y_0}{1-x_0}\right)\quad 1-x_0\not=0
+$$ gemeinsam. Für $x_0=1$ ist $BO$ parallel zu $AC$, so dass in diesem Fall kein (eigentlicher) Schnittpunkt existiert. Das gesuchte Teilverhältnis ergibt sich unmittelbar zu $$
+  TV(E,C,A)=\frac{y_0}{1-x_0}
+$$ Durch Permutation der Argumente ergeben sich des Weiteren $$
+  TV(C,E,A)=\frac{1-x_0}{y_0}\quad\text{und}\quad
+  TV(C,A,E)=\frac{x_0+y_0-1}{y_0}
+$$
+
+****************************************
+
+[(X)] $$TV(F,B,A)=\frac{x_0}{1-y_0}$$
+[( )] $$TV(F,B,A)=\frac{1-y_0}{x_0}$$
+[( )] $$TV(F,B,A)=\frac{x_0+y_0-1}{x_0}$$
+[[?]] Bestimmen Sie eine Gleichung der Geraden $CO$ - beispielsweise in der Form $0=\lambda\cdot x+\mu\cdot y+\nu$ - und berechnen Sie den Schnittpunkt mit der Geraden $AB$. Berechnen Sie das gesuchte Teilverhältnis.
+****************************************
+
+Die Gleichung der Geraden $CO$ besitzt die Gleichung $$
+  0=(y_0-1)\cdot x-x_0\cdot y+x_0\quad\leftarrow\quad
+  y=\frac{y_0-1}{x_0}\cdot x+1
+$$ Mit der Geraden $AB$ (erste Koordinatenachse, $y=0$) besitzt diese den Punkt $$
+  F\left(\frac{x_0}{1-y_0},0\right)\quad 1-y_0\not=0
+$$ gemeinsam. Für $y_0=1$ ist $CO$ parallel zu $AB$, so dass in diesem Fall kein (eigentlicher) Schnittpunkt existiert. Das gesuchte Teilverhältnis ergibt sich unmittelbar zu $$
+  TV(F,B,A)=\frac{x_0}{1-y_0}
+$$ Durch Permutation der Argumente ergeben sich des Weiteren $$
+  TV(B,F,A)=\frac{1-y_0}{x_0}\quad\text{und}\quad
+  TV(B,A,F)=\frac{x_0+y_0-1}{x_0}
+$$
+
+****************************************
+
+[( )] $$TV(D,B,C)=\frac{x_0+y_0}{x_0}$$
+[(X)] $$TV(D,B,C)=\frac{x_0}{x_0+y_0}$$
+[( )] $$TV(D,B,C)=-\frac{y_0}{x_0}$$
+[[?]] Bestimmen Sie eine Gleichung der Geraden $AO$ - beispielsweise in der Form $0=\lambda\cdot x+\mu\cdot y+\nu$ - und berechnen Sie den Schnittpunkt mit der Geraden $BC$. Berechnen Sie das gesuchte Teilverhältnis.
+****************************************
+
+Die Gleichung der Geraden $AO$ besitzt die Gleichung $$
+  0=y_0\cdot x-x_0\cdot y\quad\leftarrow\quad
+  y=\frac{y_0}{x_0}\cdot x
+$$ Mit der Geraden $BC$ (Gleichung $y=-x+1$) besitzt diese den Punkt $$
+  D\left(\frac{x_0}{x_0+y_0},\frac{y_0}{x_0+y_0}\right)\quad x_0+y_0\not=0
+$$ gemeinsam. Für $x_0=-y_0$ ist $AO$ parallel zu $BC$, so dass in diesem Fall kein (eigentlicher) Schnittpunkt existiert. Das gesuchte Teilverhältnis ergibt sich unmittelbar zu $$
+  TV(F,B,A)=\frac{\det{\begin{pmatrix} 0 & \frac{x_0}{x_0+y_0} \\ 1 & \frac{y_0}{x_0+y_0} \end{pmatrix}}}{\det{\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}}}=\frac{x_0}{x_0+y_0}
+$$ Durch Permutation der Argumente ergeben sich des Weiteren $$
+  TV(B,D,C)=\frac{x_0+y_0}{x_0}\quad\text{und}\quad
+  TV(B,C,D)=-\frac{y_0}{x_0}
+$$
+
+****************************************
 
 
 ### Massenschwerpunkt
@@ -1269,7 +1331,7 @@ $$
 mit regulärer Transformationsmatrix $A\in\mathbb{R}^{d,d}$ ($\det{A}\not=0$) und Translationsvektor $a\in\mathbb{R}^d$.
 
 
-Komposition 1
+Komposition
 ===========
 
 Aus der Schulmathematik ist bekannt, dass die Summe / das Produkt reeller Zahlen wieder eine reelle Zahl ist. Diese sind naheliegende Beispiele für Verknüpfungen.
