@@ -638,11 +638,13 @@ Vollziehen Sie den dargestellten Pseudo-Code nach. Beantworten Sie hierfür die 
 Sicher gewusst?
 ===============
 
-**Frage.** Gegeben ist ein Dreieck mit den Eckpunkten $A$, $B$ und $C$ sowie ein weiterer Punkt $O$. Die Verbindungsgeraden $$
+Gegeben ist ein Dreieck mit den Eckpunkten $A$, $B$ und $C$ sowie ein weiterer Punkt $O$. Die Verbindungsgeraden $$
   AO\,,\quad BO\quad\text{und}\quad CO
 $$ der Eckpunkte des Dreiecks mit dem Punkt $O$ besitzen im Fall der nichtparallelen Lage mit der dem Eckpunkt gegenüberliegenden Seite einen gemeinsamen Punkt $$
   D=AO\cap BC\,,\quad E=BO\cap AC\quad\text{und}\quad F=CO\cap AB
-$$ Berechnen Sie in Abhängigkeit der Koordinaten $O(x_0,y_0)$ die nachstehenden Teilverhältnisse für ein angepasstes affines Koordinatensystem $(U,E_1,E_2)$ der Ebene mit dem Ursprung $U=A$, und den Einheitspunkten $E_1=B$ bzw. $E_2=C$ auf der ersten - bzw. zweiten Koordinatenachse.
+$$
+
+**Frage 1.** Berechnen Sie in Abhängigkeit der Koordinaten $O(x_0,y_0)$ die nachstehenden Teilverhältnisse für ein angepasstes affines Koordinatensystem $(U,E_1,E_2)$ der Ebene mit dem Ursprung $U=A$, und den Einheitspunkten $E_1=B$ bzw. $E_2=C$ auf der ersten - bzw. zweiten Koordinatenachse.
 
 [(X)] $$TV(E,C,A)=\frac{y_0}{1-x_0}$$
 [( )] $$TV(E,C,A)=\frac{1-x_0}{y_0}$$
@@ -696,11 +698,35 @@ Die Gleichung der Geraden $AO$ besitzt die Gleichung $$
 $$ Mit der Geraden $BC$ (Gleichung $y=-x+1$) besitzt diese den Punkt $$
   D\left(\frac{x_0}{x_0+y_0},\frac{y_0}{x_0+y_0}\right)\quad x_0+y_0\not=0
 $$ gemeinsam. Für $x_0=-y_0$ ist $AO$ parallel zu $BC$, so dass in diesem Fall kein (eigentlicher) Schnittpunkt existiert. Das gesuchte Teilverhältnis ergibt sich unmittelbar zu $$
-  TV(F,B,A)=\frac{\det{\begin{pmatrix} 0 & \frac{x_0}{x_0+y_0} \\ 1 & \frac{y_0}{x_0+y_0} \end{pmatrix}}}{\det{\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}}}=\frac{x_0}{x_0+y_0}
+  TV(D,B,C)=\frac{\det{\begin{pmatrix} 0 & \frac{x_0}{x_0+y_0} \\ 1 & \frac{y_0}{x_0+y_0} \end{pmatrix}}}{\det{\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}}}=\frac{x_0}{x_0+y_0}
 $$ Durch Permutation der Argumente ergeben sich des Weiteren $$
   TV(B,D,C)=\frac{x_0+y_0}{x_0}\quad\text{und}\quad
   TV(B,C,D)=-\frac{y_0}{x_0}
 $$
+
+****************************************
+
+**Frage 2.** Berechnen Sie in Abhängigkeit der Koordinaten $O(x_0,y_0)$ das Produkt $$
+  TV(A,B,F)\cdot TV(B,C,D)\cdot TV(C,A,E)
+$$ der zuvor berechneten Teilverhältnisse.
+
+[( )] $-\frac{(x_0+y_0-1)^2}{x_0^2}$
+[(X)] $-1$
+[( )] $-\frac{x_0^2}{y_0^2}$
+[[?]] Transformieren Sie die zuvor berechneten Teilverhältnisse unter Permutation der Argumente. Siehe obigen Satz in diesem Abschnitt.
+****************************************
+
+Für die in Frage 1 berechneten Teilverhältnisse ergeben sich durch Permutation der Argumente $$
+  TV(C,A,E)=1-\frac{1}{TV(E,C,A)}=1-\frac{1-x_0}{y_0}=\frac{x_0+y_0-1}{y_0}
+$$ ebenso $$
+  TV(A,B,F)=1-\frac{1}{1-TV(F,B,A)}=1-\frac{1}{1-\frac{x_0}{1-y_0}}=1+\frac{1-y_0}{x_0+y_0-1}=\frac{x_0}{x_0+y_0-1}
+$$ sowie $$
+  TV(B,C,D)=1-\frac{1}{TV(D,B,C)}=1-\frac{1}{\frac{x_0}{x_0+y_0}}=-\frac{y_0}{x_0}
+$$ Das zu berechnende Produkt ergibt sich somit $$
+  TV(A,B,F)\cdot TV(B,C,D)\cdot TV(C,A,E)=
+  \frac{x_0}{x_0+y_0-1}\cdot\left(-\frac{y_0}{x_0}\right)\cdot
+  \frac{x_0+y_0-1}{y_0}=-1
+$$ und ist somit unabhängig von der Lage des Punktes $O(x_0,y_0)$. Die Aussage ist unter dem [Satz von Ceva](https://de.wikipedia.org/wiki/Satz_von_Ceva) bekannt.
 
 ****************************************
 
