@@ -46,7 +46,11 @@ Sie können diesen Kurs auf [LiaScript](https://liascript.github.io/course/?http
 
 https://github.com/marco-hamann/Geometrie
 
+
 ## Affine Geometrie
+
+
+![wordcloud-affine-Geometrie](img/wordcloud_affine-Geometrie.png)
 
 In diesem Kapitel werden folgende Themen behandelt:
 
@@ -90,13 +94,51 @@ Für Vektoren $v_i\in\mathbb{R}^k$ mit $i\in\{1,2,\ldots,n\}$ und Skalare $\lamb
 $$
   \sum_{i=1}^n{\left(\lambda_i\cdot v_i\right)}\in\mathbb{R}^k
 $$
-eine **Linearkombination** der Vektoren $v_i$. Diese ist also wieder ein Vektor. Die Vektoren $v_i$ heißen linear unabhängig, falls
-$$
-  \sum_{i=0}^n{\left(\lambda_i\cdot v_i\right)}=0\;\rightarrow\;(\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
-$$
-andernfalls linear abhängig.
+eine **Linearkombination** der Vektoren $v_i$. Diese ist also wieder ein Vektor.
 
-**Beispiel 1.** Mit Hilfe der linearen Unabhängigkeit von Vektoren lässt sich etwa nachweisen, dass sich die Diagonalen in einem Parallelogramm halbieren. Gegeben ist hierfür ein Parallelogramm mit den Eckpunkten $A$, $B$, $C$ und $D$, die Seiten $[A,B]$ bzw. $[A,D]$ werden durch die Vektoren $a$ bzw. $b$ aufgespannt. Es wird vorausgesetzt, dass die Vektoren $a$ und $b$ linear unabhängig sind. Siehe nachstehende Abbildung.
+Ein zentraler Begriff im Kontext der Vektorräume ist der der linearen Unabhängigkeit von Vektoren.
+
+>**Definition.** Die Vektoren $v_i\in \mathbb{R}^k$ mit $i\in\{1,2,\ldots,n\}$ heißen **linear unabhängig**, falls
+>$$
+  \sum_{i=0}^n{\left(\lambda_i\cdot v_i\right)}=o\;\rightarrow\;(\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
+$$ worin $o$ den Nullvektor in $V$ bezeichnet. Andernfalls wird die Menge $\{v_1,...,v_n\}$ linear abhängig genannt.
+
+**Bemerkung.** Die vorstehende Definition besteht aus einer Implikation: Der Vordersatz ist eine vektorwertige, lineare Gleichung in den unbekannten Koeffizienten $\lambda_i$, deren rechte Seite der Nullvektor in $\mathbb{R}^k$ ist. Der Nachsatz umfasst die Aussage, dass alle Koeffizienten als Lösungen dieser Gleichung 'Null' sind.
+
+Das heißt, die lineare Unabhängigkeit der Vektoren $v_i$ ist daran gekoppelt, dass die vektorvertige, lineare Gleichung in Definition ~~nur~~ für das Nulltupel $$
+  (\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
+$$ lösbar ist. Diese wird auch *triviale Lösung* genannt. Existiert andernfalls ~~daneben~~ ein $$
+  (\lambda_0,\lambda_1,\ldots,\lambda_n)\not=(0,0,\ldots,0)
+$$ als Lösungstupel dieser Gleichung, so heißt die Menge der Vektoren $\left\{v_i|\, i\in\{1,2,...,n\}\right\}$ linear abhängig.
+
+**Beispiel 1.** Es wird der Vektorraum $V=\mathbb{R}^2$ betrachtet.
+
+1. Für die Vektoren $$
+  v_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\quad\text{und}\quad
+  v_2=\begin{pmatrix} 1 \\ -1 \end{pmatrix}
+$$ ist die Menge $\{v_1,v_2\}$ linear unabhängig, da gilt $$
+  \lambda_1\cdot v_1+\lambda_2\cdot v_2=
+  \lambda_1\cdot\begin{pmatrix} 2 \\ 1 \end{pmatrix}+\lambda_2\cdot\begin{pmatrix} 1 \\ -1 \end{pmatrix}=
+  \begin{pmatrix} 2\cdot\lambda_1+\lambda_2 \\ \lambda_1-\lambda_2 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}=o\quad\leftrightarrow\quad (\lambda_1,\lambda_2)=(0,0)
+$$ Es existiert nur das Paar von Koeffizienten $(\lambda_1,\lambda_2)=(0,0)$ als Lösung der linearen Gleichung.
+2. Für die Vektoren $$
+  u_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\quad\text{und}\quad
+  u_2=\begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$ ist die Menge $\{u_1,u_2\}$ linear abhängig, da zum Beispiel gilt $$
+  0\cdot u_1+7\cdot u_2=
+  0\cdot\begin{pmatrix} 2 \\ 1 \end{pmatrix}+7\cdot\begin{pmatrix} 0 \\ 0 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}=o
+$$ Es existiert ein Paar von Koeffizienten $(\lambda_1,\lambda_2)=(0,7)\not=(0,0)$ als Lösung dieser linearen Gleichung. Mit selbigem Ansatz folgt, dass die einelementige Menge $\{u_1\}$ linear unabhängig ist, währenddessen $\{u_2\}$ linear abhängig ist.[^4]
+3. Für die Vektoren $$
+  w_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\,,\quad
+  w_2=\begin{pmatrix} 1 \\ 1 \end{pmatrix}\quad\text{und}\quad
+  w_3=\begin{pmatrix} -1 \\ 2 \end{pmatrix}
+$$ besteht die Menge $\{w_1,w_2,w_3\}$ aus linear abhängigen Vektoren, da gilt $$
+  -3\cdot w_1+5\cdot w_2-w_3=o
+$$ Bitte nachrechnen!
+
+**Beispiel 2.** Mit Hilfe der linearen Unabhängigkeit von Vektoren lässt sich etwa nachweisen, dass sich die Diagonalen in einem Parallelogramm halbieren. Gegeben ist hierfür ein Parallelogramm mit den Eckpunkten $A$, $B$, $C$ und $D$, die Seiten $[A,B]$ bzw. $[A,D]$ werden durch die Vektoren $a$ bzw. $b$ aufgespannt. Es wird vorausgesetzt, dass die Vektoren $a$ und $b$ linear unabhängig sind. Siehe nachstehende Abbildung.
 
 ![Diagonalen](img/geo-bild31.png "_Fig._ Parallelogramm mit Diagonalen. Die Diagonalen schneiden einander in ihrem Mittelpunkt.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 615px;" -->
 
@@ -1112,6 +1154,8 @@ In diesem Kapitel werden folgende Themen behandelt:
 Definition affiner Abbildungen
 ==============================
 
+Wir beginnen mit dem Begriff einer affinen Abbildung.
+
 >**Definition.** Eine Abbildung $\alpha:\mathcal{A}^d\to \mathcal{A}^d$ des $d$-dimensionalen affinen Raumes ($d\in\mathbb{N},\,d\geq1$), die Punkte $X$ auf Punkte $X^\prime=\alpha(X)$ abbildet, heißt **affine Abbildung**, wenn sie bezogen auf ein affines Koordinatensystem $[O,E_1,...,E_d]$ mit Ortsvektor $x=\overrightarrow{OX}$ und $x^\prime=\overrightarrow{OX^\prime}$ in der Form $$ x\mapsto x^\prime=A\cdot x+a $$ mit $A\in\mathbb{R}^{d,d}$ und $a\in\mathbb{R}^{d}$ beschrieben werden kann.
 
 Die reelle, quadratische Matrix $A$ wird Abbildungsmatrix (Transformationsmatrix), der reelle Vektor $a$ Translationsvektor von $\alpha$ genannt. Für $d=2$ heißt $\alpha$ affine Abbildung der Ebene, für $d=3$ affine Abbildung des dreidimensionalen Raumes.
@@ -1588,7 +1632,7 @@ $$ bildet bezüglich der Komposition eine **Gruppe**.
 
 Im Rahmen dieser Vorlesungen werden Transformationsgruppen benutzt, um beispielsweise periodische Muster, so genannte Ornamente zu analysieren beziehungsweise aus einem Grundmuster zu erzeugen.
 
-**Beispiel 3.** Ein Beispiel für ein Ornament ist in nachfolgender Abbildung dargestellt. Es ist ein ~~Fries~~ (Bandornament). Siehe https://de.wikipedia.org/wiki/Friesgruppe.
+**Beispiel 3.** Ein Beispiel für ein Ornament ist in nachfolgender Abbildung dargestellt. Es ist ein ~~Fries~~ (Bandornament). Siehe https://de.wikipedia.org/wiki/Friesgruppe
 
 ![Fries](img/Fries.png "Periodische Fortsetzung der Grundeinheit durch wiederholte Translation $\tau$ mit fester Translationsrichtung und festem Translationsbetrag.")
 
