@@ -9,32 +9,9 @@ language: de
 
 comment:  Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Medieninformatik im 2. Semester.
 
-script: https://cdn.rawgit.com/davidedc/Algebrite/master/dist/algebrite.bundle-for-browser.js
-@Algebrite.eval: <script> Algebrite.run(`@input`)</script>
+import: https://raw.githubusercontent.com/LiaTemplates/tiny-turtle/master/README.md
 
-script:   https://cdn.jsdelivr.net/gh/liaTemplates/tiny-turtle/tiny-turtle.js
-@TinyTurtle: @TinyTurtle.eval(@uid,@0,@1,@2)
-@TinyTurtle.eval
-<script>
-send.handle("input", (cmd) => {
-  try{
-    let rslt = eval(cmd);
-    if (rslt)
-      console.log(rslt)
-  } catch (e) {
-    console.error("error", e)
-  }
-});
-function stop() {
-  send.lia("LIA: stop")
-}
-window.TinyTurtle("turtle_@0")
-@input
-if ("@3" == "true")
-  "LIA: terminal"
-</script>
-<canvas id="turtle_@0" width="@1" height="@2"></canvas>
-@end
+import: https://raw.githubusercontent.com/liaTemplates/algebrite/master/README.md
 
 -->
 
@@ -3399,4 +3376,108 @@ Kennzeichnen Sie das Vorhandensein der in Beispiel 6 genannten  Symmetrien des G
 
 ## Projektive Geometrie
 
-...
+
+### Projektionen
+
+
+Definition
+=====
+
+
+In diesem Abschnitt werden Projektionen des dreidimensionalen Raumes betrachtet. Es werden das geometrische Abbildungsprinzip erklärt sowie Eigenschaften von Projektionen abgeleitet. Die Notwendigkeit einer Erweiterung des dreidimensionalen Raumes durch uneigentliche Elemente wird aufgezeigt.
+
+>**Definition 1.** Gegeben sind ein als fest angenommener Punkt $Z$ und eine als fest angenommene Ebene $\Pi$ mit $Z\not\in\Pi$. Die Abbildung $$
+  ^c:A^3\setminus\Delta\to\Pi\quad\text{mit}\quad P\mapsto P^c:=ZP\cap\Pi
+$$ worin $\Delta$ die zu $\Pi$ parallele Ebene durch $Z$ bezeichnet, heißt [Zentralprojektion](https://de.wikipedia.org/wiki/Zentralprojektion) von $A^3$ in $\Pi$.
+
+**Bemerkung 1.** Die in Definition 1 beschriebene Abbildung bildet die Punkte des dreidimensionalen Raumes (mit Ausnahme der Punkte in $\Delta$) ab in die Ebene $\Pi$: Erstere bildet die Grundmenge der Abbildung, letztere die Zielmenge der Abbildung. Jedem Punkt $P$ der Grundmenge wird der eindeutig bestimmte Schnittpunkt der Verbindungsgerade $ZP$ mit $\Pi$ zugeordnet. Siehe nachstehende Abbildung.
+
+![Zentralprojektion](img/geo-bild32.png "_Fig._ Zentralprojektion zweier Punkte $P$, $Q$ mit identischen Zentralrissen aus dem Projektionszentrum $Z$ in die Bildebene $\Pi$. Die Punkte der Verschwindungsebene besitzen keine (eigentlichen) Zentralbilder.")
+
+**Bemerkung 2.** Für Punkte $V\in\Delta$ der Ebene $$
+  \Delta\parallel \Pi\quad\text{mit}\quad \Delta\ni Z
+$$ sind die Geraden $ZV$ parallel zu $\Pi$ und ergeben somit keinen (eigentlichen) Schnittpunkt $V^c$. Diese heißen daher *Verschwindungpunkte* und $\Delta$ Verschwindungsebene.
+
+Im Folgenden werden nachstehende Bezeichnungen gewählt.
+
+| Symbol | Bezeichnung | Definition |
+| :----- | :----- | :----- |
+| $\Pi$ (lies: Pi) | Bildebene | Trägerebene aller Bildpunkte unter der Zentralprojektion $^c$ |
+| $Z$ | Projektionszentrum | Gemeinsamer Punkt aller Projektionsstrahlen |
+| $P$ | Urbild (-Punkt) | Punkt $P$ der Grundmenge, der unter der Zentralprojektion $^c$ auf $P^c$ abgebildet wird |
+| $P^c$ | (Zentral-) Bild | Punkt $P^c$ der Zielmenge, auf den $P$ unter der Zentralprojektion $^c$ eindeutig abgebildet wird |
+| $ZP$ | Projektionsgerade | zu $P$ eindeutig bestimmte Verbindungsgerade, deren Schnittpunkt mit der Bildebene den Bildpunkt $P^c$ bildet |
+| $\Delta$ | Verschwindungsebene | Ebene, deren Punkte $V$ ~~kein~~ Zentralbild besitzen (Verschwindungspunkte) |
+
+>**Definition 2.** Gegeben sind eine als fest angenommene Ebene $\Pi$ und eine als fest angenommene Gerade $g$ und mit $g\not\parallel\Pi$ (und somit auch $g\not\subset\Pi$). Die Abbildung $$
+  ^p:A^3\to\Pi\quad\text{mit}\quad Q\mapsto Q^p:=g_Q\cap\Pi\;\;\text{und}\;\;g_Q\ni Q\,,\;g_Q\parallel g
+$$ heißt [Parallelprojektion](https://de.wikipedia.org/wiki/Parallelprojektion) von $A^3$ in $\Pi$.
+
+**Bemerkung 3.** Die bei Zentralprojektionen eingeführten Bezeichnungen können sinngemäß übernommen werden. Im Unterschied zur Zentralprojektion bilden die Projektionsgeraden einer Parallelprojektion eine zweiparametrige Menge zu $g$ paralleler Geraden. Stellt man sich das Projektionszentrum $Z$ beliebig weit von $\Pi$ entfernt vor, so gestatten beide Projektionen ein nahezu identisches Konstruktionsprinzip. Siehe nachstehende Abbildung.
+
+![Projektionsgeraden](img/geo-bild33.png "_Fig._ Projektionsgeraden einer Zentralprojektion (links) und einer Parallelprojektion: Im ersten Fall enthalten diese das Projektionszentrum $Z$, bilden demnach ein 'Geradenbündel', während im zweiten Fall alle Geraden parallel sind ('Parallelgeradenbündel'). ")
+
+>**Definition 3.** Eine Parallelprojektion, bei der die Projektionsgeraden $g$ orthogonal zur Bildebene $\Pi$ verlaufen, heißt [Normal- bzw. Orthogonalprojektion](https://de.wikipedia.org/wiki/Orthogonalprojektion) und wird mit $^n$ bezeichnet.
+>
+>Ist die Bildebene $\Pi$ speziell die / parallel zur Ebene:
+>
+>1. $z=0$ (horizontal angenommene $xy$-Ebene), so heißt $^n$ *Grundrissprojektion*
+>2. $x=0$ ($yz$-Ebene), so heißt $^n$ *Aufrissprojektion*
+>3. $y=0$ ($xz$-Ebene), so heißt $^n$ *Kreuzrissprojektion*
+
+
+Eigenschafen von Projektionen
+=====
+
+
+Für Projektionen $^c$ beziehungsweise $^p$ beziehungsweise $^n$ gelten:
+
+1. Das Bild eines Punktes $Q\in A^3$ unter einer Projektion ist wieder ein Punkt. Ausnahmen bilden bei der Zentralprojektion das Projektionszentrum $Z$ (keine Projektionsgerade) und die Punkte der Verschwindungsebene $\Delta$. Deren Projektionsgeraden sind parallel zur Bildebene $\Pi$, besitzen demnach keinen (eigentlichen) Schnittpunkt.
+2. Das Bild einer Geraden $g\subset A^3$ ist genau dann ein Punkt, wenn $g$ Projektionsgerade ist: $g$ heißt dann **projizierend**. Das Bild einer nichtprojizierenden Geraden unter Projektion ist wieder eine Gerade. Ausnahmen bilden Geraden in der Verschwindungsebene $\Delta$.[^1]
+
+Speziell für Parallelprojektionen $^p$ gelten:
+
+3. Das Teilverhältnis auf nichtprojizierenden Strecken bleibt unter Parallelprojektionen erhalten, das heißt: $$
+    \left(T\in[A,B]\quad\text{mit}\quad \operatorname{TV}(T,A,B)=\lambda\right)\quad\stackrel{^p}{\to}\quad
+    \left(T^p\in[A^p,B^p]\quad\text{mit}\quad \operatorname{TV}(T^p,A^p,B^p)=\lambda\right)
+$$ Insbesondere werden Mittelpunkte auf Strecken auf die Mittelpunkte ihrer Bilder abgebildet.
+4. Die parallele Lage nichtprojizierender Geraden bleibt unter Parallelprojektionen erhalten.
+5. Ebene Figuren in zur Bildebene $\Pi$ parallelen Ebenen werden unter Parallelprojektionen kongruent, d. h. deckungsgleich abgebildet.
+
+Speziell für Normalprojektionen $^n$ gilt:
+
+6. Für die orthogonale Lage zweier nichtprojizierender Geraden $a$, $b$ gilt $$
+  a^n\perp b^n\quad\leftrightarrow\quad a\parallel \Pi\;\; \vee\;\;b\parallel\Pi
+$$ (Erhalt orthogonaler Lage)
+
+
+Projektionen von Flächen
+=====
+
+
+Gegeben ist eine (nicht notwendig ebene) Fläche $\Phi$ im dreidimensionalen Raum $A^3$. Es wird vorausgesetzt, dass an jedem Punkt $X\in\Phi$ der Fläche die Tangentialebene existiert.
+
+>**Definition 4.** Ein Flächenpunkt $X\in\Phi$ heißt genau dann [Kontur- oder Umrisspunkt](https://de.wikipedia.org/wiki/Umrisskonstruktion) der Fläche $\Phi$ bezüglich einer gegebenen Projektion, wenn die Tangentialebene von $\Phi$ in $X$ projizierend ist.
+>
+>1. Die Gesamtheit aller Konturpunkte $X$ bildet die **Kontur** $u\subset\Phi$ der Fläche unter der Projektion.
+>2. Die Gesamtheit aller Projektionsgeraden $g$ durch die Konturpunkte bildet den **Konturkegel** bzw. **-zylinder**.[^2]
+
+**Beispiel 1.** Die Kontur $u$ einer Kugel $\Phi$ mit Mittelpunkt $M$ und Radius $r$ soll unter der Zentralprojektion $^c$ bezüglich eines Paares $(Z,\Pi)$ aus Projektionszentrum und Bildebene bestimmt werden. $Z$ ist im Äußeren der Kugel gewählt. Siehe nachstehende Abbildung.
+
+![Konturpunkt](img/geo-bild35.png "_Fig._ Konturpunkte $X$ und $Y$ auf einer Kugel $\Phi$ unter einer Zentralprojektion mit Projektionszentrum $Z$.")
+
+Jeder Konturpunkt $X$ bestimmt ein rechtwinkliges Dreieck $ZMX$, dessen Seitenlängen $$
+  \overline{ZM}\,,\quad r\quad\text{und}\quad\sqrt{\overline{ZM}^2-r^2}
+$$ (letztere nach Anwendung des Satzes von Pythagoras) und damit unabhängig von der Lage von $X\in\Phi$ sind. Die Kontur lässt $u$ lässt sich somit durch kontinuierliches Drehen eines Konturpunktes um die Achse $ZM$ erzeugen: $u$ ist ein Kreis auf $\Phi$ um den Lotfußpunkt von $X$ auf $ZM$. Der Radius $R$ von $u$ ergibt sich nach Anwendung von Katheten- und Höhensatz in der vorstehenden ebenen Figur zu $$
+  R=\frac{r}{\overline{ZM}}\cdot\sqrt{\overline{ZM}^2-r^2}\;\;(<r)
+$$ Siehe auch nachstehende räumliche Abbildung.
+
+![Kontur](img/geo-bild34.png "_Fig._ Konturkegel einer Kugel $\Phi$ unter einer Zentralprojektion mit Projektionszentrum $Z$ als Kegelspitze: Alle Mantellinien des Konturkegels sind projizierend. ")
+
+
+
+
+
+[^1]: Sinngemäß lässt sich der Begriff einer *projizierenden Ebene* unter einer Projektion definieren.
+
+[^2]: Ist die Projektion eine Zentralprojektion, so verlaufen alle Projektionsgeraden durch $Z$, Wird $Z\not\in\Phi$ vorausgesetzt, bilden die Projektionsgeraden in den Konturpunkten $X\in u$ einen Kegel, der die Fläche $\Phi$ entlang der Kontur $u$ berührt. Bei Parallelprojektionen bilden die Projektionsgeraden in den Konturpunkten einen $\Phi$ berührenden Zylinder. Vergleiche Bemerkung 3 in diesem Abschnitt.
