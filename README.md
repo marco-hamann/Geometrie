@@ -2572,7 +2572,7 @@ Geben Sie jene Transformationsmatrizen $A_i$ an, die eine Drehung des Dreiecks u
 [[X]] $$ A_2=\begin{pmatrix} -\frac{1}{2} & -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2}  \end{pmatrix} $$
 [[ ]] $$ A_3=\begin{pmatrix} \frac{1}{2} & -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2}\cdot\sqrt{3} & \frac{1}{2}  \end{pmatrix} $$
 [[X]] $$ A_4=\begin{pmatrix} -\frac{1}{2} & \frac{1}{2}\cdot\sqrt{3} \\ -\frac{1}{2}\cdot\sqrt{3} & -\frac{1}{2}  \end{pmatrix} $$
-[[?]] Die Transformationmatrix zur Beschreibung einer Drehung um den Ursprung des kartesischen Koordinatensystems in $\mathbb{R}^2$ ist $$
+[[?]] Die Transformationsmatrix zur Beschreibung einer Drehung um den Ursprung des kartesischen Koordinatensystems in $\mathbb{R}^2$ ist $$
   A=\begin{pmatrix} \cos{\varphi} & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi} \end{pmatrix}
 $$ worin $\varphi\in[0,2\cdot\pi)$ gewählt werden kann.
 ****************************************
@@ -2710,7 +2710,7 @@ Die Matrixdarstellung einer Schraubung lässt sich in **homogener Darstellung**[
   \begin{pmatrix} \textcolor{magenta}{1} \\ x_1' \\ x_2' \\ x_3' \end{pmatrix}=
   \begin{pmatrix} \textcolor{magenta}{1} & \textcolor{magenta}{0} & \textcolor{magenta}{0} & \textcolor{magenta}{0} \\ \textcolor{blue}{p} & 1 & 0 & 0 \\ \textcolor{blue}{0} & 0 & \cos{\varphi} & -\sin{\varphi} \\ \textcolor{blue}{0} & 0 & \sin{\varphi} & \cos{\varphi} \end{pmatrix}\cdot
   \begin{pmatrix} \textcolor{magenta}{1} \\ x_1 \\ x_2 \\ x_3 \end{pmatrix}
-$$ Translationsvektor und Transformationsmatrix der Schraubung entsprechen Untermatrizen der vierreihigen (homogenen) Transformationmatrix $T$.
+$$ Translationsvektor und Transformationsmatrix der Schraubung entsprechen Untermatrizen der vierreihigen (homogenen) Transformationsmatrix $T$.
 
 Für eine Translation beziehungsweise Skalierung (im Allgemeinen keine Kongruenz!) des dreidimensionalen Raumes ergeben sich die homogenen Transformationsmatrizen $$
   \begin{pmatrix} \textcolor{magenta}{1} & \textcolor{magenta}{0} & \textcolor{magenta}{0} & \textcolor{magenta}{0} \\ \textcolor{blue}{a_1} & 1 & 0 & 0 \\ \textcolor{blue}{a_2} & 0 & 1 & 0 \\ \textcolor{blue}{a_3} & 0 & 0 & 1 \end{pmatrix}\quad\text{bzw.}\quad
@@ -3292,8 +3292,8 @@ Einen Überblick über die verschiedenen ebenen Kongruenzen gibt die nachstehend
 
 |  | Translation | Drehung | Spiegelung | Gleitspiegelung | Identität |
 | :----- | :----- | :----- | :----- | :----- | :----- |
-| Fixpunkte | $\emptyset$ | Drehzentrum $Z$ | Spiegelachse $a$ | Gleitspiegelachse $a$ | alle Punkte |
-| Fixgeraden | alle Geraden parallel zur Translationsrichtung | $\emptyset$ bzw. alle Geraden durch $Z$ | $a$ und alle Geraden orthogonal zu $a$ | $a$ | alle Geraden |
+| Fixpunkte | $\emptyset$ | Drehzentrum $Z$ | Spiegelachse $a$ | $\emptyset$ | alle Punkte |
+| Fixgeraden | alle Geraden parallel zur Translationsrichtung | $\emptyset$ bzw. alle Geraden durch $Z$ | $a$ und alle Geraden orthogonal zu $a$ | Gleitspiegelachse $a$ | alle Geraden |
 | Orientierung| erhaltend | erhaltend | umkehrend | umkehrend | erhaltend |
 
 
@@ -3475,6 +3475,129 @@ $$ Siehe auch nachstehende räumliche Abbildung.
 ![Kontur](img/geo-bild34.png "_Fig._ Konturkegel einer Kugel $\Phi$ unter einer Zentralprojektion mit Projektionszentrum $Z$ als Kegelspitze: Alle Mantellinien des Konturkegels sind projizierend. ")
 
 
+### Parallelprojektionen
+
+
+In diesem Abschnitt werden speziell Parallelprojektionen analytisch beschrieben. Bezogen auf ein räumliches affines Koordinatensystem lassen sich diese als spezielle affine Abbildungen darstellen.
+
+Entsprechend Definition 2 im Abschnitt [Projektionen](#Projektionen) werden unter Nutzung von Methoden der analytischen Geometrie nachfolgende vektorielle Darstellungen benutzt:
+
+* Für den Ortsvektor des Urbildpunktes $$
+  Q(x_1,x_2,x_3)\;\sim\; q=(x_1,x_2,x_3)^\top $$
+* Für den Ortsvektor des Bildpunktes $$
+  Q^p(x_1^p,x_2^p,x_3^p)\;\sim\; q^p=(x_1^p,x_2^p,x_3^p)^\top $$
+* Für die Projektionsgerade $g$ durch $Q$ $$
+  y=q+\lambda\cdot r\quad\text{mit}\quad r=(r_1,r_2,r_3)^\top\,,\;\; \lambda\in\mathbb{R}
+$$ worin $r$ einen zur festen Geradenrichtung $g$ gehörenden Richtungsvektor bezeichnet
+* Für die Bildebene $\Pi$ wird eine Gleichungsdarstellung (lineare Gleichung in den Koordinaten $y_j$ eines Punktes $Y$) verwendet $$
+  n\cdot y+d=0\quad\leftrightarrow\quad \sum_{j=1}^3{(n_j\cdot y_j)}+d=0
+$$ Vergleiche [Hessesche Normalform](https://de.wikipedia.org/wiki/Hessesche_Normalform) einer Ebenengleichung.
+
+>Zur Bestimmung des Bildpunktes $Q^p\in\Pi$ sind schrittweise zu berechnen:
+>
+>1. der Parameter $\lambda$, für den der Punkt der Gerade $g$ in $\Pi$ liegt.
+>2. nach Einsetzen des Parameterwertes $\lambda$ aus dem ersten Schritt in die Parameterdarstellung der Gerade $g$ den Bildpunkt $Q^p$ als Schnittpunkt $$
+  Q^p=g\cap\Pi
+$$
+
+**Beispiel 1.** Gegeben sind die nachstehenden Angaben einer Parallelprojektion $$
+  z=0\quad\text{bzw.}\quad r=(1,4,-2)^\top
+$$ für die Bildebene $\Pi$ beziehungsweise einen Richtungsvektor der projizierenden Geraden $g$.
+
+Entsprechend der oben angegebenen Schritte zur Lösung berechnen sich:
+
+1. $$
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}+
+  \textcolor{magenta}{\lambda}\cdot\begin{pmatrix} 1 \\ 4 \\ -2 \end{pmatrix}=
+  \begin{pmatrix} \ast \\ \ast \\ 0 \end{pmatrix}\quad\leadsto\quad
+  x_3-2\cdot\lambda=0\quad\leftrightarrow\quad \lambda=\frac{x_3}{2}
+$$
+2. $$
+  \begin{pmatrix} x_1^p \\ x_2^p \\ x_3^p \end{pmatrix}=
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}+
+  \textcolor{magenta}{\frac{x_3}{2}}\cdot\begin{pmatrix} 1 \\ 4 \\ -2 \end{pmatrix}=
+  \begin{pmatrix} x_1+\frac{1}{2}\cdot x_3 \\ x_2+2\cdot x_3 \\ 0 \end{pmatrix}
+$$
+
+Die Parallelprojektion $^p:Q\mapsto Q^p$ kann hier als lineare Abbildung, d. h. unter Benutzung eines Matrix-Vektor-Produktes dargestellt werden $$
+  ^p:Q\mapsto Q^p:\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\mapsto\begin{pmatrix} x_1^p \\ x_2^p \\ x_3^p \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 & \frac{1}{2} \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+$$ vergleiche Abschnitt [Definition und allgemeine Eigenschaften](#
+Definition-und-allgemeine-Eigenschaften). Für die Transformationsmatrix $A$ gilt hier $\det{A}=0$: Sie ist also eine singuläre Matrix und wird in diesem Zusammenhang auch *Projektionsmatrix* genannt.
+
+
+Matrixdarstellung einer Parallelprojektion
+=====
+
+
+Entsprechend Beispiel 1 wird nun die Darstellung einer Parallelprojektion zu allgemeinen gegebenen Angaben hergeleitet.
+
+Gegeben sind eine Paramameterdarstellung der Projektionsgerade $g$ durch $Q$ $$
+  y=q+\lambda\cdot r\quad\text{mit}\quad r=(r_1,r_2,r_3)^\top\,,\;\; \lambda\in\mathbb{R}
+$$ worin $r$ einen zur festen Geradenrichtung $g$ gehörenden Richtungsvektor bezeichnet. Des Weiteren eine lineare Gleichung zur Beschreibung der Bildebene $\Pi$ $$
+  y\cdot n+d=0\quad\text{mit}\quad n=(n_1,n_2,n_3)^\top
+$$ als Normalenvektor der Ebene.
+
+Entsprechend der oben angegebenen Schritte zur Lösung berechnen sich:
+
+1. $$
+  q^p\cdot n+d=(q+\lambda\cdot r)\cdot n+d=0\quad\leftrightarrow\quad
+  \textcolor{magenta}{\lambda}=-\frac{q\cdot n+d}{r\cdot n}
+$$ unter der Voraussetzung, dass $r$ nicht parallel zu $\Pi$ gewählt ist, d. h. $r\cdot n\not=0$.
+2. $$
+  q^p=q\textcolor{magenta}{-\frac{q\cdot n+d}{r\cdot n}}\cdot r
+$$
+
+Die vorstehende Formel beschreibt eine Möglichkeit der Berechnung des Parallelbildes $Q^p$. Durch direktes Berechnen der darin enthaltenen Skalarprodukte ergibt sich unmittelbar der nachstehende Satz.
+
+>**Satz 1.** Die Parallelprojektion $^p$ lässt sich bezogen auf die Bildebene $\Pi$ und die Projektionsrichtung $r$ darstellen als affine Abbildung $$
+  ^p:Q\mapsto Q^p:\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}\mapsto\begin{pmatrix} x_1^p \\ x_2^p \\ x_3^p \end{pmatrix}=
+  \frac{1}{c}\cdot\begin{pmatrix}
+    c-r_1\cdot n_1 & -r_1\cdot n_2 & -r_1\cdot n_3 \\ -r_2\cdot n_1 & c-r_2\cdot n_2 & -r_2\cdot n_3 \\ -r_3\cdot n_1 & -r_3\cdot n_2 & c-r_3\cdot n_3 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}-\frac{d}{c}\cdot
+  \begin{pmatrix} r_1 \\ r_2 \\ r_3 \end{pmatrix}
+$$ worin das Skalarprodukt $c=r\cdot n$ bezeichnet.
+
+**Bemerkung 1.** Aus der Darstellung der Parallelprojektion $^p$ aus Satz 1 lassen sich erkennen:
+
+1. Der Translationsvektor $a$ ist der Parallelriss des Koordinatenursprungs $$
+  o^p=-\frac{d}{c}\cdot
+  \begin{pmatrix} r_1 \\ r_2 \\ r_3 \end{pmatrix}
+$$ Der Vektor ist das $-d/c$-fache des Projektionsvektors $r$. Durch Einsetzen in die Ebenengleichung von $\Pi$ ergibt sich $O^p\in\Pi$.
+2. Die Determinante der Transformationsmatrix $A$ berechnet sich $$
+  \det{A}=\frac{1}{c^3}\cdot\left[
+    \prod_{j=1}^3(c-r_j\cdot n_j)-2\cdot\prod_{j=1}^3{(r_j)}\cdot\prod_{j=1}^3{(n_j)}-
+    \sum_{i\not=j\not=k\not= i\,,\; i<j}{\left((r_i\cdot r_j)\cdot(n_i\cdot n_j)\cdot(c-r_k\cdot n_k)\right)}
+  \right]=
+  \frac{1}{c^3}\cdot\left[c^2\cdot\left(\prod_{j=1}^3{(-r_j\cdot n_j)}\right)+c^3\right]=0
+$$ d. h. $A$ ist eine singuläre Matrix. Die Voraussetzung $c\not=0$ entspricht dabei der Forderung, das die Projektionsgeraden von $^p$ nicht parallel zur Bildebene $\Pi$ gewählt werden dürfen $$
+  c=r\cdot n\not=0\quad\leftrightarrow\quad |r|\not=0\;\;\wedge\;\; |n|\not=0\;\;\wedge\;\; r\not\perp n
+$$
+
+**Beispiel 1.** Berechnet wird die Matrixdarstellung der Normalprojektion auf die $xy$-Ebene.
+
+Für die Projektionsrichtung kann der Einheitsvektor $$
+  r=\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}
+$$ gewählt werden, aus der Ebenengleichung $z=0$ für die Bildebene $\Pi$ folgt des Weiteren $$
+  n=\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}=r
+$$ Hieraus folgen unmittelbar $c=r\cdot n=1$ und somit für die affine Abbildung in Satz 1 $$
+  \begin{pmatrix} x_1^p \\ x_2^p \\ x_3^p \end{pmatrix}=
+  \begin{pmatrix}
+  1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=
+  \begin{pmatrix} x_1 \\ x_2 \\ 0 \end{pmatrix}
+$$
+
+Eigenschaften einer Parallelprojektion
+=====
+
+Aus der Darstellung einer Parallelprojektion als (spezielle) affine Abbildung erbeben sich unmittelber die nachstehenden Eigenschaften, die grundständig nicht erneut bewiesen werden brauchen.
+
+1. Das Parallelriss $g^p$ einer Gerade $g$ ist wieder eine Gerade oder ein Punkt.
+2. Die parallele Lage von (nichtprojizierenden) Geraden beziehungsweise Ebenen bleibt unter Parallelprojektionen erhalten.
+3. Das Teilverhältnis von Streckenteilungen aus nichtprojizierenden Geraden bleibt unter Parallelprojektionen erhalten.
+4. Strecken $[A,B]$ parallel zur Bildebene $\Pi$ werden auf längengleiche Bildstrecken $[A^p,B^p]$ abgebildet.
 
 
 
