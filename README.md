@@ -13,6 +13,8 @@ import: https://raw.githubusercontent.com/LiaTemplates/tiny-turtle/master/README
 
 import: https://raw.githubusercontent.com/liaTemplates/algebrite/master/README.md
 
+import: https://github.com/LiaTemplates/Pyodide/blob/0.1.4/README.md
+
 -->
 
 # Konstruktive Geometrie (I381)
@@ -1116,6 +1118,9 @@ Die Bézierkurve $c$ interpoliert den ersten und letzten Punkt des Kontrollpolyg
 
 
 ## Affine Transformationen
+
+
+![Überblick-affine-Transformation](img/wordcloud_affine-Transformation-1.png)
 
 In diesem Kapitel werden folgende Themen behandelt:
 
@@ -3426,7 +3431,7 @@ $$ heißt [Parallelprojektion](https://de.wikipedia.org/wiki/Parallelprojektion)
 >3. $y=0$ ($xz$-Ebene), so heißt $^n$ *Kreuzrissprojektion*
 
 
-Eigenschafen von Projektionen
+Eigenschaften von Projektionen
 =====
 
 
@@ -3575,11 +3580,11 @@ $$ d. h. $A$ ist eine singuläre Matrix. Die Voraussetzung $c\not=0$ entspricht 
   c=r\cdot n\not=0\quad\leftrightarrow\quad |r|\not=0\;\;\wedge\;\; |n|\not=0\;\;\wedge\;\; r\not\perp n
 $$
 
-**Beispiel 1.** Berechnet wird die Matrixdarstellung der Normalprojektion auf die $xy$-Ebene.
+**Beispiel 2.** Berechnet wird die Matrixdarstellung der Normalprojektion auf die $x_1x_2$-Ebene.
 
 Für die Projektionsrichtung kann der Einheitsvektor $$
   r=\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}
-$$ gewählt werden, aus der Ebenengleichung $z=0$ für die Bildebene $\Pi$ folgt des Weiteren $$
+$$ gewählt werden, aus der Ebenengleichung $x_3=0$ für die Bildebene $\Pi$ folgt des Weiteren $$
   n=\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}=r
 $$ Hieraus folgen unmittelbar $c=r\cdot n=1$ und somit für die affine Abbildung in Satz 1 $$
   \begin{pmatrix} x_1^p \\ x_2^p \\ x_3^p \end{pmatrix}=
@@ -3589,16 +3594,230 @@ $$ Hieraus folgen unmittelbar $c=r\cdot n=1$ und somit für die affine Abbildung
   \begin{pmatrix} x_1 \\ x_2 \\ 0 \end{pmatrix}
 $$
 
+Mit Hilfe der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lässt sich die Berechnung der Transformationsmatrix $A\in\mathbb{R}^{3,3}$ und des Translationsvektors $a\in\mathbb{R}^3$ zu gegebenen Vektoren $r$ und $n$ sowie der reellen Zahl $d$ interaktiv berechnen. Vergleiche Satz 1.
+
+```javascript
+r=[0,0,1]
+n=[0,0,1]
+d=0
+c=inner(r,n)
+A=1/c*[[c-r[1]*n[1],-r[1]*n[2],-r[1]*n[3]],[-r[2]*n[1],c-r[2]*n[2],-r[2]*n[3]],[-r[3]*n[1],-r[3]*n[2],c-r[3]*n[3]]]
+A
+a=-d/c*[[r[1]],[r[2]],[r[3]]]
+a
+```
+@Algebrite.eval
+
 Eigenschaften einer Parallelprojektion
 =====
 
-Aus der Darstellung einer Parallelprojektion als (spezielle) affine Abbildung erbeben sich unmittelber die nachstehenden Eigenschaften, die grundständig nicht erneut bewiesen werden brauchen.
+Aus der Darstellung einer Parallelprojektion als (spezielle) affine Abbildung erbeben sich unmittelbar die nachstehenden Eigenschaften.
 
-1. Das Parallelriss $g^p$ einer Gerade $g$ ist wieder eine Gerade oder ein Punkt.
-2. Die parallele Lage von (nichtprojizierenden) Geraden beziehungsweise Ebenen bleibt unter Parallelprojektionen erhalten.
-3. Das Teilverhältnis von Streckenteilungen aus nichtprojizierenden Geraden bleibt unter Parallelprojektionen erhalten.
-4. Strecken $[A,B]$ parallel zur Bildebene $\Pi$ werden auf längengleiche Bildstrecken $[A^p,B^p]$ abgebildet.
+>**Satz 2.** (Eigenschaften von Parallelprojektionen)
+>
+>1. Das Parallelriss $g^p$ einer Gerade $g$ ist wieder eine Gerade oder ein Punkt.
+>2. Die parallele Lage von (nichtprojizierenden) Geraden beziehungsweise Ebenen bleibt unter Parallelprojektionen erhalten.
+>3. Das Teilverhältnis von Streckenteilungen aus nichtprojizierenden Geraden bleibt unter Parallelprojektionen erhalten.
+>4. Strecken $[A,B]$ parallel zur Bildebene $\Pi$ werden auf längengleiche Bildstrecken $[A^p,B^p]$ abgebildet.
 
+**Hinweis.** Der Beweis der Eigenschaften von Parallelprojektionen ist ähnlich zu führen dem Nachweis entsprechender Eigenschaften von Affinitäten, und soll hier grundständig nicht erneut bewiesen werden. Siehe Abschnitt [Geometrische Eigenschaften](#Geometrische-Eigenschaften).
+
+
+Parallelbild einer Kurve / Flächen
+=====
+
+
+Im Abschnitt [Erzeugung geometrischer Figuren](#Erzeugung-geometrischer-Figuren) konnten Kurven beziehungsweise Flächen durch Anwendung einer (stetigen) Schar kongruenter Transformationen auf ein geometrisches Objekt erzeugt werden. In gewisser Analogie sollen hier die Parallelbilder von Kurven bzw. Flächen durch Anwendung der entsprechenden affinen Abbildung erzeugt werden.
+
+* *Kurven* $c$ werden im Folgenden in Form einer Parameterdarstellung vorausgesetzt $$
+  c:t\mapsto q(t)=(x_1(t),x_2(t),x_3(t))^\top\,,\quad t\in I\subseteq\mathbb{R}
+$$ worin $x_j(t)$ die $j$-te Koordinatenfunktion über einem Intervall $I$ bezeichnet. Der Parallelriss von $c$ lässt sich als affines Bild von $c$ darstellen gemäß $$
+  c^p:t\mapsto q^p(t)=A\cdot q(t)+a
+$$ worin das Paar $(A,a)\in\mathbb{R}^{3,3}\times\mathbb{R}^3$ aus Transformationsmatrix und Translationsvektor die Parallelprojektion $^p$ gemäß Satz 1 beschreibt.
+
+* Entsprechend werden *Flächen* $\Phi$ mithilfe einer Parametrisierung angegeben. Sie hängen von zwei reellen Parametern $(u,v)\in B\subseteq\mathbb{R}^2$ ab, $B$ bezeichnet ein einfach zusammenhängendes Gebiet. $$
+  \Phi:(u,v)\mapsto q(u,v)=(x_1(u,v),x_2(u,v),x_3(u,v))^\top\,,\quad t\in B\subseteq\mathbb{R}^2
+$$ worin $x_j(u,v)$ die $j$-te Koordinatenfunktion über dem Gebiet $B$ bezeichnet. Der Parallelriss von $\Phi^p$ lässt sich als affines Bild von $\Phi$ darstellen gemäß $$
+  \Phi^p:(u,v)\mapsto q^p(u,v)=A\cdot q(u,v)+a
+$$ worin das Paar $(A,a)\in\mathbb{R}^{3,3}\times\mathbb{R}^3$ aus Transformationsmatrix und Translationsvektor die Parallelprojektion $^p$ gemäß Satz 1 beschreibt.
+
+**Beispiel 3.** Mittels $$
+  c:t\mapsto (\cos{t},\sin{t},p\cdot t)^\top\,,\quad t\in(-4\cdot\pi,4\cdot\pi)
+$$ lässt sich eine Schraubenlinie um die dritte Koordinatenachse parametrisieren. In der Grundrissprojektion (siehe Beispiel 2) ergibt sich $$
+  c^p:t\mapsto (\cos{t},\sin{t},0)^\top\quad\text{mit}\quad t\in[0,2\cdot\pi)
+$$ ein Kreis.
+
+Für eine Visualisierung der Kurve nutzen Sie beispielsweise das im Webbrowser ausführbare Programm [GeoGebra 3D Calculator](https://www.geogebra.org/3d?): Geben Sie dort den Befehl `Curve((cos(t),sin(t),t),t,-12.57,12.57)` ein.
+
+Alternativ können Sie den editierbaren Code in der Programmiersprache Python unter Verwendung des Pakets [Pyodide](https://github.com/LiaPlayground/PythonProgramming) für LiaScript ausführen. Ein 'Weglassen' einer Koordinate ('Null' setzen) führt im Sinne von Beispiel 2 zu einer Orthogonalprojektion in eine der Koordinatenebenen.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+
+fig = plt.figure()
+ax = plt.axes(projection ='3d')
+
+t = np.linspace(-2 * np.pi, 2 * np.pi, 100)
+x = np.cos(t)
+y = np.sin(t)
+z = 3 * t
+
+ax.plot3D(x, y, z, 'green')
+ax.set_title('Helix')
+plt.show()
+
+plot(fig) # <- this is required to plot the fig also on the LiaScript canvas
+```
+@Pyodide.eval
+
+**Beispiel 4.** Das [Vivianische Fenster](https://de.wikipedia.org/wiki/Vivianisches_Fenster) lässt sich als Schnittkurve zweier Flächen erzeugen
+
+1. Kugeloberfläche (Sphäre) um den Koordinatenursprung $O(0,0,0)$ mit Radius $r>0$ mit der Gleichung $$
+  x_1^2+x_2^2+x_3^2=r^2
+$$ worin $(x_1,x_2,x_3)$ die kartesischen Koordinaten eines Punktes auf der Fläche bezeichnen
+2. eine orthogonal zur $xy$-Ebene stehende Drehzylinderfläche, die die Sphäre im Punkt $P(r,0,0)$ 'innen' berührt, mit der Gleichung $$
+  x_1^2+x_2^2-r\cdot x=0
+$$ worin $(x_1,x_2,x_3)$ die kartesischen Koordinaten eines Punktes auf der Fläche bezeichnen
+
+Das Vivianische Fenster besitzt gestattet die Parametrisierung unter Benutzung des Parameters $t\in[0,2\cdot\pi)$ $$
+  x_1(t)=(\cos{t})^2\,,\quad x_2(t)=-\sin{t}\cdot\cos{t}\quad\text{und}\quad x_3=\sin{t}
+$$
+
+Sie können den nachstehenden, editierbaren Code (Programmiersprache Python unter Verwendung des Pakets [Pyodide](https://github.com/LiaPlayground/PythonProgramming) für LiaScript) ausführen, um eine dreidimensionale Visualisierung der Kurve und ihrer Projektionen in die Koordinatenebenen anzuzeigen. Ändern Sie hierfür die Parametrisierung entsprechend Beispiel 2 in diesem Abschnitt ab.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+
+fig = plt.figure()
+ax = plt.axes(projection ='3d')
+
+t = np.linspace(-2 * np.pi, 2 * np.pi, 100)
+x = np.cos(t) * np.cos(t)
+y = -np.sin(t) * np.cos(t)
+z = np.sin(t)
+
+ax.plot3D(x, y, z, 'red')
+ax.set_title('Viviani')
+plt.show()
+
+plot(fig) # <- this is required to plot the fig also on the LiaScript canvas
+```
+@Pyodide.eval
+
+**Beispiel 5.** Darzustellen ist die Oberfläche einer Kugel $\Phi$ um den Koordinatenursprung $O(0,0,0)$ mit dem Radius $r=3$. Die Fläche $\Phi$ besitzt die Parametrisierung unter Benutzung der Parameter $(u,v)$ $$
+  x_1(u,v)=3\cdot\cos{u}\cdot\cos{v}\,,\quad x_2(u,v)=3\cdot\sin{u}\cdot\cos{v}\quad\text{und}\quad x_3=3\cdot\sin{v}
+  \quad\text{mit}\quad (u,v)\in\left[0,2\cdot\pi\right)\times\left[-\frac{\pi}{2},\frac{\pi}{2}\right]
+$$
+
+Sie können den nachstehenden, editierbaren Code (Programmiersprache Python unter Verwendung des Pakets [Pyodide](https://github.com/LiaPlayground/PythonProgramming) für LiaScript) ausführen, um eine dreidimensionale Visualisierung der Fläche und ihrer Projektionen in die Koordinatenebenen anzuzeigen. Ändern Sie hierfür die Parametrisierung entsprechend Beispiel 2 in diesem Abschnitt ab.
+
+Aus Gründen der Übersichtlichkeit ist die Fläche als wireframe geplottet. Alternativ kann der Befehl `ax.plot_wireframe()` durch `ax.contour3D()` ersetzt werden: Dieser Befehl stellt die Fläche $\Phi$ als Schar von Schnitten mit Ebenen parallel zur $xy$-Ebene dar.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+
+fig = plt.figure()
+ax = plt.axes(projection ='3d')
+
+u = np.linspace(0, 2 * np.pi, 10)
+v = np.linspace(-np.pi/2, np.pi/2, 10)
+u, v = np.meshgrid(u, v)
+
+x = 3 * np.cos(u) * np.cos(v)
+y = 3 * np.sin(u) * np.cos(v)
+z = 3 * np.sin(v)
+
+ax.plot_wireframe(x, y, z, color ='blue', linewidths = 1.0)
+ax.set_title('Sphäre')
+plt.show()
+
+plot(fig) # <- this is required to plot the fig also on the LiaScript canvas
+```
+@Pyodide.eval
+
+Für Tangenten an eine Kurve $k$ im dreidimensionalen Raum gilt der folgende Satz.
+
+>**Satz 3.** Gegeben sind eine Kurve $k\subset\mathbb{R}^3$, ein Kurvenpunkt $Q\in k$ und die Tangente $v_q$ an $k$ in $Q$, des Weiteren eine Parallelprojektion $$
+  ^p:x\mapsto x^p=A\cdot x+a
+$$ gegeben, worin die Transformationsmatrix $A$ und der Translationsvektor $a$ die Parallelprojektion $^p$ festlegt. Ist die Tangente $v_q$ nichtprojizierend, so ist das Parallelbild $v_q^p$ Tangente an $k^p$ im Parallelbild $Q^p$.
+
+**Beweis.**
+
+1. Die Tangente $v_q$ an einen Punkt $Q\sim q(t)$ der Kurve $k$ besitzt die Parameterdarstellung $$
+  y(t,\lambda)=q(t)+\lambda\cdot \dot{q}(t)\,,\quad\lambda\in\mathbb{R}
+$$ worin $$
+  \dot{q}(t)=\left(\frac{\mathrm{d}x_1}{\mathrm{d}t}(t),\frac{\mathrm{d}x_2}{\mathrm{d}t}(t),\frac{\mathrm{d}x_3}{\mathrm{d}t}(t)\right)^\top\not=(0,0,0)^\top
+$$ den aus den ersten Ableitungen der Koordinatenfunktionen $x_j$ gebildeten Richtungsvektor der Tangente bezeichnet.
+2. Für das Zentralbild von $v_q$ gilt unter der Annahme, $v_q$ ist ~~nicht~~ projizierend $$
+  y^p(t,\lambda)=A\cdot y(t,\lambda)+a=A\cdot(q(t)+\lambda\cdot \dot{q}(t))+a=q^p(t)+\lambda\cdot A\cdot\dot{q}(t)
+$$ also wieder eine Gerade, sofern nicht $\lambda\cdot A\cdot\dot{q}(t)=o$ (Nullvektor) ergibt.
+3. Anderseits gilt für Tangente $v_q$ an $k^p$ in $Q^p$ $$
+  \frac{\mathrm{d}}{\mathrm{d}t}{(q^p(t))}=\frac{\mathrm{d}}{\mathrm{d}t}{(A\cdot q(t)+a)}=A\cdot\dot{q}(t)
+$$ d. h. der Vektor bildet den Tangentenvektor von $k^p$ in $Q^p$.
+
+$\square$
+
+
+Sicher gewusst?
+=====
+
+Nutzen Sie die nachfolgenden Fragen, um Ihren Kenntnisstand zu diesem Abschnitt zu testen.
+
+**Frage 1.** Bestimmen Sie die Matrixdarstellung der Normalprojektion auf die $x_1x_3$-Koordinatenebene. Berechnen Sie hierfür das Paar $(A,a)$ von Transformationsmatrix und Translationsvektor der zugehörigen affinen Abbildung.
+
+[( )] $$
+  \left(\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix},
+  \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}\right) $$
+[(X)] $$
+  \left(\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix},
+  \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\right) $$
+[( )] $$
+  \left(\begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix},
+  \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\right) $$
+[[?]] Wählen Sie die Vektoren $r$ der gewählten Projektionsrichtung und $n$ als Normalenvektor der Bildebene $\Pi$ und , vergleiche Abschnitt 'Matrixdarstellung einer Parallelprojektion' und Satz 1.
+****************************************
+
+---
+
+Berechnet wird die Matrixdarstellung der Normalprojektion auf die $x_1x_3$-Ebene.
+
+Für die Projektionsrichtung kann der Einheitsvektor $$
+  r=\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
+$$ gewählt werden, aus der Ebenengleichung $x_3=0$ für die Bildebene $\Pi$ folgt des Weiteren $$
+  n=\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}=r
+$$ Hieraus folgen unmittelbar $c=r\cdot n=1$ und somit für die affine Abbildung in Satz 1 $$
+  \begin{pmatrix} x_1^p \\ x_2^p \\ x_3^p \end{pmatrix}=
+  \begin{pmatrix}
+  1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}\cdot
+  \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}=
+  \begin{pmatrix} x_1 \\ 0 \\ x_3 \end{pmatrix}
+$$ Der Translationsvektor $a$ ist der Nullvektor, da $d=0$ für die gewählte Bildebene gilt.
+
+****************************************
+
+**Frage 2.** Im Beispiel 3 wird eine Helix $k$ bezogen auf die $x_3$-Achse betrachtet, deren Orthogonalprojektion $$
+  ^n:X\mapsto X^n
+$$ in die $x_1x_2$-Koordinatenebene ein Kreis $k^n$ (als Normalbild unter $^n$) ist.
+
+Kennzeichnen Sie das Normalbild der Menge aller Tangenten an die Helix $k$ unter dieser Orthogonalprojektion $^n$.
+
+[[ ]] Die Tangenten an $k$ sind bezüglich der Orthogonalprojektion $^n$ projizierend, werden daher auf die Punkte von $k^n$ abgebildet.
+[[X]] Die Normalbilder der Tangenten an die Helix $k$ sind Tangenten des Kreises $k^n$.
+[[X]] Die Menge der Normalbilder aller Tangenten an die Helix unter der Orthogonalprojektion überdeckt die (Bild-) Ebene $\Pi$ mit Ausnahme des Inneren von $k^n$.
+[[?]] Nutzen Sie das Wissen über das Normalbild einer Tangente aus Satz 3.
+****************************************
+
+---
+
+Aus Satz 3 leitet sich hier ab, dass die Normalbilder der Tangeneten an $k$ wieder Geraden sind, die das Normalbild $k^n$ berühren, d. h. erneut Tangenten - an $k^n$ - sind. Da das Normalbild $k^n$ von $k$ eine Kreislinie ist,
+
+****************************************
 
 
 [^1]: Sinngemäß lässt sich der Begriff einer *projizierenden Ebene* unter einer Projektion definieren.
