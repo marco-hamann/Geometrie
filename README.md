@@ -1844,11 +1844,11 @@ Zu berechnen ist die affine Abbildung $\alpha$ mit der Matrixdarstellung $$
   O\mapsto O'=O\,,\quad E_1\mapsto E_1'=E_1\quad\text{und}\quad E_2\mapsto E_2'=P
 $$ abbildet. Der Koordinatenursprung wird unter $\alpha$ auf sich abgebildet, woraus sich der Translationsvektor $a=\overrightarrow{OO'}=(0,0)^\top$ ergibt. Die Spaltenvektoren der Transformationsmatrix $A$ ergeben sich zu $$
   s_1=\overrightarrow{O'E_1'}=(1,0)^\top\quad\text{und}\quad
-  s_2=\overrightarrow{O'E_2'}=\left(\frac{1}{2},\frac{1}{2}\cdot\sqrt{2}\right)^\top
+  s_2=\overrightarrow{O'E_2'}=\left(\frac{1}{2},\frac{1}{2}\cdot\sqrt{3}\right)^\top
 $$ woraus schließlich die Matrixdarstellung $$
   \alpha:\begin{pmatrix} x \\ y \end{pmatrix}\mapsto
   \begin{pmatrix} x' \\ y' \end{pmatrix}=
-  \begin{pmatrix} 1 & \frac{1}{2} \\ 0 & \frac{1}{2}\cdot\sqrt{2}\end{pmatrix}\cdot
+  \begin{pmatrix} 1 & \frac{1}{2} \\ 0 & \frac{1}{2}\cdot\sqrt{3}\end{pmatrix}\cdot
   \begin{pmatrix} x \\ y \end{pmatrix}
 $$ Es gilt einsichtig $\det{A}=\frac{1}{2}\cdot\sqrt{3}$, wonach $\alpha$ eine Affinität ist.
 
@@ -1858,7 +1858,7 @@ Mit bekannter Matrixdarstellung ist nun das affine Bild $q'$ des Quadrates $q$ m
 $$
   \begin{pmatrix} 1 \\ 1 \end{pmatrix}\mapsto
   \begin{pmatrix} x' \\ y' \end{pmatrix}=
-  \begin{pmatrix} 1 & \frac{1}{2} \\ 0 & \frac{1}{2}\cdot\sqrt{2}\end{pmatrix}\cdot
+  \begin{pmatrix} 1 & \frac{1}{2} \\ 0 & \frac{1}{2}\cdot\sqrt{3}\end{pmatrix}\cdot
   \begin{pmatrix} 1 \\ 1 \end{pmatrix}=
   \begin{pmatrix} \frac{3}{2} \\ \frac{1}{2}\cdot\sqrt{3} \end{pmatrix}
 $$
