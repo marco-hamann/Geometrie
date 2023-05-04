@@ -420,6 +420,8 @@ $$
 Sicher gewusst?
 ===============
 
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
 **Frage 1.** Nachstehend sind drei grundsätzlich zu unterscheidende Lagen von $X$ bezüglich des Paares $(O,E)$ angegeben. Ordnen Sie die Abbildungen den Größenangaben für
 $$
   x=TV(X,E,O)
@@ -470,6 +472,290 @@ $$
 [^3]: Soll eine Strecke durch einen Punkt der Strecke im Verhältnis $m:n$ geteilt werden, so existieren für $m\in\mathbb{N}$ und $n\in\mathbb{N}$ mit $m$ verschieden von $n$ stets zwei Möglichkeiten.
 
 [^4]: Sofern nicht in Richtung der Geraden $g$ projiziert wird.
+
+
+### Basistransformationen
+
+Bezogen auf ein gewähltes affines Koordinatensystem $(O,E_1,...E_d)$ mit $d\in\mathbb{N}$, $d>0$ ist die natürliche Basis $(e_1,\ldots,e_d)$ gegeben mit $$
+  e_1=\overrightarrow{OE_1}=\begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix},\quad\ldots\quad,\,
+  e_d=\overrightarrow{OE_d}=\begin{pmatrix} 0 \\ \vdots \\ 0 \\ 1 \end{pmatrix}
+$$ Jeder Vektor $x\in\mathbb{R}^d$ besitzt die eindeutige Darstellung als Linearkombination $$
+  x=\sum_{i=1}^d{x_i\cdot e_i}
+$$ bezüglich dieser Basis mit den reellen Koeffizienten $x_i$, den **Koordinaten** bezüglich der Basis $(e_1,\ldots,e_d)$. Bezüglich einer anderen Basis $(b_1,\ldots,b_d)$ besitze $x$ die Koordinaten $(x_1^\prime,\ldots,x_d^\prime)\in\mathbb{R}^d$ und lässt sich somit darstellen als $$
+  x=\sum_{i=1}^d{x_i^\prime\cdot b_i}
+$$
+
+
+Basiswechsel
+=====
+
+Hier wird der Basiswechsel im Vektorraum betrachtet $$
+  (e_1,\ldots, e_d)\quad\to\quad(b_1,\ldots, b_d)
+$$ worin erstere die "alte" und letztere die "neue" Basis genannt wird. Stellt man den $i$-ten Basisvektor $b_i$ der neuen Basis als Linearkombination in der alten Basis dar, d. h. $$
+  b_{\textcolor{red}{i}}=b_{1\textcolor{red}{i}}\cdot e_1+\ldots+b_{d\textcolor{red}{i}}\cdot e_d=\sum_{k=1}^d{b_{k\textcolor{red}{i}}\cdot e_k}\,,\quad \textcolor{red}{i}\in\{1,\ldots,d\}
+$$ und somit - unter Vertauschung der Reihenfolge der Summenzeichen $$
+  x=\sum_{\textcolor{red}{i}=1}^d{\left[x_{\textcolor{red}{i}}^\prime\cdot\left(\sum_{k=1}^d{b_{k\textcolor{red}{i}}\cdot e_k}\right)\right]}=
+  \sum_{k=1}^d{\left[\left(\sum_{\textcolor{red}{i}=1}^d{b_{k\textcolor{red}{i}}\cdot x_{\textcolor{red}{i}}^\prime}\right)\cdot e_k\right]}
+$$ Darin bezeichnen $$\sum_{\textcolor{red}{i}=1}^d{b_{k\textcolor{red}{i}}\cdot x_{\textcolor{red}{i}}^\prime}=x_k $$ die Koordinaten von $x$ bezüglich der alten Basis. Hieraus ergibt sich schließlich die Basistransformation der Koordinatenvektoren $$
+  \begin{pmatrix} x_1 \\ \vdots \\ x_d \end{pmatrix}=
+  \begin{pmatrix} b_{11} & \ldots & b_{1d} \\ \vdots & \ddots & \vdots \\ b_{d1} & \ldots & b_{dd} \end{pmatrix}\cdot
+  \begin{pmatrix} x_1^\prime \\ \vdots \\ x_d^\prime \end{pmatrix}
+$$ Die quadratische Matrix $B$ in der vorstehenden Gleichung beschreibt den **Basiswechsel**. Die Spaltenvektoren von $B$ sind die Koordinaten der "neuen" Basisvektoren $b_i$ bezüglich der "alten" Basis $(e_1,\ldots,e_d)$.
+
+**Beispiel 1.** Gegeben ist die natürliche Basis in $\mathbb{R}^2$ mit $$
+  e_1=\begin{pmatrix} 1 & 0 \end{pmatrix}\quad\text{und}\quad
+  e_2=\begin{pmatrix} 0 & 1 \end{pmatrix}
+$$ Die Vektoren $$
+  b_1=\textcolor{red}{1}\cdot e_1+\textcolor{red}{1}\cdot e_2=\begin{pmatrix} \textcolor{red}{1} \\ \textcolor{red}{1} \end{pmatrix}\quad\text{und}\quad
+  b_2=\textcolor{purple}{1}\cdot e_1\textcolor{purple}{-1}\cdot e_2=\begin{pmatrix} \textcolor{purple}{1} \\ \textcolor{purple}{-1} \end{pmatrix}
+$$ lassen sich bezüglich der Basis $(e_1,e_2)$ darstellen, woraus sich die Matrix des Basiswechsels ergibt $$
+  B=\begin{pmatrix} \textcolor{red}{1} & \textcolor{purple}{1} \\ \textcolor{red}{1} & \textcolor{purple}{-1} \end{pmatrix}
+$$ Ein (Orts-) Vektor $x$, der bezüglich der "neuen" Basis $(b_1,b_2)$ die Koordinaten $(x_1^\prime,x_2^\prime)$ besitzt, besitzt bezüglich der "alten" Basis $(e_1,e_2)$ den Koordinatenvektor $$
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}\cdot\begin{pmatrix} x_1^\prime \\ x_2^\prime \end{pmatrix}=
+  \begin{pmatrix} x_1^\prime+x_2^\prime \\ x_1^\prime-x_2^\prime \end{pmatrix}
+$$ Es gelten beispielsweise $$
+  x^\prime=1\cdot b_1+1\cdot b_2\quad\text{bzw.}\quad x=2\cdot e_1+0\cdot e_2
+$$ Vergleiche die nachstehende Abbildung.
+
+![Basiswechsel](img/geo-bild40.png "_Fig._ Alte Basis $(e_1,e_2)$ (rot) und neue Basis $(b_1,b_2)$ (blau). Dargestellt ist auch ein Vektor $x$, dessen Koordinatenvektor in der neuen Basis $(1,1)^\top$, nach Basistransformation in die alte Basis $(2,0)^\top$ ist.")
+
+Die Berechnung des Koordinatenvektor $x$ bezüglich $(e_1,e_2)$ aus dem durch Basiswechsels $$
+  (e_1,e_2)\to (b_1,b_2)
+$$ betrachteten Koordinatenvektor $x^\prime$ bezüglich $(b_1,b_2)$ ist nachfolgend unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) interaktiv ausführbar.
+
+``` javascript
+e1=[1,0]
+e2=[0,1]
+b1=e1+e2
+b2=e1-e2
+B=[b1,b2]
+y=[m,n]
+dot(B,y)
+```
+@Algebrite.eval
+
+Ein Wechsel der Basis wird in den nachstehenden Videos an einem Beispiel erklärt.
+
+!?[Basiswechsel-1](https://www.youtube.com/watch?v=1xsnQdYLwEs "Basistransformation (Übersicht), Video von Daniel Jung")
+
+!?[Basiswechsel-2](https://www.youtube.com/watch?v=gBGA9hbO3_o "Basistransformation (Rechnung), Video von Daniel Jung")
+
+Soll nun ~~umgekehrt~~ $x^\prime=C\cdot x$ berechnet werden mit zu bestimmender Matrix $$
+  C=\begin{pmatrix} c_{11} & \ldots & c_{1d} \\ \vdots & \ddots & \vdots \\ b_{d1} & \ldots & b_{dd} \end{pmatrix}
+$$ so folgt wegen $$
+  x^\prime=C\cdot x=C\cdot\left(B\cdot x^\prime\right)=\left(C\cdot B\right)\cdot x^\prime
+$$ dass das Matrixprodukt $C\cdot B=E$ die Einheitsmatrix ergibt, äquivalent hierzu ist $C=B^{-1}$ ist die zur Basistransformationsmatrix $B$ inverse Matrix.
+
+**Beispiel 2.** Ist der Basiswechsel wie im Beispiel 1 gegeben durch $$
+  \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}\cdot\begin{pmatrix} x_1^\prime \\ x_2^\prime \end{pmatrix}=
+  \begin{pmatrix} x_1^\prime+x_2^\prime \\ x_1^\prime-x_2^\prime \end{pmatrix}
+$$ so berechnet sich die zur Basistransformationsmatrix $B$ inverse Matrix zu $$
+  B^{-1}=\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}^{-1}=\frac{1}{\det{B}}\cdot\begin{pmatrix} -1 & -1 \\ -1 & 1 \end{pmatrix}^\top=\frac{1}{2}\cdot\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}
+$$ denn es gilt $$
+  B\cdot B^{-1}=\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}\cdot\frac{1}{2}\cdot\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}=E
+$$ Somit ergibt sich der umgekehrte Wechsel der Basen $$
+  \begin{pmatrix} x_1^\prime \\ x_2^\prime \end{pmatrix}=\frac{1}{2}\cdot
+  \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}\cdot\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}=
+  \frac{1}{2}\cdot\begin{pmatrix} x_1+x_2 \\ x_1-x_2 \end{pmatrix}
+$$ Die Vektoren der "alten" Basis berechnen sich als Linearkombination der Vektoren der "neuen" Basis $$
+  e_1=\frac{1}{2}\cdot b_1+\frac{1}{2}\cdot b_2\quad\text{bzw.}\quad
+  e_2=\frac{1}{2}\cdot b_1-\frac{1}{2}\cdot b_2
+$$
+
+
+Wechsel des Koordinatensystems
+=====
+
+Sind im $d$-dimensionalen Raum zwei affine Koordinatensysteme $$
+  (O,E_1,...,E_d)\quad\text{bzw.}\quad (U,B_1,...,B_d)
+$$ gegeben mit Ursprung $O$ beziehungsweise $U$ und den Basen $$
+  (e_1,...,e_d)\quad\text{bzw.}\quad (b_1,...,b_d)
+$$ worin $e_i=\overrightarrow{OE_i}$ beziehungsweise $b_j=\overrightarrow{UB_j}$, so lässt sich der Wechsel der Koordinatensysteme $$
+  (O,E_1,...,E_d)\quad\to\quad (U,B_1,...,B_d)
+$$ berechnen mit Hilfe des nachstehenden Schemas.
+
+>**Wechsel des Koordinatensystems**
+>
+>1. Wechsel der Basen $(e_1,...,e_d)\;\to\; (b_1,...,b_d)$ mit der Basistransformationsmatrix $B=(b_{ij})_{ij=1,...,d}$
+>2. Darstellung des Koordinatenursprungs $U$ des "neuen" Koordinatensystems in der Basis des "alten" Koordinatensystems: $$
+  u=\sum_{i=1}^d{u_i\cdot e_i}
+$$ bezeichnet den Ortsvektor zu $U$
+>3. Darstellung des Koordinatenvektors $x$ bzw. $x^\prime$ eines Punktes $X$ bezüglichdes "alten" beziehungsweise "neuen" Koordinatensystems $$
+  x=B\cdot x^\prime+u\quad\leftrightarrow\quad x^\prime=B^{-1}\cdot x-B^{-1}\cdot u
+$$
+
+**Beispiel 3.** Gegeben ist eine ebene Kurve $c$ mit der Parameterdarstellung $$
+  t\in\mathbb{R}\mapsto (x,y)^\top(t)=
+  \left(\frac{1}{2}\cdot t-\frac{1}{10}\cdot t^3, \frac{1}{5}\cdot t^3\right)^\top
+$$ bezogen auf ein ebenes kartesisches Koordinatensystem $(O,E_1,E_2)$. Sie enthält für $t=0$ den Koordinatenursprung $O$ und besitzt die erste Koordinatenachse als Tangente in $O$. Ebenso ist der Punkt $B_1$ ein Kurvenpunkt, dessen Koordinaten $$
+  B_1\left(\frac{2}{5},\frac{1}{5}\right)
+$$ für $t=1$ angenommen werden, siehe nachstehende Abbildung.
+
+![Kubik](img/geo-bild41.png "_Fig._ Kurve $c$ (blau) in kartesischem Koordinatensystem $(O,E_1,E_2)$ beziehungsweise $(O,B_1,B_2)$.")
+
+Hier ist ein zu $(O,E_1,E_2)$ gleichorientiertes kartesisches Koordinatensystem $(O,B_1,B_2)$ mit Einheitspunkten $B_j$ zu konstruieren und der Wechsel des Koordinatensystems $$
+  (O,E_1,E_2)\quad\text{bzw.}\quad (O,B_1,B_2)
+$$ anzugeben.
+
+1. Der noch fehlende Punkt $B_2$ besitzt sicherlich den Koordinatenvektor $b_2$ mit $$
+  \left(b_2\cdot b_1=0\right)\;\;\wedge\;\;\left(|b_2|=|b_1|\right)\quad\leadsto\quad{b_2}=\left(-\frac{1}{5},\frac{2}{5}\right)^\top
+$$
+2. Der Basiswechsel stellt sich sich unter Verwendung der Übergangsmatrix $B$ dar durch $$
+  \begin{pmatrix} x \\ y \end{pmatrix}=
+  B\cdot
+  \begin{pmatrix} x^\prime \\ y^\prime \end{pmatrix}=
+  \frac{1}{5}\cdot\begin{pmatrix} 2 & -1 \\ 1 & 2 \end{pmatrix}\cdot
+  \begin{pmatrix} x^\prime \\ y^\prime \end{pmatrix}
+$$ worin $(x^\prime,y^\prime)$ die Koordinaten eines Punktes $X$ im Koordinatensystem $(O,B_1,B_2)$ und $(x,y)$ die Koordinaten desselben Punktes im Koordinatensystem $(O,E_1,E_2)$ bezeichnen. Umgekehrt gilt $$
+\begin{pmatrix} x^\prime \\ y^\prime \end{pmatrix}=
+B^{-1}\cdot\begin{pmatrix} x \\ y \end{pmatrix}=
+\begin{pmatrix} 2 & 1 \\ -1 & 2 \end{pmatrix}\cdot\begin{pmatrix} x \\ y \end{pmatrix}
+$$
+3. Die Kurve $c$ besitzt im Koordinatensystem $(O,B_1,B_2)$ die Parameterdarstellung $$
+  \begin{pmatrix} x^\prime \\ y^\prime \end{pmatrix}=
+  \begin{pmatrix} 2 & 1 \\ -1 & 2 \end{pmatrix}\cdot
+  \begin{pmatrix}\frac{1}{2}\cdot t-\frac{1}{10}\cdot t^3 \\ \frac{1}{5}\cdot t^3\end{pmatrix}=
+  \begin{pmatrix} t \\ \frac{1}{2}\cdot t^3-\frac{1}{2}\cdot t\end{pmatrix}
+$$ Mit $x^\prime=t$ ergibt sich daraus eine Gleichung der Kurve $c$ $$
+  y^\prime\left(x^\prime\right)=\frac{1}{2}\cdot \left(x^\prime\right)^3-\frac{1}{2}\cdot x^\prime
+$$
+
+Die Berechnung des Basiswechsels ist nachfolgend unter Benutzung der Javascript Bibliothek [Algebrite](http://algebrite.org/) interaktiv ausführbar. Mit Hilfe des Befehls `dot(C,v)` wird das Produkt der Matrix $C$ mit dem Vektor $v=(x,y)^\top$ berechnet und ausgegeben.
+
+``` javascript
+b1=[2/5,-1/5]
+b2=[1/5,2/5]
+B=[b1,b2]
+C=inv(B)
+x=1/2*t-1/10*t^3
+y=1/5*t^3
+dot(C,[x,y])
+```
+@Algebrite.eval
+
+**Beispiel 4.** Gegeben ist ein Tetraeder in allgemeiner Lage mit den Eckpunkten $A$, $B$, $C$ und $D$. Zu zeigen ist, dass die Verbindungsstrecken der Mittelpunkte der gegenüberliegenden Kanten des Tetraeders einen gemeinsamen Punkt besitzen.[^1]
+
+1. Für den Nachweis wird ein angepasstes affines Koordinatensystem $(O,E_1,E_2,E_3)$ gewählt mit $$
+  O=A\,,\quad E_1=B\,,\quad E_2=C\quad\text{und}\quad E_3=D
+$$ d. h. die Eckpunkte des Tetraeders besitzen in diesem Koordinatensystem die Koordinatenvektoren $$
+  a=(0,0,0)^\top\,,\quad b=(1,0,0)^\top\,,\quad c=(0,1,0)^\top\quad\text{und}\quad d=(0,0,1)^\top
+$$
+2. Die Mittelpunkte der sechs Kanten des Tetraeders besitzen die Koordinatenvektoren $$
+  M_{AD}\;\sim\; m_{AD}=\frac{1}{2}\cdot a+\frac{1}{2}\cdot d=\frac{1}{2}\cdot\begin{pmatrix} 0 \\ 0 \\ 1\end{pmatrix}
+  \quad\text{und}\quad
+  M_{BC}\;\sim\; m_{BC}=\frac{1}{2}\cdot b+\frac{1}{2}\cdot c=\frac{1}{2}\cdot\begin{pmatrix} 1 \\ 1 \\ 0\end{pmatrix}
+$$ ebenso $$
+  M_{AB}\;\sim\; m_{AB}=\frac{1}{2}\cdot a+\frac{1}{2}\cdot b=\frac{1}{2}\cdot\begin{pmatrix} 1 \\ 0 \\ 0\end{pmatrix}
+  \quad\text{und}\quad
+  M_{DC}\;\sim\; m_{DC}=\frac{1}{2}\cdot d+\frac{1}{2}\cdot c=\frac{1}{2}\cdot\begin{pmatrix} 0 \\ 1 \\ 1\end{pmatrix}
+$$ sowie $$
+  M_{AC}\;\sim\; m_{AC}=\frac{1}{2}\cdot a+\frac{1}{2}\cdot c=\frac{1}{2}\cdot\begin{pmatrix} 0 \\ 1 \\ 0\end{pmatrix}
+  \quad\text{und}\quad
+  M_{BD}\;\sim\; m_{BD}=\frac{1}{2}\cdot b+\frac{1}{2}\cdot d=\frac{1}{2}\cdot\begin{pmatrix} 1 \\ 0 \\ 1\end{pmatrix}
+$$ Vergleiche hierzu Abschnitt [Teilungspunkt einer Strecke](#Teilungspunkt-einer-Strecke).
+3. Die drei Verbindungsstrecken der zuvor bestimmten Paare von Kantenmitten besitzen Parameterdarstellungen $$
+  [M_{AD},M_{BC}]=:m_1\quad\sim\quad x=\alpha\cdot\frac{1}{2}\cdot\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}+(1-\alpha)\cdot\frac{1}{2}\cdot\begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}=\frac{1}{2}\cdot\begin{pmatrix}1-\alpha \\ 1-\alpha \\ \alpha \end{pmatrix}\quad\text{mit}\quad \alpha\in[0,1]
+$$ ebenso $$
+  [M_{AB},M_{DC}]=:m_2\quad\sim\quad y=\frac{1}{2}\cdot\begin{pmatrix} \beta \\ 1-\beta \\ 1-\beta \end{pmatrix}\quad\text{mit}\quad \beta\in[0,1]
+$$ sowie $$
+  [M_{AC},M_{BD}]=:m_3\quad\sim\quad z=\frac{1}{2}\cdot\begin{pmatrix} 1-\gamma \\ \gamma \\ 1-\gamma \end{pmatrix}\quad\text{mit}\quad \gamma\in[0,1]
+$$
+4. Die Schnittpunkte je zweier Strecken berechnen sich durch Gleichsetzen der zuvor berechneten Parameterdarstellungen, beispielsweise $$
+  \frac{1}{2}\cdot\begin{pmatrix}1-\alpha \\ 1-\alpha \\ \alpha \end{pmatrix}=
+  \frac{1}{2}\cdot\begin{pmatrix} \beta \\ 1-\beta \\ 1-\beta \end{pmatrix}\quad \leadsto\quad\alpha=\beta=\frac{1}{2}
+$$ d. h. es existiert ein Schnittpunkt $S_{12}=m_1\cap m_2$ mit Ortsvektor $s_{12}=\frac{1}{4}\cdot(1,1,1)^\top$. Durch analoge Rechnung ergibt sich unmittelbar $$
+  s_{12}=s_{23}=s_{13}=:s
+$$ Diese Eigenschaft bleibt unter den weiter oben betrachteten Koordinatentransformationen erhalten.
+
+**Bemerkung.** Die im vorstehenden Beispiel nachgewiesene Eigenschaft von Tetraedern ist  als [Satz von Reusch](https://de.wikipedia.org/wiki/Satz_von_Commandino) bekannt.
+
+Sicher gewußt
+=====
+
+Testen Sie Ihr erworbenes Wissen bei der Beantwortung der folgenden Fragen.
+
+**Frage 1.** Bezeichnen bei einer Parallelverschiebung eines räumlichen Koordinatensystems $$
+  x\,,\;y\,,\; z\quad\text{bzw.}\quad x^\prime\,,\; y^\prime\,,\;z^\prime
+$$ die "alten" beziehungsweise "neuen" Koordinaten eines Punktes $X$ und zusätzlich $$
+  u\,,\; v\,,\; w
+$$ die Koordinaten des "neuen" Koordinatenursprungs im "alten" Koordinatensystem, so berechnet sich der Wechsel des Koordinatensystems vermöge
+
+[[ ]] $$ x=x^\prime-u\,,\quad y=y^\prime-v\,,\quad z=z^\prime-w $$
+[[X]] $$ x^\prime=x-u\,,\quad y^\prime=y-v\,,\quad z^\prime=z-w $$
+[[ ]] $$ x^\prime=-u\,,\quad y^\prime=-v\,,\quad z^\prime=-w $$
+[[X]] $$ x=x^\prime+u\,,\quad y=y^\prime+v\,,\quad z=z^\prime+w $$
+[[?]] Bei einer Parallelverschiebung des Koordinatensystems gelten für die Basisvektoren $$
+  b_1=e_1\,,\quad b_2=e_2\,,\quad b_3=e_3
+$$
+****************************************
+
+Die Übergangsmatrix für den Basiswechsel ist die dreireihige Einheitsmatrix, da bei einer Parallelverschiebung des Koordinatensystems für die Basisvektoren $$
+  b_1=e_1\,,\quad b_2=e_2\,,\quad b_3=e_3
+$$ gelten. Der Wechsel stellt sich somit dar als $$
+  \begin{pmatrix} x \\ y \\ z \end{pmatrix}=
+  \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}\cdot
+  \begin{pmatrix} x^\prime \\ y^\prime \\ z^\prime \end{pmatrix}+
+  \begin{pmatrix} u \\ v \\ w \end{pmatrix}\quad\leftrightarrow\quad
+  \left\{\begin{array}{l} x=x^\prime+u \\ y=y^\prime+v \\ z=z^\prime+w \end{array}\right.
+$$ Siehe auch die nachstehende Abbildung für eine Betrachtung in ebenen Koordinatensystemen.
+
+![Koordinatenwechsel](img/geo-bild42.png "_Fig._ Koordinatentransformation durch Verschiebung eines ebenen affinen Koordinatensystems.")
+
+****************************************
+
+**Frage 2.** Gegeben ist die Übergangsmatrix für den Basiswechsel zweier Koordinatensysteme $$
+  B=\begin{pmatrix} 1 & 2 & 0 \\ 1 & -1 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+$$ bezogen auf eine Basis $(e_1,e_2,e_3)$.
+
+Entnehmen Sie aus der Übergangsmatrix die Darstellung der Vektoren der "neuen" Basis $(b_1,b_2,b_3)$.
+
+[( )] $$
+  b_1=\textcolor{red}{1}\cdot e_1+\textcolor{red}{0}\cdot e_2+\textcolor{red}{0}\cdot e_3\,,\quad
+  b_2=\textcolor{red}{0}\cdot e_1+\textcolor{red}{1}\cdot e_2+\textcolor{red}{0}\cdot e_3\,,\quad
+  b_3=\textcolor{red}{0}\cdot e_1+\textcolor{red}{0}\cdot e_2+\textcolor{red}{1}\cdot e_3 $$
+[( )] $$
+  b_1=\textcolor{red}{1}\cdot e_1+\textcolor{red}{2}\cdot e_2+\textcolor{red}{0}\cdot e_3\,,\quad
+  b_2=\textcolor{red}{1}\cdot e_1\textcolor{red}{-1}\cdot e_2+\textcolor{red}{0}\cdot e_3\,,\quad
+  b_3=\textcolor{red}{0}\cdot e_1+\textcolor{red}{0}\cdot e_2+\textcolor{red}{1}\cdot e_3 $$
+[(X)] $$
+  b_1=\textcolor{red}{1}\cdot e_1+\textcolor{red}{1}\cdot e_2+\textcolor{red}{0}\cdot e_3\,,\quad
+  b_2=\textcolor{red}{2}\cdot e_1\textcolor{red}{-1}\cdot e_2+\textcolor{red}{0}\cdot e_3\,,\quad
+  b_3=\textcolor{red}{0}\cdot e_1+\textcolor{red}{0}\cdot e_2+\textcolor{red}{1}\cdot e_3 $$
+[[?]] Es gilt $$ \begin{pmatrix} x \\ y \\ z \end{pmatrix}=B\cdot\begin{pmatrix} x^\prime \\ y^\prime \\ z^\prime \end{pmatrix} $$ mit den Koordinaten $(x,y,z)$ eines Punktes bezüglich des "alten" Koordinatensystems beziehungsweise den Koordinaten $(x^\prime,y^\prime,z^\prime)$ deselben Punktes bezüglich des neuen Koordinatensystems.
+****************************************
+
+Die quadratische Matrix in der Basistransformation der Koordinatenvektoren $$
+  \begin{pmatrix} x \\ y \\ z \end{pmatrix}=
+  \begin{pmatrix} \textcolor{red}{1} & \textcolor{blue}{2} & \textcolor{magenta}{0} \\ \textcolor{red}{1} & \textcolor{blue}{-1} & \textcolor{magenta}{0} \\ \textcolor{red}{0} & \textcolor{blue}{0} & \textcolor{magenta}{1} \end{pmatrix}\cdot
+  \begin{pmatrix} x^\prime \\ y^\prime \\ z^\prime \end{pmatrix}
+$$ beschreibt den **Basiswechsel**: Die Spaltenvektoren von $B$ sind die Koordinaten der "neuen" Basisvektoren $b_i$ bezüglich der "alten" Basis $(e_1,e_2,e_3)$, d. h. $$
+  b_1=\textcolor{red}{1}\cdot e_1+\textcolor{red}{1}\cdot e_2+\textcolor{red}{0}\cdot e_3\,,\quad
+  b_2=\textcolor{blue}{2}\cdot e_1\textcolor{blue}{-1}\cdot e_2+\textcolor{blue}{0}\cdot e_3\,,\quad
+  b_3=\textcolor{magenta}{0}\cdot e_1+\textcolor{magenta}{0}\cdot e_2+\textcolor{magenta}{1}\cdot e_3 $$
+
+****************************************
+
+**Frage 3.** Gegeben ist eine quadratische Matrix $$
+  C=\begin{pmatrix} 1 & 2 & 3 \\ 1 & -1 & 0 \\ 0 & 0 & 0 \end{pmatrix}
+$$ Entscheiden Sie, ob $C$ Übergangsmatrix eines Basiswechsels sein kann.
+
+[( )] $C$ beschreibt einen Basiswechsel.
+[(X)] $C$ beschreibt keinen Basiswechsel.
+[[?]] Die Spaltenvektoren von $C$ sind die Koordinaten der "neuen" Basisvektoren $b_i$ bezüglich der "alten" Basis $(e_1,e_2,e_3)$. Dies bedeutet insbesondere, dass die Vektoren $b_i$ linear unabhängig sind.
+****************************************
+
+Die Vektoren berechnen sich gemäß $$
+  b_1=1\cdot e_1+1\cdot e_2+0\cdot e_3\,,\quad
+  b_2=2\cdot e_1-1\cdot e_2+0\cdot e_3\,,\quad
+  b_3=3\cdot e_1+0\cdot e_2+0\cdot e_3 $$
+Dabei gilt offensichtlich $b_3=b_1+b_2$, wonach die Vektoren $b_i$ nicht linear abhängig sind und somit keine Basis bilden können. Für die Matrix $C$ gilt äquivalent $\det{C}=0$.
+
+****************************************
+
+
+[^1]: Dieser Punkt entspricht dem Schwerpunkt der Ecken des sonst masselos gedachten Tetraeders, wenn gleiche Gewichte in jedem Eckpunkt angenommen werden. Siehe Abschnitt [Massenschwerpunkt](#Massenschwerpunkt).
 
 
 ### Teilungspunkt einer Strecke
@@ -658,6 +944,9 @@ Vollziehen Sie den dargestellten Pseudo-Code nach. Beantworten Sie hierfür die 
 
 Sicher gewusst?
 ===============
+
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
 Gegeben ist ein Dreieck mit den Eckpunkten $A$, $B$ und $C$ sowie ein weiterer Punkt $O$. Die Verbindungsgeraden $$
   AO\,,\quad BO\quad\text{und}\quad CO
@@ -896,6 +1185,9 @@ Ein effizienter Algorithmus zur Berechnung der konvexen Hülle ist [Graham Scan]
 Sicher gewusst?
 ===============
 
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
 **Frage.** Gegeben sind die folgenden Punktmengen und das dargestellte Polygon (rot).
 
 ![wikipedia](img/Convex_hull.png)<!-- style="width: 75%;" -->
@@ -1076,6 +1368,9 @@ Auf weitere Eigenschaften von Bézierkurven sowie deren Verwendung im Kurvendesi
 
 Sicher gewusst?
 ===============
+
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage 1.** Für die Binomialkoeffizienten $$
   \binom{n}{i} \quad\text{mit}\quad n\in\mathbb{N}\,,\;i\in\mathbb{N}\,,\;i\leq n
@@ -1321,6 +1616,9 @@ Eine Möglichkeit der Berechnung des Bildes einer Geraden unter einer linearen A
 
 Sicher gewusst?
 ===============
+
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
 
 **Frage 1.** Gegeben sind die folgenden Abbildungsmatrizen affiner Abbildungen
 $$
@@ -1660,6 +1958,9 @@ darstellen, worin $E$ die $d$-reihige Einheitsmatrix beschreibt. $\square$
 Sicher gewusst?
 ===============
 
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
 **Frage 1.** Entscheiden Sie, ob die folgende affine Abbildung umkehrbar ist.
 $$
   \alpha:\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\mapsto
@@ -1795,7 +2096,7 @@ $$
   \begin{pmatrix} 2 \\ 0 \end{pmatrix}=
   \begin{pmatrix} 4 \\ -3 \end{pmatrix}
 $$
-das affine Bild $t'$ des Stützvektors $t$ von $g$ (als Differenzvektor)
+das affine Bild $t'$ des Richtungsvektors $t$ von $g$ (als Differenzvektor)
 $$
   \begin{pmatrix} t_1' \\ t_2' \end{pmatrix}=
   \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}\cdot
@@ -2135,6 +2436,8 @@ $$ und $\det{A}>0$ wird **orientierungserhaltend** genannt. Ist hingegen $\det{A
 Sicher gewusst?
 ===============
 
+Testen Sie Ihr Wissen bei der Beantwortung der nachstehenden Fragen.
+
 **Frage 1.** Sind $\alpha$ und $\beta$ zwei inhaltstreue Affinitäten des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$, so
 
 [[ ]] ist die Verkettung $\beta\circ\alpha$ orientierungserhaltend.
@@ -2179,7 +2482,7 @@ $$ wonach $\alpha$ eine Affinität darstellt.
 
 Die Ausführungen dieses Kapitels beziehen sich auf ein kartesisches rechtsorientiertes[^1] Koordinatensystem.
 
-**Definition 1.** Eine winkeltreue Affinität des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$ heißt **Ähnlichkeit**, eine längentreue Ähnlichkeit heißt **Kongruenz**.
+>**Definition 1.** Eine winkeltreue Affinität des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$ heißt **Ähnlichkeit**, eine längentreue Ähnlichkeit heißt **Kongruenz**.
 
 
 Erhalt von Winkelgrößen
@@ -3654,18 +3957,20 @@ Alternativ können Sie den editierbaren Code in der Programmiersprache Python un
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
 
 fig = plt.figure()
 ax = plt.axes(projection ='3d')
 
-t = np.linspace(-2 * np.pi, 2 * np.pi, 100)
-x = np.cos(t)
-y = np.sin(t)
-z = 3 * t
+u = np.linspace(0, 2 * np.pi, 10)
+v = np.linspace(-np.pi/2, np.pi/2, 10)
+u, v = np.meshgrid(u, v)
 
-ax.plot3D(x, y, z, 'green')
-ax.set_title('Helix')
+x = 3 * np.cos(u) * np.cos(v)
+y = 3 * np.sin(u) * np.cos(v)
+z = 3 * np.sin(v)
+
+ax.contour3D(x, y, z, color ='blue', linewidths = 1.0)
+ax.set_title('Sphäre')
 plt.show()
 
 plot(fig) # <- this is required to plot the fig also on the LiaScript canvas
@@ -3823,3 +4128,123 @@ Aus Satz 3 leitet sich hier ab, dass die Normalbilder der Tangeneten an $k$ wied
 [^1]: Sinngemäß lässt sich der Begriff einer *projizierenden Ebene* unter einer Projektion definieren.
 
 [^2]: Ist die Projektion eine Zentralprojektion, so verlaufen alle Projektionsgeraden durch $Z$, Wird $Z\not\in\Phi$ vorausgesetzt, bilden die Projektionsgeraden in den Konturpunkten $X\in u$ einen Kegel, der die Fläche $\Phi$ entlang der Kontur $u$ berührt. Bei Parallelprojektionen bilden die Projektionsgeraden in den Konturpunkten einen $\Phi$ berührenden Zylinder. Vergleiche Bemerkung 3 in diesem Abschnitt.
+
+
+### Projektive Erweiterung
+
+
+Zentralprojektionen besitzen gegenüber Parallelprojektionen trotz eines ähnlichen Abbildungsprinzips einige grundlegend abweichende Eigenschaften:
+
+1. Die Zentralbilder paralleler Geraden $g\parallel h$ können einen gemeinsamen Punkt besitzen, der *Fluchtpunkt* der Geradenrichtung genannt wird. Siehe beispielsweise nachstehendes Foto.
+2. Punkte der Verschwindungsebene besitzen kein (eigentliches) Zentralbild. Siehe Abschnitt [Projektionen](#Projektionen).
+
+![Fluchtpunkt](https://upload.wikimedia.org/wikipedia/commons/2/2a/Railroad-Tracks-Perspective.jpg "_Fig._ Zentralprojektion einer Eisenbahnstrecke – die parallel verlaufenden Schienen scheinen sich im Fluchtpunkt am Horizont zu schneiden. [Gemeinfrei](https://commons.wikimedia.org/wiki/File:Railroad-Tracks-Perspective.jpg#/media/Datei:Railroad-Tracks-Perspective.jpg)")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 615px;" -->
+
+
+Projektive Erweiterung der Ebene
+=====
+
+
+Für die relative Lage zweier Geraden $g$ und $h$ in der Ebene $A^2$ gilt entweder: Beide Geraden
+
+* sind nicht parallel und besitzen eine gemeinsamen Punkt, d. h. $g\cap h=\{S\}$ (einelementig).
+* sind parallel und verschieden (und besitzen daher keinen gemeinsamen Punkt), d. h. $$
+  g\parallel h\quad\leftrightarrow\quad g\cap h=\{\} $$
+* sind parallel und identisch, d. h. $g=h$
+
+![Lage von Geraden](img/geo-bild36.png "_Fig._ Geraden in nichtparalleler / paralleler und nichtidenticher / identischer Lage.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 315px;" -->
+
+Um die Ausnahmestellung paralleler Geraden zu beseitigen, sagt man
+
+<!-- style="color: purple" -->
+"Zwei parallele Geraden $g\parallel h$ besitzen einen gemeinsamen uneigentlichen Punkt."
+
+und notiert diesen mit einem tiefgestellten Zeiger $u$ (**u**neigentlich). Die parallele Lagebeziehung schreibt sich dann abweichend in der Form $$
+  g\parallel h\quad\leftrightarrow\quad g\cap h=\{{\purple S_u}\} $$
+
+>**Forderungen.** (Projektiv erweiterte Ebene)
+>
+>1. Jede Gerade $g$ in $A^2$ besitzt genau einen uneigentlichen Punkt $G_u$.
+>2. Parallele Geraden in $A^2$ besitzen denselben uneigentlichen Punkt.
+>3. Alle uneigentlichen Punkte von Geraden in $A^2$ liegen auf einer uneigentlichen Geraden $u$.
+
+>**Definition 1.** Die um alle uneigentlichen Punkte erweiterte Ebene, die den vorstehenden Forderungen 1. - 3. genügt, heißt [projektiv erweiterte Ebene](https://de.wikipedia.org/wiki/Projektiver_Raum) $\bar{A}^2$ bzw. der projektive Abschluss von $A^2$.
+
+**Bemerkung 1.** Die projektive Erweiterung der Ebene $A^2$ besitzt die
+
+1. Punktmenge $\mathfrak{P}$ mit $$
+  \mathfrak{P}=\left\{X\in A^2\right\}\cup\left\{S_u|\{S_u\}=g\cap h\,,\;g\parallel h\right\}
+$$ als Vereinigung der Menge aller (eigentlichen) Punkte $X\in A^2$ und der Menge aller uneigentlichen Punkte $S_u$
+2. Geradenmenge $\mathfrak{G}$ mit $$
+  \mathfrak{G}=\left\{g\subset A^2\right\}\cup\{u\}
+$$ als Vereinigung der Menge aller Geraden $g\subset A^2$ und der einelementigen Menge bestehend aus der (einzigen) uneigentlichen Gerade $u$.
+
+**Bemerkung 2.** Wird - abweichend vom projektiven Abschluss der Ebene $A^2$ - neben der Forderung 1 festgelegt, dass alle Geraden $g\subset A^2$ den gleichen (also auch einzigen) uneigentlichen Punkt besitzen, erhält man den sogenannten **Möbiusabschluss**.
+
+Für eine geometrische Interpretation wird die stereographische Projektion der Punkte der Einheitssphäre $\Phi$ um den Mittelpunkt $O(0,0,0)$ auf die Punkte in der Tangentialebene $\Pi$ im 'Südpol' $S\in\Phi$ betrachtet. Die Projektion ist die Einschränkung der Zentralprojektion aus dem 'Nordpol' $N\in\Phi$ in die Ebene $\Pi$ $$
+  ^c:\Phi\setminus{\{N\}}\to\Pi\quad\text{mit}\quad X\mapsto X^c=NX\cap\Pi
+$$ Hierin bezeichnen $N$ das Projektionszentrum und $NX$ die Projektionsstrahlen der stereographischen Projektion. Die stereographische Projektion $^c$ ist bijektiv. (Nur das Projektionszentrum wird auf keinen Punkt der Ebene $\Pi$ abgebildet.)
+
+Für eine interaktive Darstellung kann beispielsweise [GeoGebra](https://www.geogebra.org/m/om1ZxX6G) verwendet werden.
+
+Kreise $k\subset\Phi$ werden unter $^c$ auf Kreise beziehungsweise Geraden abgebildet, je nachdem $N\not\in k$ beziehungsweise $N\in k$ gilt. Um die Ausnahmestellung von Geraden als Zentralrisse $k^c$ gegenüber Kreisen $k^c$ zu beseitigen, wird die Bildebene $\Pi$ um ~~genau einen~~ uneigentlichen Punkt $U$ erweitert. Entsprechend der ersten Forderung zur projektiven Erweiterung ist $U$ gemeinsamer Punkt aller Geraden $g\subset\Delta$ mit $N\in g$ der Verschwindungsebene mit parallelen Geraden $h\subset\Pi$ mit $S\in h$ der Bildebene $\Pi$.
+
+
+Axiomatische Definition einer projektiven Ebene
+=====
+
+
+Aus der projektiven Erweiterung der Ebene $A^2$ folgen zwei strukturelle Aussagen, die sich nur dadurch unterscheiden, dass die Begriffe 'Punkt' beziehungsweise 'Gerade' sowie 'Verbinden' beziehungsweise 'Schneiden' verwendet sind.
+
+>**Eigenschaft 1.** Zu je zwei verschiedenen Geraden $g\not= h$ existiert genau ein gemeinsamer Punkt, der Schnittpunkt $S$.[^1]
+
+In der projektiv erweiterten Ebene treten hierbei die nachstehenden Fälle auf.
+
+1. Für eigentliche Geraden $g\subset A^2$, $h\subset A^2$ mit $g\not\parallel h$ existiert genau ein gemeinsamer Punkt $S$, d. h. $$\{S\}=g\cap h$$
+2. Gilt $g\parallel h$ für zwei verschiedene Geraden $g$, $h$, so gilt $$S=S_u$$ für den gemeinsamen Punkt.
+3. Ist o. B. d. A. $g=u$ die uneigentliche Gerade der Ebene und $h$ eine eigentliche Geraden mit uneigentlichem Punkt $H_u$, so ist $$S_u=H_u$$
+
+>**Eigenschaft 2.** Zu je zwei verschiedenen Punkten $P\not=Q$ existiert genau eine Gerade $g$, die Verbindungsgerade.[^2]
+
+In der projektiv erweiterten Ebene treten hierbei die nachstehenden Fälle auf.
+
+1. Für zwei Punkte $P\in A^2$, $Q\in A^2$ existiert genau ein Gerade $g$ mit $$
+  g=P\vee Q $$
+2. Ist einer der beiden Punkte uneigentlich, $P=H_u$, d. h. gehört dieser Punkt $H_u$ zu einer Geradenrichtung $h$, so ist $$
+  g=H_u\vee Q\quad\leftrightarrow\quad g\ni Q\;\;\wedge\;\; g\parallel h
+$$
+3. Sind beide Punkte uneigentlich, so ist nach der dritten Forderung die Verbindungsgerade die uneigentliche Gerade $u$.
+
+Sätze, die nur mit den Begriffen 'Punkt', 'Gerade' sowie 'Verbinden' und 'Schneiden' formuliert werden können, sind typische Beispiele für Resultate der [projektiven Geometrie](https://de.wikipedia.org/wiki/Projektive_Geometrie#Axiomatische_projektive_Geometrie).
+
+>**Definition 2.** Gegeben sind eine Menge von Punkten $\mathcal{P}$ und eine dazu [disjunkte](https://de.wikipedia.org/wiki/Disjunkt) Menge von Geraden $\mathcal{G}$, zwischen denen eine [Inzidenzrelation](https://de.wikipedia.org/wiki/Inzidenzstruktur) $R\subset\mathfrak{P}\times\mathfrak{G}$ gegeben ist. Gelten die Eigenschaften 1 und 2 sinngemäß, so heißt $(\mathcal{P},\mathcal{G},R)$ eine projektive Ebene.
+
+**Bemerkung 3.** Nachfolgend wird nicht mehr notwendig zwischen eigentlichen und uneigentlichen Punkten und Geraden in der Ebene unterschieden.
+
+**Beispiel 1.** [Aussage von Pappos](https://de.wikipedia.org/wiki/Satz_von_Pappos)
+
+Gegeben sind zwei verschiedene Geraden $g$, $h$ der Ebene mit den Punkten $$
+  \{P_1,P_3,P_5\}\subset g\quad\text{und}\quad
+  \{P_2,P_4,P_6\}\subset h
+$$ die 'abwechselnd' auf den beiden Geraden liegen. Werden die drei Punkte $$
+  P=(P_1\vee P_2)\cap(P_4\vee P_5)\,,\quad
+  Q=(P_2\vee P_3)\cap(P_5\vee P_6)\quad\text{und}\quad
+  R=(P_3\vee P_4)\cap(P_6\vee P_1)
+$$ konstruiert, so liegen diese auf einer Geraden.
+
+Für eine interaktive Visualisierung der Aussage siehe beispielsweise die Darstellung [Pappos](https://www.geogebra.org/m/kawve3yd). Alternativ kann die Konstruktion mit vergleichsweise wenig Aufwand unter [GeoGebra](https://www.geogebra.org/calculator) durchgeführt werden.
+
+>**Satz 1.** ([Dualitätsprinzip in der projektiven Ebene](https://de.wikipedia.org/wiki/Projektive_Geometrie#Dualit%C3%A4tsprinzip)) Das Vertauschen von
+>
+>1. 'Punkt' $\;\leftrightarrow\;$ 'Gerade'
+>2. 'Verbinden' $\;\leftrightarrow\;$ 'Schneiden'
+>
+>führt eine geometrische Aussage in die zu ihr duale Aussage über. Diese ist genau dann wahr, wenn die erste wahr ist.
+
+**Bemerkung 4.** Typische Begriffe der euklidischen Geometrie wie 'Länge', 'Winkel', 'orthogonal' etc. gehören nicht in die projektive Geometrie. Diese werden beispielsweise unter Projektionen nicht erhalten. Bei euklidischen Sätzen gibt es kein Dualitätsprinzip.
+
+
+
+[^1]: Als Schnittpunkt $S=g\cap h$ wird hier jenes Element der Punktmenge bezeichnet, dass sowohl in $g$ als auch in $h$ enthalten ist. Beim Enthaltensein eines Punktes auf einer Geraden spricht man auch von *Inzidenz*.
+
+[^2]: Als Verbindungsgerade $g=P\vee Q$ wird hier jenes Element der Geradenmenge bezeichnet, dass sowohl $P$ als auch $Q$ enthält. Beim Enthaltensein eines Punktes auf einer Geraden spricht man auch von *Inzidenz*.
