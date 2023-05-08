@@ -1433,9 +1433,15 @@ Definition affiner Abbildungen
 
 Wir beginnen mit dem Begriff einer affinen Abbildung.
 
->**Definition.** Eine Abbildung $\alpha:\mathcal{A}^d\to \mathcal{A}^d$ des $d$-dimensionalen affinen Raumes ($d\in\mathbb{N},\,d\geq1$), die Punkte $X$ auf Punkte $X^\prime=\alpha(X)$ abbildet, heißt **affine Abbildung**, wenn sie bezogen auf ein affines Koordinatensystem $[O,E_1,...,E_d]$ mit Ortsvektor $x=\overrightarrow{OX}$ und $x^\prime=\overrightarrow{OX^\prime}$ in der Form $$ x\mapsto x^\prime=A\cdot x+a $$ mit $A\in\mathbb{R}^{d,d}$ und $a\in\mathbb{R}^{d}$ beschrieben werden kann.
+>**Definition 1.** Eine Abbildung des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$ ($d\in\mathbb{N},\,d\geq1$) $$
+  \alpha:\mathcal{A}^d\to \mathcal{A}^d
+$$ die Punkte $X$ auf Punkte $X^\prime=\alpha(X)$ abbildet, heißt **affine Abbildung**, wenn sie bezogen auf ein affines Koordinatensystem $[O,E_1,...,E_d]$ mit Ortsvektor $$
+  x=\overrightarrow{OX}\quad\text{und}\quad x^\prime=\overrightarrow{OX^\prime}
+$$ in der Form $$
+  x\mapsto x^\prime=A\cdot x+a\quad\text{mit}\quad A\in\mathbb{R}^{d,d}\,,\;a\in\mathbb{R}^{d}
+$$ dargestellt werden kann.
 
-Die reelle, quadratische Matrix $A$ wird Abbildungsmatrix (Transformationsmatrix), der reelle Vektor $a$ Translationsvektor von $\alpha$ genannt. Für $d=2$ heißt $\alpha$ affine Abbildung der Ebene, für $d=3$ affine Abbildung des dreidimensionalen Raumes.
+Die reelle, quadratische Matrix $A$ wird Abbildungsmatrix (Transformationsmatrix), der reelle Vektor $a$ wird Translationsvektor von $\alpha$ genannt. Für $d=2$ heißt $\alpha$ affine Abbildung der Ebene, für $d=3$ affine Abbildung des dreidimensionalen Raumes.
 
 Die Abbildung von Punkten der Ebene beziehungsweise des dreidimensionalen Raumes wird in nachstehendem Video an Beispielen erläutert. (Der Translationsvektor ist in diesen Beispielen jeweils der Nullvektor.)
 
@@ -1467,7 +1473,7 @@ dot(A[3],x)+a[3]
 ```
 @Algebrite.eval
 
->**Definition.** Eine affine Abbildung $$ x\mapsto x^\prime=A\cdot x+a $$ heißt **Affinität**, falls $A$ eine reguläre Matrix ist, d. h. falls $\det{A}\not=0$.
+>**Definition 2.** Eine affine Abbildung $$ x\mapsto x^\prime=A\cdot x+a $$ heißt **Affinität**, falls $A$ eine reguläre Matrix ist, d. h. falls $\det{A}\not=0$.
 
 Das Beispiel 1 beschreibt eine Affinität, da $\det{A}=1$, Beispiel 2 hingegen eine affine Abbildung, die keine Affinität ist: Hier ist $\det{A}=0$.
 
@@ -1541,7 +1547,7 @@ Der $i$-te Spaltenvektor $s_i$ in der Spaltenvektordarstellung von $A$ $$ A=\beg
 
 <!-- style="color:magenta" -->**Merkregel.** "Willst die Matrix du erhalten, schreib die Bilder der Basis in die Spalten."
 
-**Bemerkung.** Mit den Eigenschaften 2 und 3 haben Transformationsmatrix $A$ und Translationsvektor $a$ einer affinen Abbildung $\alpha$ geometrische Bedeutung. (Definition)
+**Bemerkung 1.** Mit den Eigenschaften 2 und 3 haben Transformationsmatrix $A$ und Translationsvektor $a$ einer affinen Abbildung $\alpha$ geometrische Bedeutung. (Definition)
 
 
 Eigenschaft 4
@@ -1587,7 +1593,7 @@ $$
 $$
 worin $x'$ beziehungsweise $y'$ die Ortsvektoren der Bilder $X'=\alpha(X)$ beziehungsweise $Y'=\alpha(Y)$ bezeichnen.
 
->**Definition.** Ist der Translationsvektor $a$ einer affinen Abbildung $\alpha$ der Nullvektor, d. h. $$
+>**Definition 3.** Ist der Translationsvektor $a$ einer affinen Abbildung $\alpha$ der Nullvektor, d. h. $$
   \alpha:X\mapsto X'\quad\text{mit}\quad x\mapsto x'=A\cdot x
 $$ so heißt $\alpha$ eine **lineare Abbildung**. Der Ursprung $O$ des Koordinatensystems $(O,E_1,E_2,E_3)$ ist unter $\alpha$ ein Fixpunkt.[^2]
 
@@ -1656,6 +1662,21 @@ $$ Deren Bilder ergeben sich als Differenzen $$
   \begin{pmatrix} 3-1 \\ 2-2 \end{pmatrix}\quad\text{und}\quad
   \begin{pmatrix} 2-1 \\ -4-2 \end{pmatrix}
 $$ und bilden die Spalten der Transformationsmatrix.
+
+****************************************
+
+**Frage 3.** Entscheiden Sie: Eine affine Abbildung der Ebene, die verschieden von der identischen Abbildung ist, besitzt entweder genau einen Fixpunkt, eine Fixpunktgerade oder keinen Fixpunkt.
+
+[(X)] Wahr.
+[( )] Falsch.
+[[?]] Für einen Fixpunkt $X$ unter einer affinen Abbildung $\alpha$ gilt $X=\alpha(X)$.
+****************************************
+
+Besitzt die affine Abbildung der Ebene die Matrixdarstellung $$
+  \alpha:x\mapsto x'=A\cdot x+a
+$$ mit Transformationsmatrix $A\in\mathbb{R}^{2,2}$ und Translationsvektor $a\in\mathbb{R}^2$, so berechnen sich die Fixpunkte vermöge $$
+  A\cdot x+a=x\quad\leftrightarrow\quad (A-E)\cdot x=-a
+$$ mit zweireihiger Einheitsmatrix $E$. Dies ist ein lineares Gleichungssystem, dessen Lösungsmenge entweder leer, einelementig oder ein affiner Unterraum der Dimension $1$ ist.
 
 ****************************************
 
@@ -2456,22 +2477,6 @@ d. h. die Komposition ist wieder inhaltstreu.
 
 ****************************************
 
-**Frage 2.** Entscheiden Sie:
-
-Eine affine Abbildung der Ebene, die verschieden von der identischen Abbildung ist, besitzt entweder genau einen Fixpunkt, eine Fixpunktgerade oder keinen Fixpunkt.
-
-[(X)] Wahr.
-[( )] Falsch.
-[[?]] Für einen Fixpunkt $X$ unter einer affinen Abbildung $\alpha$ gilt $X=\alpha(X)$.
-****************************************
-
-Besitzt die affine Abbildung der Ebene die Matrixdarstellung $$
-  \alpha:x\mapsto x'=A\cdot x+a
-$$ mit Transformationsmatrix $A\in\mathbb{R}^{2,2}$ und Translationsvektor $a\in\mathbb{R}^2$, so berechnen sich die Fixpunkte vermöge $$
-  A\cdot x+a=x\quad\leftrightarrow\quad (A-E)\cdot x=-a
-$$ mit zweireihiger Einheitsmatrix $E$. Dies ist ein lineares Gleichungssystem, dessen Lösungsmenge entweder leer, einelementig oder ein affiner Unterraum der Dimension $1$ ist.
-
-****************************************
 
 [^1]: Für die Determinante der Transformationsmatrix $A$ folgt $$
   \det{A}=\det{\mathrm{diag}{(\lambda_1,...,\lambda_d)}}=\prod_{i=1}^d{\lambda_i}\not=0\quad\leftrightarrow\quad\lambda_i\not=0\;\;\forall\,i\in\{1,...,d\}
@@ -2551,7 +2556,24 @@ $$ Die Matrizen sind auf Orthogonalität zu prüfen.
 
 1. Die Matrix $A_1$ ist orthogonal, da für die Spaltenvektoren $$
   s_1=\begin{pmatrix} \frac{1}{2} \\ \frac{1}{2}\cdot\sqrt{3} \end{pmatrix}\quad\text{und}\quad s_2=\begin{pmatrix} -\frac{1}{2}\cdot\sqrt{3} \\ \frac{1}{2} \end{pmatrix}
+$$ offensichtlich gelten $$
+  s_1\cdot s_2=0\quad\text{sowie}\quad s_1^2=s_2^2=1
 $$
+2. Zur Matrix $A_2$ gehören die Spaltenvektoren $$
+  s_1=\begin{pmatrix} 1 \\ 0 \end{pmatrix}\quad\text{und}\quad s_2=\begin{pmatrix} a \\ b \end{pmatrix}
+$$ Für diese berechnen sich $$
+  s_1\cdot s_2=1\cdot a+0\cdot b=a\quad\text{sowie}\quad s_1^2=1\,,\;s_2^2=a^2+b^2
+$$ Damit ist $A_2$ genau dann orthogonal, falls $a=0$ und $b\in\{-1,1\}$ gelten.
+3. Matrix $A_3$ ist nicht orthogonal, da die Spaltenvektoren nicht orthogonal zueinander sind.
+4. Zur Matrix $A_4$ gehören die Spaltenvektoren $$
+  s_1=\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\,,\quad
+  s_2=\begin{pmatrix} 0 \\ \cos{\varphi} \\ \sin{\varphi} \end{pmatrix}\quad\text{und}\quad
+  s_3=\begin{pmatrix} 0 \\-\sin{\varphi} \\ \cos{\varphi} \end{pmatrix}
+$$ Für diese berechnen sich $$
+  s_1\cdot s_2=s_1\cdot s_3=0\quad\text{sowie}\quad s_2\cdot s_3=\cos{\varphi}\cdot\left(-\sin{\varphi}\right)+\sin{\varphi}\cdot\cos{\varphi}=0\quad\forall\;\varphi\in\mathbb{R}
+$$ sowie - nach Anwendung des trigonometrischen Pythagoras - die (Quadrate der) Normen $$
+  s_1^2=1\,,\quad s_2^2=s_3^2=\left(\cos{\varphi}\right)^2+\left(\sin{\varphi}\right)^2=1\quad\forall\;\varphi\in\mathbb{R}
+$$ Damit ist $A_4$ für alle Parameterwerte $\varphi\in\mathbb{R}$ orthogonal.
 
 
 **Bemerkung 1.** Aus beiden Eigenschaften folgt äquivalent $$
