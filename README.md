@@ -13,7 +13,9 @@ import: https://raw.githubusercontent.com/LiaTemplates/tiny-turtle/master/README
 
 import: https://raw.githubusercontent.com/liaTemplates/algebrite/master/README.md
 
-import: https://github.com/LiaTemplates/Pyodide/blob/0.1.4/README.md
+import: https://raw.githubusercontent.com/LiaTemplates/PyScript/0.0.4/README.md
+
+persistent: true
 
 -->
 
@@ -2483,7 +2485,7 @@ d. h. die Komposition ist wieder inhaltstreu.
 $$ wonach $\alpha$ eine Affinität darstellt.
 
 
-### Kongruenzen und Ähnlichkeiten
+### Kongruenzen
 
 Die Ausführungen dieses Kapitels beziehen sich auf ein kartesisches rechtsorientiertes[^1] Koordinatensystem.
 
@@ -3265,8 +3267,8 @@ Es wird $s_1\not\parallel s_2$ vorausgesetzt. Dann werden vereinbart:
 2. Die Gerade $s_1$ ist erste Koordinatenachse
 
 eines kartesischen Koordinatensystems in der Ebene $\mathcal{A}^2$. Damit lassen sich beide Spiegelungen durch den Spiegelungsoperator $$
-  T_1=E-2\cdot\left(n_1^\top\cdot n_1\right)\quad\text{bzw.}\quad
-  T_2=E-2\cdot\left(n_2^\top\cdot n_2\right)
+  T_1=E-2\cdot\left(n_1\cdot n_1^\top\right)\quad\text{bzw.}\quad
+  T_2=E-2\cdot\left(n_2\cdot n_2^\top\right)
 $$ mit Normaleneinheitsvektoren $n_i$ bestimmen. Für die folgenden Betrachtungen werde $$
   \measuredangle{(s_1,s_2)}=\gamma
 $$ bezeichnet.
@@ -3313,8 +3315,8 @@ Es wird $s_1\parallel s_2$ vorausgesetzt. Dann werden vereinbart:
 eines kartesischen Koordinatensystems in der Ebene $\mathcal{A}^2$.
 
 Damit lassen sich beide Spiegelungen durch den Spiegelungsoperator $$
-  T_1=E-2\cdot\left(n_1^\top\cdot n_1\right)\quad\text{bzw.}\quad
-  T_2=E-2\cdot\left(n_2^\top\cdot n_2\right)
+  T_1=E-2\cdot\left(n_1\cdot n_1^\top\right)\quad\text{bzw.}\quad
+  T_2=E-2\cdot\left(n_2\cdot n_2^\top\right)
 $$ mit Normaleneinheitsvektoren $n_1=\pm n_2$ bestimmen. Für die folgenden Betrachtungen werde $$
   \mathrm{dist}{(s_1,s_2)}=|d|
 $$ bezeichnet.
@@ -3587,7 +3589,7 @@ Ebene Schnitte eines Torus:
 Ornamente
 =========
 
-Im Abschnitt [Algebraische Eigenschaften](#Algebraische-Eigenschaften), Beispiel 3 wurde durch eine einzelne Translation $\tau$ (der Ebene) und die Potenzen $\tau^k$, $k\in\mathbb{Z}$, eine Friesgruppe $\left\{\tau^k,\circ\right\}$ bezogen auf die Hintereinanderausführung von Abbildungen erzeugt. Angewendet auf ein Grundmuster entsteht ein ogenanntes *Fries*.
+Im Abschnitt [Algebraische Eigenschaften](#Algebraische-Eigenschaften), Beispiel 3 wurde durch eine einzelne Translation $\tau$ (der Ebene) und die Potenzen $\tau^k$, $k\in\mathbb{Z}$, eine Friesgruppe $\left\{\tau^k,\circ\right\}$ bezogen auf die Hintereinanderausführung von Abbildungen erzeugt. Angewendet auf ein Grundmuster entsteht ein sogenanntes *Fries*.
 
 In diesem Abschnitt soll auf die Erzeugung von ebenen Ornamenten eingegangen werden. Des Weiteren wird die Äquivalenzklassenbildung von Ornamenten hinsichtlich der zugehörigen Ornamentgruppen thematisiert. Die - hier nicht angesprochene - Frage nach räumlichen Ornamenten führt u. a. zu den in der Kristallographie verwendeten [kristallographischen Raumgruppen](https://de.wikipedia.org/wiki/Ebene_kristallographische_Gruppe).
 
@@ -3756,27 +3758,29 @@ $$ heißt [Parallelprojektion](https://de.wikipedia.org/wiki/Parallelprojektion)
 >3. $y=0$ ($xz$-Ebene), so heißt $^n$ *Kreuzrissprojektion*
 
 
-Eigenschaften von Projektionen
+Eigenschaften
 =====
 
+<!-- style="background-color: lightgray;"-->
+>Für Projektionen $^c$ beziehungsweise $^p$ beziehungsweise $^n$ gelten:
+>
+>1. Das Bild eines Punktes $Q\in A^3$ unter einer Projektion ist wieder ein Punkt. Ausnahmen bilden bei der Zentralprojektion das Projektionszentrum $Z$ (keine Projektionsgerade) und die Punkte der Verschwindungsebene $\Delta$. Deren Projektionsgeraden sind parallel zur Bildebene $\Pi$, besitzen demnach keinen (eigentlichen) Schnittpunkt.
+>2. Das Bild einer Geraden $g\subset A^3$ ist genau dann ein Punkt, wenn $g$ Projektionsgerade ist: $g$ heißt dann **projizierend**. Das Bild einer nichtprojizierenden Geraden unter Projektion ist wieder eine Gerade. Ausnahmen bilden Geraden in der Verschwindungsebene $\Delta$.[^1]
 
-Für Projektionen $^c$ beziehungsweise $^p$ beziehungsweise $^n$ gelten:
-
-1. Das Bild eines Punktes $Q\in A^3$ unter einer Projektion ist wieder ein Punkt. Ausnahmen bilden bei der Zentralprojektion das Projektionszentrum $Z$ (keine Projektionsgerade) und die Punkte der Verschwindungsebene $\Delta$. Deren Projektionsgeraden sind parallel zur Bildebene $\Pi$, besitzen demnach keinen (eigentlichen) Schnittpunkt.
-2. Das Bild einer Geraden $g\subset A^3$ ist genau dann ein Punkt, wenn $g$ Projektionsgerade ist: $g$ heißt dann **projizierend**. Das Bild einer nichtprojizierenden Geraden unter Projektion ist wieder eine Gerade. Ausnahmen bilden Geraden in der Verschwindungsebene $\Delta$.[^1]
-
-Speziell für Parallelprojektionen $^p$ gelten:
-
-3. Das Teilverhältnis auf nichtprojizierenden Strecken bleibt unter Parallelprojektionen erhalten, das heißt: $$
+<!-- style="background-color: lightgray;"-->
+>Speziell für Parallelprojektionen $^p$ gelten:
+>
+>3. Das Teilverhältnis auf nichtprojizierenden Strecken bleibt unter Parallelprojektionen erhalten, das heißt: $$
     \left(T\in[A,B]\quad\text{mit}\quad \operatorname{TV}(T,A,B)=\lambda\right)\quad\stackrel{^p}{\to}\quad
     \left(T^p\in[A^p,B^p]\quad\text{mit}\quad \operatorname{TV}(T^p,A^p,B^p)=\lambda\right)
 $$ Insbesondere werden Mittelpunkte auf Strecken auf die Mittelpunkte ihrer Bilder abgebildet.
-4. Die parallele Lage nichtprojizierender Geraden bleibt unter Parallelprojektionen erhalten.
-5. Ebene Figuren in zur Bildebene $\Pi$ parallelen Ebenen werden unter Parallelprojektionen kongruent, d. h. deckungsgleich abgebildet.
+>4. Die parallele Lage nichtprojizierender Geraden bleibt unter Parallelprojektionen erhalten.
+>5. Ebene Figuren in zur Bildebene $\Pi$ parallelen Ebenen werden unter Parallelprojektionen kongruent, d. h. deckungsgleich abgebildet.
 
-Speziell für Normalprojektionen $^n$ gilt:
-
-6. Für die orthogonale Lage zweier nichtprojizierender Geraden $a$, $b$ gilt $$
+<!-- style="background-color: lightgray;"-->
+>Speziell für Normalprojektionen $^n$ gilt:
+>
+>6. Für die orthogonale Lage zweier nichtprojizierender Geraden $a$, $b$ gilt $$
   a^n\perp b^n\quad\leftrightarrow\quad a\parallel \Pi\;\; \vee\;\;b\parallel\Pi
 $$ (Erhalt orthogonaler Lage)
 
@@ -3785,7 +3789,11 @@ Projektionen von Flächen
 =====
 
 
-Gegeben ist eine (nicht notwendig ebene) Fläche $\Phi$ im dreidimensionalen Raum $A^3$. Es wird vorausgesetzt, dass an jedem Punkt $X\in\Phi$ der Fläche die Tangentialebene existiert.
+Kurven und Flächen können punktweise projiziert gedacht werden. Durch jeden Punkt einer Kurve ist eine eindeutig bestimmte Projektionsgerade festgelegt, die Gesamtheit aller hierdurch bestimmten Projektionsgeraden bilden eine allgemeine Kegel- bzw. Zylinderfläche. Siehe die Abbildung in Bemerkung 3 in diesem Abschnitt.
+
+Für eine Ebene $\Sigma$ des dreidimensionalen Raumes heißt $$ s=\sigma\cap\Pi $$ die **Spurgerade** dieser Ebene in der Bildebene $\Pi$. Gilt für das Projektionszentrum $Z\in\Pi$, so ist $$ \sigma^\alpha=s \quad\text{mit}\quad\alpha\in\{c,p,n\} $$ die Ebene ist im oben genannten Wortsinn projizierend.
+
+Gegeben ist eine nicht notwendig ebene Fläche $\Phi$ im dreidimensionalen Raum $A^3$. Es wird vorausgesetzt, dass an jedem Punkt $X\in\Phi$ der Fläche die Tangentialebene existiert.
 
 >**Definition 4.** Ein Flächenpunkt $X\in\Phi$ heißt genau dann [Kontur- oder Umrisspunkt](https://de.wikipedia.org/wiki/Umrisskonstruktion) der Fläche $\Phi$ bezüglich einer gegebenen Projektion, wenn die Tangentialebene von $\Phi$ in $X$ projizierend ist.
 >
@@ -3803,6 +3811,10 @@ $$ (letztere nach Anwendung des Satzes von Pythagoras) und damit unabhängig von
 $$ Siehe auch nachstehende räumliche Abbildung.
 
 ![Kontur](img/geo-bild34.png "_Fig._ Konturkegel einer Kugel $\Phi$ unter einer Zentralprojektion mit Projektionszentrum $Z$ als Kegelspitze: Alle Mantellinien des Konturkegels sind projizierend. ")
+
+[^1]: Sinngemäß lässt sich der Begriff einer *projizierenden Ebene* unter einer Projektion definieren.
+
+[^2]: Ist die Projektion eine Zentralprojektion, so verlaufen alle Projektionsgeraden durch $Z$, Wird $Z\not\in\Phi$ vorausgesetzt, bilden die Projektionsgeraden in den Konturpunkten $X\in u$ einen Kegel, der die Fläche $\Phi$ entlang der Kontur $u$ berührt. Bei Parallelprojektionen bilden die Projektionsgeraden in den Konturpunkten einen $\Phi$ berührenden Zylinder. Vergleiche Bemerkung 3 in diesem Abschnitt.
 
 
 ### Parallelprojektionen
@@ -3974,16 +3986,21 @@ $$ ein Kreis.
 
 Für eine Visualisierung der Kurve nutzen Sie beispielsweise das im Webbrowser ausführbare Programm [GeoGebra 3D Calculator](https://www.geogebra.org/3d?): Geben Sie dort den Befehl `Curve((cos(t),sin(t),t),t,-12.57,12.57)` ein.
 
-Alternativ können Sie den editierbaren Code in der Programmiersprache Python unter Verwendung des Pakets [Pyodide](https://github.com/LiaPlayground/PythonProgramming) für LiaScript ausführen. Ein 'Weglassen' einer Koordinate ('Null' setzen) führt im Sinne von Beispiel 2 zu einer Orthogonalprojektion in eine der Koordinatenebenen.
+Alternativ können Sie den editierbaren Code in der Programmiersprache Python unter Verwendung des Pakets [PyScript](https://github.com/LiaTemplates/PyScript) für LiaScript ausführen. Ein 'Weglassen' einer Koordinate ('Null' setzen) führt im Sinne von Beispiel 2 zu einer Orthogonalprojektion in eine der Koordinatenebenen.
 
-```python
+``` python @PyScript.env
+- matplotlib
+- numpy
+```
+
+``` python @PyScript.repl
 import numpy as np
 import matplotlib.pyplot as plt
 
 fig = plt.figure()
 ax = plt.axes(projection ='3d')
 
-u = np.linspace(0, 2 * np.pi, 10)
+u = np.linspace(0, 2 * np.pi, 100)
 v = np.linspace(-np.pi/2, np.pi/2, 10)
 u, v = np.meshgrid(u, v)
 
@@ -3995,9 +4012,8 @@ ax.contour3D(x, y, z, color ='blue', linewidths = 1.0)
 ax.set_title('Sphäre')
 plt.show()
 
-plot(fig) # <- this is required to plot the fig also on the LiaScript canvas
+fig
 ```
-@Pyodide.eval
 
 **Beispiel 4.** Das [Vivianische Fenster](https://de.wikipedia.org/wiki/Vivianisches_Fenster) lässt sich als Schnittkurve zweier Flächen erzeugen
 
@@ -4012,12 +4028,16 @@ Das Vivianische Fenster besitzt gestattet die Parametrisierung unter Benutzung d
   x_1(t)=(\cos{t})^2\,,\quad x_2(t)=-\sin{t}\cdot\cos{t}\quad\text{und}\quad x_3=\sin{t}
 $$
 
-Sie können den nachstehenden, editierbaren Code (Programmiersprache Python unter Verwendung des Pakets [Pyodide](https://github.com/LiaPlayground/PythonProgramming) für LiaScript) ausführen, um eine dreidimensionale Visualisierung der Kurve und ihrer Projektionen in die Koordinatenebenen anzuzeigen. Ändern Sie hierfür die Parametrisierung entsprechend Beispiel 2 in diesem Abschnitt ab.
+Sie können den nachstehenden, editierbaren Code (Programmiersprache Python unter Verwendung des Pakets [PyScript](https://github.com/LiaTemplates/PyScript) für LiaScript) ausführen, um eine dreidimensionale Visualisierung der Kurve und ihrer Projektionen in die Koordinatenebenen anzuzeigen. Ändern Sie hierfür die Parametrisierung entsprechend Beispiel 2 in diesem Abschnitt ab.
 
-```python
+``` python @PyScript.env
+- matplotlib
+- numpy
+```
+
+``` python @PyScript.repl
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
 
 fig = plt.figure()
 ax = plt.axes(projection ='3d')
@@ -4031,28 +4051,31 @@ ax.plot3D(x, y, z, 'red')
 ax.set_title('Viviani')
 plt.show()
 
-plot(fig) # <- this is required to plot the fig also on the LiaScript canvas
+fig
 ```
-@Pyodide.eval
 
 **Beispiel 5.** Darzustellen ist die Oberfläche einer Kugel $\Phi$ um den Koordinatenursprung $O(0,0,0)$ mit dem Radius $r=3$. Die Fläche $\Phi$ besitzt die Parametrisierung unter Benutzung der Parameter $(u,v)$ $$
   x_1(u,v)=3\cdot\cos{u}\cdot\cos{v}\,,\quad x_2(u,v)=3\cdot\sin{u}\cdot\cos{v}\quad\text{und}\quad x_3=3\cdot\sin{v}
   \quad\text{mit}\quad (u,v)\in\left[0,2\cdot\pi\right)\times\left[-\frac{\pi}{2},\frac{\pi}{2}\right]
 $$
 
-Sie können den nachstehenden, editierbaren Code (Programmiersprache Python unter Verwendung des Pakets [Pyodide](https://github.com/LiaPlayground/PythonProgramming) für LiaScript) ausführen, um eine dreidimensionale Visualisierung der Fläche und ihrer Projektionen in die Koordinatenebenen anzuzeigen. Ändern Sie hierfür die Parametrisierung entsprechend Beispiel 2 in diesem Abschnitt ab.
+Sie können den nachstehenden, editierbaren Code (Programmiersprache Python unter Verwendung des Pakets [PyScript](https://github.com/LiaTemplates/PyScript) für LiaScript) ausführen, um eine dreidimensionale Visualisierung der Fläche und ihrer Projektionen in die Koordinatenebenen anzuzeigen. Ändern Sie hierfür die Parametrisierung entsprechend Beispiel 2 in diesem Abschnitt ab.
 
 Aus Gründen der Übersichtlichkeit ist die Fläche als wireframe geplottet. Alternativ kann der Befehl `ax.plot_wireframe()` durch `ax.contour3D()` ersetzt werden: Dieser Befehl stellt die Fläche $\Phi$ als Schar von Schnitten mit Ebenen parallel zur $xy$-Ebene dar.
 
-```python
+``` python @PyScript.env
+- matplotlib
+- numpy
+```
+
+``` python @PyScript.repl
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
 
 fig = plt.figure()
 ax = plt.axes(projection ='3d')
 
-u = np.linspace(0, 2 * np.pi, 10)
+u = np.linspace(0, 2 * np.pi, 25)
 v = np.linspace(-np.pi/2, np.pi/2, 10)
 u, v = np.meshgrid(u, v)
 
@@ -4064,9 +4087,8 @@ ax.plot_wireframe(x, y, z, color ='blue', linewidths = 1.0)
 ax.set_title('Sphäre')
 plt.show()
 
-plot(fig) # <- this is required to plot the fig also on the LiaScript canvas
+fig
 ```
-@Pyodide.eval
 
 Für Tangenten an eine Kurve $k$ im dreidimensionalen Raum gilt der folgende Satz.
 
@@ -4099,18 +4121,16 @@ Nutzen Sie die nachfolgenden Fragen, um Ihren Kenntnisstand zu diesem Abschnitt 
 **Frage 1.** Bestimmen Sie die Matrixdarstellung der Normalprojektion auf die $x_1x_3$-Koordinatenebene. Berechnen Sie hierfür das Paar $(A,a)$ von Transformationsmatrix und Translationsvektor der zugehörigen affinen Abbildung.
 
 [( )] $$
-  \left(\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix},
-  \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}\right) $$
+  A=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}\,,\quad
+  a=\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} $$
 [(X)] $$
-  \left(\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix},
-  \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\right) $$
+  A=\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}\,,\quad
+  a=\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} $$
 [( )] $$
-  \left(\begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix},
-  \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\right) $$
+  A=\begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix}\,,\quad
+  a=\begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix} $$
 [[?]] Wählen Sie die Vektoren $r$ der gewählten Projektionsrichtung und $n$ als Normalenvektor der Bildebene $\Pi$ und , vergleiche Abschnitt 'Matrixdarstellung einer Parallelprojektion' und Satz 1.
 ****************************************
-
----
 
 Berechnet wird die Matrixdarstellung der Normalprojektion auf die $x_1x_3$-Ebene.
 
@@ -4140,16 +4160,9 @@ Kennzeichnen Sie das Normalbild der Menge aller Tangenten an die Helix $k$ unter
 [[?]] Nutzen Sie das Wissen über das Normalbild einer Tangente aus Satz 3.
 ****************************************
 
----
-
 Aus Satz 3 leitet sich hier ab, dass die Normalbilder der Tangeneten an $k$ wieder Geraden sind, die das Normalbild $k^n$ berühren, d. h. erneut Tangenten - an $k^n$ - sind. Da das Normalbild $k^n$ von $k$ eine Kreislinie ist,
 
 ****************************************
-
-
-[^1]: Sinngemäß lässt sich der Begriff einer *projizierenden Ebene* unter einer Projektion definieren.
-
-[^2]: Ist die Projektion eine Zentralprojektion, so verlaufen alle Projektionsgeraden durch $Z$, Wird $Z\not\in\Phi$ vorausgesetzt, bilden die Projektionsgeraden in den Konturpunkten $X\in u$ einen Kegel, der die Fläche $\Phi$ entlang der Kontur $u$ berührt. Bei Parallelprojektionen bilden die Projektionsgeraden in den Konturpunkten einen $\Phi$ berührenden Zylinder. Vergleiche Bemerkung 3 in diesem Abschnitt.
 
 
 ### Projektive Erweiterung
@@ -4194,11 +4207,11 @@ und notiert diesen mit einem tiefgestellten Zeiger $u$ (**u**neigentlich). Die p
 
 **Bemerkung 1.** Die projektive Erweiterung der Ebene $A^2$ besitzt die
 
-1. Punktmenge $\mathfrak{P}$ mit $$
-  \mathfrak{P}=\left\{X\in A^2\right\}\cup\left\{S_u|\{S_u\}=g\cap h\,,\;g\parallel h\right\}
+1. Punktmenge $\mathcal{P}$ mit $$
+  \mathcal{P}=\left\{X\in A^2\right\}\cup\left\{S_u|\{S_u\}=g\cap h\,,\;g\parallel h\right\}
 $$ als Vereinigung der Menge aller (eigentlichen) Punkte $X\in A^2$ und der Menge aller uneigentlichen Punkte $S_u$
-2. Geradenmenge $\mathfrak{G}$ mit $$
-  \mathfrak{G}=\left\{g\subset A^2\right\}\cup\{u\}
+2. Geradenmenge $\mathcal{G}$ mit $$
+  \mathcal{G}=\left\{g\subset A^2\right\}\cup\{u\}
 $$ als Vereinigung der Menge aller Geraden $g\subset A^2$ und der einelementigen Menge bestehend aus der (einzigen) uneigentlichen Gerade $u$.
 
 **Bemerkung 2.** Wird - abweichend vom projektiven Abschluss der Ebene $A^2$ - neben der Forderung 1 festgelegt, dass alle Geraden $g\subset A^2$ den gleichen (also auch einzigen) uneigentlichen Punkt besitzen, erhält man den sogenannten **Möbiusabschluss**.
@@ -4237,9 +4250,13 @@ In der projektiv erweiterten Ebene treten hierbei die nachstehenden Fälle auf.
 $$
 3. Sind beide Punkte uneigentlich, so ist nach der dritten Forderung die Verbindungsgerade die uneigentliche Gerade $u$.
 
+Ein axiomatischer Zugang zur projektiven Geometrie der Ebene ist im nachstehenden Video erläutert.
+
+!?[Inzidenz](https://www.youtube.com/watch?v=KSyu-Q4wd7k)
+
 Sätze, die nur mit den Begriffen 'Punkt', 'Gerade' sowie 'Verbinden' und 'Schneiden' formuliert werden können, sind typische Beispiele für Resultate der [projektiven Geometrie](https://de.wikipedia.org/wiki/Projektive_Geometrie#Axiomatische_projektive_Geometrie).
 
->**Definition 2.** Gegeben sind eine Menge von Punkten $\mathcal{P}$ und eine dazu [disjunkte](https://de.wikipedia.org/wiki/Disjunkt) Menge von Geraden $\mathcal{G}$, zwischen denen eine [Inzidenzrelation](https://de.wikipedia.org/wiki/Inzidenzstruktur) $R\subset\mathfrak{P}\times\mathfrak{G}$ gegeben ist. Gelten die Eigenschaften 1 und 2 sinngemäß, so heißt $(\mathcal{P},\mathcal{G},R)$ eine projektive Ebene.
+>**Definition 2.** Gegeben sind eine Menge von Punkten $\mathcal{P}$ und eine dazu [disjunkte](https://de.wikipedia.org/wiki/Disjunkt) Menge von Geraden $\mathcal{G}$, zwischen denen eine [Inzidenzrelation](https://de.wikipedia.org/wiki/Inzidenzstruktur) $R\subset\mathcal{P}\times\mathcal{G}$ gegeben ist. Gelten die Eigenschaften 1 und 2 sinngemäß, so heißt $(\mathcal{P},\mathcal{G},R)$ eine projektive Ebene.
 
 **Bemerkung 3.** Nachfolgend wird nicht mehr notwendig zwischen eigentlichen und uneigentlichen Punkten und Geraden in der Ebene unterschieden.
 
@@ -4265,8 +4282,276 @@ Für eine interaktive Visualisierung der Aussage siehe beispielsweise die Darste
 
 **Bemerkung 4.** Typische Begriffe der euklidischen Geometrie wie 'Länge', 'Winkel', 'orthogonal' etc. gehören nicht in die projektive Geometrie. Diese werden beispielsweise unter Projektionen nicht erhalten. Bei euklidischen Sätzen gibt es kein Dualitätsprinzip.
 
+**Beispiel 2.** Unter Nutzung des Dualitätsprinzip in der projektiven Ebene ist die Aussage von Pappos zu dualisieren.
+
+Gegeben sind zwei verschiedene Punkte $G$, $H$ der Ebene mit den Geraden $$
+  \{p_1,p_3,p_5\}\ni G\quad\text{und}\quad
+  \{p_2,p_4,p_6\}\ni H
+$$ die 'abwechselnd' je einen der Punkte enthalten. Werden die drei Geraden $$
+  p=(p_1\cap p_2)\vee(p_4\cap p_5)\,,\quad
+  q=(p_2\cap p_3)\vee(p_5\cap p_6)\quad\text{und}\quad
+  r=(p_3\cap p_4)\vee(p_6\cap p_1)
+$$ konstruiert, so enthalten diese einen gemeinsamen Punkt $A$. Siehe nachstehende Abbildung.
+
+![Brianchon](img/geo-bild49.png "_Fig._ Duale Aussage zur Aussage von Pappos: die erzeugten Geraden $p$, $q$ und $r$ besitzen einen gemeinsamen Punkt $A$. Zur Verbesserung der Lesbarkeit der Zeichnung werden die gemeinsamen Punkte $p_i\cap p_j$ kurz mit '$ij$' bezeichnet.")
+
+
+Projektive Erweiterung des dreidimensionalen Raumes
+=====
+
+
+Für die gegenseitige Lage zweier Geraden $g$ und $h$ des dreidimensionalen Raumes gilt genau einer der nachstehenden Fälle:
+
+1. $g$ und $h$ sind identisch, d. h. $g=h$.
+2. $g$ und $h$ besitzen genau einen gemeinsamen Punkt $S$, d. h. $g\cap h=S$.
+3. $g$ und $h$ sind parallel aber nicht identisch, d. h. $g\parallel h$ und $g\cap h=\emptyset$.
+4. $g$ und $h$ sind windschief, d. h. $g\not\parallel h$ und $g\cap h=\emptyset$.
+
+In den Fällen 2 und 3 spannen beide Geraden eine Ebene auf. Im Fall der windschiefen Lage zweier Geraden lassen sich schrittweise konstruieren
+
+* die - eindeutig bestimmte - gemeinsame Normale $n$ beider Geraden $g$ und $h$
+* die Schnittpunkte $G=n\cap g$ und $H=n\cap h$ auf beiden Geraden
+* die Geraden $\bar{h}$ mit $\bar{h}\parallel h$ und $\bar{h}\ni G$ sowie $\bar{g}$ mit $\bar{g}\parallel g$ und $\bar{g}\ni H$
+* die parallelen Ebenen $\Sigma=g\vee \bar{h}$ und $\Delta=h\vee \bar{g}$
+
+Werden die Forderungen zur projektiven Erweiterung der Ebene übertragen, so lässt sich zusätzlich zu den Forderungen zur erweiterten projektiven Ebene gemäß Definition 1 fordern:
+
+>**Forderungen.** (Projektiv erweiterter dreidimensionaler Raum)
+>
+>4. Parallele Ebenen in $A^3$ besitzen eine gemeinsame uneigentliche Gerade.
+>5. Alle uneigentlichen Punkte und Geraden des Raumes liegen in einer einzigen uneigentlichen Ebene $\omega$.
+
+>**Definition 3.** Der um alle uneigentlichen Punkte, uneigentlichen Geraden und die uneigentliche Ebene erweiterte dreidimensionale Raum $A^3$, der den vorstehenden Forderungen 1. - 3. sowie 4. und 5. genügt, heißt [projektiv erweiterter Raum](https://de.wikipedia.org/wiki/Projektiver_Raum) $\bar{A}^3$ bzw. der projektive Abschluss von $A^3$.
+
+**Bemerkung 5.** Entsprechend Satz 1 lässt sich ein Dualitätsprinzip in $\bar{A}^3$ formulieren: Das Vertauschen von
+
+1. 'Punkt' $\;\leftrightarrow\;$ 'Ebene'
+2. 'Gerade' $\;\leftrightarrow\;$ 'Gerade'
+2. 'Verbinden' $\;\leftrightarrow\;$ 'Schneiden'
+
+führt eine geometrische Aussage in die zu ihr duale Aussage über. Diese ist genau dann wahr, wenn die erste wahr ist. So lässt sich beispielsweise eine Gerade als Verbindungsgerade zweier Punkte und als Schnittgerade zweier Ebenen auffassen.
+
+
+Sicher gewusst?
+=====
+
+
+Hier können Sie Ihr erworbenes Wissen bei der Beantwortung der folgenden Fragen testen.
+
+**Frage 1.** Gegeben ist ein reguläres [Oktaeder](https://de.wikipedia.org/wiki/Oktaeder) mit den Kanten $p_1$, $p_2$ bis $p_{12}$ gemäß nachstehender Abbildung. Ebenso schematisch die Figur in der uneigentlichen Ebene, bestehend aus:
+
+* den uneigentlichen Punkten $U_{i}$ der Kanten $p_i$ des Tetraeders
+* den uneigentlichen Geraden $u_{ijk}$ der zu den Kanten $\{p_i, p_j, p_k\}$ gehörenden Seitenflächen
+
+worin $i\not=j\not=k\not=i$ Werte aus der Indexmenge $I=\{1,...,12\}$ annehmen. Beachten Sie die das Enthaltensein $U\in u$, falls die zugehörigen Geraden- und Ebenen zueinander parallel sind.
+
+![Oktaeder](img/geo-bild50.png "_Fig._ Reguläres Oktaeder mit den Kanten $p_1$ bis $p_{12}$ und den drei Diagonalen $a$, $b$ und $c$. (verdeckte Kanten sind strichliert gezeichnet) Je zwei parallele Kanten bilden einen gemeinsamen uneigentlichen Punkt, je drei eine Dreiecksfacette begrenzende Kanten bestimmen eine uneigentliche Gerade in der uneigentlichen Ebene (Abbildung rechts unten).")
+
+Bestimmen Sie in der Figur die Lage der uneigentlichen Punkte $U_a$ bzw. $U_b$ und $U_c$ zu den Diagonalen $a$ bzw. $b$ bzw. $c$ des Oktaeders.
+
+[[$U_a$] [$U_b$] [$U_c$]]
+[(X) ( ) ( )]  $X$
+[( ) ( ) (X)]  $Y$
+[( ) (X) ( )]  $Z$
+[[?]] Beachten Sie, dass der uneigentliche Punkt $G_u$ einer Gerade $g$ auf der uneigentlichen Gerade $s_u$ einer Ebene $\Sigma$ enthalten ist. Kurz: $$
+  g\parallel \Sigma\quad\leftrightarrow G_u\in s_u
+$$
+****************************************
+
+* Die Diagonale $a$ ist gemeinsame Gerade der durch die Kantenpaare $\{p_1,p_7\}$ beziehungsweise $\{p_5,p_9\}$ aufgespannten Ebenen. Daher ist $$ U_a=(U_1\vee U_7)\cap(U_5\vee U_9) $$
+* Die Diagonale $b$ ist gemeinsame Gerade der durch die Kantenpaare $\{p_3,p_{11}\}$ beziehungsweise $\{p_5,p_9\}$ aufgespannten Ebenen. Daher ist $$ U_b=(U_3\vee U_{11})\cap(U_5\vee U_9) $$
+* Die Diagonale $c$ ist gemeinsame Gerade der durch die Kantenpaare $\{p_3,p_{11}\}$ beziehungsweise $\{p_1,p_7\}$ aufgespannten Ebenen. Daher ist $$ U_a=(U_3\vee U_{11})\cap(U_1\vee U_7) $$
+
+****************************************
 
 
 [^1]: Als Schnittpunkt $S=g\cap h$ wird hier jenes Element der Punktmenge bezeichnet, dass sowohl in $g$ als auch in $h$ enthalten ist. Beim Enthaltensein eines Punktes auf einer Geraden spricht man auch von *Inzidenz*.
 
 [^2]: Als Verbindungsgerade $g=P\vee Q$ wird hier jenes Element der Geradenmenge bezeichnet, dass sowohl $P$ als auch $Q$ enthält. Beim Enthaltensein eines Punktes auf einer Geraden spricht man auch von *Inzidenz*.
+
+
+## Kurven und Flächen
+
+### Kegelschnitte
+
+### Quadriken
+
+### Kanal- und Rohrflächen
+
+
+Wird eine Kugel mit Mittelpunkt $M$ und Radius $r>0$ stetig entlang einer Leitkurve $u\mapsto k(u)$ geführt, so wird eine **Rohrfläche** eingehüllt. Nachfolgend soll diese mit $\Phi$ gekennzeichnet werden. Siehe nachstehende Abbildung.
+
+![Kanalfläche](img/geo-bild43.png "_Fig._ Rohrfläche $\Phi$ (rot) als eingehüllte Fläche einer stetigen Schar von Kugeln mit Mittelpunkten $k(u)$ und gleichem Radius $r>0$.")
+
+Nachfolgend wird vereinbart, dass
+
+1. die Funktion $k:u\mapsto k(u)$ mit $u\in [a,b]$ mindestens zweimal stetig differenzierbar
+2. und $k$ hinreichend schwach gekrümmt ist.
+
+Existiert eine Parametrisierung für die Radien der Kugelschar $r:u\mapsto r(u)$, die mindestens einmal stetig differenzierbar ist, so wird die von der Kugelschar eingehüllte Fläche $\Phi$ eine **Kanalfläche** genannt.
+
+
+Parameterdarstellung
+=====
+
+
+Zur Entwicklung einer Parameterdarstellung der einer Kanalfläche beziehungsweise Rohrfläche ist zunächst eine Parameterdarstellung der Schar von Kugeln anzugeben. Die Kugeln $\Psi(u)$ zum Scharparameter $u\in[a,b]$ sind implizit durch die Kugelgleichung gegeben $$
+  f(x,u)=(x-k(u))^2-r(u)^2=0
+$$ worin $x\in\mathbb{R^3}$ den Ortsvektor eines Punktes auf $\Psi(u)$ beschreibt, während $k(u)$ den Mittelpunkt beziehungsweise $r(u)$ den Radius der Kugel darstellt.
+
+*Ziel ist es, diejenigen Punkte auf $\Psi(u)$ zu bestimmen, die gleichzeitig Punkte der eingehüllten Rohr- beziehungsweise Kanalfläche $\Phi$ sind.*
+
+Hierfür wird der Übergang $u\mapsto u+\Delta u$ des Scharparameters betrachtet, worin $\Delta u>0$ den Zuwachs des Parameterwertes $u$ bezeichnet. Die gemeinsamen Punkte $$
+  X\in(\Psi(u)\cap\Psi(u+\Delta u))
+$$ bilden einen Kreis, siehe nachstehende Abbildung.
+
+![Charakteristik](img/geo-bild44.png "_Fig._ Die gemeinsamen Punkte $X$ zweier benachbarter Kugeln zu den Parameterwerten $u$ und $u+\Delta{u}$ liegen auf einem Kreis.")
+
+Wird der Grenzübergang $\Delta{u}\to 0$ betrachtet ergibt sich $$
+  f_u(x,u)=\lim_{\Delta{u}\to 0}{\frac{f(x,u)-f(x,u+\Delta{u})}{\Delta{u}}}=0 \quad\leadsto\quad
+  2\cdot(x-k(u))\cdot \left(-\frac{\mathrm{d}}{\mathrm{d}u}k(u)\right)-2\cdot r(u)\cdot\left(\frac{\mathrm{d}}{\mathrm{d}u}r(u)\right) = 0
+$$ d. i. die verschwindende partielle Ableitung der Funktion $f$ nach dem Scharparameter $u$. Zusammen mit der obigen Gleichung $f(x,u)=0$ ergibt sich ein System zur Berechnung von $\Phi$ $$
+  f(x,u) = 0\quad\wedge\quad f_u(x,u) = 0
+$$ worin die zweite Gleichung eine lineare Gleichung in den Koordinaten von $x=(x_1,x_2,x_3)^\top$ beschreibt - also geometrisch eine Ebene darstellt. In dieser Ebenengleichung bezeichnen
+
+* der aus den Koeffizienten von $x$ gebildete Vektor $$
+  n(u)= -\frac{\mathrm{d}}{\mathrm{d}u}k(u)=:-\dot{k}(u)
+$$ einen Normalenvektor der Ebene und
+* der Ausdruck $$
+  2\cdot\left(k(u)\cdot\dot{k}(u)-r(u)\cdot\dot{r}(u)\right)
+$$ das Absolutglied.
+
+Die gesuchten Punkte sind demnach im Schnitt der Kugel $\Psi(u)$ mit einer Ebene $\Sigma(u)$ enthalten, die orthogonal zum Richtungsvektor der Leitkurve in $k(u)$ ist. Durch Bilden der Hesseschen Normalform der Ebenengleichung lässt sich der Abstand des Mittelpunktes der Kugel von der Ebene ermitteln $$
+  d(u)=\frac{r(u)\cdot \dot{r}(u)}{\Vert\dot{k}(u)\Vert}
+$$ Der Radius des Schnittkreises berechnet sich einsichtig unter Verwendung des Kugelradius nach $$
+  \tilde{r}(u)=\sqrt{r(u)^2-d^2}=\sqrt{r(u)^2-\left(\frac{r(u)\cdot \dot{r}(u)}{\Vert\dot{k}(u)\Vert}\right)^2}=\frac{r(u)}{\Vert\dot{k}(u)\Vert}\cdot\sqrt{\Vert\dot{k}(u)\Vert^2-\dot{r}(u)^2}
+$$ Siehe nachstehende Abbildung.
+
+![Charakteristik](img/geo-bild45.png "_Fig._ Kugel der Schar zum Scharparameter $u$ mit Schnittebene $\Sigma(u)$. Der Schnittkreis ist geometrischer Ort der Punkte von $\Psi(u)$, die gleichzeitig Punkte von $\Phi$ sind. In der Darstellung ist dieser als Kreissehne projiziert.")
+
+>Die zum Paar aus Leitkurve und Radien $$ u\mapsto (k(u),r(u)) $$ gebildete **Kanalfläche** $\Phi$ ist parametrisierbar als Vereinigung der Kreise $\Psi(u)\cap\Sigma(u)$ $$
+  (u,v)\mapsto x(u,v)=k(u)-\frac{r(u)\cdot \dot{r}(u)}{\Vert\dot{k}(u)\Vert^2}\cdot\dot{k}(u)+
+  \frac{r(u)}{\Vert\dot{k}(u)\Vert}\cdot\sqrt{\Vert\dot{k}(u)\Vert^2-\dot{r}(u)^2}\cdot(b_1(u)\cdot\cos{v}+b_2(u)\cdot\sin{v})
+$$ worin $u\in[a,b]$ den gemeinsamen Parameter der Leitkurve und der Radien bezeichnet und $v\in[0,2\pi)$ zur Parametrisierung der Kreise $\Psi(u)\cap\Sigma(u)$ verwendet wird. Das System $$ \left[\dot{k}(u),b_1(u),b_2(u)\right] $$ stellt eine von $u$ abhängige Orthonormalbasis dar.
+
+> Für $r(u)=r=\mathrm{const.}$ folgt hieraus speziell die Parametrisierung einer **Rohrfläche** $$
+  (u,v)\mapsto x(u,v)=k(u)+r\cdot(b_1(u)\cdot\cos{v}+b_2(u)\cdot\sin{v})
+$$
+
+**Beispiel 1.** Eine Kugel mit Mittelpunkt $M(1,0,0)$ und Radius $r=1/2$ soll entlang einer Schraublinie um die $z$-Achse eines kartesischen Koordinatensystems stetig geschraubt werden. Die Schraublinie besitzt die Parameterdarstellung $$
+  k(u)=\begin{pmatrix} \cos{u} \\ \sin{u} \\ \frac{1}{3}\cdot u \end{pmatrix}\,,\quad u\in[0,2\pi]
+$$ Für den Ableitungsvektor gilt $$
+  \dot{k}(u)=\begin{pmatrix} -\sin{u} \\ \cos{u} \\ \frac{1}{3} \end{pmatrix}
+$$ womit $$
+  \left| \dot{k}(u) \right|^2=(-\sin{u})^2+(\cos{u})^2+\frac{1}{9}=\frac{10}{9}\not=0\quad\forall\; u\quad\leadsto\quad \dot{k}(u)\not=o
+$$ Aus diesem Vektor lässt sich schrittweise eine Orthonormalbasis konstruieren: $$
+  b_1(u)=\begin{pmatrix} \cos{u} \\ \sin{u} \\ 0 \end{pmatrix}\quad\text{mit}\quad b_1(u)\cdot \dot{k}(u)=0\quad\text{und}\quad |b_1(u)|=1
+$$ sowie $$
+  b_2(u)=\lambda\cdot\dot{k}(u)\times b_1(u)=\lambda\cdot\begin{pmatrix} -\sin{u} \\ \cos{u} \\ \frac{1}{3} \end{pmatrix}\times\begin{pmatrix} \cos{u} \\ \sin{u} \\ 0 \end{pmatrix}=\frac{\lambda}{3}\begin{pmatrix} -\sin{u} \\ \cos{u} \\ -3 \end{pmatrix}
+$$ mit dem Parameterwert $$
+  |b_2(u)|^2=\frac{\lambda^2}{9}+\lambda^2=\frac{10}{9}\cdot\lambda^2=1\quad\leadsto\quad \lambda=\frac{3}{10}\cdot\sqrt{10}
+$$ also $$
+  b_2(u)=\frac{\sqrt{10}}{10}\begin{pmatrix} -\sin{u} \\ \cos{u} \\ -3 \end{pmatrix}
+$$ Schließlich lässt sich die Parameterdarstellung der hieraus gebildeten Rohrlfläche angeben $$
+  x(u,v)=\begin{pmatrix} \cos{u} \\ \sin{u} \\ \frac{1}{3}\cdot u \end{pmatrix}+
+  \frac{1}{2}\cdot\left(\begin{pmatrix} \cos{u} \\ \sin{u} \\ 0 \end{pmatrix}\cdot\cos{v}+\frac{\sqrt{10}}{10}\begin{pmatrix} -\sin{u} \\ \cos{u} \\ -3 \end{pmatrix}\cdot\sin{v}\right)
+$$
+
+Eine Abbildung der Rohrfläche mithilfe der zuvor erzeugten Parametrisierung lässt sich nachfolgend unter unter Verwendung des Pakets [PyScript](https://github.com/LiaTemplates/PyScript) für LiaScript erzeugen.
+
+``` python @PyScript.env
+- matplotlib
+- numpy
+```
+
+``` python @PyScript.repl
+import matplotlib.pyplot as plt
+from matplotlib import cm
+import numpy as np
+
+fig, ax = plt.subplots(subplot_kw={'projection': '3d'})
+
+# unabhängige Variablen u and v
+u = np.linspace(0, 2.0 * np.pi, num=100)
+v = np.linspace(0, 2.0 * np.pi, num=100)
+U, V = np.meshgrid(u, v)
+
+# Parametrisierung der Rohrfläche
+X = np.cos(U) + 0.5 * (np.cos(U) * np.cos(V) + np.sqrt(10)/10 * (-np.sin(U)) * np.sin(V))
+Y = np.sin(U) + 0.5 * (np.sin(U) * np.cos(V) + np.sqrt(10)/10 * ( np.cos(U)) * np.sin(V))
+Z = 1/3 * U + 0.5 * (0 * np.cos(V) + np.sqrt(10)/10 * ( -3) * np.sin(V))
+
+# Erzeugung der Fläche
+surf = ax.plot_surface(X, Y, Z, cmap=cm.twilight)
+
+plt.show()
+
+fig
+```
+
+**Bemerkung 1.** Einfache Flächen, die sich wie im vorgestellten Beispiel als Rohr- beziehungsweise Kanalflächen modellieren lassen, sind beispielsweise Drehzylinder- und Drehkegelflächen. Eine begehbare Umsetzung einer Rohrfläche ist der [Krabbelknoten](https://www.tsd.de/ls/mm/dauerausstellung/erlebnisland-mathematik), der im Erlebnisland Mathematik in Dresden ausgestellt ist.
+
+**Beispiel 2.** [Dupinsche Zykliden](https://de.wikipedia.org/wiki/Dupinsche_Zyklide) lassen sich als Hüllflächen von einparametrigen Scharen von Kugeln erzeugen, die zwei vorgegebene Kugeln in stetiger Weise berühren und deren Mittelpunkte in einer Ebene liegen, welche die Verbindungsgerade der Mittelpunkte beider Kugeln enthält. Siehe nachstehende Abbildungen.
+
+![Zyklide-1](img/geo-bild46.png "_Fig._ Umrisse zweier sich durchdringender Kugeln, die von einer dritten Kugel $\Psi$ (magenta) innen beziehungsweise außen berührt werden. Die Mittelpunkte aller solcher Lagen $\Psi$ liegen auf einer Ellipse (strichliert).")
+
+![Zyklide-2](img/geo-bild47.png "_Fig._ Umrisse zweier sich nicht durchdringender Kugeln, die von einer dritten Kugel $\Psi$ (magenta) außen berührt werden. Die Mittelpunkte aller solcher Lagen $\Psi$ liegen auf einer Hyperbel (strichliert).")
+
+Eine Parameterdarstellung einer Dupinschen Zyklide ist nachfolgend angegeben. Mit dieser lassen sich unter unter Verwendung des Pakets [PyScript](https://github.com/LiaTemplates/PyScript) für LiaScript graphische Darstellungen dieser Flächen erzeugen. Die Parameter $a>0$, $b>$ und $d>c$ lassen sich variieren. Untersuchen Sie die Wirkung der Parameter auf die Gestalt der Fläche.
+
+``` python @PyScript.env
+- matplotlib
+- numpy
+```
+
+``` python @PyScript.repl
+import matplotlib.pyplot as plt
+from matplotlib import cm
+import numpy as np
+
+fig, ax = plt.subplots(subplot_kw={'projection': '3d'})
+
+# unabhängige Variablen u and v
+u = np.linspace(0, 2.0 * np.pi, num=100)
+v = np.linspace(0, 2.0 * np.pi, num=100)
+U, V = np.meshgrid(u, v)
+
+# Parametrisierung der Rohrfläche
+a = 3
+b = 2
+c = np.sqrt(a ** 2 - b ** 2)
+d = 3
+X = 1/(a - c * np.cos(U) * np.cos(V)) * (d * (c - a * np.cos(U) * np.cos(V)) + b ** 2 * np.cos(U))
+Y = 1/(a - c * np.cos(U) * np.cos(V)) * (b * np.sin(U) * (a - d * np.cos(V)))
+Z = 1/(a - c * np.cos(U) * np.cos(V)) * (b * np.sin(V) * (c * np.cos(U) - d))
+
+# Erzeugung der Fläche
+surf = ax.plot_surface(X, Y, Z, cmap=cm.twilight)
+
+plt.show()
+
+fig
+```
+Das Museum der Zukunft in Dubai hat die Form einer Dupinschen Zyklide.
+
+
+Sicher gewusst?
+=====
+
+
+Hier können Sie Ihr erworbenes Wissen bei der Beantwortung der folgenden Fragen testen.
+
+**Frage 1.** Anstelle der gesamten Rohrfläche aus Beispiel 1 soll ein "halber Murmellauf" entlang der Schraublinie erzeugt werden. Geben Sie an, welcher der Parameter in der Darstellung abzuändern ist.
+
+[( )] $u\in[0,\pi]$
+[(X)] $v\in[0,\pi]$
+[( )] $v\in[0,\pi/2]$
+[( )] $u\in[0,\pi/2]$
+[[?]] Mit dem Parameter $u$ wird die Leitlinie parametrisiert, mit $v$ die gemeinsame Kreislinie benachbarter Kugeln.
+****************************************
+
+Für den gesamten Kreis ist $v\in[0,2\pi]$ zu wählen, für den halben Kreis $v\in[0,\pi]$. Die vorletzte Antwortoption erzeugt nur einen Viertelkreisbogen. [[?]] Mit dem Parameter $u$ wird die Leitlinie parametrisiert.
+
+**Frage 2.**
+
+****************************************
