@@ -3791,7 +3791,7 @@ Projektionen von Flächen
 
 Kurven und Flächen können punktweise projiziert gedacht werden. Durch jeden Punkt einer Kurve ist eine eindeutig bestimmte Projektionsgerade festgelegt, die Gesamtheit aller hierdurch bestimmten Projektionsgeraden bilden eine allgemeine Kegel- bzw. Zylinderfläche. Siehe die Abbildung in Bemerkung 3 in diesem Abschnitt.
 
-Für eine Ebene $\Sigma$ des dreidimensionalen Raumes heißt $$ s=\sigma\cap\Pi $$ die **Spurgerade** dieser Ebene in der Bildebene $\Pi$. Gilt für das Projektionszentrum $Z\in\Pi$, so ist $$ \sigma^\alpha=s \quad\text{mit}\quad\alpha\in\{c,p,n\} $$ die Ebene ist im oben genannten Wortsinn projizierend.
+Für eine Ebene $\Sigma$ des dreidimensionalen Raumes heißt $$ s=\Sigma\cap\Pi $$ die **Spurgerade** dieser Ebene in der Bildebene $\Pi$. Gilt für das Projektionszentrum $Z\in\Sigma$, so ist $$ \Sigma^\alpha=s \quad\text{mit}\quad\alpha\in\{c,p,n\} $$ die Ebene ist im oben genannten Wortsinn projizierend.
 
 Gegeben ist eine nicht notwendig ebene Fläche $\Phi$ im dreidimensionalen Raum $A^3$. Es wird vorausgesetzt, dass an jedem Punkt $X\in\Phi$ der Fläche die Tangentialebene existiert.
 
