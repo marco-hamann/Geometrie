@@ -2875,7 +2875,7 @@ $$ worin $E$ die dreireihige Einheitsmatrix bezeichnet, ist eine Drehung um eine
 
 **Beweis.** Siehe *Gert Bär, Geometrie, Abschnitt 7.4, S.146, Satz 1.*
 
->**Satz 3.** Die Menge aller Drehungen des dreidimensionealen affinen Raumes $\mathcal{A}^3$ um Geraden durch den Ursprung eines kartesischen Koordinatensystems bildet bezüglich der Hintereinanderausführung eine Gruppe. Diese wird mit $SO(3)$ bezeichnet.
+>**Satz 3.** Die Menge aller Drehungen des dreidimensionalen affinen Raumes $\mathcal{A}^3$ um Geraden durch den Ursprung eines kartesischen Koordinatensystems bildet bezüglich der Hintereinanderausführung eine Gruppe. Diese wird mit $SO(3)$ bezeichnet.
 
 **Beweisidee.** Es reicht zu zeigen, dass die Menge der orthogonalen dreireihigen Matrizen mit Determinate Eins eine Matrixgruppe bezogen auf die Multiplikation als Verknüpfung bilden. Es gelten:
 
@@ -3757,6 +3757,10 @@ $$ heißt [Parallelprojektion](https://de.wikipedia.org/wiki/Parallelprojektion)
 >2. $x=0$ ($yz$-Ebene), so heißt $^n$ *Aufrissprojektion*
 >3. $y=0$ ($xz$-Ebene), so heißt $^n$ *Kreuzrissprojektion*
 
+Die Projektionsverfahren der Zentral- versus Parallelprojektion sind im nachstehenden Video an einem Beispiel erläutert.
+
+!?[Projektion](https://www.youtube.com/watch?v=d7MtNwyRpsQ "Professor Bihr, Technische Hochschule Ulm")
+
 
 Eigenschaften
 =====
@@ -3799,6 +3803,9 @@ Gegeben ist eine nicht notwendig ebene Fläche $\Phi$ im dreidimensionalen Raum 
 >
 >1. Die Gesamtheit aller Konturpunkte $X$ bildet die **Kontur** $u\subset\Phi$ der Fläche unter der Projektion.
 >2. Die Gesamtheit aller Projektionsgeraden $g$ durch die Konturpunkte bildet den **Konturkegel** bzw. **-zylinder**.[^2]
+>3. Das (zweidimensionale) Bild der Kontur einer Fläche unter der betrachteten Projektion wird **scheinbare Kontur** von $\Phi$ genannt.
+
+**Bemerkung 4.** Bei einem Polyeder [testet](https://de.wikipedia.org/wiki/Umrisskonstruktion) man jede ebene Teilfläche auf Sichtbarkeit / Nichtsichtbarkeit. Anschließend werden die Kanten ermittelt, die zu sichtbaren und nichtsichtbaren Polyederflächen gehören. Diese Kanten bilden die Kontur des Polyeders.
 
 **Beispiel 1.** Die Kontur $u$ einer Kugel $\Phi$ mit Mittelpunkt $M$ und Radius $r$ soll unter der Zentralprojektion $^c$ bezüglich eines Paares $(Z,\Pi)$ aus Projektionszentrum und Bildebene bestimmt werden. $Z$ ist im Äußeren der Kugel gewählt. Siehe nachstehende Abbildung.
 
@@ -3811,6 +3818,41 @@ $$ (letztere nach Anwendung des Satzes von Pythagoras) und damit unabhängig von
 $$ Siehe auch nachstehende räumliche Abbildung.
 
 ![Kontur](img/geo-bild34.png "_Fig._ Konturkegel einer Kugel $\Phi$ unter einer Zentralprojektion mit Projektionszentrum $Z$ als Kegelspitze: Alle Mantellinien des Konturkegels sind projizierend. ")
+
+
+Sicher gewusst?
+=====
+
+
+Nutzen Sie die nachfolgenden Fragen, um Ihren Kenntnisstand zu diesem Abschnitt zu testen.
+
+**Frage 1.** Ein Würfel mit der Kantenlänge $a$ soll in Richtung einer seiner Raumdiagonalen orthogonal in eine Ebene projiziert werden. Geben Sie die Gestalt scheinbaren Kontur des Würfels an.
+
+[(X)] Die scheinbare Kontur ist ein regelmäßiges Sechseck mit der Seitenlänge $\frac{\sqrt{6}}{3}\cdot a$.
+[( )] Die scheinbare Kontur ist ein Quadrat mit der Seitenlänge $a$.
+[( )] Die scheinbare Kontur ist ein Rechteck mit den Seitenlängen $a$ und $\sqrt{2}\cdot a$.
+[[?]] Die scheinbare Kontur des Würfels ist eine Polygonfläche, die sich aus den Bildern der sichtbaren Seitenflächen des Würfels zusammensetzt. Wird (normal) entlang einer Raumdiagonalen projiziert, sind drei Seitenflächen des Würfels sichtbar, die einen Eckpunkt und paarweise eine Kante gemeinsam haben (Würfelecke). Vergleiche hierzu Bemerkung 4 in diesem Abschnitt.
+****************************************
+
+1. Wird der Würfel entlang einer Raumdiagonalen projiziert, sind genau drei Seitenflächen des Würfels um eine Würfelecke sichtbar, die übrigen drei nicht sichtbar. Die drei an die Würfelecke angrenzenden Rauten sind Normalbilder dreier Würfelflächen und ergeben ein reguläres Sechseck, siehe nachstehende Abbildung.
+
+![Umriss Raumdiagonale](img/geo-bild51.png "_Fig._ Normalbild eines Würfels. Projiziert ist in Richtung der von der im Zentrum liegenden Hauptdiagonale. Die drei angrenzenden Rauten sind Normalbilder dreier Würfelflächen und ergeben ein reguläres Sechseck als scheinbare Kontur.")
+
+Der Abstand $d$ der (anderen) Eckpunkte des Würfels von der projizierenden Raumdiagonalen berechnet sich unter Nutzung von Katheten- und Höhensatz aus der Kantenlänge $a$. $$
+  a^2=q\cdot\sqrt{3}\quad\wedge\quad q\cdot (\sqrt{3}\cdot a-q)=d^2\quad\leadsto\quad d=\frac{\sqrt{6}}{3}\cdot a
+$$ Dieser Abstand bleibt unter der Orthogonalprojektion erhalten. Warum?
+
+2. Wird abweichend entlang einer Kante des Würfels projiziert, ergibt sich mit analoger Begründung ein Quadrat mit der Seitenlänge $a$.
+
+![Umriss Kante](img/geo-bild53.png "_Fig._ Scheinbare Kontur eines Würfels, der entlang einer Kante projiziert wird.")
+
+3. Wird abweichend entlang einer Flächendiagonalen des Würfels projiziert, ergibt sich mit analoger Begründung ein Rechteck mit den Seitenlängen $a$ und $\sqrt{2}\cdot a$.
+
+![Umriss Flächendiagonale](img/geo-bild54.png "_Fig._ Scheinbare Kontur eines Würfels, der entlang einer Flächendiagonale projiziert wird.")
+
+****************************************
+
+
 
 [^1]: Sinngemäß lässt sich der Begriff einer *projizierenden Ebene* unter einer Projektion definieren.
 
@@ -4370,6 +4412,202 @@ $$
 [^2]: Als Verbindungsgerade $g=P\vee Q$ wird hier jenes Element der Geradenmenge bezeichnet, dass sowohl $P$ als auch $Q$ enthält. Beim Enthaltensein eines Punktes auf einer Geraden spricht man auch von *Inzidenz*.
 
 
+### Homogene Koordinaten
+
+
+Affine, insbesondere kartesische Koordinaten sind zur Erfassung von uneigentlichen Punkten ungeeignet. So ergibt sich beispielsweise durch Wahl eines affinen Koordinatensystems auf einer Geraden $g$ $$
+  x\in\mathbb{R}\quad\leftrightarrow\quad X\in g
+$$ wohingegen für den uneigentlichen Punkt $U$ auf $g$ dann keine reelle Zahl zur Verfügung steht.
+
+Nachfolgend werden schrittweise die Punktmengen einer projektiv abgeschlossenen Gerade, - Ebene und des - dreidimensionalen Raumes koordinatisiert und darin die Mengen der uneigentlichen Elemente gekennzeichnet.
+
+
+Projektiv erweiterte Gerade
+=====
+
+
+Zunächst wird eine affine Gerade $g$ in einer Ebene $A^2$ eingebettet. Affine Koordinatensysteme in $A^2$ werden so gewählt, dass
+
+* $(O,E)$ ein affines Koordinatensystem auf $g$ ist, worin $O$ den Koordinatenursprung und $E$ den Einheitspunkt auf $g$ bezeichnen
+* $(U,E_0,E_1)$ ein weiteres affines Koordinatensystem in $A^2$ ist, worin $U$ den Koordinatenursprung und $E_0$ beziehungsweise $E_1$ die Einheitspunkte auf den Koordinatenachsen bezeichnen.
+
+Die Koordinatensysteme werden so angepasst, dass $E_0=O$ gilt sowie $U$, $E_1$, $E$ und $O$ die Eckpunkte eines Parallelogramms bilden. Siehe nachstehende Abbildung.
+
+![Koordinatisierung-Gerade](img/geo-bild55.png "_Fig._ Gerade $g$, eingebettet in eine affine Ebene. Gewählt sind die affinen Koordinatensysteme $(O,E)$ auf $g$ und $(U,E_0,E_1)$ in $A^2$. Die Punkte $X\in g$ sind durch die affine Koordinate $x_0=1$ bezüglich $(U,E_0,E_1)$ in $A^2$ beschrieben.")
+
+Nun werden zwei [bijektive Abbildungen](https://de.wikipedia.org/wiki/Bijektive_Funktion) beschrieben:
+
+1. Die Menge der Punkte der Geraden $g$ wird umkehrbar eindeutig auf die Menge der Geraden durch $U$ abgebildet. Dies bedeutet $$
+  X\in g\quad\leftrightarrow\quad x=UX
+$$ sowie für den einzigen uneigentlichen Punkt $G_u$ zur Geraden $g$ $$
+  G_u\in\bar{g}\quad\leftrightarrow\quad u\;\;\text{mit}\;\; u\ni U\;\;\text{und}\;\; u\parallel g
+$$
+2. Nach Einführung eines Ortsvektorraumes bezogen auf $U$ wird die Menge der Geraden durch $U$ umkehrbar eindeutig auf die Menge der eindimensionalen Untervektorräume [^1] durch $U$ abgebildet. Dies bedeutet im Einzelnen $$
+  x\ni U\quad\leftrightarrow\quad [v_x]=\left\{\lambda\cdot v_x|\, \lambda\in\mathbb{R}\right\}\subset\mathbb{R}^2
+$$
+
+Speziell entsprechen sich durch Hintereinanderausführung beider Bijektionen:
+
+* der Punkt $O\in g$ dem Verhältnis $[\textcolor{blue}{1}:\textcolor{blue}{0}]$ der Koeffizienten auf der rechten Seite der Äquivalenz $$ O\quad\stackrel{1.}{\longleftrightarrow}\quad x_O \quad\stackrel{2.}{\longleftrightarrow}\quad v_O=\lambda\cdot(\textcolor{blue}{1}\cdot e_0+\textcolor{blue}{0}\cdot e_1) \quad\text{mit}\quad \lambda\not=0 $$ worin $e_0$ und $e_1$ die Ortsvektoren der Punkte $E_0$ und $E_1$ bezeichnen (Basis in $\mathbb{R}^2$).
+* der Punkt $E\in g$ dem Verhältnis $[\textcolor{magenta}{1}:\textcolor{magenta}{1}]$ der Koeffizienten auf der rechten Seite der Äquivalenz $$ O\quad\stackrel{1.}{\longleftrightarrow}\quad x_E \quad\stackrel{2.}{\longleftrightarrow}\quad v_E=\lambda\cdot(\textcolor{magenta}{1}\cdot e_0+\textcolor{magenta}{1}\cdot e_1) \quad\text{mit}\quad \lambda\not=0 $$
+
+<!-- style="background-color: lightgray;"-->
+>**Koordinatenmodell.** Allgemein entsprechen sich durch Hintereinanderausführung beider Bijektionen:
+>
+>* die Punkte $X$ der affinen Geraden $g$ den Verhältnissen $[1:\mu]$ der Koeffizienten auf der rechten Seite der Äquivalenz $$ X\quad\longleftrightarrow\quad x \quad\longleftrightarrow\quad v=\lambda\cdot(1\cdot e_0+\mu\cdot e_1) \quad\text{mit}\quad \lambda\not=0 $$ worin $\mu=TV(X,E,O)$ das Teilverhältnis von $X$ bezüglich $(O,E)$ bezeichnet.
+>* der uneigentliche Punkt $G_u$ der Geradenrichtung $g$ dem Verhältnis $[0:1]$ der Koeffizienten auf der rechten Seite der Äquivalenz $$ G_u\quad\longleftrightarrow\quad x_u \quad\longleftrightarrow\quad v_u=\lambda\cdot(0\cdot e_0+1\cdot e_1) \quad\text{mit}\quad \lambda\not=0 $$
+>
+>Die Vektoren $e_0$ und $e_1$ sind Ortsvektoren der Punkte $E_0$ und $E_1$ und bilden eine Basis in $\mathbb{R}^2$.
+
+**Bemerkung 1.** Zu beachten ist, dass mit dem Vektor $v$ auch $\frac{1}{\lambda}\cdot v$ und jedes andere von Null verschiedene Skalarfache $\nu\cdot v$ mit $\nu\in\mathbb{R}\setminus\{0\}$ den Richtungsvektor der Geraden $x$ festlegt.
+
+>**Definition 1.** Die Verhältnisse $[\lambda_0:\lambda_1]$ der Koeffizienten in der Linearkombination $$
+  v_X=\lambda_0\cdot e_0+\lambda_1\cdot e_1
+$$ heißen **homogene Koordinaten** eines Punktes $X$ auf der projektiv erweiterten Geraden $\bar{g}$.
+>
+>Die "nullte" Komponente $\lambda_0$ wird *homogenisierende* Koordinate genannt.[^2]
+
+Punkte auf einer Geraden lassen sich unter Angabe ihrer Koordinate/-n schreiben.
+
+* Ein Punkt $P$ mit der affinen Koordinate $x$ wird geschrieben als $P(x)$. Der uneigentliche Punkt einer Gerade besitzt ~~keine~~ affine Koordinate.
+* Besitzt ein Punkt die homogenen Koordinaten $(\lambda_0:\lambda_1)$, so schreibt man $$
+  P(\lambda_0:\lambda_1)=\left(1:\frac{\lambda_1}{\lambda_0}\right)\quad\text{falls}\quad \lambda_0\not=0
+$$ für einen eigentlichen Punkt $P$ beziehungsweise $$
+  G_u(\lambda_0:\lambda_1)=\left(0:\lambda_1\right)=(0:1)\quad\text{falls}\quad \lambda_0=0
+$$ für den uneigentlichen Punkt $G_u$.
+
+**Bemerkung 2.** Die homogenen Koordinaten eines Punktes der projektiv erweiterte Geraden sind nur bis auf einen gemeinsamen Faktor bestimmt. Das Verhältnis $(\lambda_0:\lambda_1)=(0:0)$ bestimmt in diesem Koordinatenmodell keinen Punkt.
+
+Für den Übergang zwischen affinen - und homogenen Koordinaten nutzt man folgende Rechnung:
+
+1. "affin $\to$ homogen": $P(x) \to P=(1:x)=(\lambda:\lambda\cdot x)$
+2. "homogen $\to$ affin": Ist $P$ nicht uneigentlicher Punkt, so ist
+  $$P=(\lambda_0:\lambda_1)=\left(1:\frac{\lambda_1}{\lambda_0}\right)=:(1:x) \to P(x)$$
+
+
+Projektiv erweiterte Ebene
+=====
+
+
+Analog zur Koordinatisierung einer projektiv erweiterten Geraden wird eine affine Ebene $A^2$ eingebettet in einen dreidimensionalen Raum $A^3$. Affine Koordinatensysteme in $A^3$ werden so gewählt, dass
+
+* $(O,E_1,E_2)$ ein affines Koordinatensystem in $A^2$ ist, worin $O$ den Koordinatenursprung und $E_i$ die Einheitspunkte auf den Koordinatenachsen in $A^2$ bezeichnen
+* $(U,F_0,F_1,F_2)$ ein weiteres affines Koordinatensystem in $A^3$ ist, worin $U$ den Koordinatenursprung und $F_j$ die Einheitspunkte auf den Koordinatenachsen bezeichnen.
+
+Die Koordinatensysteme werden so angepasst, dass $F_0=O$ gilt sowie $U$, $F_1$, $F_2$ sowie $O$, $E_1$ und $E_2$ die Eckpunkte eines Prismas bilden. Siehe nachstehende Abbildung.
+
+![Koordinatisierung-Gerade](img/geo-bild56.png "_Fig._ Affine Ebene $A^2$, eingebettet in einen dreidimensionalen Raum. Gewählt sind die affinen Koordinatensysteme $(O,E_1,E_2)$ in $A^2$ und $(U,F_0,F_1,F_2)$ in $A^3$. Die Punkte $P\in A^2$ sind durch die affine Koordinate $x_0=1$ bezüglich $(U,F_0,F_1,F_2)$ in $A^3$ beschrieben.")
+
+Analog zum eindimensionalen Fall werden zwei bijektive Abbildungen beschrieben:
+
+1. Die Menge der Punkte der Ebene $A^2$ wird umkehrbar eindeutig auf die Menge der Geraden durch $U$ abgebildet. Dies bedeutet $$
+  P\in A^2\quad\leftrightarrow\quad p=UP
+$$ sowie für die uneigentlichen Punkte $G_u$ auf der uneigentlichen Geraden $u\subset \bar{A}^2$ $$
+  G_u\in u\quad\leftrightarrow\quad g\;\;\text{mit}\;\; g\ni U\;\;\text{und}\;\; g\parallel A^2
+$$
+2. Nach Einführung eines Ortsvektorraumes bezogen auf $U$ wird die Menge der Geraden durch $U$ umkehrbar eindeutig auf die Menge der eindimensionalen Untervektorräume [^1] durch $U$ abgebildet. Dies bedeutet im Einzelnen $$
+  p\ni U\quad\leftrightarrow\quad [v_p]=\left\{\lambda\cdot v_p|\, \lambda\in\mathbb{R}\right\}\subset\mathbb{R}^3
+$$
+
+Analog zum vorigen Abschnitt ergibt sich hier
+
+<!-- style="background-color: lightgray;"-->
+>**Koordinatenmodell.** Allgemein entsprechen sich durch Hintereinanderausführung beider Bijektionen:
+>
+>* die Punkte $P$ der affinen Ebene $A^2$ den Verhältnissen $[1:\mu:\nu]$ der Koeffizienten auf der rechten Seite der Äquivalenz $$ P\quad\longleftrightarrow\quad p \quad\longleftrightarrow\quad v=\lambda\cdot(1\cdot f_0+\mu\cdot f_1+\nu\cdot f_2) \quad\text{mit}\quad \lambda\not=0 $$ worin $(\mu,\nu)$ das Paar der affinen Koordinaten von $P$ bezüglich $(O,E_1,E_2)$ bezeichnet.
+>* ein uneigentlicher Punkt $G_u$ einer Geradenrichtung $g$ dem Verhältnis $[0:\mu:\nu]$ der Koeffizienten auf der rechten Seite der Äquivalenz $$ G_u\quad\longleftrightarrow\quad x_u \quad\longleftrightarrow\quad v_u=\lambda\cdot(0\cdot f_0+\mu\cdot f_1+\nu\cdot f_2) \quad\text{mit}\quad \lambda\not=0 $$
+>
+>Die Vektoren $f_0$, $f_1$ und $f_2$ sind Ortsvektoren der Punkte $F_0$, $F_1$ und $F_2$ und bilden eine Basis in $\mathbb{R}^3$.
+
+>**Definition 2.** Die Verhältnisse $[\lambda_0:\lambda_1:\lambda_2]$ der Koeffizienten in der Linearkombination $$
+  v_P=\lambda_0\cdot f_0+\lambda_1\cdot f_1+\lambda_2\cdot f_2
+$$ heißen **homogene Koordinaten** eines Punktes $P$ in der projektiv erweiterten Ebene $\bar{A}^2$.
+>
+>Die "nullte" Komponente $\lambda_0$ wird *homogenisierende* Koordinate genannt.
+
+Punkte in einer Ebene lassen sich unter Angabe ihrer Koordinaten schreiben.
+
+* Ein Punkt $P$ mit den affinen Koordinaten $(x,y)$ wird geschrieben als $P(x,y)$. Der uneigentliche Punkt einer Geradenrichtung besitzt ~~keine~~ affinen Koordinaten.
+* Besitzt ein Punkt die homogenen Koordinaten $(\lambda_0:\lambda_1:\lambda_2)$, so schreibt man $$
+  P(\lambda_0:\lambda_1:\lambda_2)=\left(1:\frac{\lambda_1}{\lambda_0}:\frac{\lambda_2}{\lambda_0}\right)\quad\text{falls}\quad \lambda_0\not=0
+$$ für einen eigentlichen Punkt $P$ beziehungsweise $$
+  G_u(\lambda_0:\lambda_1:\lambda_2)=\left(0:\lambda_1:\lambda_2\right)\quad\text{falls}\quad \lambda_0=0
+$$ für einen uneigentlichen Punkt $G_u$. Im Fall eines uneigentlichen Punktes gibt das Verhältnis $(\lambda_1:\lambda_2)$ einen Richtungsvektor von Geraden $g=UG_u$ an.
+
+**Bemerkung 3.** Die homogenen Koordinaten eines Punktes der projektiv erweiterten Ebene sind nur bis auf einen gemeinsamen Faktor bestimmt. Das Verhältnis $(\lambda_0:\lambda_1:\lambda_2)=(0:0:0)$ bestimmt in diesem Koordinatenmodell keinen Punkt.
+
+Für den Übergang zwischen affinen - und homogenen Koordinaten nutzt man folgende Rechnung:
+
+1. "affin $\to$ homogen": $P(x,y) \to P=(1:x:y)=(\lambda:\lambda\cdot x:\lambda\cdot y)$
+2. "homogen $\to$ affin": Ist $P$ nicht uneigentlicher Punkt, so ist $$
+  P=(\lambda_0:\lambda_1:\lambda_2)=\left(1:\frac{\lambda_1}{\lambda_0}:\frac{\lambda_2}{\lambda_0}\right)=:(1:x:y) \to P(x,y)
+$$ d. h. die affinen Koordinaten berechnen sich in diesem Fall mittels $$
+  x=\frac{\lambda_1}{\lambda_0}\quad\text{bzw.}\quad y=\frac{\lambda_2}{\lambda_0}
+$$
+
+
+Projektiv erweiterter Raum
+=====
+
+Analog zu homogenen Koordinaten von Punkten einer projektiv erweiterten Geraden beziehungsweise - Ebene in den Definitionen 1 und 2 lassen sich homogene Koordinaten für Punkte des projektiv erweiterten dreidimensionalen Raum $\bar{A}^3$ einführen.
+
+1. Für Punkte $P(x,y,z)$ bezüglich eines affinen Koordinatensystems im affinen Raum $A^3$ berechnen sich dessen homogene Koordinaten als Verhältnisse $$
+  P=\left(\lambda_0:\lambda_1:\lambda_2:\lambda_3\right)\quad\text{mit}\quad\lambda_0\not=0\,,\quad x=\frac{\lambda_1}{\lambda_0}\,,\quad y=\frac{\lambda_2}{\lambda_0}\quad\text{und}\quad z=\frac{\lambda_3}{\lambda_0}
+$$
+2. Für Punkte der (einzigen) uneigentlichen Ebene gilt abweichend $\lambda_0=0$ und somit $$
+  P=\left(0:\lambda_1:\lambda_2:\lambda_3\right)
+$$ Das Verhältnis $\left(\lambda_1:\lambda_2:\lambda_3\right)\not=(0:0:0)$ beschreibt eine Geradenrichtung in $A^3$ (Richtungsvektor).
+
+>**Definition 3.** Die Verhältnisse $[\lambda_0:\lambda_1:\lambda_2:\lambda_3]$ der Koeffizienten in der Linearkombination $$
+  v_P=\lambda_0\cdot f_0+\lambda_1\cdot f_1+\lambda_2\cdot f_2+\lambda_3\cdot f_3
+$$ heißen **homogene Koordinaten** eines Punktes $P$ im projektiv erweiterten dreidimensionalen Raum $\bar{A}^3$.
+>
+>Die "nullte" Komponente $\lambda_0$ wird *homogenisierende* Koordinate genannt.
+
+Homogene Punktkoordinaten im dreidimensionalen Raum werden im nachstehenden Video erläutert. Beachten Sie, dass hierin im Unterschied zu Definition 3 die letzte Variable die homogenisierende Variable bezeichnet.
+
+!?[homogene Variablen](https://www.youtube.com/watch?v=U3xwsWgzz2M "Edmund Weitz, HAW Hamburg")
+
+
+Sicher gewußt?
+=====
+
+
+Sie können das in diesem Abschnitt erworbene Wissen bei der Beantwortung der nachstehenden Fragen testen.
+
+**Frage 1.** Gegeben sind die homogenen Koordinaten eines Punktes $P=(2:3:0:-5)$. Hierbei ist $\lambda_0=2$ die homogenisierende Koordinate. Es sind die hieraus die affinen Koordinaten von $P$ zu berechnen.
+
+[( )] $$P(2,3,0)$$
+[( )] $$P\left(-\frac{2}{5},-\frac{3}{5},0\right)$$
+[( )] $$P(2,3,0,-5)$$
+[( )] $$P(3,0,-5)$$
+[(X)] $$P\left(\frac{3}{2},0,-\frac{5}{2}\right)$$
+[[?]] Die homogenen Koordinaten eines Punktes des projektiv erweiterten dreidimensionalen Raumes sind nur bis auf einen gemeinsamen Faktor bestimmt. Die affinen Koordinaten sind gemäß der oben angeführten Umrechnung zu ermitteln.
+****************************************
+
+Es sind $$
+  (\lambda_0:\lambda_1:\lambda_2:\lambda_3)=(2:3:0:-5)
+$$ woraus sich die affinen Koordinaten von $P$ berechnen gemäß $$
+  x=\frac{\lambda_1}{\lambda_0}=\frac{3}{2}\,,\quad y=\frac{\lambda_2}{\lambda_0}=\frac{0}{2}=0\quad\text{und}\quad z=\frac{\lambda_3}{\lambda_0}=-\frac{5}{2}
+$$
+
+****************************************
+
+**Frage 2.** Geben Sie eine Richtungsvektor einer Geradenrichtung in der Ebene an, die den uneigentlichen Punkt $G_u=(0:1:4)$ enthält.
+
+[[X]] $$ r=\begin{pmatrix} 1 & 4 \end{pmatrix}^\top $$
+[[X]] The X marks the correct answer!
+[[ ]] ... this is wrong ...
+[[X]] ... this has to be selected too ...
+
+
+
+[^1]: Zu einem gegebenen Vektor $v\in\mathbb{R}^2$ mit $v\not= o$ (Nullvektor) ist $$
+  [v]=\left\{\lambda\cdot v|\, \lambda\in\mathbb{R}\right\}
+$$ der eindimensionale [Untervektorraum](https://de.wikipedia.org/wiki/Untervektorraum) von $v$, d. i. die Menge aller zu $v$ linear abhängigen Vektoren.
+
+[^2]:  Für Punkte des affinen Ausschnittes $g\subset \bar{g}$ kann diese zu Eins normiert werden, für den uneigentlichen Punkt einer Geradenrichtung ist $\lambda_0=0$.
+
 ## Kurven und Flächen
 
 ### Kegelschnitte
@@ -4551,7 +4789,5 @@ Hier können Sie Ihr erworbenes Wissen bei der Beantwortung der folgenden Fragen
 ****************************************
 
 Für den gesamten Kreis ist $v\in[0,2\pi]$ zu wählen, für den halben Kreis $v\in[0,\pi]$. Die vorletzte Antwortoption erzeugt nur einen Viertelkreisbogen. [[?]] Mit dem Parameter $u$ wird die Leitlinie parametrisiert.
-
-**Frage 2.**
 
 ****************************************
