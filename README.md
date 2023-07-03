@@ -4615,11 +4615,11 @@ Die dritte Antwortoption ist ein Verhältnis, jedoch kein Vektor.
 
 **Frage 3.** Gegeben ist ein Punkt $P$ des dreidimensionalen Raumes mit den affinen Koordinaten $P(1,-2,3)$. Ermitteln Sie gemäß des obigen Ansatzes (Definition 3) die homogenen Koordinaten von $P$.
 
-[[ ]] $P=(0:1:-2:3)$
-[[X]] $P=(-2:-2:4:-6)$
-[[X]] $P=(1:1:-2:3)$
-[[ ]] $P=(1:-2:4:-6)$
-[[ ]] $P(1,1,-2,3)$
+[[ ]] $$ P=(0:1:-2:3) $$
+[[X]] $$ P=(-2:-2:4:-6) $$
+[[X]] $$ P=(1:1:-2:3) $$
+[[ ]] $$ P=(1:-2:4:-6) $$
+[[ ]] $$ P(1,1,-2,3) $$
 [[?]] Die homogenen Koordinaten eines eigentlichen Punktes lassen sich als Verhältnisse $$
   (x,y,z)\quad\leftrightarrow\quad (x_0:x_1:x_2:x_3)\quad\text{mit}\quad x=\frac{x_1}{x_0}\,,\quad y=\frac{x_2}{x_0}\,,\quad z=\frac{x_3}{x_0}
 $$ definieren.
@@ -4641,8 +4641,11 @@ $$ der eindimensionale [Untervektorraum](https://de.wikipedia.org/wiki/Untervekt
 [^2]:  Für Punkte des affinen Ausschnittes $g\subset \bar{g}$ kann diese zu Eins normiert werden, für den uneigentlichen Punkt einer Geradenrichtung ist $\lambda_0=0$.
 
 
-### Geradenkoordinaten
+### Geraden- und Ebenenkoordinaten
 
+
+Homogene Geradenkoordinaten
+=====
 
 Durch Einbettung der projektiv erweiterten Ebene $\bar{A}^2$ in einen dreidimensionalen affinen Raum $A^3$ mit dem affinen Koordinatensystem $$
   (U,F_1,F_2,F_3)\quad\text{mit}\quad U\not\in A^2
@@ -4652,7 +4655,7 @@ Jede Gerade $g\subset\bar{A}^2$ lässt sich mit dem Koordinatenursprung $U$ des 
   \sum_{i=0}^2{\left(u_i\cdot x_i\right)}=u_0\cdot x_0+u_1\cdot x_1+u_2\cdot x_2\quad\text{mit}\quad \sum_{i=0}^2{\left(u_i\right)^2}\not=0
 $$ Die Koeffizienten $u_0$, $u_1$ und $u_2$ sind wieder bis auf einen gemeinsamen Faktor eindeutig bestimmt.
 
->**Definition 1.** Die Verhältnisse $[u_0:u_1:u_2]$ heißen homogene Geradenkoordinaten von $g\subset\bar{A}^2$.
+>**Definition 1.** Die Verhältnisse $[u_0:u_1:u_2]$ heißen **homogene Geradenkoordinaten** von $g\subset\bar{A}^2$.
 
 **Bemerkung 1.** Sind die Koordinatensysteme $$ (O,E_1,E_2)\quad\text{bzw.}\quad (U,F_0,F_1,F_2) $$ in der Ebene $A^2$ bzw. deren Einbettungsraum $A^3$ kartesisch, so lassen sich die homogenen Geradenkoordinaten als Koordinaten eines Normalenvektors der Ebene $\Gamma$ interpretieren.
 
@@ -4661,12 +4664,12 @@ $$ Die Koeffizienten $u_0$, $u_1$ und $u_2$ sind wieder bis auf einen gemeinsame
 $$ Offenbar gilt diese Gleichung für alle uneigentlichen Punkte, die auf der uneigentlichen Geraden $u$ liegen.
 
 <!-- style="background-color: lightgray;"-->
->Die Inzidenz von Punkten und Geraden in $\bar{A}^2$ lässt sich unter Nutzung homogener Punkt- und Geradenkoordinaten darstellen. Der Übersichtlichkeit wegen werden Geradenkoordinaten unter Verwendung eckiger Klammern geschrieben, während homogene Punktkoordinaten mit runden Klammern notiert werden.
+>Mit Hilfe homogener Koordinaten lassen sich **Operationen** zwischen Punkten und Geraden in $\bar{A}^2$ darstellen. Der Übersichtlichkeit wegen werden Geradenkoordinaten unter Verwendung eckiger Klammern geschrieben, während homogene Punktkoordinaten mit runden Klammern notiert werden.
 >
->* Ein Punkt $X=(x_0:x_1:x_2)$ liegt genau dann auf einer Geraden $g=[u_0:u_1:u_2]$, wenn gilt $$
+>1. Ein Punkt $X=(x_0:x_1:x_2)$ liegt genau dann auf einer Geraden $g=[u_0:u_1:u_2]$, wenn gilt $$
   u_0\cdot x_0 + u_1\cdot x_1 + u_2\cdot x_2 = 0
-$$ Man sagt in diesem Fall, dass Punkt und Gerade *inzidieren*.
->* Die homogenen Geradenkoordinaten der Verbindungsgerade $g$ zweier Punkte $X=(x_0:x_1:x_2)$ und $Y=(y_0:y_1:y_2)$ berechnen sich gemäß $$
+$$ Man sagt in diesem Fall, dass Punkt und Gerade *inzidieren*.[^1]
+>2. Die homogenen Geradenkoordinaten der Verbindungsgerade $g$ zweier Punkte $X=(x_0:x_1:x_2)$ und $Y=(y_0:y_1:y_2)$ berechnen sich gemäß $$
   g=\left[
   \left\vert\begin{array}{cc} x_1 & x_2 \\ y_1 & y_2 \end{array}\right\vert\,:\,
   \left\vert\begin{array}{cc} x_2 & x_0 \\ y_2 & y_0 \end{array}\right\vert\,:\,
@@ -4675,7 +4678,7 @@ $$ Man sagt in diesem Fall, dass Punkt und Gerade *inzidieren*.
 $$ worin $|\,.\,|$ die zweireihigen Unterdeterminanten der Matrix $$
   \begin{pmatrix} x_0 & x_1 & x_2 \\ y_0 & y_1 & y_2 \end{pmatrix}
 $$ bezeichnen.
->* Die homogenen Punktkoordinaten des Schnittpunktes $S$ zweier Geraden $u=[u_0:u_1:u_2]$ und $v=[v_0:v_1:v_2]$ berechnen sich gemäß $$
+>3. Die homogenen Punktkoordinaten des Schnittpunktes $S$ zweier Geraden $u=[u_0:u_1:u_2]$ und $v=[v_0:v_1:v_2]$ berechnen sich gemäß $$
   S=\left(
   \left\vert\begin{array}{cc} u_1 & u_2 \\ v_1 & v_2 \end{array}\right\vert\,:\,
   \left\vert\begin{array}{cc} u_2 & u_0 \\ v_2 & v_0 \end{array}\right\vert\,:\,
@@ -4686,6 +4689,16 @@ $$ worin $|\,.\,|$ die zweireihigen Unterdeterminanten der Matrix $$
 $$ bezeichnen.
 
 **Bemerkung 2.** In den beiden vorstehenden Formeln zeigt sich das Dualitätsprinzip in $\bar{A}^2$.
+
+Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) können die die homogenen Geradenkoordinaten für Geraden $g\subset\bar{A}^2$ berechnet werden, analog die homogenen Punktkoordinaten des Schnittpunktes aus den Geradenkoordinaten. Die Operation entspricht formal der Bildung des Vektorproduktes zweier Vektoren aus $\mathbb{R}^3$.
+
+``` javascript
+X = [x0,x1,x2]
+Y = [y0,y1,y2]
+G = [X[2]*Y[3]-X[3]*Y[2], X[3]*Y[1]-X[1]*Y[3], X[1]*Y[2]-X[2]*Y[1]]
+G
+```
+@Algebrite.eval
 
 **Beispiel 2.** Gegeben sind zwei Punkte in der Ebene $A^2$ durch ihre affinen Koordinaten $$
   P(-1,2)\quad\text{und}\quad Q(-1,1)
@@ -4730,10 +4743,109 @@ $$ Diese homogenen Punktkoordinaten entsprechen einer Geradenrichtung zum Vektor
 $$
 
 **Bemerkung 3.** Die homogenen Geradenkoordinaten hängen nicht von der Wahl der Punkte auf $\bar{g}$ ab. Beispielsweise lässt sich $\bar{g}$ im zuvor betrachteten Beispiel bestimmen als $$
-  \bar{g}=PQ=PG_u=QG_u
+  \bar{g}=PQ=PG_u=G_uQ
 $$ mit $$
-  PG_u=..
+  PG_u=\left[
+  \left\vert\begin{array}{cc} -1 & 2 \\ 2 & -3 \end{array}\right\vert\,:\,
+  \left\vert\begin{array}{cc}  2 & 1 \\ -3 & 0 \end{array}\right\vert\,:\,
+  \left\vert\begin{array}{cc} 1 & -1 \\  0 & 2 \end{array}\right\vert
+  \right]=[-1:3:2]
+$$ und ebenso $$
+  G_uQ=\left[
+  \left\vert\begin{array}{cc} 2 & -3 \\ 1 & -1 \end{array}\right\vert\,:\,
+  \left\vert\begin{array}{cc} -3 & 0 \\ -1 & 1 \end{array}\right\vert\,:\,
+  \left\vert\begin{array}{cc}  0 & 2 \\  1 & 1 \end{array}\right\vert
+  \right]=[1:-3:-2]\stackrel{\cdot(-1)}{=}[-1:3:2]
+$$ Aus den Rechenregeln für Determinanten folgt ebenso, dass sich die homogenen Geradenkoordinaten (als Verhältnisse) nicht ändern, falls die homogenen Punktkoordinaten als Verhältnisse erweitert werden: Sie sind unabhängig von der Wahl des Repräsentanten (-Vektors).
+
+
+Homogene Ebenenkoordinaten
+=====
+
+
+Analog zu homogenen Koordinaten für die Geradenmenge des $\bar{A}^2$ lassen sich homogene Koordinaten für die Ebenenmenge des projektiv erweiterten dreidimensionalen Raums $\bar{A}^3$ einführen. Vergleiche hierzu das Dualitätsprinzip für $\bar{A}^3$ im Abschnitt [Projektive Erweiterung](#Projektive-Erweiterung).
+
+Eine Ebene in $A^3$ lässt sich mit Hilfe einer linearen Gleichung in den kartesischen Koordinaten $(x,y,z)$ beschreiben $$
+  a\cdot x+b\cdot y+c\cdot z+d=0\quad\text{mit}\quad (a,b,c)\in\mathbb{R}^3\setminus(0,0,0)\,,\;d\in\mathbb{R}
+$$ Wird zu homogenen Punktkoordinaten $(x_0,x_1,x_2,x_3)$ übergegangen gemäß $$
+  x=\frac{x_1}{x_0}\,,\quad y=\frac{x_2}{x_0}\,,\quad z=\frac{x_3}{x_0}\quad\text{für}\quad x_0\not=0
+$$ so ergibt sich eine Gleichung der (um die uneigentlichen Elemente erweiterten) Ebene in homogenen Koordinaten $$
+  a\cdot \frac{x_1}{x_0}+b\cdot \frac{x_2}{x_0}+c\cdot \frac{x_3}{x_0}+d=0\quad\leftrightarrow\quad a\cdot x_1+b\cdot x_2+c\cdot x_3+d\cdot x_0=0
 $$
+
+>**Definition 2.** Die Verhältnisse in einer homogenen linearen Gleichung $$
+  [u_0:u_1:u_2:u_3]=[d:a:b:c]
+$$ legen eine Ebene in $\bar{A}^3$ eindeutig fest und heißen **homogene Ebenenkoordinaten**.
+
+<!-- style="background-color: lightgray;"-->
+>Für die **Inzidenz** eines Punktes $X=(x_0:x_1:x_2:x_3)$ mit einer Ebene $U=[u_0:u_1:u_2:u_3]$ gilt $$
+  u_0\cdot x_0 + u_1\cdot x_1 + u_2\cdot x_2 + u_3\cdot x_3 = 0
+$$ Man sagt in diesem Fall, dass Punkt und Ebene inzidieren.[^1]
+
+**Beispiel 3.** Aus der Forderung 5 im Abschnitt [Projektive Erweiterung](#Projektive-Erweiterung) ergibt sich aus der Inzidenzbedingung für uneigentliche Punkte $P_u=(0:x_1:x_2:x_3)$ mit einer Ebene $U=[u_0:u_1:u_2:u_3]$ in $\bar{A}^3$ $$
+  P_u\in U\quad\leftrightarrow\quad u_0\cdot 0+u_1\cdot x_1+u_2\cdot x_2+u_3\cdot x_3=0
+$$ Ist $U$ die uneigentliche Ebene $\omega$, so muss die Inzidenzbedingung für alle uneigentlichen Punkte erfüllt, also unabhängig von der Wahl von $(x_1,x_2,x_3)$ sein. Dies ist nur dann möglich, wenn $u_1=u_2=u_3=0$ gilt. Damit ist dann $u_0\not=0$ zu wählen. Die homogenen Ebenenkoordinaten von $\omega$ sind somit $$
+  \omega=[1:0:0:0]
+$$
+
+**Bemerkung 4.** Homogene Geradenkoordinaten in $\bar{A}^3$ lassen sich entsprechend dem Vorgehen in $\bar{A}^2$ mithilfe von Determinanten zweiter Ordnung der Matrix $$
+  \begin{pmatrix} x_0 & x_1 & x_2 & x_3 \\ y_0 & y_1 & y_2 & y_3 \end{pmatrix}
+$$ definieren $$
+  g_{01}=\left|\begin{array}{rr} x_0 & x_1 \\ y_0 & y_1 \end{array}\right|\,,\quad
+  g_{02}=\left|\begin{array}{rr} x_0 & x_2 \\ y_0 & y_2 \end{array}\right|\,,\quad
+  g_{03}=\left|\begin{array}{rr} x_0 & x_3 \\ y_0 & y_3 \end{array}\right|\,,\quad
+  g_{23}=\left|\begin{array}{rr} x_2 & x_3 \\ y_2 & y_3 \end{array}\right|\,,\quad
+  g_{31}=\left|\begin{array}{rr} x_3 & x_1 \\ y_3 & y_1 \end{array}\right|\,,\quad
+  g_{12}=\left|\begin{array}{rr} x_1 & x_2 \\ y_1 & y_2 \end{array}\right|
+$$ Dies sind sechs homogene Koordinaten, die jedoch nicht unabhängig voneinander sind: Es gilt für beliebige Punkte $X$ und $Y$ die Identität $$
+  g_{01}\cdot g_{23}+g_{02}\cdot g_{31}+g_{03}\cdot g_{12}=0
+$$
+
+Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) können die die homogenen Geradenkoordinaten für Geraden $g\subset\bar{A}^3$ berechnet und die Identität geprüft werden.
+
+``` javascript
+X = [x0,x1,x2,x3]
+Y = [y0,y1,y2,y3]
+G1 = [X[1]*Y[2]-X[2]*Y[1], X[1]*Y[3]-X[3]*Y[1], X[1]*Y[4]-X[4]*Y[1]]
+G2 = [X[3]*Y[4]-X[4]*Y[3], X[4]*Y[2]-X[2]*Y[4], X[2]*Y[3]-X[3]*Y[2]]
+dot(G1,G2)
+```
+@Algebrite.eval
+
+
+Sicher gewusst?
+=====
+
+Hier können Sie Ihr Wissen durch Beantwortung der nachstehenden Fragen testen.
+
+**Frage 1.** Gegeben sind die beiden (parallelen) Geraden $$
+  g_1:\;\;2\cdot x-5\cdot y+3=0\quad\text{und}\quad g_2:\;\;-6\cdot x+15\cdot y=0
+$$ Berechnen Sie die homogenen Punktkoordinaten des gemeinsamen (uneigentlichen) Punktes $S=g_1\cap g_2$. Hierbei ist die 'nullte' Koordinate die homogenisierende Koordinate.
+
+[[X]] $$ S=[0:5:2] $$
+[[X]] $$ S=[0:-45:-18] $$
+[[ ]] $$ S=[0:0:0] $$
+[[ ]] $$ S=[5:2:0] $$
+[[?]] Bestimmen Sie zu den gegebenen Geraden jeweils die homogenen Geradenkoordinaten und ermitteln Sie aus diesen die homogenen Punktkoordinaten des Schnittpunktes. (Formel siehe grauer Kasten und Bemerkung 2)
+****************************************
+
+Die Geraden lassen sich in homogenen Koordinaten darstellen; für $g_1$ gilt $$
+  2\cdot x-5\cdot y+3=0\quad\leftrightarrow\quad 2\cdot x_1-5\cdot x_2+3\cdot x_0=0
+$$ beziehungsweise $$
+-6\cdot x+15\cdot y=0\quad\leftrightarrow\quad -6\cdot x_1+15\cdot x_2=0
+$$ Die Koeffizienten zu den Punktkoordinaten $(x_0:x_1:x_2)$ bilden die homogenen Geradenkoordinaten, d. h. $$
+  g_1=[3:2:-5]\quad\text{bzw.}\quad g_2=[0:-6:15]
+$$ Unter formaler Bildung des Vektorproduktes berchnen sich daraus die homogenen Punktkoordinaten des gemeinsamen (uneigentlichen) Punktes beider Geraden $$
+  \begin{pmatrix} 3 \\ 2 \\ -5 \end{pmatrix}\times
+  \begin{pmatrix} 0 \\ -6 \\ 15 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ -45 \\ -18 \end{pmatrix}\quad\leadsto\quad
+  S=(0:-45:-18)=(0:5:2)
+$$
+
+****************************************
+
+
+[^1]: Die Inzidenzbedingung entspricht dem kanonischen Skalarprodukt der zu $X$ und $U$ gehörenden Repräsentantenvektoren.
 
 
 ## Kurven und Flächen
