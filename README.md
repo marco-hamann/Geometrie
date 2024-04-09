@@ -462,7 +462,7 @@ $$
 ****************************************
 
 Die Punkte $A$,$B$ und $X$ liegen auf der $x$-Achse eines Koordinatensystems, wobei $B$ und $X$ durch $A$ (Ursprung des affinen Koordinatensystems) getrennt sind. Es berechnet sich $$
-  TV(X,B,A)=(-1)\cdot)\cdot\frac{6}{2}=-3
+  TV(X,B,A)=(-1)\cdot\frac{6}{2}=-3
 $$
 
 ****************************************
