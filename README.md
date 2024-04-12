@@ -7,7 +7,7 @@ version:  0.0.1
 
 language: de
 
-comment:  Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Medieninformatik im 2. Semester.
+comment:  Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Bachelor Medieninformatik im 2. Semester.
 
 import: https://raw.githubusercontent.com/LiaTemplates/tiny-turtle/master/README.md
 
