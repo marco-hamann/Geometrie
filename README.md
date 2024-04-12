@@ -19,28 +19,37 @@ persistent: true
 
 -->
 
-# Konstruktive Geometrie (I381)
+# Geometrie (I383)
 
- Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Medieninformatik im 2. Semester.
+ Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Bachelor Medieninformatik im 2. Semester.
 
 Sie können diesen Kurs auf [LiaScript](https://liascript.github.io/course/?https://github.com/marco-hamann/Geometrie/blob/main/README.md) oder [Opal](https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/19931103237) aufrufen. Das Repository zu diesem Kurs finden Sie unter
 
 https://github.com/marco-hamann/Geometrie
 
 
-## Affine Geometrie
+## Analytische Geometrie
 
 
-![wordcloud-affine-Geometrie](img/wordcloud_affine-Geometrie.png)
+In diesem ersten Kapitel vertiefen Sie Ihre Kenntnisse in der analytischen Geometrie und lernen den Begriff des Teilungsverhältnis in verschiedenen Anwendungen kennen. Dazu zählen u. a.
 
-In diesem Kapitel werden folgende Themen behandelt:
-
-* Grundlagen zu Vektoren und Matrizen
+* Grundlagen aus der analytischen Geometrie: Vektoren und Matrizen
 * Teilverhältnis auf Strecken und affine Koordinaten
-* Affine und kartesische Koordinatensysteme
+* affine und kartesische Koordinatensysteme
+* Basiswechsel und Koordinatentransformation
 * Schwerpunkt eines Massensystems
-* Konvexe Hülle einer Punktmenge
+* konvexe Hülle einer Punktmenge
 * Unterteilungskurven und Bézier-Kurven
+
+Für einen Überblick über die Themen dieses Kapitels sehen Sie in der nachstehenden Graphik einige zentrale Begriffe. Schlagen Sie diese in diesem Abschnitt nach.
+
+![wordcloud-affiner-Raum](img/wc_affiner-raum.png "_Fig._ Zentrale Begriffe zur Behandlung der affinen Ebene beziehungsweise des dreidimensionalen affinen Raumes.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 1000px; " -->
+
+Lernziele
+-----
+
+* ..
+
 
 ### Vektoren und Matrizen
 
@@ -1417,18 +1426,25 @@ Die Bézierkurve $c$ interpoliert den ersten und letzten Punkt des Kontrollpolyg
 ## Affine Transformationen
 
 
-![Überblick-affine-Transformation](img/wordcloud_affine-Transformation-1.png)
+In diesem ersten Kapitel vertiefen Sie Ihre Kenntnisse in der Integration reeller Funktionen einer reellen Veränderlichen. Dazu zählen u. a.
 
-In diesem Kapitel werden folgende Themen behandelt:
-
-* Affine Abbildungen, darunter Affinitäten und deren Eigenschaften
-* Basis- und Koordinatentransformationen
-* Spezielle Affinitäten
+* affine Abbildungen, darunter Affinitäten und deren Eigenschaften
+* spezielle Affinitäten
 * Kongruenzen und Ähnlichkeiten
-* Abbildungsgeometrische Erzeugung geometrischer Figuren
+* abbildungsgeometrische Erzeugung geometrischer Figuren
+
+Für einen Überblick über die Themen dieses Kapitels sehen Sie in der nachstehenden Graphik einige zentrale Begriffe. Schlagen Sie diese in diesem Abschnitt nach.
+
+![Wordcloud-affine-Transformation](img/wc_affine-transformation.png "_Fig._ Zentrale Begriffe zu affinen Abbildungen der affinen Ebene beziehungsweise des dreidimensionalen affinen Raumes.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 1000px; " -->
+
+Lernziele
+-----
+
+* ..
 
 
-### Definition und allgemeine Eigenschaften
+### Definition
+
 
 Definition affiner Abbildungen
 ==============================
@@ -2958,7 +2974,7 @@ $$
 $$ berechnet werden. Hierfür ist allerdings der Vektor $g$ zu normieren, da die rechte Seite für jede Wahl von $(\varphi,\theta)$ ein Vektor der Länge Eins ist: Der Vektor $g$ besitzt die Länge $\Vert g\Vert=\sqrt{3}$.
 
 
-### Translationen und Schraubungen
+### Schraubungen
 
 Translationen
 =============
@@ -3117,7 +3133,7 @@ $$ $\square$
 [^2]: Die geometrische Bedeutung der zusätzlichen Nullen und Einsen (Magenta\left(n\cdot n^\top\right)) in der Matrixdarstellung wird im Kapitel zur projektiven Geometrie erklärt.
 
 
-### Spiegelungen und Gleitspiegelungen
+### (Gleit-) Spiegelungen
 
 In diesem Abschnitt werden [Spiegelungen](https://www.geogebra.org/m/H8H7W7WZ#material/ZErTPYqq) der Ebene $\mathcal{A}^2$ an Geraden $s$ dieser Ebene beziehungsweise Spiegelungen des dreidimensionalen Raumes $\mathcal{A}^3$ an Ebenen $\Sigma$ untersucht.[^1]
 
@@ -4641,7 +4657,7 @@ $$ der eindimensionale [Untervektorraum](https://de.wikipedia.org/wiki/Untervekt
 [^2]:  Für Punkte des affinen Ausschnittes $g\subset \bar{g}$ kann diese zu Eins normiert werden, für den uneigentlichen Punkt einer Geradenrichtung ist $\lambda_0=0$.
 
 
-### Geraden- und Ebenenkoordinaten
+### Geradenkoordinaten
 
 
 Homogene Geradenkoordinaten
