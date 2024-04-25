@@ -3124,7 +3124,7 @@ $$ in den reellen Zahlen folgen $$
   D_1(\varphi_1)\cdot D_1(\varphi_2)=D_1(\varphi_1+\varphi_2)
 $$ sowie schließlich $$
   \kappa_1\circ\kappa_2=\kappa_2\circ\kappa_1
-$$ $\square$
+$$
 
 ****************************************
 
