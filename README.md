@@ -28,35 +28,228 @@ Sie können diesen Kurs auf [LiaScript](https://liascript.github.io/course/?http
 https://github.com/marco-hamann/Geometrie
 
 
-## Analytische Geometrie
+## Algebraische Strukturen
 
 
-In diesem ersten Kapitel vertiefen Sie Ihre Kenntnisse in der analytischen Geometrie und lernen den Begriff des Teilungsverhältnis in verschiedenen Anwendungen kennen. Dazu zählen u. a.
+Überblick
+-----
 
-* Grundlagen aus der analytischen Geometrie: Vektoren und Matrizen
-* Teilverhältnis auf Strecken und affine Koordinaten
-* affine und kartesische Koordinatensysteme
-* Basiswechsel und Koordinatentransformation
-* Schwerpunkt eines Massensystems
-* konvexe Hülle einer Punktmenge
-* Unterteilungskurven und Bézier-Kurven
+
+In diesem Kapitel sollen einige algebraische Strukturen eingeführt und im Kontext geometrischer Fragestellungen betrachtet werden. Dazu zählen u. a.
+
+* Vektoren und Matrizen
+* Gruppen und Halbgruppen
+* Ringe und Körper
+* Komplexe Zahlen und ebene Geometrie
+* Hamiltonsche Quaternionen und räumliche Geometrie
 
 Für einen Überblick über die Themen dieses Kapitels sehen Sie in der nachstehenden Graphik einige zentrale Begriffe. Schlagen Sie diese in diesem Abschnitt nach.
 
-![wordcloud-affiner-Raum](img/wc_affiner-raum.png "_Fig._ Zentrale Begriffe zur Behandlung der affinen Ebene beziehungsweise des dreidimensionalen affinen Raumes.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 1000px; " -->
+..
 
 Lernziele
 -----
 
+
 * ..
+
+
+### Operationen auf Mengen
+
+
+Das grundlegende Merkmal einer algebraischen Struktur einer Menge $M$ ist die Existenz einer Abbildung, die zwei Elementen aus $M$ eindeutig ein Element aus $M$ zuordnet. Beispiele sind Addition reeller Zahlen oder die Bildung des größten gemeinsamen Teilers zweier natürlicher Zahlen.
+
+>**Definition 1.** Eine Abbildung $M\times M\to M$ mit $(a,b)\mapsto c$ nennt man eine [zweistellige Operation](https://de.wikipedia.org/wiki/Zweistellige_Verkn%C3%BCpfung) auf $M$. Die Argumente $(a,b)$ dieser Operation heißen Operanten. Analog lassen sich $k$-stellige Operationen definieren vermöge $$
+  \underbrace{M\times M\times ... \times M}_{k-{\text{mal}}}\to M\quad\text{mit}\quad (a_1,a_2,...,a_k)\mapsto b
+$$ Ist speziell $k=1$, so heißt die Operation **einstellig**.
+
+**Beispiel 1.** Addition und Multiplikation natürlicher, ganzer bzw. reeller Zahlen ergeben eindeutig bestimmte Zahlen aus dem jeweiligen Zahlbereich. Sie bilden Operationen. Dagegen stellt die Subtraktion natürlicher Zahlen auf $\mathbb{N}$ keine Operation dar, jedoch auf dem Bereich $\mathbb{Z}$. 
+
+**Beispiel 2.** Die Hintereinanderausführung von bijektiven Abbildungen $f:M\to M$ einer Menge $M$ auf sich $$
+  g\circ f:M\to M\quad\text{mit}\quad m\mapsto n=g(f(m))
+$$ bildet eine zweistellige Operation auf der Menge dieser Abbildungen. Ist speziell $M=\{1,2,3\}$, so beschreiben $$
+  f=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}\quad\text{und}\quad g=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}
+$$ zwei Permutationen dieser Menge, dargestellt in der so genannten [Zweizeilenform](https://de.wikipedia.org/wiki/Permutation#Zweizeilenform). Während durch $f$ die Elemente $1$ und $2$ getauscht werden und $3$ auf sich abgebildet wird, bewirkt $g$ ein zyklisches Tauschen der Elemente, d. h. $1\mapsto 2$, $2\mapsto 3$ und $3\mapsto 1$. Die Komposition ergibt $$
+  g\circ f= \begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}\circ \begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}=\begin{pmatrix} 1 & 2 & 3 \\ 3 & 2 & 1 \end{pmatrix} 
+$$ Für das Ergebnis sind die Permutationen elementweise "von rechts nach links" anzuwenden. 
+
+* Die $1$ wird in der ersten ("rechten") Permutation $f$ auf $2$ abgebildet und in der zweiten ("linken") Permutation $g$ dann auf die $3$, das heißt $$
+  1\stackrel{f}{\mapsto} 2\stackrel{g}{\mapsto} 3\quad\text{bzw.}\quad 1\stackrel{g\circ f}{\longmapsto} 3
+  $$
+* Für die Zahl $2$ gilt unter der Hintereinanderausführung entsprechend $2\mapsto 1\mapsto 2$ bzw. $(g\circ f)(2)=2$. 
+* Die Zahl $3$ wird abgebildet $3\mapsto 3\mapsto 1$ bzw. $(g\circ f)(3)=1$.
+
+Bezeichnen die Elemente der Menge $M=\{1,2,3\}$ die Eckpunkte eines gleichseitigen Dreiecks, so lässt sich $f$ als Spiegelung des Dreiecks auf sich an der Seitenhalbierenden der Seite $[12]$ interpretieren, während $g$ eine Abbildung des Dreieck auf sich bei Drehung um den Mittelpunkt des Dreiecks mit Drehwinkel $|\varphi|=\frac{2}{3}\pi$ beschreibt. Die Hintereinanderausführung $g\circ f$ ist wieder eine Geradenspiegelung des Dreiecks auf sich an der Seitenhalbierenden der Seite $[13]$.
+
+**Bemerkung 1.** Für spezielle Operationen wie Addition ($+$), Multiplikation ($\cdot$) oder die Hintereinanderausführung von Abbildungen ($\circ$) werden die jeweils üblichen Operationszeichen verwendet. Für allgemeine Aussagen über Operationen wird hingegen das Symbol $\ast$ verwendet. 
+
+
+Eigenschaften von Operationen
+===
+
+
+Eine algebraische Struktur $A$ besteht hier aus einer Menge $M$ und einer zweistelligen Operation $\ast:M\times M\to M$. Für die Operation $\ast$ werden die nachstehenden Begriffsbildungen betrachtet.
+
+>**Definition 2.** Gilt für alle Elemente $a\in M$, $b\in M$ und $c\in M$ die Gleichheit $$
+  a\ast (b\ast c)= (a\ast b)\ast c
+$$ dann heißt die algebraische Struktur $A=(M,\ast)$ [assoziativ](https://de.wikipedia.org/wiki/Assoziative_Algebra).
+
+>**Definition 3.** Gilt für alle Elemente $a\in M$ und $b\in M$ die Gleichheit $$
+  a\ast b= b\ast a
+$$ dann heißt die algebraische Struktur $A=(M,\ast)$ [kommutativ](https://de.wikipedia.org/wiki/Kommutativgesetz).
+
+
+**Beispiel 3.** 
+
+1. Die im Beispiel 2 aufgeführten Operationen 'Addition' und 'Multiplikation' ergeben assoziative und kommutative algebraische Strukturen $(\mathbb{R},+)$ und $(\mathbb{R},\cdot)$. 
+2. Auf der Menge $\mathbb{R}^{n,n}$ der reellen quadratischen, $n$-reihigen Matrizen sind 'Addition' und 'Multiplikation' erklärt. Die algebraische Struktur $(\mathbb{R}^{n,n},+)$ ist assoziativ und ebenso kommutativ, jedoch ist $(\mathbb{R}^{n,n},\cdot)$ zwar assoziativ, jedoch nicht kommutativ.
+
+**Bemerkung 2.** Gilt in einer algeraischen Struktur $A=(M,\ast)$ das Assoziativgesetz, so lässt sich der Ausdruck $$
+  a_1\ast a_2\ast ...\ast a_n\ast \in M
+$$ schrittweise berechnen, ohne dass die Reihenfolge der Auswertung angegeben werden muss. Entsprechend kann $$
+  a^n=\underbrace{a\ast a\ast ...\ast a}_{n\text{-mal}}
+$$ für $n\in\mathbb{N}$ mit $n\geq 2$ verwendet werden.
+
+>**Definition 4.** Gilt für ein Element $e\in M$ der algebraischen Struktur $A=(M,\ast)$ die Gleichheit $$
+  e\ast a= a\ast e= a
+$$ für alle und $a\in M$, dann heißt [neutrales Element](https://de.wikipedia.org/wiki/Neutrales_Element) von $A$.
+
+**Beispiel 4.** Die in der nachstehenden Tabelle aufgeführten Beispiele algebraischer Strukturen besitzen jeweils ein Einselement
+
+| Menge | Operation | neutrales Element |
+| :----- | :----- | :----- |
+| $\mathbb{R}$ | Addition | $e=0$ |
+| $\mathbb{R}$ | Multiplikation | $e=1$ |
+| $f:M\to M$ bijektiv | Komposition | identische Abbildug $e:x\mapsto x$ für alle $x\in M$ |
+
+Der 'größte gemeinsame Teiler' zweier natürlicher Zahlen ist eine zweistellige Operation auf der Menge $\mathbb{N}^\times:=\mathbb{N}\setminus\{0\}$. Die hierdurch erzeugte, algebraische Struktur besitzt kein neutrales Element $e\in\mathbb{N}$, da unter Benutzung der Implikation $$
+  \operatorname{ggT}(n,e)=n\;\;\rightarrow\;\; n|e\;(\text{sprich:}\, "n\,\text{teilt}\, e")
+$$ hieraus folgte, dass die natürliche Zahl $e$ alle natürlichen Zahlen $n$ als Teiler enthielte.
+
+>**Definition 5.** Existiert für beliebige Elemente $a\in M$ einer algebraischen Struktur $A=(M,\ast)$ ein Element $b\in M$ mit $$
+  a\ast b= b\ast a = e
+$$ worin $e$ das Einselement in $A$ bezeichnet, so heißt $b$ das zu $a$ [inverse Element](https://de.wikipedia.org/wiki/Inverses_Element) in $A$. Oft schreibt man hierfür $b=a^{-1}$.
+
+**Beispiel 5.** Für die in der Tabelle aufgeführten Beispiele algebraischer Strukturen werden die inversen Elemente wie nachstehend gebildet.
+
+| Menge | Operation | Element | inverses Element |
+| :----- | :----- | :----- | :----- |
+| $\mathbb{R}$ | Addition | $a$ | $a^{-1}=-a$ |
+| $\mathbb{R}\setminus\{0\}$ | Multiplikation | $a$ | $a^{-1}=\frac{1}{a}$ |
+| $f:M\to M$ bijektiv | Komposition | $f(x)=y$ | $f^{-1}(y)=x$ |
+
+**Folgerung 1.** Mit der vorstehenden Definition ist auch $a$ invers zu $a^{-1}$ und es gilt $$
+  \left(a^{-1}\right)^{-1}=a
+$$ 
+
+**Beispiel 6.** Für die im Beispiel 2 genannten Permutationen $$
+  f=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}\quad\text{und}\quad g=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}
+$$ ergeben sich die inversen Permutationen zu $$
+  f^{-1}=f=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}\quad\text{bzw.}\quad g^{-1}=\begin{pmatrix} 1 & 2 & 3 \\ 3 & 1 & 2 \end{pmatrix}
+$$ denn es gelten $$
+  f\circ f= \begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}\circ \begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 2 & 3 \end{pmatrix} 
+$$ sowie $$
+  g\circ g^{-1}= \begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}\circ \begin{pmatrix} 1 & 2 & 3 \\ 3 & 1 & 2 \end{pmatrix}=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 2 & 3 \end{pmatrix}
+$$
+
+
+Sicher gewusst
+===
+
+
+Testen Sie Ihr Wissen aus diesem Abschnitt bei der Beantwortung der folgenden Fragen.
+
+**Frage 1.** Gegeben ist die algebraische Struktur $A=(F,\circ)$, die auf der Menge der bijektiven Abbildungen $f:M\to M$ der Menge $M=\{1,2,3\}$ und der Hintereinanderausführung zweier Abbildungen dieser Menge als Operation $$
+  f\circ g:M\to M\quad\text{mit}\quad m\mapsto n=f(g(m))
+$$ erzeugt wird. Berechnen Sie inverse Abbildung zu $f\circ g$ mit $$
+  f=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 3 & 2 \end{pmatrix}\quad\text{und}\quad g=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}
+$$
+
+[( )] $(f\circ g)^{-1}=\begin{pmatrix} 1 & 2 & 3 \\ 3 & 1 & 2 \end{pmatrix}$
+[( )] $(g\circ f)^{-1}=\begin{pmatrix} 1 & 2 & 3 \\ 3 & 1 & 2 \end{pmatrix}$
+[( )] $(g\circ f)^{-1}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}$
+[(X)] $(f\circ g)^{-1}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}$
+[[?]] Für die Hintereinanderausführung $f\circ g:M\to M\quad\text{mit}\quad m\mapsto n=f(g(m))$ zweier bijektiver Abbildungen gilt $(f\circ g)^{-1}=g^{-1}\circ f^{-1}$.
+****************************************
+
+Für die Hintereinanderausführung gilt $$
+  (f\circ g)=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 3 & 2 \end{pmatrix}\circ\begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}=\begin{pmatrix} 1 & 2 & 3 \\ 3 & 1 & 2 \end{pmatrix}
+$$ Entsprechend ergibt sich die inverse Abbildung / Umkehrabbildung gemäß $$
+  (f\circ g)^{-1}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}
+$$ beziehungsweise unter Benutzung $(f\circ g)^{-1}=g^{-1}\circ f^{-1}$ $$
+  (f\circ g)^{-1}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}\circ\begin{pmatrix} 1 & 2 & 3 \\ 1 & 3 & 2 \end{pmatrix}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}
+$$
+
+****************************************
+
+**Frage 2.** Bezeichnen die Elemente der Menge $M=\{1,2,3\}$ die Eckpunkte eines gleichseitigen Dreiecks, so lassen sich die Permutationen $$ 
+  \sigma_{1}=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 3 & 2 \end{pmatrix}\,,\quad
+  \sigma_{2}=\begin{pmatrix} 1 & 2 & 3 \\ 3 & 2 & 1 \end{pmatrix}\quad\text{bzw.}\quad
+  \sigma_{3}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}
+$$ als Spiegelungen des Dreiecks auf sich an den Seitenhalbierenden der Seite $s_1=[23]$, $s_2=[13]$ bzw. $s_3=[12]$ interpretieren. Siehe Abbildung. Bilden Sie die Hintereinanderausführung dieser Geradenspiegelungen und geben Sie deren Interpretation als Symmetrieabbildung des gleichseitigen Dreiecks an.
+
+[[Drehung um $\bf 120^\circ$] [Drehung um $\bf 240^\circ$] [identische Abbildung]]
+[( ) ( ) (X)] $\sigma_1\circ\sigma_1$
+[(X) ( ) ( )] $\sigma_1\circ\sigma_2$
+[( ) (X) ( )] $\sigma_1\circ\sigma_3$
+[( ) (X) ( )] $\sigma_2\circ\sigma_1$
+[( ) ( ) (X)] $\sigma_2\circ\sigma_2$
+[(X) ( ) ( )] $\sigma_2\circ\sigma_3$
+[(X) ( ) ( )] $\sigma_3\circ\sigma_1$
+[( ) (X) ( )] $\sigma_3\circ\sigma_2$
+[( ) ( ) (X)] $\sigma_3\circ\sigma_3$
+[[?]] Für die Hintereinanderausführung zweier Geradenspiegelungen an den Geraden $s_1$, $s_2$ bzw. $s_3$ ergibt sich entweder die identische Abbildung oder eine Drehung um den gemeinsamen Punkt beider Spiegelachsen.
+***
+
+Für die neun zu betrachtenden Kompositionen der Permutationen ergeben sich $$
+  \sigma_1\circ\sigma_1=\sigma_2\circ\sigma_2=\sigma_3\circ\sigma_3=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 2 & 3 \end{pmatrix}
+$$ was der identischen Abbildung des Dreiecks auf sich entspricht (das Dreieck wird punktweise auf sich abbgebildet) beziehungsweise $$
+  \sigma_1\circ\sigma_2=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 3 & 2 \end{pmatrix}\circ\begin{pmatrix} 1 & 2 & 3 \\ 3 & 2 & 1 \end{pmatrix}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}=\sigma_2\circ\sigma_3=\sigma_3\circ\sigma_1
+$$ beziehungsweise $$
+  \sigma_1\circ\sigma_3=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 3 & 2 \end{pmatrix}\circ\begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}=\begin{pmatrix} 1 & 2 & 3 \\ 3 & 1 & 2 \end{pmatrix}=\sigma_2\circ\sigma_1=\sigma_3\circ\sigma_2
+$$ Dies sind Drehungen um die Winkel $120^\circ$ beziehungsweise $240^\circ$ um den gemeinsamen Punkt der drei Spiegelachsen.
+
+***
+
+**Frage 3.** Gegeben ist die zweielementige Menge $M=\{a,b\}$ sowie deren Potenzmenge $$
+  P(M)=\{\emptyset,\{a\},\{b\},M\}
+$$ Geben Sie bezogen auf die Schnittoperation $\cap$ das neutrale Element der algebraischen Struktur $(P(M),\cap)$ an.
+
+[( )] $\emptyset$
+[( )] $a$
+[( )] $\{a\}$
+[(X)] $M$
+[[?]] Der Schnitt zweier Mengen ist die Menge aller Elemente, die in beiden Mengen enthalten sind. Insofern liefert $\cap$ eine Operation auf $(P(M),\cap)$.
+***
+
+Die Bildung der Schnittmengen von Elementen aus $P(M)$ ist in nachstehender Tabelle aufgeführt.
+
+<!-- data-type="none" -->
+| $\cap$ | $\emptyset$ | $\{a\}$ | $\{b\}$ | $M$ |
+| :----- | :----- | :----- | :----- | :----- |
+| $\emptyset$ | $\emptyset$ | $\emptyset$ | $\emptyset$ | $\emptyset$ |
+| $\{a\}$ | $\emptyset$ | $\{a\}$ | $\emptyset$ | $\{a\}$ |
+| $\{b\}$ | $\emptyset$ | $\emptyset$ | $\{b\}$ | $\{b\}$ |
+| $M$ | $\emptyset$ | $\{a\}$ | $\{b\}$ | $M$ |
+
+Aus der Verknüpfungstabelle ist ersichtlich $$
+  U\cap M=U\quad\forall\;U\subset P(M)
+$$ d. h. die (Teil-) Menge $M$ ist das neutrale Element der algebraischen Struktur $(P(M),\cap)$.
+
+***
+
+
+### Gruppen und Halbgruppen
 
 
 ### Vektoren und Matrizen
 
+
 Vektoren
 ========
 
-Addition von **Vektoren** aus $\mathbb{R}^k$ $(k\in\mathbb{N})$ und Vielfachbildung von Vektoren mit einem Skalar aus $\mathbb{R}$ sind komponentenweise erklärt.
+In der Definition eines Vektorraums $V$ wird auf zwei Operationen Bezug genommen: der Addition von zwei (oder auch endlich vielen) Vektoren bzw. der Multiplikation eines Vektors mit einer Zahl aus dem Skalarbereich $K$. 
+Die Addition von Vektoren aus $V=\mathbb{R}^k$ $(k\in\mathbb{N})$ und Vielfachbildung von Vektoren mit einem Skalar aus $K=\mathbb{R}$ sind komponentenweise erklärt.
 
 > **Satz.** Es gelten die folgenden Rechenregeln [^1]
 >
@@ -70,7 +263,7 @@ Addition von **Vektoren** aus $\mathbb{R}^k$ $(k\in\mathbb{N})$ und Vielfachbild
 >
 > für beliebige $\{x,y,z\}\subset\mathbb{R}^k$ und $\{\lambda,\mu\}\subset\mathbb{R}$.
 
-Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) können die Axiome für Vektoren nachgerechnet werden.
+Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) können die Axiome für Vektoren nachgerechnet werden. Mit der in eingeführten Addition bildet $(V,+)$ eine kommutative Gruppe.
 
 ``` javascript
 A = [[a],[b]]
@@ -79,6 +272,10 @@ A + B - (B + A)
 transpose(A)
 ```
 @Algebrite.eval
+
+**Bemerkung 1.** Ist der Skalarbereich $K$ ein beliebiger [Körper](#Ringe-und-Körper), so besitzen die Rechenregeln im vorstehenden Satz die Bedeutung von Axiomen. Eine Menge $V$, auf der zwei Operationen $$
+  +:V\times V\to V\quad\text{und}\quad \cdot:V\times K\to V
+$$ erklärt sind, die den genannten Axiomen genügen, wird **Vektorraum über K** genannt: Man rechnet mit Vektoren $v\in V$ und Skalaren $\lambda\in K$ nach den vorstehenden Rechenregeln, ohne auf die geometrische Darstellung der Vektoren Bezug zu nehmen.
 
 Für Vektoren $v_i\in\mathbb{R}^k$ mit $i\in\{1,2,\ldots,n\}$ und Skalare $\lambda_i\in\mathbb{R}$ heißt
 $$
@@ -93,7 +290,7 @@ Ein zentraler Begriff im Kontext der Vektorräume ist der der linearen Unabhäng
   \sum_{i=0}^n{\left(\lambda_i\cdot v_i\right)}=o\;\rightarrow\;(\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
 $$ worin $o$ den Nullvektor in $V$ bezeichnet. Andernfalls wird die Menge $\{v_1,...,v_n\}$ linear abhängig genannt.
 
-**Bemerkung.** Die vorstehende Definition besteht aus einer Implikation: Der Vordersatz ist eine vektorwertige, lineare Gleichung in den unbekannten Koeffizienten $\lambda_i$, deren rechte Seite der Nullvektor in $\mathbb{R}^k$ ist. Der Nachsatz umfasst die Aussage, dass alle Koeffizienten als Lösungen dieser Gleichung 'Null' sind.
+**Bemerkung 2.** Die vorstehende Definition besteht aus einer Implikation: Der Vordersatz ist eine vektorwertige, lineare Gleichung in den unbekannten Koeffizienten $\lambda_i$, deren rechte Seite der Nullvektor in $\mathbb{R}^k$ ist. Der Nachsatz umfasst die Aussage, dass alle Koeffizienten als Lösungen dieser Gleichung 'Null' sind.
 
 Das heißt, die lineare Unabhängigkeit der Vektoren $v_i$ ist daran gekoppelt, dass die vektorvertige, lineare Gleichung in Definition ~~nur~~ für das Nulltupel $$
   (\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
@@ -163,7 +360,7 @@ Die Koordinaten von $P$ sind hierin die Koeffizienten der Linearkombination der 
 Matrizen
 ========
 
-Die Menge der reellen Matrizen gleichen Typs bilden bezüglich der erklärten Addition und Skalarvielfachbildung einen Vektorraum, genügen also den gleichen Rechengesetzen wie Vektoren (aus $\mathbb{R}^k$).
+Die Menge der reellen Matrizen gleichen Typs bilden bezüglich der erklärten Addition und Skalarvielfachbildung einen reellen Vektorraum, genügen also den gleichen Rechengesetzen / Axiomen wie Vektoren (aus $\mathbb{R}^k$). Vergleiche Bemerkung 1 in diesem Abschnitt.
 
 Für das Rechnen mit **quadratischen Matrizen** benötigen wir des Weiteren *inverse Matrix*, *Determinante* etc.
 
@@ -223,6 +420,893 @@ und ist für alle $x$ genau dann gleich Null, wenn für alle Koeffizienten $\lam
 [^1]: Die Rechenregeln werden zur axiomatischen Festlegung eines Vektorraumes genutzt. Hier ist zusätzlich $1\cdot x=x$ zu fordern.
 
 [^2]: Die Funktionen bilden sogar die Monombasis im Vektorraum aller reellen Polynomfunktionen vom Grad $n\leq 2$.
+
+
+### Ringe und Körper
+
+
+..
+
+
+### Komplexe Zahlen
+
+
+Motivation
+===
+
+
+**Beispiel 1.** Quadratische Gleichungen in der reellen Variablen $x$ besitzen maximal zwei Lösungen: zum Beispiel $$
+  x^2-1=(x+1)\cdot(x-1)=0\quad\leftrightarrow\quad x_1=1\;\vee\;x_2=-1
+$$ andererseits $$
+  x^2-2\cdot x+1=(x-1)^2=0\quad\leftrightarrow\quad x=1
+$$ oder $$
+  x^2+1=0\quad\rightarrow\quad L=\emptyset
+$$ Die letztere Gleichung besitzt keine reelle Lösung, denn es gilt genau einer der folgenden Fälle:
+
+1. Für beliebige Werte $x\geq0$ gilt, dass $x^2\geq0$ und somit $x^2+1>0$ folgt.
+2. Für beliebige Werte $x<0$ folgt in gleicher Weise, dass mit $-x>0$ und $$
+  (-x)\cdot(-x)=(-1)^2\cdot x^2=x^2>0
+$$ schließlich $x^2+1>0$ folgt.
+
+Demnach gibt es kein $x\in\mathbb{R}$, dass die Gleichung $x^2+1=0$ löst.
+
+**Bemerkung 1.** Die Formel zur Lösung quadratischer Gleichungen $$
+  x^2+p\cdot x+q=0\quad\leftrightarrow\quad x_{1,2}=-\frac{p}{2}\pm\sqrt{\frac{p^2}{4}-q}
+$$ gestattet eine Fallunterscheidung zur Anzahl der reellen Lösungen in Abhängigkeit der reellen Koeffizienten der Gleichung.
+
+Für die Lösungen $x_1$ und $x_2$ gelten mit dem Radikanten[^2] $\frac{p^2}{4}-q=\frac{1}{4}\cdot(p^2-4\cdot q)$ der Wurzel $$
+ \left\{\begin{array}{lcl}
+         x_1\in\mathbb{R},\;x_2\in\mathbb{R}\;\text{mit}\; x_1\neq x_2 & \text{falls} & p^2-4\cdot q>0 \\
+         x_1\in\mathbb{R},\;x_2\in\mathbb{R}\;\text{mit}\; x_1= x_2 & \text{falls} & p^2-4\cdot q=0 \\
+         \not\exists\, x_{1,2}\in\mathbb{R} & \text{falls} & p^2-4\cdot q<0
+        \end{array}
+ \right.
+$$
+
+Unter Benutzung der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lassen sich die Lösungen obiger Gleichungen interaktiv berechnen. Ausgaben, welche den Ausdruck $i$ enthalten, bezeichnen keine reelle Lösung.
+
+```javascript
+a=x^2-1
+b=x^2+1
+c=x^2+p*x+q
+roots(a)
+roots(b)
+roots(c)
+```
+@Algebrite.eval
+
+
+Konstruktion der komplexen Zahlen
+===
+
+
+>**Definition 1.** Die Zahl $i$ mit $i^2=-1$ heißt [imaginäre Einheit](https://de.wikipedia.org/wiki/Imagin%C3%A4re_Zahl).[^1]
+
+Die in Beispiel 1 betrachtete Gleichung $x^2+1$ ergibt mit dieser Definition $$
+  i^2+1=-1+1=0\quad\text{und}\quad
+  (-i)^2+1=(-1\cdot i)^2=(-1)^2\cdot i^2=1\cdot(-1)+1=0
+$$ nach Annahme der Gültigkeit der Potenzgesetze für die in Definition 1 erklärte imaginäre Einheit. Damit besitzt die Gleichung $x^2+1$ die beiden Lösungen $x_{1,2}=\pm i$.
+
+>**Definition 2.** Eine Zahl $b\cdot i=bi$ mit $b\in\mathbb{R}$ und $i^2=-1$ heißt *imaginäre Zahl*.
+
+Das Rechnen mit reellen Zahlen lässt sich auf imaginäre Zahlen übertragen.
+
+**Beispiel 2.** Es berechnen sich
+
+1. $3i+2i+ci=(5+c)\cdot i\;\text{für}\; c\in\mathbb{R}$
+2. $pi\cdot qi=pq\cdot i^2=-pq\;\text{für}\; p\in\mathbb{R},\; q\in\mathbb{R}$
+3. $i^5=i^{2+2+1}=i^2\cdot i^2\cdot i=(-1)\cdot(-1)\cdot i=i$
+4. $i^{4n+1}=i^{4n}\cdot i^3=(i^2\cdot i^2)^n\cdot i^2\cdot i=1^n\cdot(-1)\cdot i=-1 \;\forall n\in\mathbb{N}$
+5. $$\frac{1}{i^3}=\frac{1}{i^2\cdot i}=-\frac{1}{i}=-\frac{i}{i^2}=-\frac{i}{(-1)}=i$$
+
+Unter Benutzung der Javascript-Bibliothek [Algebrite](http://algebrite.org/) können unter Verwendung des Bezeichners $i$ interaktiv reelle und imaginäre Zahlen verknüpft werden.
+
+```javascript
+i^2
+simplify(2*i+a*i)
+1/(i^3)
+```
+@Algebrite.eval
+
+Die uneingeschränkte Anwendung der Rechengesetze für reelle Zahlen auf imaginäre Zahlen führt auf die Definition einer komplexen Zahl.
+
+>**Definition 3.** Eine [komplexe Zahl](https://de.wikipedia.org/wiki/Komplexe_Zahl) ist ein Ausdruck der Form $$
+  z=a+ib\quad\text{mit}\quad a\in\mathbb{R},\; b\in\mathbb{R},\; i^2=-1
+$$ Die darin auftretende Zahl $a$ wird *Realteil* von $z$ genannt, während der Koeffizient $b$ von $i$ den *Imaginärteil* von $z$ bezeichnet. Man schreibt $$
+  a=\operatorname{Re}{z}\,,\quad b=\operatorname{Im}{z}
+$$ Die Menge aller komplexen Zahlen wird angegeben mit $$
+  \mathbb{C}=\left\{z=a+ib\,|\, (a\in\mathbb{R})\,\wedge\, (b\in\mathbb{R})\,\wedge\,(i^2=-1)\right\}
+$$ (engl.: ~~c~~omplex numbers).
+
+Die in der Javascript-Bibliothek [Algebrite](http://algebrite.org/) zur Verfügung stehenden Befehle `real(.)` beziehungsweise `imag(.)` geben den Real- beziehungsweise Imaginärteil einer komplexen Zahl zurück.
+
+```javascript
+z=2+5*i
+real(z)
+imag(z)
+```
+@Algebrite.eval
+
+Die reellen Zahlen sind in den komplexen Zahlen enthalten, d. h. es gilt $\mathbb{R}\subset \mathbb{C}$, da $$
+  (bi-bi=(b-b)\cdot i=0\cdot i=0)\quad\Rightarrow\quad (z=a+0i=a\,(\in\mathbb{R}))
+$$ Speziell ist $z=0+0i=0$. Damit folgt auch $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}\subset\mathbb{C}$. Wie im Abschnitt [Mengen](#Mengen) vereinbaren wir $\mathbb{C}^\times=\mathbb{C}\setminus\{0\}$.
+
+Die Begriffe 'imaginäre Einheit', 'imaginäre Zahl' und 'komplexe Zahl' werden im nachstehenden Video im Kontext der Lösung quadratischer Gleichungen an einem Beispiel erläutert.
+
+!?[komplexe Zahl](https://www.youtube.com/watch?v=XQblFqzoMYo&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=2 "Daniel Jung, Komplexe Zahlen, Einführung, imaginäre Einheit")
+
+>**Definition 4.** Es sind $z_1\in\mathbb{C}$ und $z_2\in\mathbb{C}$ mit $$
+  z_j=a_j+i\cdot b_j\,,\quad a_j=\operatorname{Re}{z_j}\,,\quad  b_j=\operatorname{Im}{z_j}\,,\quad i^2=-1
+$$ zwei beliebige komplexe Zahlen. Die Zahlen $z_1$ und $z_2$ heißen **gleich**, kurz $z_1=z_2$, falls $$ a_1=a_2\quad\text{und}\quad b_1=b_2
+$$ für die Real- und Imaginärteile gelten.
+
+**Beispiel 3.** Gegeben sind zwei von Parametern $a\in\mathbb{R}$ und $b\in\mathbb{R}$ abhängige komplexe Zahlen $$
+  z_1=a^2+1-2a\cdot i\,,\quad z_2=-2a+i\cdot(b+a)\,,\quad i^2=-1
+$$ Es gilt $$
+  z_1=z_2\quad\leftrightarrow\quad \operatorname{Re}{z_1}=\operatorname{Re}{z_2}\;\wedge\;\operatorname{Im}{z_1}=\operatorname{Im}{z_2}
+$$ Hieraus ergibt sich das System von zwei Gleichungen in den Parametern $a$ und $b$ $$
+  \left.\begin{array}{ccc} a^2+1 & = & -2a \\ -2a & = & b+a \end{array}\right\}=
+  \left\{\begin{array}{ccc} (a+1)^2 & = & 0 \\ b & = & -3a \end{array}\right.
+$$ mit den Lösungen $a_1=a_2=-1$ und $b=3$. Es ergibt sich nach Einsetzen $z_1=z_2=2+2i$.
+
+>**Definition 5.** Zu einer Zahl $z\in\mathbb{C}$ mit $$
+  z=a+i\cdot b\,,\quad a=\operatorname{Re}{z}\,,\quad  b=\operatorname{Im}{z}\,,\quad i^2=-1
+$$ heißt $\bar{z}=a+(-1)\cdot b\cdot i$ die zu $z$ [komplex konjugierte Zahl](https://de.wikipedia.org/wiki/Konjugation).
+
+**Beispiel 4.** Zu bestimmen sind jeweils die komplex konjugierten Zahlen. Es gilt wie zuvor $i^2=-1$.
+
+1. $z_1=3+2i$. Hieraus lassen sich $\operatorname{Re}{z_1}=3$ und $\operatorname{Im}{z_1}=2$ ablesen. Für die komplex konjugierte Zahl folgt nach obiger Definition $\bar{z}_1=3+(-1)\cdot 2i=3-2i$.
+2. $z_2=-i$. Es sind $\operatorname{Re}{z_2}=0$ und $\operatorname{Im}{z_2}=-1$ und somit $\bar{z}_2=0+(-1)\cdot (-i)=i$.
+3. $z_3=7.1$ Es sind $\operatorname{Re}{z_3}=7.1$ und $\operatorname{Im}{z_2}=0$ und somit $\bar{z}_3=z_3=7.1$.
+4. $z_4=a^2+1-2a\cdot i$ mit $a\in\mathbb{R}$. Hier sind in Abhängigkeit des Parameters $\operatorname{Re}{z_4}=a^2+1$ und $\operatorname{Im}{z_4}=-2a$, woraus sich die komplex konjugierte Zahl $\bar{z}_4=a^2+1+2a\cdot i$ ergibt.
+
+In der Javascript-Bibliothek [Algebrite](http://algebrite.org/) steht zur Bildung der komplex konjugierten Zahl der Befehl `conj(.)` zur Verfügung. Testen Sie diesen Befehl an den Zahlen aus Beispiel 4.
+
+```javascript
+z=3+2*i
+zc=conj(z)
+zc
+x=real(z)
+y=imag(z)
+w=x-y*i
+test(zc=w,wahr,falsch)
+```
+@Algebrite.eval
+
+**Bemerkung 2.** Aus dem vorstehenden Beispiel lassen sich unmittelbar für beliebige komplexe Zahlen $z\in\mathbb{C}$ ableiten:
+
+1. Für Zahlen $z\in\mathbb{C}$ mit $\operatorname{Im}{z}=0$ folgt $\bar{z}=z$ und umgekehrt.
+2. Für Zahlen $z\in\mathbb{C}$ mit $\operatorname{Re}{z}=0$ folgt $\bar{z}=-z$ und umgekehrt.
+3. Der Realteil einer komplexen Zahl $z$ lässt sich bestimmen über $$
+  \operatorname{Re}{z}=\frac{1}{2}\cdot\left(z+\bar{z}\right)
+$$
+4. Der Imaginärteil einer komplexen Zahl $z$ lässt sich bestimmen über $$
+  \operatorname{Re}{z}=\frac{1}{2}\cdot\left(z-\bar{z}\right)
+$$
+
+Der Nachweis dieser Aussagen ist eine Übungsaufgabe.
+
+
+Darstellungen komplexer Zahlen
+===
+
+
+Komplexe Zahlen $z\in\mathbb{C}$ mit der Darstellung $$
+  z=a+b\cdot i\,,\quad \operatorname{Re}{z}=a\,,\quad \operatorname{Im}{z}=b\,,\quad i^2=-1
+$$ stellen geordnete Paare reeller Zahlen dar, d. h. $$
+  z=a+b\cdot i\quad\leftrightarrow\quad (a,b)\in\mathbb{R}^2
+$$ Sie lassen sich somit als kartesische Koordinaten von Punkten in einer Ebene umkehrbar eindeutig identifizieren. In dieser Zuordnung entsprechen
+
+1. die erste Koordinatenachse der reellen Zahlgeraden. Diese wird nachfolgend **reelle Achse** genannt. An dieser werden die Realteile komplexer Zahl (als Koordinaten) abgetragen.
+2. die Punkte auf der zweiten Koordinatenachse den imaginären Zahlen. Diese Achse wird daher als **imaginäre Achse** bezeichnet. An dieser werden die Imaginärteile komplexer Zahl (als Koordinaten) abgetragen.
+
+Die Darstellung komplexer Zahlen als Punkte in beschriebenen Koordinatensystem wird [Gaußsche Zahlenebene](https://mathepedia.de/Gauszsche_Zahlenebene.html) genannt. Die reelle Zahlengerade wird geometrisch durch eine zusätzliche Dimension zur "komplexen Zahlgerade" erweitert.
+
+![Gaußsche Zahlenebene](img/geo-bild58.png "_Fig._ Darstellung einer komplexen Zahl $z$ als Punkt / Koordinatenpaar in der Gaußschen Zahlenebene. Der zu $z$ gehörende Zeiger zeigt vom Koordinatenursprung nach $z$.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 900px;" -->
+
+**Beispiel 5.** In der Gaußschen Zahlenebene ist ein regelmäßiges Sechseck ('Zirkelmuster') mit Eckpunkten auf dem Umkreis mit Mittelpunkt $O(0,0)$ und Radius $r=4$ gegeben. Ein Eckpunkt liegt auf der reellen Achse.
+
+Zu bestimmen ist die kartesische Form der zu den Eckpunkten gehörenden komplexen Zahlen.
+
+![Gaußsche Zahlenebene 1](img/geo-bild59.png "_Fig._ Regelmäßiges Sechseck in der Gaußschen Zahlenebene.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 900px;" -->
+
+Die Zeiger durch die Eckpunkte schließen mit der positiv orientierten reellen Achse Winkel der Größen $$
+  \alpha\in\{0^\circ,60^\circ,120^\circ,180^\circ,240^\circ,300^\circ\}
+$$ ein. Aus dem eingetragenen rechtwinkligen Dreieck lassen sich hiermit die kartesischen Koordinaten $(4\cdot\cos{\alpha},4\cdot\sin{\alpha})$ der Eckpunkte bestimmen. Zu diesen gehören somit die komplexen Zahlen
+
+* $z_1=4\cdot\cos{0^\circ}+4\cdot\sin{0^\circ}\cdot i=4$
+* $z_2=4\cdot\cos{60^\circ}+4\cdot\sin{60^\circ}\cdot i=2+2\sqrt{3}\cdot i$
+* $z_3=4\cdot\cos{120^\circ}+4\cdot\sin{120^\circ}\cdot i=-2+2\sqrt{3}\cdot i$
+* $z_4=4\cdot\cos{180^\circ}+4\cdot\sin{180^\circ}\cdot i=-4$
+* $z_5=4\cdot\cos{240^\circ}+4\cdot\sin{240^\circ}\cdot i=-2-2\sqrt{3}\cdot i$
+* $z_6=4\cdot\cos{300^\circ}+4\cdot\sin{300^\circ}\cdot i=2-2\sqrt{3}\cdot i$
+
+**Bemerkung 3.** Die Ordnungsrelationen 'kleiner als', 'größer als' in der Menge der reellen Zahlen lassen sich nicht auf $\mathbb{C}$ übertragen. Insbesondere gibt es keine positiven oder negativen komplexen Zahlen.
+
+Mit den vorstehenden Abbildungen lässt sich jedem Punkt / jeder Zahl $z\in\mathbb{C}^\times$ in der Gaußschen Zahlenebene umkehrbar eindeutig zuordnen:
+
+1. das geordnete Paar kartesischer Koordinaten $(a,b)\in\mathbb{R}^2$ mit $a=\operatorname{Re}{z}$ und $b=\operatorname{Im}{z}$. Die Darstellung $z=a+i\cdot b$ aus Definition 3 wird **kartesische Form** der komplexen Zahl genannt.
+2. das Paar $(r,\varphi)\in(0,\infty)\times (-\pi,\pi]$ mit Abstand $r$ von $z$ zum Koordinatenursprung sowie dem Winkel $\varphi$, den der Zeiger zu $z$ mit der positiv orientierten reellen Achse im Grundintervall einschließt.
+3. Der Zahl $z=0$ entsprechen umkehrbar eindeutig die kartesischen Koordinaten $(a,b)=(0,0)$, jedoch ist für $r=0$ der Winkel $\varphi$ in der Polarform nicht eindeutig bestimmt.
+
+>**Definition 6.** Die Koordinaten $(r,\varphi)$ eines vom Koordinatenursprung verschiedenen Punktes in der Gaußschen Zahlenebene werden [Polarkoordinaten](https://de.wikipedia.org/wiki/Polarkoordinaten) genannt. Die Darstellung $$
+  z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})\,,\quad r\in(0,\infty)\,,\quad \varphi\in(-\pi,\pi]\,,\quad i^2=-1
+$$ wird als trigonometrische beziehungsweise **Polarfom** von $z\in\mathbb{C}^\times$ bezeichnet. Darin heißt $r$ **Betrag** und $\varphi$ **Argument** von $z$.
+
+Für die Umrechnung zwischen kartesischen und Polarkoordinaten nutzt man das in den vorstehenden Abbildungen eingetragene Koordinatendreieck.
+
+1. Es sei $z$ in der kartesischen Form gegeben, d. h. $z=a+i\cdot b$ gemäß Definition 3. Des Weiteren wird $a^2+b^2\not=0$ vorausgesetzt. Dann berechnen sich dessen Polarkoorinaten vermöge $$
+  |z|=r=\sqrt{a^2+b^2}\quad\text{und weiter}\quad
+  \varphi=\left\{\begin{array}{rcc} \arccos{\left(\frac{a}{r}\right)} & \text{für} & b\geq0 \\ -\arccos{\left(\frac{a}{r}\right)} & \text{für} & b<0\end{array}\right.
+$$ woraus sich die Polarform von $z$ ableiten lässt.
+2. Es sei umgekehrt $z$ in Polarform gegeben, d. h. $z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})$ gemäß Definition 6. Hieraus folgen durch Ausmultiplizieren $$
+  a=r\cdot\cos{\varphi}\quad\text{und}\quad b=r\cdot\sin{\varphi}
+$$ für den Real- bzw. Imaginärteil in der kartesischen Form von $z$.
+
+In der Javascript-Bibliothek [Algebrite](http://algebrite.org/) kann die kartesische Darstellungsform einer komplexen Zahl $z$ mit dem Befehl `rect(z)` berechnet werden. Zur Berechnung des Betrages und des Argumentes von $z$ werden die Befehle `abs(z)` bzw. `arg(z)` zur Verfügung gestellt. Letzterer verwendet zur Berechnung des Argumentes in $\varphi\in(-\pi,\pi]$ anstelle des 'Arcuskosinus' den 'Arcustangens' mit $$
+  \varphi=\left\{
+    \begin{array}{lclclcl}
+    \arctan{\left(\frac{b}{a}\right)} & \text{für} & a>0 \\
+    \arctan{\left(\frac{b}{a}\right)}+\pi & \text{für} & a<0 & \text{und} & b\geq 0 \\
+    \arctan{\left(\frac{b}{a}\right)}-\pi & \text{für} & a<0 & \text{und} & b<0 \\
+    \frac{\pi}{2} & \text{für} & a=0 & \text{und} & b>0 \\
+    -\frac{\pi}{2} & \text{für} & a=0 & \text{und} & b<0 \\
+    n. d. & \text{für} & a=0 & \text{und} & b=0
+    \end{array}\right.
+$$ für jedes $z\in\mathbb{C}$ mit $a\not=0$.
+
+```javascript
+z=3/2*(cos(pi/6)+i*sin(pi/6))
+rect(z)
+w=-3-2*i
+abs(w)
+arg(w)
+```
+@Algebrite.eval
+
+**Bemerkung 4.** Das Argument ist zumeist im *Bogenmaß* anzugeben oder wird im Bogenmaß berechnet. Dies ist eine reelle Zahl. Hierbei gilt die folgende Umrechnung zwischen Bogen- und Gradmaß: $$
+  \frac{b_\varphi}{2\pi}=\frac{\varphi}{360^\circ}\quad\leftrightarrow\quad
+  b_\varphi==\frac{\varphi}{360^\circ}\cdot 2\pi\quad\leftrightarrow\quad
+  \varphi=\frac{b_\varphi}{2\pi}\cdot 360^\circ
+$$ wenn $b_\varphi$ den Winkel im Boden- und $\varphi$ den Winkel im Gradmaß bezeichnen.
+
+Werden im Gegensatz zu Definition 6 Winkel $\varphi\in\mathbb{R}$ zugelassen, so legen $(r,\varphi)$ und $(r,\varphi+2k\pi)$ mit $k\in\mathbb{Z}$ dieselbe komplexe zahl $z$ fest, da nach [Additionstheoremen](https://de.wikipedia.org/wiki/Formelsammlung_Trigonometrie#Additionstheoreme) für Sinus und Kosinus $$
+  \sin{(\varphi+2k\pi)}=\cos{\varphi}\cdot\sin{(2k\pi)}+\sin{\varphi}\cdot\cos{(2k\pi)}=\sin{\varphi}\quad\text{und}\quad
+  \cos{(\varphi+2k\pi)}=\cos{\varphi}\cdot\cos{(2k\pi)}-\sin{\varphi}\cdot\sin{(2k\pi)}=\cos{\varphi}
+$$ Der Winkel $\varphi$ mit $\varphi\in(-\pi,\pi]$ wird *Hauptwert* des Arguments von $z$ genannt.
+
+**Beispiel 6.** Umzurechnen sind kartesische - und Polardarstellung einer komplexen Zahl.
+
+1. Gegeben ist die Zahl $z_1=3+i\cdot \sqrt{3}$, d. h. in kartesischer Form. Es lassen sich aus dieser Real- und Imaginärteil der komplexen Zahl ablesen $$
+  a_1=3\quad\text{und}\quad b_1=\sqrt{3}
+$$ Hieraus berechnen sich schrittweise deren Betrag $$
+  |z_1|=\sqrt{a_1^2+b_1^2}=\sqrt{3^2+\sqrt{3}^2}=\sqrt{12}=2\cdot\sqrt{3}
+$$ und das (Haupt-) Argument $$
+  \varphi_1=\arccos{\left(\frac{3}{2\cdot\sqrt{3}}\right)}=\arccos{\left(\frac{1}{2}\cdot\sqrt{3}\right)}=\frac{1}{6}\cdot\pi
+$$ Hieraus ergibt sich die Polardarstellung von $z_1$ $$
+  z_1=2\cdot\sqrt{3}\cdot\left(\cos{\left(\frac{\pi}{6}\right)}+i\cdot\sin{\left(\frac{\pi}{6}\right)}\right)
+$$
+2. Seien nun umgekehrt die Polarkoordinaten einer komplexen Zahl $z_2$ gegeben $$
+  \varphi_2=\frac{\pi}{4}\quad\text{und}\quad r_2=|z_2|=\frac{1}{4}
+$$ Hieraus lassen sich unmittelbar Rel- und Imaginärteil der komplexen Zahl berechnen $$
+  a_2=\operatorname{Re}{z_2}=r_2\cdot\cos{\varphi_2}=\frac{1}{8}\cdot\sqrt{2}\,,\quad
+  b_2=\operatorname{Im}{z_2}=r_2\cdot\sin{\varphi_2}=\frac{1}{8}\cdot\sqrt{2}
+$$ woraus sich $z_2$ in kartesischer Form ergibt $$
+  z_2=\frac{1}{8}\cdot\sqrt{2}+i\cdot\frac{1}{8}\cdot\sqrt{2}
+$$
+
+Im nachstehendem Video wird die Darstellung der komplex konjugierten Zahl in der Polarform hergeleitet.
+
+!?[Darstellung-komplex](https://www.youtube.com/watch?v=ZPh2ZFVAZ_w&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=10 "Daniel Jung, Polarform der komplex konjugierten Zahl")
+
+
+Grundrechenoperationen
+===
+
+Auf der Menge der komplexen Zahlen lassen sich die Grundrechenoperationen definieren. Dies erfolgt mit der Maßgabe, dass die für das Rechnen in $\mathbb{R}$ bekannten Rechengesetze auch für das Rechnen mit komplexen Zahlen gelten.
+
+>**Definition 7.**  Gegeben seien zwei beliebige komplexe Zahlen $z_k=a_k+{i} b_k$ mit $a_k=\operatorname{Re}{z_k}$, $b_k=\operatorname{Im}{z_k}$, $i^2=-1$ und $k\in\{1,2\}$. Es sind die Grundrechenoperationen erklärt:
+>
+>1. *Addition* $$
+  z_1\oplus z_2=(a_1+i\cdot b_1)\oplus(a_2+i\cdot b_2):=(a_1+a_2)+i\cdot(b_1+b_2) $$
+>2. *Subtraktion* $$
+  z_1\ominus z_2=(a_1+i\cdot b_1)\ominus(a_2+i\cdot b_2):=(a_1-a_2)+i\cdot (b_1-b_2) $$
+>3. *Multiplikation* $$
+  z_1\odot z_2=(a_1+i\cdot b_1)\odot(a_2+i\cdot b_2):=(a_1\cdot a_2-b_1\cdot b_2)+i\cdot (a_1\cdot b_2+b_1\cdot a_2) $$
+>4. *Division* (vorausgesetzt $z_2\not=0$) $$
+  z_1\oslash z_2=(a_1+i\cdot b_1)\oslash(a_2+i\cdot b_2):=\frac{a_1\cdot a_2+b_1\cdot b_2}{a_2^2+b_2^2}+i\cdot \frac{b_1\cdot a_2-a_1\cdot b_2}{a_2^2+b_2^2} $$
+>
+> Besteht nicht die Gefahr einer Verwechslung, sollen im Folgenden die für $\mathbb{R}$ gebräuchlichen Rechenzeichen auch für das Rechnen in $\mathbb{C}$ verwendet werden.
+
+**Bemerkung 5.** Die Grundrechenoperationen in $\mathbb{C}$ werden auf das Rechnen in $\mathbb{R}$ zurückgeführt. Dort geltende Rechenregeln wie Kommutativität, Assoziativität und Distributivität lassen sich auf das Rechnen in $\mathbb{C}$ übertragen und lassen sich forthin nutzen.
+
+In den nachstehenden Videos werden die Grundrechenoperationen an Beispielen erläutert.
+
+!?[Rechnen-komplex](https://www.youtube.com/watch?v=Ea4BjgzMIno&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=5 "Daniel Jung, Rechnen mit komplexen Zahlen, Summe, Differenz, Produkt")
+
+!?[Division-komplex](https://www.youtube.com/watch?v=knJiK08sWf0&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=4 "Daniel Jung, Rechnen mit komplexen Zahlen, Quotient, Teilen mit Reellmachen des Nenners")
+
+>**Proposition 1.** Für jede Zahl $z\in\mathbb{C}^\times$ mit $z=a+i\cdot b$ gemäß obiger Definition existiert jeweils genau eine komplexe Zahl, für die gilt:
+>
+>1. $(-z)+z=0$. Die Zahl $-z$ wird zu $z$ invers bezüglich der Addition genannt und berechnet sich $$
+  -z=-a-i\cdot b
+$$
+>2. $z^{-1}\cdot z=1$. Die Zahl $z^{-1}$ heißt zu $z$ invers bezüglich der Multiplikation und berechnet sich $$
+  z^{-1}=\frac{1}{z}=\frac{a}{a^2+b^2}-i\cdot\frac{b}{a^2+b^2}
+$$
+
+**Beweis.** Mit den Eingeführten Operationen folgt unmittelbar:
+
+1. $z+(-z)=(a+i\cdot b)+(-a-i\cdot b)=(a+(-a))+i\cdot(b+(-b))=0+i\cdot 0=0$
+2. Analog folgt für das Produkt $$
+  z\cdot z^{-1}=(a+i\cdot b)\cdot \left(\frac{a}{a^2+b^2}-i\cdot\frac{b}{a^2+b^2}\right)
+  =\left(\frac{a\cdot a}{a^2+b^2}-\frac{-b\cdot b}{a^2+b^2}\right)+i\cdot\left(\frac{a\cdot b}{a^2+b^2}+\frac{a\cdot (-b)}{a^2+b^2}\right)
+  =1+i\cdot 0
+  =1
+$$
+
+$\square$
+
+Addition und Multiplikation komplexer Zahlen lassen sich in der Gaußschen Zahlenebene geometrisch interpretieren.
+
+1. Der **Summe** $z_1+z_2$ entspricht die dem Ursprung des Koordinatensystems gegenüberliegende Ecke im von $0$, $z_1$ und $z_2$ aufgespannten Parallelogramm. Für die Bildung der Summe ist das Rechnen in der kartesischen Form sinnvoll.
+2. Für die Polardarstellung des **Produktes** $z_1\cdot z_2$ erhält man $$
+  |z_1\cdot z_2|=|z_1|\cdot |z_2|\quad\text{und}\quad
+  \varphi_{z_1\cdot z_2}=\varphi_{z_1}+\varphi_{z_2}
+$$ d. h. es sind "Beträge zu multiplizieren und Argumente zu addieren." Denn es gilt mit $$
+  z_1=r_1\cdot(\cos{\varphi_1}+i\cdot\sin{\varphi_1})\,,\quad
+  z_2=r_2\cdot(\cos{\varphi_2}+i\cdot\sin{\varphi_2})
+$$ für das Produkt unter Nutzung der [Additionstheoreme](https://de.wikipedia.org/wiki/Formelsammlung_Trigonometrie#Additionstheoreme) für Sinus und Kosinus $$
+  \begin{split}
+    z_1\cdot z_2 & = (r_1\cdot r_2)\cdot(\cos{\varphi_1}+i\cdot\sin{\varphi_1})\cdot(\cos{\varphi_2}+i\cdot\sin{\varphi_2}) \\
+    & = (r_1\cdot r_2)\cdot(\cos{\varphi_1}\cdot\cos{\varphi_2}+i^2\cdot\sin{\varphi_1}\cdot\sin{\varphi_2}+i\cdot\sin{\varphi_1}\cdot\cos{\varphi_2}+i\cdot\cos{\varphi_1}\cdot\sin{\varphi_2}) \\
+    & = (r_1\cdot r_2)\cdot(\cos{(\varphi_1+\varphi_2)}+i\cdot\sin{(\varphi_1+\varphi_2)})
+  \end{split}
+$$ Hierfür erweist sich die Darstellung in Polarform als günstig.
+
+In den nachstehenden Abbildungen sind beide Operationen dargestellt.
+
+![Summe](img/mat-bild-14.png "_Fig._ Die Summe zweier komplexer Zahlen entspricht in der Gaußschen Zahlenebene der dem Ursprung des Koordinatensystems gegenüberliegenden Ecke im von $0$, $z_1$ und $z_2$ aufgespannten Parallelogramm. ")
+
+![Produkt](img/mat-bild-15.png "_Fig._ Für das Produkt zweier komplexer Zahlen berechnet man dessen Betrag als Produkt der Beträge der Faktoren, die Summe der Argumente der Faktoren ergibt das Argument des Produktes. ")
+
+**Beispiel 7.** Gegeben sind die beiden Zahlen $$
+  z_1=\frac{3}{2}\cdot\left(\cos{\left(\frac{\pi}{3}\right)}+i\cdot\sin{\left(\frac{\pi}{3}\right)}\right)\quad\text{und}\quad
+  z_2=2\cdot\left(\cos{\left(\frac{\pi}{6}\right)}+i\cdot\sin{\left(\frac{\pi}{6}\right)}\right)
+$$ Das Produkt der Beträge von $z_1$ und $z_2$ ergibt $|z_1|\cdot|z_2|=\frac{3}{2}\cdot 2=3$, die Argumente addieren sich zu $$
+  \frac{\pi}{3}+\frac{\pi}{6}=\frac{\pi}{2}
+$$ Hieraus ergibt sich das Produkt $$
+  z_1\cdot z_2=2\cdot\left(\cos{\left(\frac{\pi}{2}\right)}+i\cdot\sin{\left(\frac{\pi}{2}\right)}\right)
+$$
+
+Mit Hilfe der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lässt sich das Verfahren zur Bildung des Produktes zweier komplexer Zahlen interaktiv prüfen. Der Befehl `float(x)` gibt einen rationalen Näherungswert (Gleitkommazahl) einer reellen Zahl $x$ zurück.
+
+```javascript
+z=3/2*(cos(pi/3)+i*sin(pi/3))
+w=2*(cos(pi/6)+i*sin(pi/6))
+abs(z*w)
+float(arg(z*w))
+```
+@Algebrite.eval
+
+**Bemerkung 6.** Durch Bilden der Summe sind Argumente $\varphi=\varphi_1+\varphi_2$ mit $\varphi\in\mathbb{R}$ außerhalb des Grundintervalls möglich. Für das Hauptargument gilt $\varphi+2k\cdot\pi\in(-\pi,\pi]$ für ein $k\in\mathbb{Z}$.
+
+Die geometrischen Interpretationen von Summe und Produkt lassen sich zur Beschreibung von Bewegungen der Ebene anwenden.
+
+1. Ebene *Translationen* (Schiebungen) lassen sich durch Addition komplexer Zahlen beschreiben: Bezeichnet $P(a,b)\leftrightarrow z=a+i\cdot b$ einen Punkt der Ebene in allgemeiner Lage sowie $v=(x,y)\in\mathbb{R}^2\leftrightarrow z_v=x+i\cdot y$ eine beliebige, aber feste Richtung, so beschreibt $$
+  z\mapsto z^\prime=z+z_v
+$$ die Translation von $z$ (in Richtung $z_v$) nach $z^\prime$. Soll $z$ stetig in die feste Richtung $v$ verschoben werden, so kann beispielsweise $$
+  t\in[0,1]\mapsto z_v(t)=t\cdot (x+i\cdot y)
+$$ verwendet werden.
+2. Ebene *Drehungen* um den Koordinatenursprung $O(0,0)$ mit Winkel $\varphi$ lassen sich durch Multiplikation mit einer komplexen Zahl darstellen. Bezeichnet $P(r,\alpha)\leftrightarrow z=r\cdot(\cos{\alpha}+i\cdot\sin{\alpha})$ wie zuvor einen Punkt der Ebene in allgemeiner Lage sowie $z_\varphi=\cos{\varphi}+i\cdot\sin{\varphi}$ eine zum Drehwinkel $\varphi$ gebildete komplexe Zahl, so beschreibt $$
+  z\mapsto z^\prime=z\cdot z_\varphi=r\cdot 1\cdot(\cos{(\alpha+\varphi)}+i\cdot\sin{(\alpha+\varphi)})
+$$ die Drehung von $z$ um $0$ nach $z^\prime$. Für ein kontinuierliches Drehen ist der Drehwinkel $$
+  \phi\in[0,\varphi]\mapsto z_\phi=\cos{\phi}+i\cdot\sin{\phi}
+$$ zu verwenden.
+
+**Beispiel 8.** Ebene Rollkurven lassen sich als Ortskurven $c$ von Punkten $P$ erzeugen, die fest mit einer entlang einer Kurve $k_0$ abrollenden Kreisscheibe $k$ verbunden sind.
+
+Ein interaktives Beispiel von Rollkurven, die durch Abrollen eines Kreises entlang einer Geraden entstehen, findet sich unter [Zykloiden](https://www.geogebra.org/m/Vjp9xEKc). Eine Parametrisierung dieser Ortkurven kann unter Benutzung komplexer Zahlen erfolgen. Im Beispiel gelten:
+
+1. Der Punkt $P$ sei auf der Kreisscheibe fest vorgegeben. Liegt $k$ zu Beginn des Bewegungsvorgangs mit $M$ im Koordinatenursprung in der Gaußschen Ebene, so sind $$
+  M=O\;\leftrightarrow\; z_M=0\quad \text{sowie}\quad z_P=\lambda\cdot i
+$$ mit festem $\lambda<0$ und $|\lambda|=\overline{PM}$.
+2. Das kontinuierliche Drehen von $k$ um den Mittelpunkt $M$ lässt sich durch Multiplikation von $z_P$ mit $$
+  \varphi\in[0,\infty)\mapsto z_\varphi=\cos{(-\varphi)}+i\cdot\sin{(-\varphi)}
+$$ modellieren. (Das Drehen erfolgt hier im Uhrzeigersinn.) Hieraus ergibt sich $$
+  \varphi\mapsto z^\prime(\varphi)=z_P\cdot z_\varphi=\lambda\cdot i\cdot\left(\cos{(-\varphi)}+i\cdot\sin{(-\varphi)}\right)=
+  \lambda\cdot\sin{\varphi}+i\cdot \lambda\cdot\cos{\varphi}
+$$
+3. Der Kreis $k$ soll kontinuierlich entlang einer Geraden $k_0$ rollen. Hierdurch bewegt sich $M$ im Abstand $r>0$ zu $k_0$. Seine Bewegung ist beschrieben durch $z_M=\varphi\cdot r$ und somit $$
+  \varphi\in[0,\infty)\mapsto z^{\prime\prime}(\varphi)=z^\prime+z_M=
+  (\lambda\cdot\sin{\varphi}+\varphi\cdot r)+i\cdot \lambda\cdot\cos{\varphi}
+$$ Beide Teilbewegungen überlagern sich ungestört.[^3]
+
+
+Betrag einer komplexen Zahl
+===
+
+
+>**Proposition 2.** Für den Betrag beliebiger komplexer Zahlen $z$, beziehungsweise $z_1$ beziehungsweise $z_2$ gelten:
+>
+>1. $|z|\in\mathbb{R}$ mit $|z|\geq0$. Speziell ist $|z|=0\leftrightarrow z=0$
+>2. $|z|^2=z\cdot\bar{z}$
+>3. $|z_1\cdot z_2|=|z_1|\cdot|z_2|$
+>4. Dreiecksungleichung $|z_1+z_2|\leq|z_1|+|z_2|$
+
+**Beweis.** Für den Nachweis der Eigenschaften wird die komplexe Zahl $z=a+i\cdot b$ mit $a=\operatorname{Re}{z}$, $b=\operatorname{Im}{z}$ und $i^2=-1$ betrachtet. Entsprechende Bezeichnungen werden für $z_1$ und $z_2$ verwendet.
+
+1. Die erste Eigenschaft folgt unmittelbar aus der Definition des Betrages $$
+  |z|=\sqrt{a^2+b^2}\geq0\quad\text{und}\quad \sqrt{a^2+b^2}=0\;\leftrightarrow\; a=b=0
+$$
+2. Für das Produkt $z\cdot \bar{z}$ einer Zahl mit ihrer komplexkonjugierten Zahl ergibt sich $$
+  z\cdot \bar{z}=(a+i\cdot b)\cdot (a-i\cdot b)=a^2+b^2+i\cdot(ab-ba)=a^2+b^2=|z|^2
+$$
+3. Mit der Eigenschaft 2 folgt für das Produkt schrittweise $$
+  |z_1\cdot z_2|^2=(z_1\cdot z_2)\cdot\overline{(z_1\cdot z_2)}=
+  (z_1\cdot z_2)\cdot(\bar{z}_1\cdot \bar{z}_2)=
+  z_1\cdot \bar{z}_1\cdot z_2\cdot\bar{z}_2=
+  |z_1|^2\cdot|z_2|^2
+$$ Die hierin verwendete Eigenschaft $\overline{z_1\cdot z_2}=\bar{z}_1\cdot\bar{z}_2$ lässt sich direkt aus der Definition des Produktes komplexer Zahlen ableiten. Ihr Nachweis ist eine Übungsaufgabe. Unter Benutzung von Eigenschaft 1 lässt sich hieraus Eigenschaft 3 ableiten.
+4. Mit der Eigenschaft 2 folgt ebenso für die Summe $$
+  \begin{split}
+    |z_1+z_2|^2 & = (z_1+z_2)\cdot\overline{(z_1+z_2)} = (z_1+z_2)\cdot{(\bar{z}_1+\bar{z}_2)} \\
+    & = z_1\cdot\bar{z}_1+z_2\cdot\bar{z}_2+z_1\cdot\bar{z}_2+z_2\cdot\bar{z}_1=
+    |z_1|^2+|z_2|^2+z_1\cdot\bar{z}_2+\overline{z_1\cdot\bar{z}_2}
+  \end{split}
+$$ Hierin ist die Teilsumme $z_1\cdot\bar{z}_2+\overline{z_1\cdot\bar{z}_2}$ reell und es gilt unter Verwendung von Eigenschaft 3 $$
+  z_1\cdot\bar{z}_2+\overline{z_1\cdot\bar{z}_2}=2\cdot\operatorname{Re}{(z_1\cdot \bar{z}_2)}\leq 2\cdot|z_1\cdot \bar{z}_2|=2\cdot|z_1|\cdot|\bar{z}_2|=2\cdot|z_1|\cdot|z_2|
+$$ Die hierin verwendete Eigenschaft $\overline{z_1+ z_2}=\bar{z}_1+\bar{z}_2$ lässt sich direkt aus der Definition der Summe komplexer Zahlen ableiten. Ihr Nachweis ist eine Übungsaufgabe. Damit folgt unter Benutzung von 1. und der strengen Monotonie der reellen Quadtratwurzelfunktion $$
+  |z_1+z_2|^2\leq |z_1|^2+|z_2|^2+2\cdot|z_1|\cdot|z_2|=\left(|z_1|+|z_2|\right)^2\quad\leftrightarrow\quad
+  |z_1+z_2|\leq |z_1|+|z_2|
+$$
+
+$\square$
+
+Im nachstehenden Video wird die Eigenschaft 2 aus Proposition 2 erläutert.
+
+!?[Betrag-komplex](https://www.youtube.com/watch?v=stftUv1NZp4&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=11 "Daniel Jung, Quadrat des Betrages einer komplexen Zahl $z$ als Produkt von $z$ mit deren komplex konjugierter Zahl.")
+
+**Beispiel 9.** Die Teilmenge komplexer Zahlen $$
+  M=\left\{z\in\mathbb{C}\,||z-z_1|<\epsilon\,,\epsilon>0\,,z_1\in\mathbb{C}\right\}
+$$ ist das Innere einer Kreisscheibe in der Gaußschen Zahlenebene um den Punkt $z_1$ mit Radius $\epsilon>0$, die $\epsilon$_Umgebung von $z_1$ genannt wird.
+
+
+Potenzieren und Radizieren komplexer Zahlen
+===
+
+
+Das Potenzieren komplexer Zahlen mit natürlichen Exponenten lässt sich mithilfe der Multiplikation erklären. Seien $n\in\mathbb{N}^\times$ und $z=a+i\cdot b$ wie in Definition 3. Dann ist $$
+  z^n:=z\cdot z\cdot z\cdot ...\cdot z
+$$ wobei das Produkt auf der rechten Seite $n$-mal den Faktor $n$ enthält.
+
+**Beispiel 10.** Für $z=i$ mit $i^2=-1$ gelten $i^3=-i$, $i^4=1$, $i^5=i$ usw.
+
+Allgemein gilt: $$
+  i^n=\left\{\begin{array}{rcl}
+  1 & \text{für} & n=4\cdot k,\; k\in\mathbb{N}^\times \\
+  i & \text{für} & n=4\cdot k+1,\; k\in\mathbb{N} \\
+  -1 & \text{für} & n=4\cdot k+2,\; k\in\mathbb{N} \\
+  -i & \text{für} & n=4\cdot k+3,\; k\in\mathbb{N}
+  \end{array}\right.
+$$ Die Allgemeingültigkeit der Aussage erfolgt in zwei Schritten:
+
+1. Für den Fall $n=4\cdot k$ mit vollständiger Induktion.
+* *Induktionsanfang.* Für $k=1$ ist $n=4\cdot 1=4$ und $i^4=1$ (wahr).
+* *Induktionsschluss.* Für $k\in\mathbb{N}^\times$ gelte $i^{4\cdot k}=1$. Dann gilt für den Nachfolger $k+1$ $$
+  i^{4\cdot (k+1)}=i^{4\cdot k+4}=i^{4\cdot k}\cdot i^4=i^{4\cdot k}=1
+$$ (wahre Aussage) Damit ist $i^{4\cdot k}=1$ für alle $k\in\mathbb{N}^\times$.
+2. Unter Verwendung der Nachfolgerfunktion $S:n\mapsto S(n)=n+1$ folgt außerdem $$
+  i^{4\cdot k+1}=i^{4\cdot k}\cdot i^1=i\,,\quad
+  i^{4\cdot k+2}=i^{4\cdot k}\cdot i^2=-1\quad\text{sowie}\quad
+  i^{4\cdot k+3}=i^{4\cdot k}\cdot i^3=-i
+$$ für alle $k\in\mathbb{N}^\times$.
+
+$\square$
+
+Die vorstehende Aussage zu Potenzen von $i$ mit natürlichem Exponenten ist im folgenden Video von erläutert. Hierbei wird Polardarstellung $$
+  i=1\cdot(\cos{90^\circ}+i\cdot\sin{90^\circ})
+$$ benutzt, wonach die (wiederholte) Multiplikation mit $i$ eine Drehung um den Ursprung des Koordinatensystems mit Drehwinkel $90^\circ$ bewirkt.
+
+!?[Potenz-komplex](https://www.youtube.com/watch?v=UbhXdiUwaP8&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=6 "Daniel Jung, Komplexe Zahlen, Potenzen von $i$ verdeutlicht am Einheitskreis")
+
+>**Satz 3.** Es ist $z\in\mathbb{C}$ mit $z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})$ beliebig gegeben. Für die $n$-te Potenz gilt $$
+  z^n=r^n\cdot(\cos{(n\cdot\varphi)}+i\cdot\sin{(n\cdot\varphi)})
+$$ mit $n\in\mathbb{N}^\times$.
+
+**Beweis.** Der Nachweis lässt sich unmittelbar unter Nutzung der Rechenregeln für die Multiplikation komplexer Zahlen sowie der Potenzgesetze führen und wird als Übungsaufgabe gegeben.
+
+**Beispiel 11.** Gegeben ist die komplexe Zahl $z=-\frac{3}{2}+\frac{1}{2}\cdot\sqrt{3}\cdot i$, worin $i^2=-1$. Gesucht ist die Potenz $z^6$.
+
+1. Zunächst wird $z$ in Polarform dargestellt. Für den Betrag von $z$ ergibt sich $$
+  r=|z|=\sqrt{\left(-\frac{3}{2}\right)^2+\left(\frac{1}{2}\cdot\sqrt{3}\right)^2}=\sqrt{3}
+$$ woraus sich das Argument von $z$ unter Beachtung $\operatorname{Im}{z}>0$ berechnet $$
+  \varphi=\arccos{\left(\frac{-\frac{3}{2}}{\sqrt{3}}\right)}=\arccos{\left(-\frac{\sqrt{3}}{2}\right)}=\frac{5}{6}\cdot\pi
+$$  $z$ besitzt damit die Polarform $$
+  z=\sqrt{3}\cdot\left(\cos{\left(\frac{5}{6}\cdot\pi\right)}+i\cdot\sin{\left(\frac{5}{6}\cdot\pi\right)}\right)
+$$
+2. Nach dem vorstehenden Satz folgt für die zu berechnende Potenz $$
+  z^6=\left(\sqrt{3}\cdot\left(\cos{\left(\frac{5}{6}\cdot\pi\right)}+i\cdot\sin{\left(\frac{5}{6}\cdot\pi\right)}\right)\right)^6=
+  \sqrt{3}^6\cdot\left(\cos{\left(6\cdot\frac{5}{6}\cdot\pi\right)}+i\cdot\sin{\left(6\cdot\frac{5}{6}\cdot\pi\right)}\right)=
+  27\cdot\left(\cos{\pi}+i\cdot\sin{\pi}\right)=-27
+$$ Beim vorletzten Schritt wurde die Periodizität von Sinus und Kosinus genutzt, um in das Hauptargument $\phi\in(-\pi,\pi]$ umzurechnen. Vergleiche Bemerkung 6.
+
+Aus dem vorstehenden Satz ergibt sich durch Spezifikation von $r=|z|=1$ die nachstehende Formel.
+
+>**Satz 4.** Für $\varphi\in\mathbb{R}$ und $n\in\mathbb{N}^\times$ gilt $$
+  \left(\cos{\varphi}+i\cdot\sin{\varphi}\right)^n=\cos{(n\cdot\varphi)}+i\cdot\sin{(n\cdot\varphi)}
+$$ (*Moivre*sche Formel)
+
+Eine Umkehrung des Potenzierens ist das Radizieren: In einer Gleichung $w^n=z$ ist dabei bei gegebenem Exponenten $n$ und gegebenem Potenzwert $z$ die Basis $w$ der Potenz gesucht.
+
+>**Definition 8.** Es seien $z\in\mathbb{C}$ und $n\in\mathbb{N}$ mit $n\geq 2$ beliebig gegeben. Jede komplexe Zahl $w$ mit $w^n=z$ heißt eine [komplexe n-te Wurzel](https://de.wikipedia.org/wiki/Wurzel_%28Mathematik%29#Wurzeln_aus_komplexen_Zahlen) der Zahl $z$.[^4]
+
+>**Satz 5.** Es seien $z\in\mathbb{C}$ mit der Polardarstellung $$
+  z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})\,,\quad r\in(0,\infty),\;\varphi\in(-\pi,\pi]
+$$ und $n\in\mathbb{N}$ mit $n\geq 2$ beliebig gegeben. Die komplexe Zahl $$
+  w_k=\sqrt[n]{r}\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right)
+$$ ist für jeden Indexwert $k\in\{0,1,...,n-1\}$ eine komplexe $n$-te Wurzel von $z$. Der Ausdruck $\sqrt[n]{r}$ in der vorstehenden Formel bezeichnet die eindeutig bestimmte reelle $n$-te Wurzel von $r$.
+
+**Beweis.** Für jedes $k$ gilt nach dem Gesetz zum Potenzieren eines Produktes sowie Satz 3 $$
+  \begin{split}
+  (w_k)^n & =\left[\sqrt[n]{r}\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right)\right]^n = \left(\sqrt[n]{r}\right)^n\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right)^n \\
+  & = r\cdot \left(\cos{\left(n\cdot\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(n\cdot\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right) \\
+  & = r\cdot \left(\cos{\left(\varphi+2\cdot k\cdot\pi\right)}+i\cdot\sin{\left(\varphi+2\cdot k\cdot\pi\right)}\right)
+  \end{split}
+$$ Unter Benutzung der Periodizität von Sinus und Kosinus $$
+  \cos{\left(\varphi+2\cdot k\cdot\pi\right)}=\cos{\varphi}\quad\text{und}\quad \sin{\left(\varphi+2\cdot k\cdot\pi\right)}=\sin{\varphi}
+$$ folgt $(w_k)^n=z$ für jede Wahl $k$.
+
+$\square$
+
+**Beispiel 12.** Zu berechnen sind
+
+1. die $4$-ten komplexen Wurzeln der Zahl $z=1$, d. h. alle Lösungen der Gleichung $w^4=1$. Die rechte Seite lässt sich in Polarform darstellen $$
+  z=1=\cos{0}+i\sin{0}\quad\leftrightarrow\quad (r,\varphi)=(1,0)
+$$ Nach Einsetzen in die Formel für $w_k$ in Satz 5 ergeben sich unmittelbar $$
+  \begin{split}
+    w_0 & =\sqrt[4]{1}\cdot\left(\cos{\left(\frac{0}{4}\right)}+i\cdot\sin{\left(\frac{0}{4}\right)}\right)=1 \\
+    w_1 & =\sqrt[4]{1}\cdot\left(\cos{\left(\frac{0+2\cdot\pi}{4}\right)}+i\cdot\sin{\left(\frac{0+2\cdot\pi}{4}\right)}\right)=i \\
+    w_2 & =\sqrt[4]{1}\cdot\left(\cos{\left(\frac{0+2\cdot 2\cdot\pi}{4}\right)}+i\cdot\sin{\left(\frac{0+2\cdot 2\cdot\pi}{4}\right)}\right)=-1 \\
+    w_3 & =\sqrt[4]{1}\cdot\left(\cos{\left(\frac{0+2\cdot 3\cdot\pi}{4}\right)}+i\cdot\sin{\left(\frac{0+2\cdot 3\cdot\pi}{4}\right)}\right)=-i
+  \end{split}
+$$ Offensichtlich gelten $1^4=1$, $i^4=1$, $(-1)^4=1$ und $(-i)^4=(-1)^4\cdot i^4=1$.
+2. die $2$-ten komplexen Wurzeln der Zahl $z=-1$, d. h. alle Lösungen der Gleichung $w^2=-1$. Die rechte Seite lässt sich in Polarform darstellen $$
+  z=1=\cos{\pi}+i\sin{\pi}\quad\leftrightarrow\quad (r,\varphi)=(1,\pi)
+$$ Nach Einsetzen in die Formel für $w_k$ in Satz 5 ergeben sich unmittelbar $$
+  \begin{split}
+    w_0 & =\sqrt{1}\cdot\left(\cos{\left(\frac{\pi}{2}\right)}+i\cdot\sin{\left(\frac{\pi}{2}\right)}\right)=i \\
+    w_1 & =\sqrt{1}\cdot\left(\cos{\left(\frac{\pi+2\cdot\pi}{2}\right)}+i\cdot\sin{\left(\frac{\pi+2\cdot\pi}{2}\right)}\right)=-i
+  \end{split}
+$$ $z=-1$ besitzt demnach zwar keine reelle Quadratwurzel, jedoch die beiden komplexen Wurzeln $\pm i$. Vergleiche Definition 1.
+3. die $3$-ten komplexen Wurzeln der Zahl $z=1+i$, d. h. alle Lösungen der Gleichung $w^3=1+i$. Die rechte Seite lässt sich in Polarform darstellen $$
+  z=\sqrt{5}\cdot\left(\cos{\left(\frac{\pi}{4}\right)}+i\sin{\left(\frac{\pi}{4}\right)}\right)\quad\leftrightarrow\quad (r,\varphi)=\left(\sqrt{5},\frac{\pi}{4}\right)
+$$ Nach Einsetzen in die Formel für $w_k$ in Satz 5 ergeben sich unmittelbar $$
+  \begin{split}
+    w_0 & =\sqrt[3]{\sqrt{5}}\cdot\left(\cos{\left(\frac{\frac{\pi}{4}}{3}\right)}+i\cdot\sin{\left(\frac{\frac{\pi}{4}}{3}\right)}\right)=\sqrt[6]{5}\cdot\left(\cos{\left(\frac{\pi}{12}\right)}+i\cdot\sin{\left(\frac{\pi}{12}\right)}\right) \\
+    w_1 & =\sqrt[3]{\sqrt{5}}\cdot\left(\cos{\left(\frac{\frac{\pi}{4}+2\cdot\pi}{3}\right)}+i\cdot\sin{\left(\frac{\frac{\pi}{4}+2\cdot\pi}{3}\right)}\right)=\sqrt[6]{5}\cdot\left(\cos{\left(\frac{3}{4}\cdot\pi\right)}+i\cdot\sin{\left(\frac{3}{4}\cdot\pi\right)}\right) \\
+    w_2 & =\sqrt[3]{\sqrt{5}}\cdot\left(\cos{\left(\frac{\frac{\pi}{4}+2\cdot 2\cdot\pi}{3}\right)}+i\cdot\sin{\left(\frac{\frac{\pi}{4}+2\cdot 2\cdot\pi}{3}\right)}\right)=\sqrt[6]{5}\cdot\left(\cos{\left(\frac{17}{12}\cdot\pi\right)}+i\cdot\sin{\left(\frac{17}{12}\cdot\pi\right)}\right)=\sqrt[6]{5}\cdot\left(\cos{\left(-\frac{7}{12}\cdot\pi\right)}+i\cdot\sin{\left(-\frac{7}{12}\cdot\pi\right)}\right)
+  \end{split}
+$$ Bei der Wurzel $w_2$ wurde der Hauptwert des Arguments $$
+  \frac{17}{12}\cdot\pi-2\pi=-\frac{7}{12}\cdot\pi\in(-\pi,\pi]
+$$ angegeben, vergleiche Bemerkung 4.
+
+Mit Hilfe der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lassen sich die komplexen $n$-ten Wurzeln einer komplexen Zahl als Lösungen einer Polynomgleichung $$
+  w^n=z\quad\leftrightarrow\quad p(w):=w^n-z=0
+$$ mit Hilfe des Befehls `roots(p(w),w)` beziehungsweise `nroots(p(w),w)` (numerisch) interaktiv berechnen. Das erste Argument zwischen den Klammern der Befehle gibt den Term $p(w)$ der impliziten Gleichungsdarstellung an, das zweite Argument die Variable, nach der die Gleichung gelöst werden soll.
+
+```javascript
+z=-1
+n=2
+roots(w^n-z,w)
+nroots(w^n-z,w)
+```
+@Algebrite.eval
+
+Im nachstehenden Video wird das Radizieren unter Verwendung der Exponentialdarstellung erläutert und an einem Beispiel erklärt. Den Zusammenhang zwischen der Exponentialdarstelung zur oben benutzten Polardarstellung erhält man durch den Übergang $$
+  z=\textcolor{purple}{r}\cdot\exp{(\textcolor{blue}{\varphi}\cdot i)}=\textcolor{purple}{r}\cdot{(\cos{\textcolor{blue}{\varphi}}+i\cdot\sin{\textcolor{blue}{\varphi}})}
+$$ mit Argument $\textcolor{blue}{\varphi}$ und Betrag $\textcolor{purple}{r}$.
+
+!?[Wurzel-komplex](https://www.youtube.com/watch?v=BKdqTn2iO4s "MathePeter, komplexe Zahlen radizieren.")
+
+**Bemerkung 7.** Im Gegensatz zur reellen $n$-ten Wurzel ist die komplexe $n$-te Wurzel nicht eindeutig bestimmt. Im Beispiel 12 wurden jeweils $n$ Wurzeln zum Wurzelexponenten $n$ berechnet. Wird $z$ in $(w_k)^n=z$ unter Verwendung des Hauptwertes des Argumentes $\varphi\in(-\pi,\pi]$ dargestellt, so heißt $w_0$ jeweils *Hauptwurzel* von $z$. Die Wurzelwerte $w_k$ mit $k\in\{1,2,...,n-1\}$ werden $k$-te *Nebenwurzel* von $z$ genannt.
+
+**Satz 6.** Alle komplexen $n$-ten Wurzeln einer Zahl $z\in\mathbb{C}$ liegen in der Gaußschen Zahlenebene auf einem Kreis um den Ursprung des Koordinatensystems und bilden die Eckpunkte eines regelmäßigen $n$-Ecks.
+
+**Beweis.** Die beiden Eigenschaften lassen sich direkt aus den Argumenten und Beträgen der Zahlen $w_k$ schließen. Nach Satz 5 und Beispiel 12 sind diese in Polarform gegeben.
+
+1. Nach Satz des Pythagoras gilt für jede Wahl $\varphi$: $$
+  |\cos{\varphi}+i\cdot\sin{\varphi}|=\sqrt{(\cos{\varphi})^2+(\sin{\varphi})^2}=1
+$$ Damit folgt für den Abstand von $w_k$ zum Koordinatenursprung des Koordinatensystems $$
+  |w_k|=\left|\sqrt[n]{r}\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right)\right|=\left|\sqrt[n]{r}\right|\cdot\left|\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right|=\left|\sqrt[n]{r}\right|
+$$ d. h. unabhängig von der Wahl $k\in\{0,1,...,n-1\}$.
+2. Für die Argumente zweier Wurzelwerte $w_j$ und $w_{j+1}$ mit $j\in\{0,1,...,n-1\}$ und $j+1\in\{0,1,...,n-1\}$[^5] gilt: $$
+  \left(\frac{\varphi+2\cdot (j+1)\cdot\pi}{n}\right)-\left(\frac{\varphi+2\cdot j\cdot\pi}{n}\right)=\frac{2\cdot\pi}{n}
+$$ d. h. die Differenz der Argumente zweier 'benachbarter' Wurzeln ist unabhängig von der Wahl $k\in\{0,1,...,n-1\}$. Der Vollwinkel wird in $n$ gleichgroße Winkel geteilt.
+
+$\square$
+
+**Bemerkung 8.** Vergleiche Beispiel 5: Die komplexen Zahlen $z_1$ bis $z_6$ erfüllen die Gleichung $z^6=2^{12}=4^6$, sind also als komplexe $6$-te Wurzeln von $4096$ auffassbar. Sie bilden ein regelmäßiges Sechseck, dessen Umkreis den Koordinatenursprung als Mittelpunkt besitzt und den Radius $4$.
+
+
+Sicher gewusst
+===
+
+
+Testen Sie Ihr Wissen in diesem Abschnitt und Beantworten Sie die folgenden Fragen.
+
+**Frage 1.** Stellen Sie die folgenden komplexen Zahlen durch Punkte in der Gaußschen Zahlenebene dar.
+
+![Gaußsche Zahlenebene 2](img/mat-bild-12.png "_Fig._ Darstellung komplexer Zahlen $z$ in der Gaußschen Zahlenebene. Jede Zahl $z$ wird durch einen vom Koordinatenursprung nach $z$ weisenden Zeiger dargestellt.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 900px;" -->
+
+[[$a$] [$b$] [$c$] [$d$] [$e$] [$f$] [$g$] [$h$]]
+[( ) ( ) ( ) ( ) ( ) ( ) ( ) (X)] $3-4\cdot i$
+[( ) ( ) (X) ( ) ( ) ( ) ( ) ( )] $-4+3\cdot i$
+[( ) ( ) ( ) ( ) (X) ( ) ( ) ( )] $3\cdot i$
+[( ) ( ) ( ) ( ) ( ) (X) ( ) ( )] $3+4\cdot i$
+[( ) ( ) ( ) ( ) ( ) ( ) (X) ( )] $-\frac{3}{2}\cdot i$
+[( ) (X) ( ) ( ) ( ) ( ) ( ) ( )] $\frac{3}{2}\left(\cos{\left(\frac{3}{4}\pi\right)}+\sin{\left(\frac{3}{4}\pi\right)}\cdot i\right)$
+[( ) ( ) ( ) (X) ( ) ( ) ( ) ( )] $\cos{\left(\frac{1}{3}\pi\right)}-\sin{\left(\frac{1}{3}\pi\right)}\cdot i$
+[(X) ( ) ( ) ( ) ( ) ( ) ( ) ( )] $\sin{\left(\frac{2}{3}\pi\right)}+\cos{\left(\frac{2}{3}\pi\right)}\cdot i$
+[[?]] Bestimmen Sie Real- und Imaginärteil der komplexen Zahlen und interpretieren Sie diese als kartesische Koordinaten dieser Zahl in der Gaußschen Zahlenebene. Vergleichen Sie ggf. mit der Polardarstellung (trigonometrischen -) der komplexen Zahl.
+****************************************
+
+Die komplexen Zahlen sind in der vorstehenden Abbildung dargestellt.
+
+1. Die ersten fünf komplexen Zahlen liegen in kartesischer Form vor. Es ergeben sich die nachstehenden Koordinatenpaare $$
+  3-4\cdot i\;\leftrightarrow\; (3,-4)\,,\quad
+  -4+3\cdot i\;\leftrightarrow\; (-4,3)\,,\quad
+  3\cdot i\;\leftrightarrow\; (0,3)\,,\quad
+  3+4\cdot i\;\leftrightarrow\; (3,4)\quad\text{und}\quad
+  -\frac{3}{2}\cdot i\;\leftrightarrow\; \left(0,-\frac{3}{2}\right)
+$$
+2. Die sechste Zahl ist in Polardarstellung gegeben $$ \frac{3}{2}\left(\cos{\left(\frac{3}{4}\pi\right)}+\sin{\left(\frac{3}{4}\pi\right)}\cdot i\right) $$ Der zur komplexen Zahl gehörende Zeiger schließt mit der reellen Achse einen Winkel $3/4\cdot\pi=135^\circ$ ein und besitzt die Länge $\frac{3}{2}$.
+3. Beachten Sie, dass die komplexe Zahl unter Benutzung der Symmetrie für Sinus bzw. Kosinus $$
+  \cos{\left(\frac{1}{3}\pi\right)}-\sin{\left(\frac{1}{3}\pi\right)}\cdot i=\cos{\left(-\frac{1}{3}\pi\right)}+\sin{\left(-\frac{1}{3}\pi\right)}\cdot i
+$$ in der Polarform angegeben werden kann: Argument und Betrag lassen sich hieraus direkt ablesen $$
+  \varphi=-\frac{1}{3}\cdot \pi\,,\quad r=|z|=1
+$$
+4. Analog lässt sich unter Beachtung der Quadrantenbeziehungen für Sinus und Kosinus $$
+  \begin{split}
+  \sin{\left(\frac{2}{3}\pi\right)}+\cos{\left(\frac{2}{3}\pi\right)}\cdot i  \\
+  & =\cos{\left(\frac{2}{3}\pi-\frac{1}{2}\pi\right)}-\sin{\left(\frac{2}{3}\pi-\frac{1}{2}\pi\right)}\cdot i  \\
+  & =\cos{\left(\frac{1}{6}\pi\right)}-\sin{\left(\frac{1}{6}\pi\right)}\cdot i  \\
+  & =\cos{\left(-\frac{1}{6}\pi\right)}+\sin{\left(-\frac{1}{6}\pi\right)}\cdot i
+  \end{split}
+$$ in Polardarstellung überführen. Alternativ lässt sich die letzte Zahl mit $-i$ multiplizieren, was einer Drehung dieser Zahl um den Koordinatenursprung mit Drehwinkel $-\frac{\pi}{2}$ entspricht.
+
+****************************************
+
+**Frage 2.** Zu berechnen sind die zu Zahlen $z\in\mathbb{C}$ bezüglich der Multiplikation inversen Zahlen $z^{-1}$. Diese sind in kartesischer Form anzugeben.
+
+[[$1+2\cdot i$] [$2+i$] [$1-2\cdot i$]]
+[( ) (X) ( )]  $\frac{2}{5}-\frac{1}{5}\cdot i$
+[(X) ( ) ( )]  $\frac{1}{5}-\frac{2}{5}\cdot i$
+[( ) ( ) (X)]  $\frac{1}{5}+\frac{2}{5}\cdot i$
+[[?]] Berechnen Sie die multiplikativ inverse Zahl mittels der in Proposition 1 nachgewiesenen Formel.
+****************************************
+
+1. $$(1+2\cdot i)^{-1}=\frac{1}{5}-i\cdot\frac{2}{5}$$
+2. $$(2+i)^{-1}=\frac{2}{5}-i\cdot\frac{1}{5}$$
+3. $$(1-2\cdot i)^{-1}=\frac{1}{5}+i\cdot\frac{2}{5}$$
+
+****************************************
+
+[^1]: Achtung: In der Wechselstromtechnik wird der Bezeichner $i$ als Formelzeichen für die Wechselstromstärke verwendet.
+
+[^2]: Der Ausdruck $D:=\frac{p^2}-4\cdot q$ wird [Diskriminante](https://de.wikipedia.org/wiki/Diskriminante) der quadratischen Gleichung genannt.
+
+[^3]: Die Lage von $P$ bezüglich $k$ kann beschrieben werden mithilfe des Parameters $\mu=\overline{PM}/r$, worin $M$ den Mittelpunkt und $r$ den Radius von $k$ bezeichnen. Es werden unterschieden: Für eine Lage $P$ mit $\mu=0\;\leftrightarrow\;\overline{PM}=0$ fällt die Kurve $c$ mit der Ortskurve von $M$ zusammen, die den festen Abstand $r$ von $k_0$ besitzt. Für eine Lage $P$ mit $ \mu\in(0,1)\;\leftrightarrow\;\overline{PM}\in(0,r)$ befindet sich der Punkt $P$ im Kreisinneren von $k$ und erzeugt eine sogenannte *verkürzte* Rollkurve $c$. Für eine Lage $P$ mit $\mu=1\;\leftrightarrow\;\overline{PM}=r$ erzeugt der Punkt $P\in k$ eine sogenannte *gewöhnliche* Rollkurve $c$. Für eine Lage $P$ mit $\mu>1\;\leftrightarrow\;\overline{PM}>r$ befindet sich der Punkt $P$ außerhalb von $k$ und erzeugt eine sogenannte *verlängerte* Rollkurve $c$.
+
+[^4]: Im Unterschied zu komplexen $n$-ten Wurzeln sind reelle $n$-ten Wurzeln nur für nichtnegative Radikanten erklärt. Die reelle $n$-te Wurzel einer Zahl ist per Definition nichtnegativ, woraus deren Eindeutigkeit folgt.
+
+[^5]: Hier wird [modulo](https://de.wikipedia.org/wiki/Division_mit_Rest) gerechnet: Für $j=n-1\operatorname{mod} n$ ist $j+1=n\operatorname{mod}n=0$.
+
+
+### Quaternionen
+
+Definition
+===
+
+
+Komplexe Zahlen bilden die Grundlage zur Beschreibung ebener Bewegungsvorgänge, die beispielsweise in ebenen [Koppelgetrieben](https://de.wikipedia.org/wiki/Koppelgetriebe) entstehen und Gegenstand der ebenen Kinematik beziehungsweise Robotik sind.
+
+Auf der Suche, Bewegungen des dreidimensionalen Raumes elegant beschreiben zu können, entdeckte [Sir William Rowan Hamilton](https://de.wikipedia.org/wiki/William_Rowan_Hamilton) im Jahre 1843 die nach ihm benannten Quaternionen. Sie entstehen aus den reellen Zahlen durch Hinzufügen dreier neuer Zahlen, in Anlehnung an die imaginäre Einheit bei den komplexen Zahlen $i$, $j$ und $k$ genannt. Vergleiche Abschnitt [Komplexe Zahlen](#Komplexe-Zahlen).
+
+Hier soll ein kurzer - in weiten Teilen unvollständiger - Einblick in diesen Zahlbereich gegeben werden, dessen alleiniger Fokus auf der Beschreibung von Drehungen und Schiebungen des dreidimensionalen Raumes liegt.
+
+>**Definition 1.** Eine [Quaternion](https://de.wikipedia.org/wiki/Quaternion) (engl.: quaternion) ist ein Ausdruck der Form $$
+  Q=a+i\cdot b+j\cdot c+k\cdot d
+$$ mit reellen Koeffizienten $a$, $b$, $c$ und $d$ und den Multiplikationsregeln
+>
+><!-- data-type="none" -->
+> | | $i$ | $j$ | $k$ |
+>| :--------- | :--------- | :--------- | :--------- |
+>| $i$  | $-1$ | $k$ | $-j$ |
+>| $j$  | $-k$ | $-1$ | $i$ |
+>| $k$  | $j$ | $-i$ | $-1$ |
+>
+> Die darin auftretende Zahl $a$ wird als *Realteil* von $Q$ bezeichnet, während die anderen Koeffizienten $(b,c,d)$ den *Imaginärraum* von $Q$ bilden.
+>
+> Die Menge aller Quaternionen wird mit $$
+  \mathbb{H}=\left\{a+i\cdot b+j\cdot c+k\cdot d\,|\, (a,b,c,d)\in\mathbb{R}^4\,\wedge\,i^2=j^2=k^2=-1\;\wedge\;i\cdot j\cdot k=-1\right\}
+$$ angegeben.[^1]
+
+
+Rechenoperationen
+===
+
+
+Die Multiplikation der quaternionalen Einheiten $i$, $j$ und $k$ ist assoziativ. Hieraus folgt z. B. $$
+  i\cdot j\cdot k=-1\quad\leftrightarrow\quad \textcolor{purple}{i}\cdot(i\cdot j\cdot k)=(i^2)\cdot j\cdot k=-j\cdot k=-\textcolor{purple}{i}
+$$ ebenso die restlichen Multiplikationsregeln aus Definition 1.
+
+<!-- style="background-color: lightgray;"-->
+>Es seien zwei Quaternionen $Q_m=a_m+b_m\,{i}+c_m\,{j}+d_m\,{k}\in\mathbb{H}$ mit $m\in\{1,2\}$ gemäß Definition 1 gegeben. Es sind die folgenden Operationen erklärt:
+>
+>1. Die **Addition** von $Q_1$ und $Q_2$ erfolgt komponentenweise mit $$
+  Q_1+Q_2=(a_1+a_2)+(b_1+b_2){i}+(c_1+c_2){j}+(d_1+d_2){k}
+$$
+>2. Die **Multiplikation** von $Q_1$ und $Q_2$ ist erklärt durch $$
+  \begin{split}
+    Q_1\cdot Q_2 & =\left(a_1a_2-b_1b_2-c_1c_2-d_1d_2\right) + \left(a_1b_2+b_1a_2+c_1d_2-d_1c_2\right){i} \\
+    & + \left(a_1c_2+c_1a_2+d_1b_2-b_1d_2\right){j} + \left(a_1d_2+d_1a_2+b_1c_2-c_1b_2\right){k} \\
+  \end{split}
+$$ Dieses Produkt erhält man durch Ausmultiplizieren der Klammern unter Benutzung der Produktregeln in Definition 1.
+
+**Beispiel 1.** Gegeben sind die Quaternionen $Q_1=1+j$ und $Q_2=1+i$. Dann berechnen sich die Produkte $$
+  Q_1\cdot Q_2=(1+j)\cdot(1+i)=1+i+j-k\quad\text{sowie}\quad
+  Q_2\cdot Q_1=(1+i)\cdot(1+j)=1+i+j+k
+$$
+
+**Bemerkung 1.** Aus Definition 1 und Beispiel 1 ist erkennbar, dass zwar die Addition von Quaternionen kommutativ ist, d. h. dass die Reihenfolge der Summanden vertauschbar ist, jedoch ist die Multiplikation zweier beliebiger Quaternionen im Allgemeinen nicht kommutativ: Das Produkt zweier Quaternionen liefert je nach Reihenfolge der Faktoren unterschiedliche Ergebnisse.
+
+Werden in Definition 1 $(c_m,d_m)=(0,0)$ beziehungsweise $(b_m,d_m)=(0,0)$ beziehungsweise $(b_m,c_m)=(0,0)$ gesetzt, so ergeben sich die Rechenregeln in $\mathbb{C}$.
+
+>**Definition 2.** Sei $Q\in\mathbb{H}$ mit $Q=a+i\cdot b+j\cdot c+k\cdot d$ eine beliebige Quaternion gemäß Definition 1. Dann heißt $$
+  \tilde{Q}=a-i\cdot b-j\cdot c-k\cdot d=a-(i\cdot b+j\cdot c+k\cdot d)
+$$ die zu $Q$ **quaternional konjugierte Zahl**.
+
+Analog zu $\mathbb{C}$ lässt sich nun bilden:
+
+<!-- style="background-color: lightgray;"-->
+> Der **Betrag** einer Quaternion $Q=a+i\cdot b+j\cdot c+k\cdot d$ mit reellen Koeffizienten $(a,b,c,d)\in\mathbb{R}^4$ ist definiert als $$
+  |Q|=\sqrt{Q\cdot\tilde{Q}}=\sqrt{a^2+b^2+c^2+d^2}\;\in[0,\infty)
+$$ Somit gilt $|Q|=0\;\leftrightarrow\; Q=0+0\cdot i+0\cdot j+0\cdot k=0$
+
+**Nachweis.** Für das Produkt  $Q\cdot\tilde{Q}$ folgt unter Benutzung der Multiplikationregel $$
+\begin{split}
+  Q\cdot\tilde{Q} & =
+  (Q=a+i\cdot b+j\cdot c+k\cdot d)\cdot (a-i\cdot b-j\cdot c-k\cdot d) \\
+  & = \left(a^2+b^2+c^2+d^2\right) + \left(-a\cdot b+b\cdot a-c\cdot d+d\cdot c\right){i} + \left(-a\cdot c+c\cdot a-d\cdot b+b\cdot d\right){j} + \left(-a\cdot d+d\cdot a-b\cdot c+c\cdot b\right){k} \\
+  & = \left(a^2+b^2+c^2+d^2\right)
+\end{split}
+$$ Der Ausdruck ist reell und für jede Wagl der Parameter $a$, $b$, $c$ und $d$ nicht negativ, wonach $|Q|$ wohldefiniert ist.
+
+$\square$
+
+
+Drehungen des dreidimensionalen Raums
+===
+
+
+Drehungen des dreidimensionalen Raumes um eine Gerade durch den Koordinatenursprung $O(0,0,0)$ lassen sich in Analogie zu den komplexen Zahlen unter Benutzung der Multiplikation von Quaternionen darstellen. Siehe Abschnitt [Komplexe Zahlen](#Komplexe-Zahlen).
+
+1. Die kartesischen Koordinaten $(x,y,z)$ eines Punktes werden umkehrbar eindeutig als imaginäre Quaternion dargestellt $$
+  (x,y,z)\in\mathbb{R}^3\quad\leftrightarrow\quad Q=x\cdot i+y\cdot j+z\cdot k\;(\in\mathbb{H})
+$$ Der Realteil der Quaternion $Q$ ist somit Null.
+2. Die Richtung und Orientierung einer Drehachse $e$ durch $O$ kann unter Verwendung "geographischer Koordinaten" $(\lambda,\mu)\in[0,2\pi)\times\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$ angegeben werden. Sie berechnet sich $$
+  e=\left(\begin{array}{r} b \\ c \\ d \end{array}\right)=\left(\begin{array}{r} \cos{\lambda}\cdot\cos{\mu} \\ \sin{\lambda}\cdot\cos{\mu} \\ \sin{\mu} \end{array}\right)
+$$ Hierbei gilt $b^2+c^2+d^2=1$ für alle Paare $(\lambda,\mu)$, was der Länge des Richtungsvektors $e$ entspricht.
+3. Wird ein beliebiger Punkt um die Drehachse mit Drehwinkel $\varphi\in[0,2\pi)$ gedreht, so berechnen sich die kartesischen Koordinaten des Bildes des Punktes vermöge $$
+  (x',y',z')\quad\leftrightarrow\quad Q'=x'\cdot i+y'\cdot j+z'\cdot k
+$$ mit $$
+  Q'=Q_\varphi\cdot Q\cdot\tilde{Q}_\varphi\quad\text{und}\quad Q_\varphi=\cos{\left(\frac{\varphi}{2}\right)}+\sin{\left(\frac{\varphi}{2}\right)}\cdot\left(b\cdot i+c\cdot j+d\cdot k\right)
+$$ Wie bei komplexen Zahlen wie $z_\varphi\in\mathbb{C}$ mit $|z_\varphi|=1$ zur Beschreibung von Drehungen der Ebene gilt auch hier $$
+  |Q_\varphi|^2=Q_\varphi\cdot\tilde{Q}_\varphi=\left(\cos{\left(\frac{\varphi}{2}\right)}\right)^2+\left(\sin{\left(\frac{\varphi}{2}\right)}\right)^2\cdot\left(b^2+c^2+d^2\right)=1\quad\leftarrow\quad b^2+c^2+d^2=1
+$$ Die aus der Konstruktion der Drehachsenrichtung erhaltene Eigenschaft der Länge Eins (2.) ist für die Konstruktion des Bildes $Q'$ notwendig.
+
+**Beispiel 2.** Die Drehung des dreidimensionalen Raums um die $x$-Achse des Koordinatensystems mit einem Drehwinkel $60^\circ$ soll unter Benutzung des Quaternionenkalküls beschrieben werden.
+
+1. Die kartesischen Koordinaten $(x,y,z)$ eines Punktes in allgemeiner Lage werden umkehrbar eindeutig als imaginäre Quaternion dargestellt $$
+  (x,y,z)\in\mathbb{R}^3\quad\leftrightarrow\quad Q=x\cdot i+y\cdot j+z\cdot k\;(\in\mathbb{H})
+$$
+2. Für die Drehachsenrichtung ergibt sich der Vektor $$
+  e=\left(\begin{array}{r} 1 \\ 0 \\ 0 \end{array}\right)=\left(\begin{array}{r} \cos{0}\cdot\cos{0} \\ \sin{0}\cdot\cos{0} \\ \sin{0} \end{array}\right)
+$$ Unter Berücksichtigung des Drehwinkels $\varphi=\frac{\pi}{3}$ ergibt sich die Quaternion $Q_\varphi$ zur Bechreibung der Drehung $$
+  Q_\varphi=\cos{\left(\frac{\pi}{6}\right)}+\sin{\left(\frac{\pi}{6}\right)}\cdot\left(1\cdot i+0\cdot j+0\cdot k\right)=\cos{\left(\frac{\pi}{6}\right)}+\sin{\left(\frac{\pi}{6}\right)}\cdot i=\frac{1}{2}\cdot\sqrt{3}+\frac{1}{2}\cdot i
+$$
+3. Für das Bild $Q'$ von $Q$ unter der Drehung ergibt sich somit unter Nutzung der Multiplikationsregeln und der Assoziativität $$
+  \begin{split}
+    Q' & =Q_\varphi\cdot Q\cdot\tilde{Q}_\varphi \\
+    & = \left(\frac{1}{2}\cdot\sqrt{3}+\frac{1}{2}\cdot i\right)\cdot(x\cdot i+y\cdot j+z\cdot k)\cdot\left(\frac{1}{2}\cdot\sqrt{3}-\frac{1}{2}\cdot i\right) \\
+    & = \left[-\frac{x}{2}+i\cdot\frac{1}{2}\cdot\sqrt{3}\cdot x+j\cdot\left(\frac{1}{2}\cdot\sqrt{3}\cdot y-\frac{z}{2}\right)+k\cdot\left(\frac{1}{2}\cdot\sqrt{3}\cdot z+\frac{y}{2}\right)\right]\cdot\left(\frac{1}{2}\cdot\sqrt{3}-\frac{1}{2}\cdot i\right) \\
+    & = -\frac{1}{4}\cdot\sqrt{3}\cdot x+i\cdot\frac{3}{4}\cdot x+j\cdot\left(\frac{3}{4}\cdot y-\frac{1}{4}\cdot\sqrt{3}\cdot z\right)+k\cdot\left(\frac{3}{4}\cdot z+\frac{1}{4}\cdot\sqrt{3}\cdot y\right)+i\cdot \frac{x}{4}+\frac{1}{4}\cdot\sqrt{3}\cdot x +k\cdot\left(\frac{1}{4}\cdot\sqrt{3}\cdot\cdot y-\frac{z}{4}\right)-j\cdot\left(\frac{1}{4}\cdot\sqrt{3}\cdot z+\frac{y}{4}\right) \\
+    & = i\cdot x+ j\cdot\left(\frac{1}{2}\cdot y-\frac{1}{2}\cdot\sqrt{3}\cdot z\right)+k\cdot\left(\frac{1}{2}\cdot\sqrt{3}\cdot y+\frac{1}{2}\cdot z\right)
+  \end{split}
+$$ Der Bildpunkt besitzt somit die kartesischen Koordinaten $$
+  Q\left[x,
+  \left(\frac{1}{2}\cdot y-\frac{1}{2}\cdot\sqrt{3}\cdot z\right),
+  \left(\frac{1}{2}\cdot\sqrt{3}\cdot y+\frac{1}{2}\cdot z\right)
+\right]
+$$
+
+
+Sicher gewusst
+===
+
+**Frage 1.** Gegeben sind die Quaternionen $Q_1=4j-2k$ und $Q_2=1-i$ gegeben. Berechnen Sie die nachstehenden Ausdrücke.
+
+[[$Q_1\cdot Q_2$] [$$Q_2\cdot Q_1$$]]
+[( ) (X)]  $2j-6k$
+[(X) ( )]  $6j+2k$
+[[?]] Nutzen Sie zur Berechnung der Produkte die Multiplikationstafel in Definition 1.
+****************************************
+
+Die Produkte berechnen sich schrittweise $$
+  Q_1\cdot Q_2=(4j-2k)\cdot(1-i)=4j-4ji-2k+2ki=4j+4k-2k+2j=6j+2k
+$$ sowie $$
+  Q_2\cdot Q_1=(1-i)\cdot(4j-2k)=4j-2k-4ij+2ik=4j-2k-4k-2j=2j-6k\;\neq Q_1\cdot Q_2
+$$
+
+****************************************
+
+**Frage 2.** Eine Drehung des dreidimensionalen Raumes soll um die Gerade $$
+  x=0\;\wedge\; z=y
+$$ erfolgen. Der Drehwinkel ist $90^\circ$ angegeben.
+
+Berechnen Sie die Quaternion $Q_\varphi$ im Ansatz  $Q'=Q_\varphi\cdot Q\cdot \tilde{Q}_\varphi$ zur Beschreibung der Drehung.
+
+[[ ]] $$ \frac{1}{2}\cdot\sqrt{2}\cdot j+\frac{1}{2}\cdot\sqrt{2}\cdot k $$
+[[X]] $$ \frac{1}{2}\cdot\sqrt{2}+\frac{1}{2}\cdot j+\frac{1}{2}\cdot k $$
+[[X]] $$ \frac{1}{2}\cdot\sqrt{2}-\frac{1}{2}\cdot j-\frac{1}{2}\cdot k $$
+[[ ]] $$ \frac{1}{2}\cdot\sqrt{2}+\frac{1}{2}\cdot\sqrt{2}\cdot j+\frac{1}{2}\cdot\sqrt{2}\cdot k $$
+[[?]] Bestimmen Sie die Richtung der Drehachse und normieren Sie diesen Vektor. Setzen Sie dann in den Ansatz $$
+  Q_\varphi=\cos{\left(\frac{\varphi}{2}\right)}+\sin{\left(\frac{\varphi}{2}\right)}\cdot\left(b\cdot i+c\cdot j+d\cdot k\right)
+$$ ein, worin $(b,c,d)$ die Drehachsenrichtung und $\varphi$ den Drehwinkel bezeichnen.
+****************************************
+
+Für den Drehwinkel gilt $\frac{\varphi}{2}=45^\circ$ und damit $$
+  \cos{\left(\frac{\varphi}{2}\right)}=\sin{\left(\frac{\varphi}{2}\right)}=\frac{1}{2}\cdot\sqrt{2}
+$$ Für die Drehachsenrichtung ergeben sich die 'geographischen' Koordinaten $\lambda=\frac{\pi}{2}$ und $\mu=\frac{\pi}{4}$, also $$
+  e=\left(\begin{array}{r} \cos{\left(\frac{\pi}{2}\right)}\cdot\cos{\left(\frac{\pi}{4}\right)} \\ \sin{\left(\frac{\pi}{2}\right)}\cdot\cos{\left(\frac{\pi}{4}\right)} \\ \sin{\left(\frac{\pi}{4}\right)} \end{array}\right)=
+  \left(\begin{array}{r} 0 \\ \frac{1}{2}\cdot\sqrt{2} \\ \frac{1}{2}\cdot\sqrt{2} \end{array}\right)
+$$ Alternativ berechnet sich $e$ über Stauchung des Vektors mit dem Parameter $\alpha$ $$
+  e=\left(\begin{array}{r} 0 \\ \alpha \\ \alpha \end{array}\right)
+$$ so dass $0^2+\alpha^2+\alpha^2=2\cdot\alpha^2=1$ gilt: Dies ist für $\alpha=\pm\frac{1}{2}\cdot\sqrt{2}$ erfüllt. Schließlich ergibt sich daraus $$
+  Q_\varphi=\cos{\left(\frac{\pi}{4}\right)}+\sin{\left(\frac{\pi}{4}\right)}\cdot\left(\pm\frac{1}{2}\cdot\sqrt{2}\cdot j\pm\frac{1}{2}\cdot\sqrt{2}\cdot k\right)=\frac{1}{2}\cdot\sqrt{2}\pm\frac{1}{2}\cdot j\pm\frac{1}{2}\cdot k
+$$ worin genau eines der Operationszeichen zu wählen ist.[^2]
+
+Hingegen entfällt die erste Antwortoption, da dort nicht $\frac{\varphi}{2}$, sondern $\varphi$ verwendet wurde. Bei der letzten Antwortoption ist wurde vergessen, den Vektor $e$ zu normieren.
+
+****************************************
+
+[^1]: Die bei der Angabe von $\mathbb{H}$ abweichenden Multiplikationsregeln sind aus Gründen der Lesbarkeit gewählt und werden im folgenden Abschnitt erklärt.
+
+[^2]: Bei Angabe der Quaternion $Q_\varphi$ ist nicht nur die Drehachse anzugeben, sondern auf deren Richtungssinn festzulegen. Der Drehwinkel wird bezüglich des gewählten Richtungssinns angegeben - 'plus' beziehungsweise 'minus'.
+
+
+## Analytische Geometrie
+
+
+In diesem ersten Kapitel vertiefen Sie Ihre Kenntnisse in der analytischen Geometrie und lernen den Begriff des Teilungsverhältnis in verschiedenen Anwendungen kennen. Dazu zählen u. a.
+
+* Grundlagen aus der analytischen Geometrie: Vektoren und Matrizen
+* Teilverhältnis auf Strecken und affine Koordinaten
+* affine und kartesische Koordinatensysteme
+* Basiswechsel und Koordinatentransformation
+* Schwerpunkt eines Massensystems
+* konvexe Hülle einer Punktmenge
+* Unterteilungskurven und Bézier-Kurven
+
+Für einen Überblick über die Themen dieses Kapitels sehen Sie in der nachstehenden Graphik einige zentrale Begriffe. Schlagen Sie diese in diesem Abschnitt nach.
+
+![wordcloud-affiner-Raum](img/wc_affiner-raum.png "_Fig._ Zentrale Begriffe zur Behandlung der affinen Ebene beziehungsweise des dreidimensionalen affinen Raumes.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 1000px; " -->
+
+Lernziele
+-----
+
+* ..
 
 
 ### Affine Koordinatensysteme
@@ -2449,7 +3533,7 @@ d. h. der Flächeninhalt $I$ kann durch den Absolutbetrag einer Determinante ber
 
 durch Scherung wird das Rechteck $r$ auf das Parallelogramm $p$ abgebildet, dessen Flächeninhalt sich entsprechend berechnet
 $$
-  \det{(x,y')}=\det{\begin{pmatrix} x_1+\lambda\cdot x_2 & y_1+\lambda\cdot y_2 \\ x_2 & y_2 \end{pmatrix}} = (x_1+\lambda\cdot x_2)\cdot y_2-x_2\cdot(y_1+\lambda\cdot y_2)=\det{(x,y)}
+  \det{(x',y')}=\det{\begin{pmatrix} x_1+\lambda\cdot x_2 & y_1+\lambda\cdot y_2 \\ x_2 & y_2 \end{pmatrix}} = (x_1+\lambda\cdot x_2)\cdot y_2-x_2\cdot(y_1+\lambda\cdot y_2)=\det{(x,y)}
 $$
 d. h. der Flächeninhalt von $r$ gleicht dem des entlang der $x_1$-Achse aus $r$ gescherten Parallelogramms $p$. Es gilt $I_r=I_p$.
 
@@ -2492,6 +3576,35 @@ $$ Für die Hintereinanderausführung zweier inhaltstreuer Affinitäten mit den 
   |\det{(A\cdot B)}|=|\det{A}\cdot\det{B}|=|\det{A}|\cdot|\det{B}|=1\cdot 1=1
 $$
 d. h. die Komposition ist wieder inhaltstreu.
+
+Für die Umkehrabbildung $\alpha^{-1}$ gilt mit $\alpha^{-1}\circ\alpha=\mathrm{id}$ durch Anwendung des Produktsatzes für Determinanten $$
+  |\det{(A^{-1}\cdot A)}|=|\det{\left(A^{-1}\right)}\cdot\det{A}|=|\det{\left(A^{-1}\right)}|\cdot|\det{A}|=1\quad\to\quad|\det{\left(A^{-1}\right)}|=1
+$$ d. h. $\alpha^{-1}$ ist wieder inhaltstreu. (analog für $\beta^{-1}$ nachweisbar) 
+
+Aus der Betrachtung der Inhaltstreue unter einer Affinität folgt nicht, dass diese notwendig orientierungserhaltend bzw. der _umkehrend ist. Hierfür ist zusätzlich $\det{A}>0$ bzw. $\det{A}<0$ zu fordern.
+
+****************************************
+
+**Frage 2.** Sind $\alpha$ und $\beta$ zwei orientierungsumkehrende Affinitäten des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$, so
+
+[[ ]] ist die Komposition $\beta\circ\alpha$ orientierungsumkehrend.
+[[X]] ist die Komposition $\beta\circ\alpha$ orientierungserhaltend.
+[[X]] sind die Umkehrabbildungen $\alpha^{-1}$ und $\beta^{-1}$ ebenso orientierungsumkehrend.
+[[ ]] sind diese auch inhaltstreu.
+[[?]] Nutzen Sie, dass sich die Transformationsmatrizen zweier hintereinander ausgeführter Affinitäten multiplizieren. Die Verkettung einer Affinität des $d$-dimensionalen affinen Raumes $\mathcal{A}^d$ mit ihrer Umkehrabbildung ist nach Definition die identische Abbildung.
+****************************************
+
+Unter Benutzung der Transformationsmatrix $A$ gilt für orientierungserhaltende bzw. -umkehrende Affinitäten $$
+  \det{A}>0\quad\text{bzw.}\quad\det{A}<0
+$$ Für die Hintereinanderausführung zweier orientierungsumkehrender Affinitäten $\alpha$ und $\beta$ mit den Transformationsmatrizen $A$ und $B$ folgt durch Anwendung des Produktsatzes für Determinanten $$
+  \det{(B\cdot A)}=\det{B}\cdot\det{A}>0
+$$ d. h. die Komposition ist orientierungserhaltend. (Die Komposition einer orientierungsumkehrenden mit einer -erhaltenden Affinität wäre hingegen orientierungsumkehrend.)
+
+Für die Umkehrabbildung $\alpha^{-1}$ gilt mit $\alpha^{-1}\circ\alpha=\mathrm{id}$ durch Anwendung des Produktsatzes für Determinanten $$
+  \det{(A^{-1}\cdot A)}=\det{\left(A^{-1}\right)}\cdot\det{A}=1\quad\to\quad\det{\left(A^{-1}\right)}=\frac{1}{\det{A}}<0
+$$ d. h. $\alpha^{-1}$ ist wieder orientierungsumkehrend. (analog für $\beta^{-1}$ nachweisbar) 
+
+Aus der Betrachtung des Orientierungserhalts bzw. der _umkehr unter einer Affinität folgt nicht, dass diese notwendig inhaltstreu ist. Hierfür ist zusätzlich $ |\det{A}|=1$ zu fordern.
 
 ****************************************
 
@@ -3393,7 +4506,7 @@ $$ mit verschiedenen Orientierungen. Nach der Translation $\tau$ mit Translation
   a=\overrightarrow{OO'}
 $$ fallen die Koordinatenursprünge beider kartesischen Koordinatensysteme zusammen, das Bild $\tau{(O,E_1,E_2)}$ ist dabei symmetrisch zu $(O',E_1',E_2')$ bezogen auf eine Achse $\hat{s}\ni O$. Damit existiert eine Gleitspiegelachse / Spiegel- $s\parallel \hat{s}$, diese verläuft durch den Mittelpunkt $M$ der Strecke $[O,O']$.
 
-1. Ist $OO'\perp\hat{s}$, so ist $\gamma$ die Spiegelung an $s$ (Fixpunktgerade). Für jede Gerade $g\perp s$ gilt ebenso $\gamma(s)=s$.
+1. Ist $OO'\perp\hat{s}$, so ist $\gamma$ die Spiegelung an $s$ (Fixpunktgerade). Für jede Gerade $g\perp s$ gilt ebenso $\gamma(g)=g$.
 2. Gilt $OO'\not\perp\hat{s}$, so existiert eine Translation $\tau_1$ in Richtung $\hat{s}$, so dass $O^{\tau_1}O'\perp\hat{s}$ (Fall 1).
 
 Unter Argumentation der Existenz von Fixpunkten können hiermit die folgenden Aussagen (**Dreispiegelungssatz**) begründet werden.
