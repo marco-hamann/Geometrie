@@ -102,7 +102,11 @@ $$ dann heißt die algebraische Struktur $A=(M,\ast)$ [kommutativ](https://de.wi
 **Beispiel 3.** 
 
 1. Die im Beispiel 2 aufgeführten Operationen 'Addition' und 'Multiplikation' ergeben assoziative und kommutative algebraische Strukturen $(\mathbb{R},+)$ und $(\mathbb{R},\cdot)$. 
-2. Auf der Menge $\mathbb{R}^{n,n}$ der reellen quadratischen, $n$-reihigen Matrizen sind 'Addition' und 'Multiplikation' erklärt. Die algebraische Struktur $(\mathbb{R}^{n,n},+)$ ist assoziativ und ebenso kommutativ, jedoch ist $(\mathbb{R}^{n,n},\cdot)$ zwar assoziativ, jedoch nicht kommutativ.
+2. Auf der Menge $\mathbb{R}^{n,n}$ der reellen quadratischen, $n$-reihigen Matrizen sind 'Addition' und 'Multiplikation' erklärt. Die algebraische Struktur $(\mathbb{R}^{n,n},+)$ ist assoziativ und ebenso kommutativ, jedoch ist $(\mathbb{R}^{n,n},\cdot)$ zwar assoziativ, jedoch nicht kommutativ, denn es gilt beispielsweise $$
+  \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}\cdot\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}=\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
+$$ jedoch bei umgekehrter Reihenfolge der Matrizen abweichend $$
+  \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}\cdot\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}=\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}
+$$ Analog lässt sich dies für reelle Matrizen vom Typ $(n,n)$ konstruieren.
 
 **Bemerkung 2.** Gilt in einer algeraischen Struktur $A=(M,\ast)$ das Assoziativgesetz, so lässt sich der Ausdruck $$
   a_1\ast a_2\ast ...\ast a_n\ast \in M
@@ -112,7 +116,7 @@ $$ für $n\in\mathbb{N}$ mit $n\geq 2$ verwendet werden.
 
 >**Definition 4.** Gilt für ein Element $e\in M$ der algebraischen Struktur $A=(M,\ast)$ die Gleichheit $$
   e\ast a= a\ast e= a
-$$ für alle und $a\in M$, dann heißt [neutrales Element](https://de.wikipedia.org/wiki/Neutrales_Element) von $A$.
+$$ für alle und $a\in M$, dann heißt $e$ [neutrales Element](https://de.wikipedia.org/wiki/Neutrales_Element) von $A$.
 
 **Beispiel 4.** Die in der nachstehenden Tabelle aufgeführten Beispiele algebraischer Strukturen besitzen jeweils ein Einselement
 
@@ -186,7 +190,7 @@ $$
   \sigma_{1}=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 3 & 2 \end{pmatrix}\,,\quad
   \sigma_{2}=\begin{pmatrix} 1 & 2 & 3 \\ 3 & 2 & 1 \end{pmatrix}\quad\text{bzw.}\quad
   \sigma_{3}=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}
-$$ als Spiegelungen des Dreiecks auf sich an den Seitenhalbierenden der Seite $s_1=[23]$, $s_2=[13]$ bzw. $s_3=[12]$ interpretieren. Siehe Abbildung. Bilden Sie die Hintereinanderausführung dieser Geradenspiegelungen und geben Sie deren Interpretation als Symmetrieabbildung des gleichseitigen Dreiecks an.
+$$ als Spiegelungen des Dreiecks auf sich an den Seitenhalbierenden der Seite $s_1=[23]$, $s_2=[13]$ bzw. $s_3=[12]$ interpretieren. Bilden Sie die Hintereinanderausführung dieser Geradenspiegelungen und geben Sie deren Interpretation als Symmetrieabbildung des gleichseitigen Dreiecks an.
 
 [[Drehung um $\bf 120^\circ$] [Drehung um $\bf 240^\circ$] [identische Abbildung]]
 [( ) ( ) (X)] $\sigma_1\circ\sigma_1$
@@ -240,6 +244,57 @@ $$ d. h. die (Teil-) Menge $M$ ist das neutrale Element der algebraischen Strukt
 
 
 ### Gruppen und Halbgruppen
+
+
+>**Definition 1.** Betrachtet wird eine algebraische Struktur $A=(M,\ast)$, worin $M$ eine Menge und $\ast$ eine zweistellige Verknüpfung auf dieser Menge bezeichnen.
+>
+>1. Die algebraische Struktur $A$ heißt [Halbgruppe](https://de.wikipedia.org/wiki/Halbgruppe), falls die Operation $\ast$ assoziativ auf $M$ ist.
+>2. Besitzt eine Halbgruppe $A$ ein neutrales Element $e\in M$, so wird sie [Monoid](https://de.wikipedia.org/wiki/Monoid) genannt. 
+>3. Gilt für ein Monoid $A$, dass zu jedem Element $A\in M$ ein inverses Element $a^{-1}\in M$ existiert mit $$
+  a\ast a^{-1}=a^{-1}\ast a=e
+$$ so wird $A$ eine [Gruppe](https://de.wikipedia.org/wiki/Gruppe_%28Mathematik%29) genannt.
+
+**Beispiel 1.** Die algebraischen Strukturen $(\mathbb{N},+)$, $(\mathbb{N},\cdot)$, $(\mathbb{Z},+)$ und $(\mathbb{Z},\cdot)$ sind Halbgruppen. Die hier genannten Halbgruppen sind sogar Monoide.
+
+<!-- data-type="none" -->
+| Menge | Operation | neutrales Element |
+| :----- | :----: | :----- |
+| $\mathbb{N}$ | Addition $(+)$ | $e=0$ |
+| $\mathbb{N}$ | Multiplikation $(\cdot)$ | $e=1$ |
+| $\mathbb{Z}$ | Addition $(+)$ | $e=0$ |
+| $\mathbb{Z}$ | Multiplikation $(\cdot)$ | $e=1$ |
+| $F=\{f:M\to M\,|\, f\,\text{bijektiv}\}$ | Komposition $(\circ)$ | $e:x\mapsto x$ (identische Abbildung) |
+
+In den Monoiden $(\mathbb{N},+)$ und $(\mathbb{N},\cdot)$ existieren keine inversen Elemente, da z. B. $$
+  5+n=0\quad\text{bzw.}\quad 5\cdot m=1
+$$ keine Lösung in $\mathbb{N}$ besitzen. Diese bilden demnach keine Gruppen. Ebenso ist $(\mathbb{Z},\cdot)$ keine Gruppe. Hingegen besitzt jede Gleichung $n+m=0$ mit beliebigem $m\in\mathbb{Z}$ genau eine Lösung $n=-m\in\mathbb{Z}$, damit bildet $(\mathbb{Z},\cdot)$ eine Gruppe.
+
+In der Menge $F$ der bijektiven Abbildungen existiert zu jeder Abbildung $f:M\to M$ genau eine inverse Abbildung $f^{-1}$ mit $$
+  f\circ f^{-1}=f^{-1}\circ f=e
+$$ (identische Abbildung); daher bildet $(F,\circ)$ eine Gruppe.
+
+>**Satz 1.** Sei $G=(M,\ast)$ eine beliebige Gruppe. Dann gelten die folgenden Eigenschaften:
+>
+>1. $G$ besitzt genau ein neutrales Element $e\in M$ mit $$
+  a\ast e=e\ast a=a
+$$ für alle $a\in M$.
+>2. Zu jedem Element von $a\in M$ gibt es genau ein inverses Element $a^{-1}\in M$ mit $$
+  a\ast a^{-1}=a^{-1}\ast a=e
+$$ mit neutralem Element $e\in M$.
+>3. Es gilt die Kürzungsregel: Gilt die Gleichheit $a\ast b=c\ast b$ für drei Elemente $a\in M$, $b\in M$ und $c\in M$, so folgt hieraus $a=c$.
+>4. Für die Bildung des inversen Elementes gilt die folgende Regel: $$
+  (a\ast b)^{-1}=b^{-1}\ast a^{-1}
+$$ für beliebige Elemente $a\in M$ und $b\in M$.
+
+**Beweis.**
+
+1. Angenommen, es gäbe zwei (verschiedene) neutrale Elemente bezogen auf die Gruppenoperation, beispielsweise $e_1$ und $e_2$. Dann erfüllten beide jeweils die Gleichung aus der Definition $$
+  e_1=e_1\ast e_2=e_2\ast e_1=e_2
+$$ siehe Definition 5 im Abschnitt [Operationen auf Mengen](#Operationen-auf-Mengen).
+2. Unter der Annahme, dass es zu einem Element $a\in A$ zwei verschiedene inverse Elemente $a_1^{-1}\not=a_2^{-1}$ gäbe, so folgte unter Benutzung der Assoziativität $$
+  a\ast a_1^{-1}=e\quad\leadsto\quad a_2^{-1}=a_2^{-1}\ast e=a_2^{-1}\ast\left(a\ast a_1^{-1}\right)=\left(a_2^{-1}\ast a\right)\ast a_1^{-1}=e\ast a_1^{-1}=a_1^{-1}
+$$ woraus die Eindeutigkeit des inversen Elementes in $M$ folgt.
+3. 
 
 
 ### Vektoren und Matrizen
