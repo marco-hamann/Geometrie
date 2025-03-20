@@ -130,9 +130,7 @@ Der 'größte gemeinsame Teiler' zweier natürlicher Zahlen ist eine zweistellig
   \operatorname{ggT}(n,e)=n\;\;\rightarrow\;\; n|e\;(\text{sprich:}\, "n\,\text{teilt}\, e")
 $$ hieraus folgte, dass die natürliche Zahl $e$ alle natürlichen Zahlen $n$ als Teiler enthielte.
 
->**Definition 5.** Existiert für beliebige Elemente $a\in M$ einer algebraischen Struktur $A=(M,\ast)$ ein Element $b\in M$ mit $$
-  a\ast b= b\ast a = e
-$$ worin $e$ das Einselement in $A$ bezeichnet, so heißt $b$ das zu $a$ [inverse Element](https://de.wikipedia.org/wiki/Inverses_Element) in $A$. Oft schreibt man hierfür $b=a^{-1}$.
+>**Definition 5.** Existiert für beliebige Elemente $a\in M$ einer algebraischen Struktur $A=(M,\ast)$ ein Element $b\in M$ mit $$ a\ast b= b\ast a = e $$ worin $e$ das Einselement in $A$ bezeichnet, so heißt $b$ das zu $a$ [inverse Element](https://de.wikipedia.org/wiki/Inverses_Element) in $A$. Oft schreibt man hierfür $b=a^{-1}$.
 
 **Beispiel 5.** Für die in der Tabelle aufgeführten Beispiele algebraischer Strukturen werden die inversen Elemente wie nachstehend gebildet.
 
@@ -155,6 +153,8 @@ $$ denn es gelten $$
 $$ sowie $$
   g\circ g^{-1}= \begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}\circ \begin{pmatrix} 1 & 2 & 3 \\ 3 & 1 & 2 \end{pmatrix}=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 2 & 3 \end{pmatrix}
 $$
+
+>**Definition 6.** Eine Teilmenge $E\subset M$ heißt ein Erzeugendensystem von $(M,\ast)$, falls es zu jedem Element $a\in M$ Elemente $b_1\in E$, $b_2\in E$, ..., $b_k\in E$ mit $k\geq 1$ gibt, so dass $$ a=b_1\ast b_2\ast ...\ast b_k $$ gilt.
 
 
 Sicher gewusst
@@ -294,7 +294,14 @@ $$ siehe Definition 5 im Abschnitt [Operationen auf Mengen](#Operationen-auf-Men
 2. Unter der Annahme, dass es zu einem Element $a\in A$ zwei verschiedene inverse Elemente $a_1^{-1}\not=a_2^{-1}$ gäbe, so folgte unter Benutzung der Assoziativität $$
   a\ast a_1^{-1}=e\quad\leadsto\quad a_2^{-1}=a_2^{-1}\ast e=a_2^{-1}\ast\left(a\ast a_1^{-1}\right)=\left(a_2^{-1}\ast a\right)\ast a_1^{-1}=e\ast a_1^{-1}=a_1^{-1}
 $$ woraus die Eindeutigkeit des inversen Elementes in $M$ folgt.
-3. 
+3. Unter Verwendung des zu $b$ inversen Elementes $b^{-1}$ folgt aus der Gleichheit $a\ast b=c\ast b$ $$
+  a=(a\ast b)\ast b^{-1}=(c\ast b)\ast b^{-1}=c
+$$
+4. Mit den vorstehenden Aussagen des Satzes folgt unter Benutzung der Definitition des inversen Elementes $$ (a\ast b)^{-1}\ast (a\ast b)=e\quad\leftrightarrow\quad (a\ast b)^{-1}\ast (a\ast b)\ast \textcolor{purple}{(b^{-1}\ast a^{-1})}= e\ast \textcolor{purple}{(b^{-1}\ast a^{-1})} $$ woraus unter Nutzung der Assoziativität unmittelbar die Behauptung folgt.
+
+$\square$
+
+>**Definition 2.** 
 
 
 ### Vektoren und Matrizen
