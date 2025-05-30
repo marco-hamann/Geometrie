@@ -13,6 +13,8 @@ import: https://raw.githubusercontent.com/LiaTemplates/tiny-turtle/master/README
 
 import: https://raw.githubusercontent.com/liaTemplates/algebrite/master/README.md
 
+import: https://raw.githubusercontent.com/LiaScript/CodeRunner/master/README.md
+
 import: https://raw.githubusercontent.com/LiaTemplates/PyScript/0.0.4/README.md
 
 persistent: true
@@ -154,7 +156,7 @@ $$ sowie $$
   g\circ g^{-1}= \begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \end{pmatrix}\circ \begin{pmatrix} 1 & 2 & 3 \\ 3 & 1 & 2 \end{pmatrix}=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 2 & 3 \end{pmatrix}
 $$
 
->**Definition 6.** Eine Teilmenge $E\subset M$ heißt ein Erzeugendensystem von $(M,\ast)$, falls es zu jedem Element $a\in M$ Elemente $b_1\in E$, $b_2\in E$, ..., $b_k\in E$ mit $k\geq 1$ gibt, so dass $$ a=b_1\ast b_2\ast ...\ast b_k $$ gilt.
+>**Definition 6.** Eine Teilmenge $E\subset M$ heißt ein **Erzeugendensystem** von $(M,\ast)$, falls es zu jedem Element $a\in M$ Elemente $b_1\in E$, $b_2\in E$, ..., $b_k\in E$ mit $k\geq 1$ gibt, so dass $$ a=b_1\ast b_2\ast ...\ast b_k $$ gilt.
 
 
 Sicher gewusst
@@ -236,9 +238,7 @@ Die Bildung der Schnittmengen von Elementen aus $P(M)$ ist in nachstehender Tabe
 | $\{b\}$ | $\emptyset$ | $\emptyset$ | $\{b\}$ | $\{b\}$ |
 | $M$ | $\emptyset$ | $\{a\}$ | $\{b\}$ | $M$ |
 
-Aus der Verknüpfungstabelle ist ersichtlich $$
-  U\cap M=U\quad\forall\;U\subset P(M)
-$$ d. h. die (Teil-) Menge $M$ ist das neutrale Element der algebraischen Struktur $(P(M),\cap)$.
+Aus der Verknüpfungstabelle ist ersichtlich $$ U\cap M=U\quad\forall\;U\subset P(M) $$ d. h. die (Teil-) Menge $M$ ist das neutrale Element der algebraischen Struktur $(P(M),\cap)$.
 
 ***
 
@@ -246,13 +246,13 @@ $$ d. h. die (Teil-) Menge $M$ ist das neutrale Element der algebraischen Strukt
 ### Gruppen und Halbgruppen
 
 
+In diesem Abschnitt wird ein kleiner Einblick in eine zentrale Frage der Gruppentheorie gegeben, die in vielen Bereichen der Informatik, wie z. B. der Kryptographie oder der Theorie der Algorithmen, Anwendung findet. In der Algebra ist eine **Gruppe** eine der grundlegendsten Strukturen. Sie besteht aus einer Menge $M$ und einer zweistelligen Operation $\ast$.
+
 >**Definition 1.** Betrachtet wird eine algebraische Struktur $A=(M,\ast)$, worin $M$ eine Menge und $\ast$ eine zweistellige Verknüpfung auf dieser Menge bezeichnen.
 >
 >1. Die algebraische Struktur $A$ heißt [Halbgruppe](https://de.wikipedia.org/wiki/Halbgruppe), falls die Operation $\ast$ assoziativ auf $M$ ist.
 >2. Besitzt eine Halbgruppe $A$ ein neutrales Element $e\in M$, so wird sie [Monoid](https://de.wikipedia.org/wiki/Monoid) genannt. 
->3. Gilt für ein Monoid $A$, dass zu jedem Element $A\in M$ ein inverses Element $a^{-1}\in M$ existiert mit $$
-  a\ast a^{-1}=a^{-1}\ast a=e
-$$ so wird $A$ eine [Gruppe](https://de.wikipedia.org/wiki/Gruppe_%28Mathematik%29) genannt.
+>3. Gilt für ein Monoid $A$, dass zu jedem Element $A\in M$ ein inverses Element $a^{-1}\in M$ existiert mit $$ a\ast a^{-1}=a^{-1}\ast a=e $$ so wird $A$ eine [Gruppe](https://de.wikipedia.org/wiki/Gruppe_%28Mathematik%29) genannt.
 
 **Beispiel 1.** Die algebraischen Strukturen $(\mathbb{N},+)$, $(\mathbb{N},\cdot)$, $(\mathbb{Z},+)$ und $(\mathbb{Z},\cdot)$ sind Halbgruppen. Die hier genannten Halbgruppen sind sogar Monoide.
 
@@ -265,26 +265,16 @@ $$ so wird $A$ eine [Gruppe](https://de.wikipedia.org/wiki/Gruppe_%28Mathematik%
 | $\mathbb{Z}$ | Multiplikation $(\cdot)$ | $e=1$ |
 | $F=\{f:M\to M\,|\, f\,\text{bijektiv}\}$ | Komposition $(\circ)$ | $e:x\mapsto x$ (identische Abbildung) |
 
-In den Monoiden $(\mathbb{N},+)$ und $(\mathbb{N},\cdot)$ existieren keine inversen Elemente, da z. B. $$
-  5+n=0\quad\text{bzw.}\quad 5\cdot m=1
-$$ keine Lösung in $\mathbb{N}$ besitzen. Diese bilden demnach keine Gruppen. Ebenso ist $(\mathbb{Z},\cdot)$ keine Gruppe. Hingegen besitzt jede Gleichung $n+m=0$ mit beliebigem $m\in\mathbb{Z}$ genau eine Lösung $n=-m\in\mathbb{Z}$, damit bildet $(\mathbb{Z},\cdot)$ eine Gruppe.
+In den Monoiden $(\mathbb{N},+)$ und $(\mathbb{N},\cdot)$ existieren keine inversen Elemente, da z. B. $$ 5+n=0\quad\text{bzw.}\quad 5\cdot m=1 $$ keine Lösung in $\mathbb{N}$ besitzen. Diese bilden demnach keine Gruppen. Ebenso ist $(\mathbb{Z},\cdot)$ keine Gruppe. Hingegen besitzt jede Gleichung $n+m=0$ mit beliebigem $m\in\mathbb{Z}$ genau eine Lösung $n=-m\in\mathbb{Z}$, damit bildet $(\mathbb{Z},\cdot)$ eine Gruppe.
 
-In der Menge $F$ der bijektiven Abbildungen existiert zu jeder Abbildung $f:M\to M$ genau eine inverse Abbildung $f^{-1}$ mit $$
-  f\circ f^{-1}=f^{-1}\circ f=e
-$$ (identische Abbildung); daher bildet $(F,\circ)$ eine Gruppe.
+In der Menge $F$ der bijektiven Abbildungen existiert zu jeder Abbildung $f:M\to M$ genau eine inverse Abbildung $f^{-1}$ mit $$ f\circ f^{-1}=f^{-1}\circ f=e $$ (identische Abbildung); daher bildet $(F,\circ)$ eine Gruppe.
 
 >**Satz 1.** Sei $G=(M,\ast)$ eine beliebige Gruppe. Dann gelten die folgenden Eigenschaften:
 >
->1. $G$ besitzt genau ein neutrales Element $e\in M$ mit $$
-  a\ast e=e\ast a=a
-$$ für alle $a\in M$.
->2. Zu jedem Element von $a\in M$ gibt es genau ein inverses Element $a^{-1}\in M$ mit $$
-  a\ast a^{-1}=a^{-1}\ast a=e
-$$ mit neutralem Element $e\in M$.
+>1. $G$ besitzt genau ein neutrales Element $e\in M$ mit $$ a\ast e=e\ast a=a $$ für alle $a\in M$.
+>2. Zu jedem Element von $a\in M$ gibt es genau ein inverses Element $a^{-1}\in M$ mit $$ a\ast a^{-1}=a^{-1}\ast a=e $$ mit neutralem Element $e\in M$.
 >3. Es gilt die Kürzungsregel: Gilt die Gleichheit $a\ast b=c\ast b$ für drei Elemente $a\in M$, $b\in M$ und $c\in M$, so folgt hieraus $a=c$.
->4. Für die Bildung des inversen Elementes gilt die folgende Regel: $$
-  (a\ast b)^{-1}=b^{-1}\ast a^{-1}
-$$ für beliebige Elemente $a\in M$ und $b\in M$.
+>4. Für die Bildung des inversen Elementes gilt die folgende Regel: $$ (a\ast b)^{-1}=b^{-1}\ast a^{-1} $$ für beliebige Elemente $a\in M$ und $b\in M$.
 
 **Beweis.**
 
@@ -301,7 +291,192 @@ $$
 
 $\square$
 
->**Definition 2.** 
+>**Definition 2.** Sei $G=(M,\ast)$ eine Gruppe. Besitzt $M$ endlich viele Elemente, d. h. $|M|=n$ mit $n\in\mathbb{N}\setminus\{0\}$, so heißt $n$ die **Ordnung** der endlichen Gruppe $G$.[^1] Ist die Operation $\ast$ kommutativ, so heißt $G$ **kommutativ** bzw. abelsch.
+
+>**Definition 3.** Sei $H=(M,\ast)$ eine Halbruppe sowie $U\subseteq M$ eine nichtleere Teilmenge, die abgeschlossen bezogen auf die Gruppenoperation $\ast$ ist, dann heißt $(U,\ast)$ eine Unterhalbgruppe von $H$. 
+>
+> Ist $H$ sogar eine Gruppe und gilt für beliebige Elemente $a\in U$ auch $a^{-1}\in U$[^2], so wird $(U,\ast)$ [Untergruppe](https://de.wikipedia.org/wiki/Untergruppe) von $H$ genannt.
+
+**Bemerkung 1.** Mit $a\in U$ und $a^{-1}\in U$ ist wegen der Abgeschlossenheit von $U$ unter $\ast$ auch $$ a\ast a^{-1}=e\;\in U $$ d .h die Teilmenge $U$ enthält auch das neutrale Element. Aus der Assoziativität der Operation in $H$ folgt die Eigenschaft auch in $U$.
+
+**Beispiel 2.** Gegeben ist die Gruppe $$ K_4=(\{0,1,a,b\},\diamond) $$ mit der Verknüpfungstabelle 
+
+<!-- data-type="none" -->
+| $\diamond$ | $0$ | $1$ | $a$ | $b$ |
+| :--- | :--- | :--- | :--- | :--- |
+| $0$ | $0$ | $1$ | $a$ | $b$ |
+| $1$ | $1$ | $0$ | $b$ | $a$ |
+| $a$ | $a$ | $b$ | $0$ | $1$ |
+| $b$ | $b$ | $a$ | $1$ | $0$ |
+
+Aus der Verknüpfungstabelle kann entnommen werden, dass $0$ das neutrale Element bezogen auf die Gruppenoperation darstellt. Darüber hinaus ist jedes Element von $K_4$ zu sich selbst invers.
+
+Die Kleinsche Vierergruppe $K_4$ besitzt fünf Untergruppen, d. s. neben $K_4$ selbst die einelementige Gruppe $(\{0\},\diamond)$ und die zweielementigen Gruppen $(\{0,1\},\diamond)$, $(\{0,a\},\diamond)$ und $(\{0,b\},\diamond)$. Die Gruppe und ihre Untergruppen beschreiben geometrisch die Symmetrie einer Raute. Darin entsprechen die Gruppenelemente $a$ und $b$ Spiegelungen an den Diagonalen der Raute, während das Element $1$ als Drehung der Raute um den Diagonalenschnittpunkt mit Winkel $180^\circ$ interpretiert werden kann. Siehe [wiki/Kleinsche Vierergruppe](https://de.wikipedia.org/wiki/Kleinsche_Vierergruppe#Auftreten) sowie die nachstehende interaktive Abbildung.
+
+<iframe 
+  scrolling="no" 
+  title="Raute" 
+  src="https://www.geogebra.org/material/iframe/id/zV2TaUHN/width/730/height/460/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" 
+  width="730px" 
+  height="460px" 
+  style="border:0px;"> 
+</iframe>
+_Quelle._ [GeoGebra](https://www.geogebra.org/m/zmvx9hz8). Verändern Sie Lage und Gestalt der Raute $ABA'C$ und prüfen Sie die genannten Symmetrieoperationen $0$, $1$, $a$ und $b$. 
+
+Um Gruppen miteinander vergeichen zu können, werden wir strukturerhaltende Abbildungen zwischen Gruppen untersuchen, so genannte Gruppenisomorphismen.
+
+>**Definition 4.** Seien $G_1=(M_1,\ast_1)$ und $G_2=(M_2,\ast_2)$ zwei Gruppen. Ein **Isomorphismus** zwischen $G_1$ und $G_2$ ist eine bijektive Abbildung $\phi: M_1 \to M_2$, welche die Gruppenstruktur erhält. Das bedeutet: $$ \phi(a\ast_1 b) = \phi(a)\ast_2 \phi(b) $$ für alle $a\in M_1$ und $b\in M_1$.
+
+>**Satz 2.** Bezeichnen $e_1\in M_1$ bzw. $e_2\in M_2$ die neutralen Elemente von $G_1$ bzw. $G_2$, so gelten mit den übrigen Bezeichnungen in Definition 4:
+>
+>1. $\phi(e_1)=e_2$
+>2. $\phi\left(a^{-1}\right)=(\phi(a))^{-1}$ für alle $a\in M_1$
+>3. Ist ein Element $a\in M_1$ bezüglich $\ast_1$ zu sich selbst invers, so ist auch $\phi(a)$ bezüglich $\ast_2$ zu sich selbst invers.
+
+**Beweis.** 
+
+1. Es sei $\phi(a_1)=a_2$ für ein Element $a_1\in M_1$ angenommen. Daraus folgt unter Benutzung von Definition 4 $$ a_2\ast_2 e_2=a_2=\phi(a_1)=\phi(a_1\ast_1 e_1)=\phi(a_1)\ast_2\phi(e_1)=a_2\ast_2\phi(e_1) $$ und nach Anwendung der Kürzungsregel aus Satz 1 $e_2=\phi(e_1)$.
+2. Für ein beliebiges Element $a\in M_1$ gilt einerseits mit der Aussage 1 dieses Satzes $$ e_2=\phi(e_1)=\phi\left(a\ast_1 a^{-1}\right)=\phi(a)\ast_2\phi\left(a^{-1}\right) $$ andererseits gilt $$\phi(a)\ast_2(\phi(a))^{-1}=e_2 $$ Nach Gleichsetzen folgt unter Nutzung der Kürzungsregel in Satz 1 die Behauptung.
+3. Diese Aussage ist eine direkte Folgerung aus der zweiten Teilaussage dieses Satzes für die Spezifikation eines bezüglich $\ast_1$ zu sich selbst inversen Elementes $a\in M_1$ $$ \left(a^2=e_1\leftrightarrow a=a^{-1}\right)\quad\to\quad\phi\left(a^{-1}\right)=\phi(a)=(\phi(a))^{-1} $$
+
+$\square$
+
+**Bemerkung 2.** Aus dem Vorgenannten folgt, dass isomorphe Gruppen strukturgleich sind, nur ihre Elemente tragen andere Namen.
+
+**Beispiel 3.** Werden die Eckpunkte einer Raute der Reihe nach mit den Ziffern $1$, $2$, $3$ und $4$ bezeichnet, so lassen sich die in Beispiel 2 angegebenen Symmetrieabbildungen den nachfolgenden Permutationen zuordnen.
+
+<!-- data-type="none" -->
+| $K_4$ | Symmetrie | Permutationen |
+| :---: | :--- | :---: |
+| $0$ | identische Abbildung | $$ e=\begin{pmatrix} 1 & 2 & 3 & 4 \\ 1 & 2 & 3 & 4 \end{pmatrix} $$ |
+| $1$ | Drehung um Diagonalenschnittpunkt um $180^\circ$ | $$ f=\begin{pmatrix} 1 & 2 & 3 & 4 \\ 3 & 4 & 1 & 2 \end{pmatrix} $$ |
+| $a$ | Spiegelung an Diagonale durch die Punkte $1$ und $3$ | $$ g=\begin{pmatrix} 1 & 2 & 3 & 4 \\ 1 & 4 & 3 & 2 \end{pmatrix} $$ |
+| $b$ | Spiegelung an Diagonale durch die Punkte $2$ und $4$ | $$ h=\begin{pmatrix} 1 & 2 & 3 & 4 \\ 3 & 2 & 1 & 4 \end{pmatrix} $$ |
+
+Die in der Tabelle angegebene Abbildung $$ \phi:\{0,1,a,b\}\to\{e,f,g,h\} $$ der Elemente aus $K_4$ auf die Permutationen ist offenkundig bijektiv. Des Weiteren ist anhand der nachfolgenden Verknüpfungstabelle ersichtlich, dass die Menge dieser Permutationen bezüglich der Komposition $\circ$ abgeschlossen ist und mit dieser Operation eine Gruppe $P$ bildet (blaue Einträge). Im Vergleich mit den Bildern $\phi(x\diamond y)$ der Verknüpfungen $x\diamond y$ folgt ebenso, dass $$ \phi(x\diamond y) = \phi(x)\circ \phi(y) $$ für alle $x\in\{0,1,a,b\}$ und $y\in\{0,1,a,b\}$ gilt.
+
+<!-- data-type="none" -->
+| $\phi(x\diamond y)\quad|\quad\textcolor{blue}{\phi(x)\circ\phi(y)}$ | $0\quad|\quad\textcolor{blue}{e}$ | $1\quad|\quad\textcolor{blue}{f}$ | $a\quad|\quad\textcolor{blue}{g}$ | $b\quad|\quad\textcolor{blue}{h}$ |
+| :--- | :---: | :---: | :---: | :---: |
+| $0\quad|\quad\textcolor{blue}{e}$ | $e\quad|\quad\textcolor{blue}{e}$ | $f\quad|\quad\textcolor{blue}{f}$ | $g\quad|\quad\textcolor{blue}{g}$ | $h\quad|\quad\textcolor{blue}{h}$ |
+| $1\quad|\quad\textcolor{blue}{f}$ | $f\quad|\quad\textcolor{blue}{f}$ | $e\quad|\quad\textcolor{blue}{e}$ | $h\quad|\quad\textcolor{blue}{h}$ | $g\quad|\quad\textcolor{blue}{g}$ |
+| $a\quad|\quad\textcolor{blue}{g}$ | $g\quad|\quad\textcolor{blue}{g}$ | $h\quad|\quad\textcolor{blue}{h}$ | $e\quad|\quad\textcolor{blue}{e}$ | $f\quad|\quad\textcolor{blue}{f}$ |
+| $b\quad|\quad\textcolor{blue}{h}$ | $h\quad|\quad\textcolor{blue}{h}$ | $g\quad|\quad\textcolor{blue}{g}$ | $f\quad|\quad\textcolor{blue}{f}$ | $e\quad|\quad\textcolor{blue}{e}$ |
+
+Die Gruppen $K_4$ und die Permutationsgruppe $P=(\{e,f,g,h\},\circ)$ sind somit zueinander isomorph (strukturgleich).
+
+**Beispiel 4.** Gegeben ist die Gruppe $\mathbb{Z}_4=(\{0,1,2,3\},+)$ mit der Addition modulo $4$ als Gruppenoperation. An der Verknüpfungstabelle ist zu erkennen, dass die Gruppenoperation kommutativ ist. Daneben ist zu erkennen, dass neben $0$ (neutrales Element bezüglich $+$) nur das Element 2 zu sich selbst invers ist, $1$ und $3$ sind jeweils zueinander invers, allgemein ist $$ a^{-1}=(4-a)\mod 4 $$ zum Element $a$ invers.
+
+<!-- data-type="none" -->
+| $+$ | $0$ | $1$ | $2$ | $3$ |
+| :--- | :--- | :--- | :--- | :--- |
+| $0$ | $0$ | $1$ | $2$ | $3$ |
+| $1$ | $1$ | $2$ | $3$ | $0$ |
+| $2$ | $2$ | $3$ | $0$ | $1$ |
+| $3$ | $3$ | $0$ | $1$ | $2$ |
+
+Daneben wird die Gruppe $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$ (ohne 'Null') mit der Multiplikation modulo $5$ als Gruppenoperation betrachtet. Hier ist $1$ das neutrale Element, da $1\cdot x=x\mod 5$ für alle $x$ aus $\mathbb{Z}_5$ ist. Die Gruppenoperation ist kommutativ. Aus der Verknüpfungstabelle können die bezüglich $\cdot$ zueinander inversen Elemente abgelesen werden.
+
+<!-- data-type="none" -->
+| $\cdot$ | $1$ | $2$ | $3$ | $4$ |
+| :--- | :--- | :--- | :--- | :--- |
+| $1$ | $1$ | $2$ | $3$ | $4$ |
+| $2$ | $2$ | $4$ | $1$ | $3$ |
+| $3$ | $3$ | $1$ | $4$ | $2$ |
+| $4$ | $4$ | $3$ | $2$ | $1$ |
+
+Um zu zeigen, dass beide Gruppen zueinander isomorph sind, ist eine bijektive Abbildung $\phi:\{0,1,2,3\}\to\{1,2,3,4\}$ zwischen $\mathbb{Z}_4$ und $\mathbb{Z}_5-\{0\}$ zu konstruieren, welche die Verknüpfungen gemäß der vorstehenden Tabellen erhält. Aus dem vorgenannten Satz wissen wir, dass $\phi(0)=1$ (neutrale Elemente entsprechen sich unter $\phi$). Für die jeweils selbstinversen Elemente setzten wir darüberhinaus $\phi(2)=4$, denn es muss gelten $$ \phi(0)=\phi(2+2)=\phi(2)\cdot\phi(2)=1\quad\leadsto\quad \phi(2)=4 $$ Nun wählen wir noch $\phi(1)=2$ und $\phi(3)=3$ und prüfen anhand der Verknüpfungstabellen die Isomorphieeigenschaft $$ \phi(x+y)=\phi(x)\cdot\phi(y)\quad\forall x\in\{0,1,2,3\}\,,\; y\in\{0,1,2,3\} $$
+
+<!-- data-type="none" -->
+| $\phi(x+ y)\quad|\quad\textcolor{blue}{\phi(x)\cdot\phi(y)}$ | $0\quad|\quad\textcolor{blue}{1}$ | $1\quad|\quad\textcolor{blue}{2}$ | $2\quad|\quad\textcolor{blue}{4}$ | $3\quad|\quad\textcolor{blue}{3}$ |
+| :--- | :---: | :---: | :---: | :---: |
+| $0\quad|\quad\textcolor{blue}{1}$ | $1\quad|\quad\textcolor{blue}{1}$ | $2\quad|\quad\textcolor{blue}{2}$ | $4\quad|\quad\textcolor{blue}{4}$ | $3\quad|\quad\textcolor{blue}{3}$ |
+| $1\quad|\quad\textcolor{blue}{2}$ | $2\quad|\quad\textcolor{blue}{2}$ | $4\quad|\quad\textcolor{blue}{4}$ | $3\quad|\quad\textcolor{blue}{3}$ | $1\quad|\quad\textcolor{blue}{1}$ |
+| $2\quad|\quad\textcolor{blue}{4}$ | $3\quad|\quad\textcolor{blue}{4}$ | $3\quad|\quad\textcolor{blue}{3}$ | $1\quad|\quad\textcolor{blue}{1}$ | $2\quad|\quad\textcolor{blue}{2}$ |
+| $3\quad|\quad\textcolor{blue}{3}$ | $3\quad|\quad\textcolor{blue}{3}$ | $1\quad|\quad\textcolor{blue}{1}$ | $2\quad|\quad\textcolor{blue}{2}$ | $4\quad|\quad\textcolor{blue}{4}$ |
+
+**Bemerkung 3.** Analog zu Beispiel 2 lässt sich die Gruppe $\mathbb{Z}_4=(\{0,1,2,3\},+)$ - und somit auch $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$ - geometrisch über die Symmetrien einer geometrischen Figur interpretieren. Werden die Gruppenelemente von $\mathbb{Z}_4$ als Drehungen der Ebene um den Koordinatenursprung mit Winkeln $\alpha\in\{0^\circ,90^\circ,180^\circ,270^\circ\}$ identifiziert, so bildet jede dieser ein beliebig, aber fest gewähltes Quadrat mit dem Zentrum im Koordinatenursprung auf sich selbst ab. Die Operation in $\mathbb{Z}_4$ wird hierbei mit der Hintereinanderausführung je zwei der vorgenannten Drehungen identifiziert. Die Drehung mit $\alpha=0^\circ$ entspricht dem neutralen Element, die mit $\alpha=180^\circ$ dem (einzigen) selbstinversen Element in $\mathbb{Z}_4$.
+
+Aus der geometrischen Interpretation der Gruppen $\mathbb{Z}_4$ und $K_4$ als Symmetrien lässt sich erwarten, dass beide Gruppen verschiedene Strukturen besitzen und somit nicht isomorph sind.
+
+<iframe 
+  scrolling="no" 
+  title="Drehsymmetrie: Quadrat" 
+  src="https://www.geogebra.org/material/iframe/id/SrWRhyjm/width/730/height/460/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" 
+  width="730px" 
+  height="460px" 
+  style="border:0px;"> 
+</iframe>
+_Quelle._ [GeoGebra](https://www.geogebra.org/m/nJNcyCDk). Drehen Sie das Quadrat um sein Zentrum, so dass es sich wieder 'überdeckt'.
+
+Im nachstehenden Video wird die Definition des Gruppenisomorphismus wiedergeben und an Beispielen erläutert.
+
+!?[Gruppenisomorphismus](https://www.youtube.com/watch?v=_NRPLd1geac "_Quelle._ Youtube, Gruppenisomorphismus verstehen! - Definition & Beispiele (Mathematik), Think Logic.")
+
+>**Definition 5.** Eine **Permutationsgruppe** ist eine Gruppe, deren Elemente Permutationen einer endlichen Menge $M$ sind. Die Operation ist die Hintereinanderausführung von Permutationen. Die allgemeine Permutationsgruppe einer Menge mit $n$ Elementen wird als **symmetrische Gruppe** $S_n$ bezeichnet. 
+
+**Bemerkung 4.** Permutationsgruppen sind von besonderer Bedeutung, da sie viele natürliche Strukturen (z. B. Symmetrien) modellieren können.
+
+>**Satz 3.** Der **Satz von Cayley** besagt, dass jede Gruppe $G$ der Ordnung $n$ isomorph zu einer Permutationsgruppe ist. Konkret kann jede Gruppe als Untergruppe der symmetrischen Gruppe $S_G$ (der Permutationsgruppe der Menge $G$) dargestellt werden. 
+
+Dieser Satz zeigt, dass die Theorie der Gruppen eng mit der Theorie der Permutationen verbunden ist und dass Gruppen immer als Permutationen aufgefasst werden können.
+
+
+Sicher gewusst
+===
+
+Testen Sie Ihr Wissen bei der Beantwortung der nachstehenden Fragen.
+
+Wie im Beispiel 4 sind die beiden (isomorphen) Gruppen $\mathbb{Z}_4=(\{0,1,2,3\},+)$ und $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$ mit den Gruppenoperationen Addition modulo $4$ bzw. Multiplikation modulo $5$ gegeben. Eine bijektive Abbildung zwischen $\mathbb{Z}_4$ und $\mathbb{Z}_5-\{0\}$ lässt sich definieren vermöge $$ \phi:\{0,1,2,3\}\to\{1,2,3,4\}\quad\text{mit}\quad\phi(0)=1\,,\quad \phi(2)=4\,,\quad \phi(1)=3\quad\text{und}\quad \phi(3)=2 $$ (verschieden vom Beispiel 4).
+
+**Frage 1.** Ist durch die Festlegung der biejektiven Abbildung $\phi$ ein Gruppenisomorphismus festgelegt?
+
+[( )] Nein
+[(X)] Ja
+[( )] Hierfür ist zusätzlich $\phi(a+b)=\phi(a)\cdot\phi(b)$ für beliebige $a\in\{0,1,2,3\}$ und $b\in\{0,1,2,3\}$ zu fordern.
+[[?]] Nach Definition 4 ist zu prüfen, ob mit der gewählten bijektiven Abbildung auch $\phi(a+b)=\phi(a)\cdot\phi(b)$ für beliebige $a\in\{0,1,2,3\}$ und $b\in\{0,1,2,3\}$ gilt.
+****************************************
+
+Die zu prüfende Gleichung $\phi(a+b)=\phi(a)\cdot\phi(b)$ bestätigt sich in der nachstehenden Tabelle. Hiernach beschreibt neben Beispiel 4 auch die hier konstruierte bijektive Abbildung $\phi$ einen Isomorphismus zwischen den Gruppen $\mathbb{Z}_4=(\{0,1,2,3\},+)$ und $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$. Für die Konstruktion ist entscheidend, das die neutralen Elemente beider Gruppen vermöge $\phi$ zugeordnet sind, daneben ebenso die selbstinversen Elemente.
+
+<!-- data-type="none" -->
+| $\phi(a+b)\quad|\quad\textcolor{blue}{\phi(a)\cdot\phi(b)}$ | $0\quad|\quad\textcolor{blue}{1}$ | $1\quad|\quad\textcolor{blue}{3}$ | $2\quad|\quad\textcolor{blue}{4}$ | $3\quad|\quad\textcolor{blue}{2}$ |
+| :--- | :---: | :---: | :---: | :---: |
+| $0\quad|\quad\textcolor{blue}{1}$ | $1\quad|\quad\textcolor{blue}{1}$ | $3\quad|\quad\textcolor{blue}{3}$ | $4\quad|\quad\textcolor{blue}{4}$ | $2\quad|\quad\textcolor{blue}{2}$ |
+| $1\quad|\quad\textcolor{blue}{3}$ | $3\quad|\quad\textcolor{blue}{3}$ | $4\quad|\quad\textcolor{blue}{4}$ | $2\quad|\quad\textcolor{blue}{2}$ | $1\quad|\quad\textcolor{blue}{1}$ |
+| $2\quad|\quad\textcolor{blue}{4}$ | $4\quad|\quad\textcolor{blue}{4}$ | $2\quad|\quad\textcolor{blue}{2}$ | $1\quad|\quad\textcolor{blue}{1}$ | $3\quad|\quad\textcolor{blue}{3}$ |
+| $3\quad|\quad\textcolor{blue}{2}$ | $2\quad|\quad\textcolor{blue}{2}$ | $1\quad|\quad\textcolor{blue}{1}$ | $3\quad|\quad\textcolor{blue}{3}$ | $4\quad|\quad\textcolor{blue}{4}$ |
+
+****************************************
+
+**Frage 2.** Untersuchen Sie, welche der nachstehenden Aussagen wahr sind.
+
+[[ ]] $\phi(2+3)=1$
+[[ ]] $\phi(2\cdot3)=1$
+[[X]] $\phi(2)\cdot\phi(3)=3$
+[[ ]] $\phi(2)+\phi(3)=1$
+[[X]] $\phi(2+3)=3$
+[[ ]] $\phi(2)\cdot\phi(3)=1$
+[[?]] Prüfen Sie, in welchen Antwortoptionen die Operationszeichen korrekt gesetzt sind. Ebenso, ob entsprechend der Verknüpfungstabellen korrekt berechnet / zugeordnet wurde.
+****************************************
+
+1. Nicht wahr: Es berechnen sich schrittweise $2+3=1\mod 4$ und $\phi(1)=3$, letzteres entsprechend der gewählten bijektiven Abbildung $\phi$. Vergleichen Sie mit der fünften Antwortoption.
+2. Nicht wahr: Die bijektive Abbildung $\phi$ bildet Elemente der Gruppe $\mathbb{Z}_4=(\{0,1,2,3\},+)$ ab, wonach $2\cdot 3$ in dieser Gruppe nicht erklärt ist.
+3. Wahr: Die bijektive Abbildung $\phi$ bildet in die Gruppe $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$ ab. Hier berechnen sich $\phi(2)\cdot\phi(3)=4\cdot 2=3\mod 5$.
+4. Nicht wahr: Die bijektive Abbildung $\phi$ bildet in die Gruppe $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$ ab, wonach $\phi(2)+\phi(3)$ in dieser Gruppe nicht erklärt ist.
+5. Wahr: Es berechnen sich schrittweise $2+3=1\mod 4$ und $\phi(1)=3$, letzteres entsprechend der gewählten bijektiven Abbildung $\phi$.
+6. Nicht wahr: Es berechnen sich schrittweise $\phi(2)\cdot\phi(3)=4\cdot 2=3\mod 5$. Vergleichen Sie mit der dritten Antwortoption.
+
+****************************************
+
+[^1]: Demgegenüber werden im Kapitel [Affine Transformationen](#Affine-Transformationen) auch *unendliche* (Transformations-) Gruppen untersucht.
+
+[^2]: d. h. gehört mit beliebigem $a$ auch dessen inverses Element zu $U$
+
+```octave
+3+2
+```
+@LIA.eval(`["main.m"]`, `none`, `octave --no-window-system main.m`)
 
 
 ### Vektoren und Matrizen
@@ -487,8 +662,15 @@ und ist für alle $x$ genau dann gleich Null, wenn für alle Koeffizienten $\lam
 ### Ringe und Körper
 
 
-..
+In diesem Abschnitt werden algebraische Strukturen $R=(M,\{\ast_1,\ast_2\})$ betrachtet, die zwei (zweistellige) Operationen $\ast_j$ $(j\in\{1,2\})$ enthalten. Bezüglich jeder dieser Operationen ergibt sich eine der bereits betrachteten algebraischen Strukturen: Halbgruppen, Monoid und Gruppen.
 
+>**Definition 1.** Eine algebraische Struktur $R=(M,\{\ast_1,\ast_2\})$ heißt [Ring](https://de.wikipedia.org/wiki/Ring_%28Algebra%29#Definitionen), falls 
+>
+>1. $(M,\ast_1)$ eine kommutative Gruppe bildet ~~und~~
+>2. $(M,\ast_2)$ eine Halbgruppe bildet ~~und~~
+>3. für alle $a\in M$, $b\in M$ und $c\in M$ die folgenden Distributivgesetze für die beiden Operationen $\ast_1$ und $\ast_2$ gelten: $$ a\ast_2(b\ast_1 c) = (a\ast_2 b)\ast_1 (a\ast_2 c)\quad\text{sowie}\quad (b\ast_1 c)\ast_2 a = (b\ast_2 a)\ast_1(c\ast_2 a) $$
+>
+> Ist die Operation $\ast_2$ ebenfalls kommutativ, wird $R$ **kommutativer Ring** genannt. Existiert bezüglich $\ast_2$ ein neutrales Element, dann heißt $R$ ein **Ring mit Einselement**.
 
 ### Komplexe Zahlen
 
@@ -2069,41 +2251,55 @@ $$ Das Unterteilungspolygon ist in der nachstehenden Abbildung dargestellt.
 Das Verfahren des 'Eckenabschneidens' kann nun erneut auf das Unterteilungspolygon erster Stufe angewendet werden. Die nachstehende Abbildung zeigt die Unterteilungspolygone zweiter (rot, $32$ Seiten) und dritter Stufe (grün, $64$ Seiten).
 
 ![Chaikin-2](img/subdiv2.png)
+
 ![Chaikin-3](img/subdiv3.png)
 
-**Bemerkung.** Nachfolgend ist der Pseudo-Code einer Prozedur angegeben, mit der zu einer gegebenen Liste von Koordinatenvektoren zu $n$ Punkten eines geschlossenen Polygons, zum Beispiel $$
-    P:=[[30,20],[70,15],[80,90],[20,70],[30,20]]
-$$ eine Liste von Koordinaten zu $2\cdot n$ Unterteilungspunkten auf den Seiten des ursprünglichen Polygons berechnet und ausgegeben wird. Siehe Chaikin-Methode des 'Eckenabschneidens' im vorangestellten Beispiel.
+Nachfolgend ist in der Programmiersprache [Octave](https://www.octave.org/) der Code einer Funktion angegeben, mit der zu einer gegebenen Liste von Koordinatenvektoren zu $n$ Punkten eines geschlossenen Polygons, zum Beispiel $$ P=[[30,20],[70,15],[80,90],[20,70],[30,20]] $$ eine Liste von Koordinaten zu $2n$ Unterteilungspunkten auf den Seiten des ursprünglichen Polygons berechnet und ausgegeben wird.[^1]
 
-<!-- data-showGutter="false" -->
-```javascript
-// PSEUDO-CODE
-// Eingabe: Liste P mit Koordinatenvektoren zu n Punkten, Parameter u mit 0<u<0.5
-// L: leere Liste
-// n: Anzahl der Elemente von P
-// v: 1-2*u
-// Wiederhole für i=1 bis n-1
-//    q: (u+v)*P[i]+u*P[i+1]
-//    r: u*P[i]+(u+v)*P[i+1]
-//    Erweitere L um die Elemente der Liste [q,r]
-// Ende Wiederholen
-// Erweitere L um das Element L[1]
-// Ausgabe: Liste L mit 2*n Punkten
-// ENDE PSEUDO-CODE
+```octave
+P = [30 20;70 15;80 90;20 70;30 20] # Die Zeilen der Matrix P sind die Koordinaten der Eckpunkte des Startpolygons.
+
+function L = chaikin(P, a0, a1, a2) # Die Funktion wird definiert.
+  n = size(P,1);
+  c = a0+a1+a2;
+  c1 = a0+a1;
+  c2 = a1+a2;
+
+  for i = 1:n-1
+    if (i == n)
+      a = P(n,:);
+      b = P(1,:);
+    else
+      a = P(i,:);
+      b = P(i+1,:);
+    endif
+    
+    q = c2/c*a+a0/c*b;
+    r = a2/c*a+c1/c*b;
+    
+    L(2*i-1,:) = q;
+    L(2*i,:) = r;
+  endfor
+  
+  L(2*(n-1)+1,:) = L(1,:)
+  L;
+endfunction
+
+chaikin(P,1,2,1)	# Die Funktion wird ausgeführt.
 ```
+@LIA.eval(`["chaikin.m"]`, `none`, `octave --no-window-system chaikin.m`)
 
-Vollziehen Sie den dargestellten Pseudo-Code nach. Beantworten Sie hierfür die nachstehenden Fragen.
+Variieren Sie das Polygon $P$ und führen Sie die Funktion `chaikin(.)` aus. Vollziehen Sie den dargestellten Code nach. Beantworten Sie hierfür die nachstehenden Punkte.
 
-1. Begründen Sie, dass die im Pseudo-Code aufgeführten Linearkombinationen konvexe Linearkombinationen sind.
-2. Kennzeichnen Sie den Einfluss des zu wählenden Parameters $u$ auf die Teilungsverhältnisse der Punkte $q$ und $r$ auf den Seiten des Polygons $P$.
-3. Implementieren Sie diese Prozedur mithilfe einer Programmiersprache Ihrer Wahl.
+1. Begründen Sie, dass die im Code aufgeführten Linearkombinationen konvexe Linearkombinationen sind.
+2. Kennzeichnen Sie den Einfluss der gewählten Parameter $a_0$, $a_1$ und $a_2$ auf die Teilungsverhältnisse der Punkte $q$ und $r$ auf den Seiten des Polygons $P$.
 
 
-Sicher gewusst?
+Sicher gewusst
 ===============
 
 
-Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+Testen Sie Ihr Wissen bei der Beantwortung der nachstehenden Fragen.
 
 Gegeben ist ein Dreieck mit den Eckpunkten $A$, $B$ und $C$ sowie ein weiterer Punkt $O$. Die Verbindungsgeraden $$
   AO\,,\quad BO\quad\text{und}\quad CO
@@ -2197,8 +2393,11 @@ $$ und ist somit unabhängig von der Lage des Punktes $O(x_0,y_0)$. Die Aussage 
 
 ****************************************
 
+[^1]: Siehe Chaikin-Methode des 'Eckenabschneidens' im vorangestellten Beispiel.
+
 
 ### Massenschwerpunkt
+
 
 > **Satz.** Zu einem gegebenen System von Punkten $P_i$ mit den Ortsvektoren $p_i$ und den Gewichten $\gamma_i>0$ bestimmt
 > $$
@@ -2729,7 +2928,7 @@ $$
   \left(\sum_{i=1}^3{x_i\cdot A\cdot e_i}\right)+a=
   \left(\sum_{i=1}^3{x_i\cdot s_i}\right)+a
 $$
-Aus dieser Darstellung lässt sich erkennen, dass $X$ im affinen Koordinatensystem $(O,E_1,E_2,E_3)$ dieselben Koordinaten besitzt wie Koeffizienten in der vorstehenden Linearkombination.
+Aus dieser Darstellung lässt sich erkennen, dass $X$ im affinen Koordinatensystem $(O',E_1',E_2',E_3')$ dieselben Koordinaten besitzt wie Koeffizienten in der vorstehenden Linearkombination.
 
 Ist die Transfomationsmatrix $A$ regulär[^1], so sind deren Spaltenvektoren linear unabhängig, so dass $\left(O',E_1',E_2',E_3'\right)$ wieder ein affines Koordinatensystem ist. Siehe Abschnitt [Affine Koordinatensysteme](#Affine-Koordinatensysteme). Hieraus ergibt sich folgende Erzeugungsmöglichkeit einer Affinität.
 
@@ -2812,7 +3011,7 @@ $$
   \begin{pmatrix} 1 \\ 0 \end{pmatrix}\mapsto\begin{pmatrix} 3 \\ 2 \end{pmatrix}\,,\quad
   \begin{pmatrix} 0 \\ 1 \end{pmatrix}\mapsto\begin{pmatrix} 2 \\ -4 \end{pmatrix}
 $$
-Geben Sie die Matrixdarstellung der linearen Abbildung an.
+Geben Sie die Matrixdarstellung der affinen Abbildung an.
 
 [(X)] $\begin{pmatrix} x' \\ y' \end{pmatrix}=\begin{pmatrix} 2 & 1 \\ 0 & -6 \end{pmatrix}\cdot\begin{pmatrix} x \\ y \end{pmatrix}+\begin{pmatrix} 1 \\ 2 \end{pmatrix}$
 [( )] $\begin{pmatrix} x' \\ y' \end{pmatrix}=\begin{pmatrix} 3 & 2 \\ 2 & -4 \end{pmatrix}\cdot\begin{pmatrix} x \\ y \end{pmatrix}+\begin{pmatrix} 1 \\ 2 \end{pmatrix}$
