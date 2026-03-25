@@ -167,7 +167,7 @@ Testen Sie Ihr Wissen aus diesem Abschnitt bei der Beantwortung der folgenden Fr
 
 **Frage 1.** Gegeben ist die algebraische Struktur $A=(F,\circ)$, die auf der Menge der bijektiven Abbildungen $f:M\to M$ der Menge $M=\{1,2,3\}$ und der Hintereinanderausführung zweier Abbildungen dieser Menge als Operation $$
   f\circ g:M\to M\quad\text{mit}\quad m\mapsto n=f(g(m))
-$$ erzeugt wird. Berechnen Sie inverse Abbildung zu $f\circ g$ mit $$
+$$ erzeugt wird. Berechnen Sie die inverse Abbildung zu $f\circ g$ mit $$
   f=\begin{pmatrix} 1 & 2 & 3 \\ 1 & 3 & 2 \end{pmatrix}\quad\text{und}\quad g=\begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 3 \end{pmatrix}
 $$
 
@@ -265,7 +265,7 @@ In diesem Abschnitt wird ein kleiner Einblick in eine zentrale Frage der Gruppen
 | $\mathbb{Z}$ | Multiplikation $(\cdot)$ | $e=1$ |
 | $F=\{f:M\to M\,|\, f\,\text{bijektiv}\}$ | Komposition $(\circ)$ | $e:x\mapsto x$ (identische Abbildung) |
 
-In den Monoiden $(\mathbb{N},+)$ und $(\mathbb{N},\cdot)$ existieren keine inversen Elemente, da z. B. $$ 5+n=0\quad\text{bzw.}\quad 5\cdot m=1 $$ keine Lösung in $\mathbb{N}$ besitzen. Diese bilden demnach keine Gruppen. Ebenso ist $(\mathbb{Z},\cdot)$ keine Gruppe. Hingegen besitzt jede Gleichung $n+m=0$ mit beliebigem $m\in\mathbb{Z}$ genau eine Lösung $n=-m\in\mathbb{Z}$, damit bildet $(\mathbb{Z},\cdot)$ eine Gruppe.
+In den Monoiden $(\mathbb{N},+)$ und $(\mathbb{N},\cdot)$ existieren keine inversen Elemente, da z. B. $$ 5+n=0\quad\text{bzw.}\quad 5\cdot m=1 $$ keine Lösung in $\mathbb{N}$ besitzen. Diese bilden demnach keine Gruppen. Ebenso ist $(\mathbb{Z},\cdot)$ keine Gruppe. Hingegen besitzt jede Gleichung $n+m=0$ mit beliebigem $m\in\mathbb{Z}$ genau eine Lösung $n=-m\in\mathbb{Z}$, damit bildet $(\mathbb{Z},+)$ eine Gruppe.
 
 In der Menge $F$ der bijektiven Abbildungen existiert zu jeder Abbildung $f:M\to M$ genau eine inverse Abbildung $f^{-1}$ mit $$ f\circ f^{-1}=f^{-1}\circ f=e $$ (identische Abbildung); daher bildet $(F,\circ)$ eine Gruppe.
 
@@ -313,15 +313,29 @@ Aus der Verknüpfungstabelle kann entnommen werden, dass $0$ das neutrale Elemen
 
 Die Kleinsche Vierergruppe $K_4$ besitzt fünf Untergruppen, d. s. neben $K_4$ selbst die einelementige Gruppe $(\{0\},\diamond)$ und die zweielementigen Gruppen $(\{0,1\},\diamond)$, $(\{0,a\},\diamond)$ und $(\{0,b\},\diamond)$. Die Gruppe und ihre Untergruppen beschreiben geometrisch die Symmetrie einer Raute. Darin entsprechen die Gruppenelemente $a$ und $b$ Spiegelungen an den Diagonalen der Raute, während das Element $1$ als Drehung der Raute um den Diagonalenschnittpunkt mit Winkel $180^\circ$ interpretiert werden kann. Siehe [wiki/Kleinsche Vierergruppe](https://de.wikipedia.org/wiki/Kleinsche_Vierergruppe#Auftreten) sowie die nachstehende interaktive Abbildung.
 
-<iframe 
-  scrolling="no" 
-  title="Raute" 
-  src="https://www.geogebra.org/material/iframe/id/zV2TaUHN/width/730/height/460/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" 
-  width="730px" 
-  height="460px" 
-  style="border:0px;"> 
-</iframe>
-_Quelle._ [GeoGebra](https://www.geogebra.org/m/zmvx9hz8). Verändern Sie Lage und Gestalt der Raute $ABA'C$ und prüfen Sie die genannten Symmetrieoperationen $0$, $1$, $a$ und $b$. 
+<div style="width: 100%; max-width: 730px; margin: 0 auto; padding: 0; box-sizing: border-box; position: relative;">
+  <div style="position: relative; width: 100%; height: 0; padding-bottom: 63.0%; /* 460 / 730 ≈ 63.0% */">
+    <iframe
+      scrolling="no"
+      title="Raute"
+      src="https://www.geogebra.org/material/iframe/id/zV2TaUHN/width/730/height/460/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 1px solid #ccc; border-radius: 8px;"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>
+
+<p>
+  <strong>Interaktive Anwendung:</strong> 
+  Verändern Sie die Lage und Gestalt der Raute $ABA'C$ und prüfen Sie die genannten Symmetrieoperationen $0$, $1$, $a$ und $b$.
+</p>
+
+<p>
+  <em>Quelle:</em> <a href="https://www.geogebra.org/m/zmvx9hz8">GeoGebra</a>  
+  von <a href="https://www.geogebra.org/u/sicmix">SicMix</a>  
+  ist unter der Lizenz <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> verfügbar.  
+</p>
 
 Um Gruppen miteinander vergeichen zu können, werden wir strukturerhaltende Abbildungen zwischen Gruppen untersuchen, so genannte Gruppenisomorphismen.
 
@@ -399,15 +413,29 @@ Um zu zeigen, dass beide Gruppen zueinander isomorph sind, ist eine bijektive Ab
 
 Aus der geometrischen Interpretation der Gruppen $\mathbb{Z}_4$ und $K_4$ als Symmetrien lässt sich erwarten, dass beide Gruppen verschiedene Strukturen besitzen und somit nicht isomorph sind.
 
-<iframe 
-  scrolling="no" 
-  title="Drehsymmetrie: Quadrat" 
-  src="https://www.geogebra.org/material/iframe/id/SrWRhyjm/width/730/height/460/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" 
-  width="730px" 
-  height="460px" 
-  style="border:0px;"> 
-</iframe>
-_Quelle._ [GeoGebra](https://www.geogebra.org/m/nJNcyCDk). Drehen Sie das Quadrat um sein Zentrum, so dass es sich wieder 'überdeckt'.
+<div style="width: 100%; max-width: 730px; margin: 0 auto; padding: 0; box-sizing: border-box; display: block;">
+  <div style="position: relative; width: 100%; height: 0; padding-bottom: 63.0%; /* 460 / 730 ≈ 63.0% */">
+    <iframe
+      scrolling="no"
+      title="Drehsymmetrie: Quadrat"
+      src="https://www.geogebra.org/material/iframe/id/SrWRhyjm/width/730/height/460/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 1px solid #ccc; border-radius: 8px; display: block;"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>
+
+<p>
+  <strong>Interaktive Anwendung:</strong> 
+  Drehen Sie das Quadrat um sein Zentrum, so dass es sich wieder 'überdeckt'.
+</p>
+
+<p>
+  <em>Quelle:</em> <a href="https://www.geogebra.org/m/nJNcyCDk">GeoGebra</a>
+  von <a href="https://www.geogebra.org/u/mattgig">Matthias Giger</a>  
+  ist unter der Lizenz <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> verfügbar.  
+</p>
 
 Im nachstehenden Video wird die Definition des Gruppenisomorphismus wiedergeben und an Beispielen erläutert.
 
@@ -473,204 +501,110 @@ Die zu prüfende Gleichung $\phi(a+b)=\phi(a)\cdot\phi(b)$ bestätigt sich in de
 
 [^2]: d. h. gehört mit beliebigem $a$ auch dessen inverses Element zu $U$
 
-```octave
-3+2
-```
-@LIA.eval(`["main.m"]`, `none`, `octave --no-window-system main.m`)
-
-
-### Vektoren und Matrizen
-
-
-Vektoren
-========
-
-In der Definition eines Vektorraums $V$ wird auf zwei Operationen Bezug genommen: der Addition von zwei (oder auch endlich vielen) Vektoren bzw. der Multiplikation eines Vektors mit einer Zahl aus dem Skalarbereich $K$. 
-Die Addition von Vektoren aus $V=\mathbb{R}^k$ $(k\in\mathbb{N})$ und Vielfachbildung von Vektoren mit einem Skalar aus $K=\mathbb{R}$ sind komponentenweise erklärt.
-
-> **Satz.** Es gelten die folgenden Rechenregeln [^1]
->
-> * Kommutativität $x+y=y+x$
-> * Assoziativität $x+(y+z)=(x+y)+z$
-> * Neutrales Element $o$ mit $x+o=x$
-> * Inverses Element $-{x}$ mit ${x}+(-{x})={o}$
-> * Distributivität $\lambda\cdot({x}+{y})=\lambda\cdot{x}+\lambda\cdot{y}$
-> * Distributivität $(\lambda+\mu)\cdot{x}=\lambda\cdot{x}+\mu\cdot{x}$
-> * Assoziativität für Vielfachbildung $(\lambda\cdot\mu)\cdot{x}=\lambda\cdot(\mu\cdot{x})$
->
-> für beliebige $\{x,y,z\}\subset\mathbb{R}^k$ und $\{\lambda,\mu\}\subset\mathbb{R}$.
-
-Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) können die Axiome für Vektoren nachgerechnet werden. Mit der in eingeführten Addition bildet $(V,+)$ eine kommutative Gruppe.
-
-``` javascript
-A = [[a],[b]]
-B = [[c],[d]]
-A + B - (B + A)
-transpose(A)
-```
-@Algebrite.eval
-
-**Bemerkung 1.** Ist der Skalarbereich $K$ ein beliebiger [Körper](#Ringe-und-Körper), so besitzen die Rechenregeln im vorstehenden Satz die Bedeutung von Axiomen. Eine Menge $V$, auf der zwei Operationen $$
-  +:V\times V\to V\quad\text{und}\quad \cdot:V\times K\to V
-$$ erklärt sind, die den genannten Axiomen genügen, wird **Vektorraum über K** genannt: Man rechnet mit Vektoren $v\in V$ und Skalaren $\lambda\in K$ nach den vorstehenden Rechenregeln, ohne auf die geometrische Darstellung der Vektoren Bezug zu nehmen.
-
-Für Vektoren $v_i\in\mathbb{R}^k$ mit $i\in\{1,2,\ldots,n\}$ und Skalare $\lambda_i\in\mathbb{R}$ heißt
-$$
-  \sum_{i=1}^n{\left(\lambda_i\cdot v_i\right)}\in\mathbb{R}^k
-$$
-eine **Linearkombination** der Vektoren $v_i$. Diese ist also wieder ein Vektor.
-
-Ein zentraler Begriff im Kontext der Vektorräume ist der der linearen Unabhängigkeit von Vektoren.
-
->**Definition.** Die Vektoren $v_i\in \mathbb{R}^k$ mit $i\in\{1,2,\ldots,n\}$ heißen **linear unabhängig**, falls
->$$
-  \sum_{i=0}^n{\left(\lambda_i\cdot v_i\right)}=o\;\rightarrow\;(\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
-$$ worin $o$ den Nullvektor in $V$ bezeichnet. Andernfalls wird die Menge $\{v_1,...,v_n\}$ linear abhängig genannt.
-
-**Bemerkung 2.** Die vorstehende Definition besteht aus einer Implikation: Der Vordersatz ist eine vektorwertige, lineare Gleichung in den unbekannten Koeffizienten $\lambda_i$, deren rechte Seite der Nullvektor in $\mathbb{R}^k$ ist. Der Nachsatz umfasst die Aussage, dass alle Koeffizienten als Lösungen dieser Gleichung 'Null' sind.
-
-Das heißt, die lineare Unabhängigkeit der Vektoren $v_i$ ist daran gekoppelt, dass die vektorvertige, lineare Gleichung in Definition ~~nur~~ für das Nulltupel $$
-  (\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
-$$ lösbar ist. Diese wird auch *triviale Lösung* genannt. Existiert andernfalls ~~daneben~~ ein $$
-  (\lambda_0,\lambda_1,\ldots,\lambda_n)\not=(0,0,\ldots,0)
-$$ als Lösungstupel dieser Gleichung, so heißt die Menge der Vektoren $\left\{v_i|\, i\in\{1,2,...,n\}\right\}$ linear abhängig.
-
-**Beispiel 1.** Es wird der Vektorraum $V=\mathbb{R}^2$ betrachtet.
-
-1. Für die Vektoren $$
-  v_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\quad\text{und}\quad
-  v_2=\begin{pmatrix} 1 \\ -1 \end{pmatrix}
-$$ ist die Menge $\{v_1,v_2\}$ linear unabhängig, da gilt $$
-  \lambda_1\cdot v_1+\lambda_2\cdot v_2=
-  \lambda_1\cdot\begin{pmatrix} 2 \\ 1 \end{pmatrix}+\lambda_2\cdot\begin{pmatrix} 1 \\ -1 \end{pmatrix}=
-  \begin{pmatrix} 2\cdot\lambda_1+\lambda_2 \\ \lambda_1-\lambda_2 \end{pmatrix}=
-  \begin{pmatrix} 0 \\ 0 \end{pmatrix}=o\quad\leftrightarrow\quad (\lambda_1,\lambda_2)=(0,0)
-$$ Es existiert nur das Paar von Koeffizienten $(\lambda_1,\lambda_2)=(0,0)$ als Lösung der linearen Gleichung.
-2. Für die Vektoren $$
-  u_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\quad\text{und}\quad
-  u_2=\begin{pmatrix} 0 \\ 0 \end{pmatrix}
-$$ ist die Menge $\{u_1,u_2\}$ linear abhängig, da zum Beispiel gilt $$
-  0\cdot u_1+7\cdot u_2=
-  0\cdot\begin{pmatrix} 2 \\ 1 \end{pmatrix}+7\cdot\begin{pmatrix} 0 \\ 0 \end{pmatrix}=
-  \begin{pmatrix} 0 \\ 0 \end{pmatrix}=o
-$$ Es existiert ein Paar von Koeffizienten $(\lambda_1,\lambda_2)=(0,7)\not=(0,0)$ als Lösung dieser linearen Gleichung. Mit selbigem Ansatz folgt, dass die einelementige Menge $\{u_1\}$ linear unabhängig ist, währenddessen $\{u_2\}$ linear abhängig ist.[^4]
-3. Für die Vektoren $$
-  w_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\,,\quad
-  w_2=\begin{pmatrix} 1 \\ 1 \end{pmatrix}\quad\text{und}\quad
-  w_3=\begin{pmatrix} -1 \\ 2 \end{pmatrix}
-$$ besteht die Menge $\{w_1,w_2,w_3\}$ aus linear abhängigen Vektoren, da gilt $$
-  -3\cdot w_1+5\cdot w_2-w_3=o
-$$ Bitte nachrechnen!
-
-**Beispiel 2.** Mit Hilfe der linearen Unabhängigkeit von Vektoren lässt sich etwa nachweisen, dass sich die Diagonalen in einem Parallelogramm halbieren. Gegeben ist hierfür ein Parallelogramm mit den Eckpunkten $A$, $B$, $C$ und $D$, die Seiten $[A,B]$ bzw. $[A,D]$ werden durch die Vektoren $a$ bzw. $b$ aufgespannt. Es wird vorausgesetzt, dass die Vektoren $a$ und $b$ linear unabhängig sind. Siehe nachstehende Abbildung.
-
-![Diagonalen](img/geo-bild31.png "_Fig._ Parallelogramm mit Diagonalen. Die Diagonalen schneiden einander in ihrem Mittelpunkt.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 615px;" -->
-
-Für den Nachweis wird das Dreieck mit den Eckpunkten $A$, $B$ und $M$ betrachtet, worin $M$ den gemeinsamen Punkt der Diagonalen bezeichnet. Es gilt offensichtlich die Vektorgleichheit $$
-  \overrightarrow{AM}+\overrightarrow{MB}+\overrightarrow{BA}=o
-$$ mit dem Nullvektor $o$. Unter Benutzung der Vektoren $a$ und $b$ schreibt sich diese Identität $$
-  t\cdot(a+b)+s\cdot(a-b)-a=o\quad\leftrightarrow\quad a\cdot(t+s-1)+b\cdot(t-s)=o
-$$ worin $t$ und $s$ zu bestimmende reelle parameter bezeichnen. Da $a$ und $b$ linear unabhängig vorausgesetzt werden, ist diese Gleichung genau dann $o$, wenn beide Koeffizienten verschwinden, d. h. $$
-  t+s-1=0\quad\wedge\quad t-s=0
-$$ Das ist ein System aus zwei linearen Gleichungen in den zu bestimmenden Parametern $t$ und $s$ mit den Lösungen $t=s=\frac{1}{2}$. Damit ergeben sich die Vektoren $$
-  \overrightarrow{AM}=\frac{1}{2}\cdot\overrightarrow{AC}=\frac{1}{2}\cdot(a+b)\quad\text{und}\quad
-  \overrightarrow{MB}=\frac{1}{2}\cdot\overrightarrow{DB}
-$$
-
-$\square$
-
-Im nachstehenden Video ist der Beweis anhand der Figur $ABCD$ ausgeführt.
-
-!?[Diagonalen](https://www.youtube.com/watch?v=1SGRLDFTaFE&t=169s)
-
-Punkte $P$ der Ebene bzw. des dreidimensionalen Raumes werden mit ihren Ortsvektoren bezüglich eines Ortsvektorraumes identifiziert.
-$$ P(x,y,z) \leftrightarrow p=\begin{pmatrix} x \\ y \\ z \end{pmatrix} $$
-Bezüglich der kanonischen Basis im Ortsvektorraum stellt sich $p$ dar
-$$
-  p=\begin{pmatrix} x \\ y \\ z \end{pmatrix} =
-  x\cdot\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} +
-  y\cdot\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} +
-  z\cdot\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}
-$$
-Die Koordinaten von $P$ sind hierin die Koeffizienten der Linearkombination der Basisvektoren.
-
-Matrizen
-========
-
-Die Menge der reellen Matrizen gleichen Typs bilden bezüglich der erklärten Addition und Skalarvielfachbildung einen reellen Vektorraum, genügen also den gleichen Rechengesetzen / Axiomen wie Vektoren (aus $\mathbb{R}^k$). Vergleiche Bemerkung 1 in diesem Abschnitt.
-
-Für das Rechnen mit **quadratischen Matrizen** benötigen wir des Weiteren *inverse Matrix*, *Determinante* etc.
-
-Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) ist nachfolgend die Berechnung der Inversen -, der Adjunkten - und der Determinante einer quadratischen Matrix ausgeführt.
-
-``` javascript
-A=[[a,b],[c,d]]
-inv(A)
-adj(A)
-det(A)
-inv(A)-adj(A)/det(A)
-```
-@Algebrite.eval
-
-Sicher gewusst?
-===============
-
-Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
-
-**Frage 1.** Eine reelle quadratische Matrix $A$ heißt regulär, falls gilt:
-
-[[ ]] $\det{A}$ ist gleich Null
-[[X]] $\det{A}$ ist verschieden von Null
-[[X]] Die inverse Matrix $A^{-1}$ zu $A$ existiert.
-[[?]] Die inverse Matrix $A^{-1}$ existiert nicht für singuläre Matrizen.
-****************************************
-
-Eine quadratische Matrix wird regulär genannt, falls $\det{A}$ nicht den Wert Null besitzt.
-
-Die inverse Matrix $A^{-1}$ berechnet sich mittels
-$$
-  A^{-1}=\frac{1}{\det{A}}\cdot\mathop{\rm adj}{A}
-$$
-Diese existiert somit nur zu regulären Matrizen.
-
-****************************************
-
-**Frage 2.** Die Funktionen $f_i:\mathbb{R}\rightarrow\mathbb{R}$ mit
-$$
-  f_0(x)=1\,,\quad f_1(x)=x\,,\quad f_2(x)=x^2
-$$
-sind linear unabhängig[^2], da für alle $x$:
-
-[(X)] die nachstehende Implikation gilt $$\sum_{i=0}^2{\left(\lambda_i\cdot f_i(x)\right)}=0\;\rightarrow\;(\lambda_0,\lambda_1,\lambda_2)=(0,0,0)$$
-[( )] die Gleichung $$\sum_{i=0}^2{\left(\lambda_i\cdot f_i(x)\right)}=0$$ die Lösung $(\lambda_0,\lambda_1,\lambda_2)=(0,0,0)$ besitzt.
-[[?]] Das geordnete Dreitupel $(\lambda_0,\lambda_1,\lambda_2)=(0,0,0)$ ist unabhängig von den gewählten Funktionen immer eine Lösung.
-****************************************
-
-Die Null gesetzte Linearkombination ergibt
-$$
-  \lambda_0+\lambda_1\cdot x+\lambda_2\cdot x^2=0
-$$
-und ist für alle $x$ genau dann gleich Null, wenn für alle Koeffizienten $\lambda_i=0$ gilt.
-
-****************************************
-
-[^1]: Die Rechenregeln werden zur axiomatischen Festlegung eines Vektorraumes genutzt. Hier ist zusätzlich $1\cdot x=x$ zu fordern.
-
-[^2]: Die Funktionen bilden sogar die Monombasis im Vektorraum aller reellen Polynomfunktionen vom Grad $n\leq 2$.
-
 
 ### Ringe und Körper
 
 
-In diesem Abschnitt werden algebraische Strukturen $R=(M,\{\ast_1,\ast_2\})$ betrachtet, die zwei (zweistellige) Operationen $\ast_j$ $(j\in\{1,2\})$ enthalten. Bezüglich jeder dieser Operationen ergibt sich eine der bereits betrachteten algebraischen Strukturen: Halbgruppen, Monoid und Gruppen.
+In diesem Abschnitt werden algebraische Strukturen $R=(M,\{\ast_1,\ast_2\})$ betrachtet, die durch zwei Operationen $$
+  \ast_j:M\times M\to M\,,\quad j\in\{1,2\} $$ 
+festgelegt sind. Bezüglich jeder dieser Operationen ergibt sich eine der bereits betrachteten algebraischen Strukturen 'Halbgruppe', 'Monoid' oder 'Gruppe'.
 
->**Definition 1.** Eine algebraische Struktur $R=(M,\{\ast_1,\ast_2\})$ heißt [Ring](https://de.wikipedia.org/wiki/Ring_%28Algebra%29#Definitionen), falls 
+>**Definition 1.** Eine algebraische Struktur $R=(M,\ast_1,\ast_2)$ heißt [Ring](https://de.wikipedia.org/wiki/Ring_%28Algebra%29#Definitionen), falls 
 >
 >1. $(M,\ast_1)$ eine kommutative Gruppe bildet ~~und~~
 >2. $(M,\ast_2)$ eine Halbgruppe bildet ~~und~~
 >3. für alle $a\in M$, $b\in M$ und $c\in M$ die folgenden Distributivgesetze für die beiden Operationen $\ast_1$ und $\ast_2$ gelten: $$ a\ast_2(b\ast_1 c) = (a\ast_2 b)\ast_1 (a\ast_2 c)\quad\text{sowie}\quad (b\ast_1 c)\ast_2 a = (b\ast_2 a)\ast_1(c\ast_2 a) $$
 >
 > Ist die Operation $\ast_2$ ebenfalls kommutativ, wird $R$ **kommutativer Ring** genannt. Existiert bezüglich $\ast_2$ ein neutrales Element, dann heißt $R$ ein **Ring mit Einselement**.
+
+**Beispiel 1.** Die ganzen Zahlen mit den Operationen Addition und Multiplikation bilden einen kommutativen Ring mit Einselement, $(\mathbb{Z},\{+,\cdot\})$. Nach Beispiel 1 und Definition 2 im Abschnitt [Gruppen und Halbgruppen](#Gruppen-und-Halbgruppen) ist $(\mathbb{Z},+)$ eine kommutative Gruppe und $(\mathbb{Z},\cdot)$ ein Monoid. Die Multiplikation ganzer Zahlen ist überdies kommutativ. Beide Distributivregeln in Definition 1 $$
+  a\cdot(b+c)=(a\cdot b)+(a\cdot c)\quad\text{sowie}\quad (b+c)\cdot a=(b\cdot a)+(c\cdot a) $$
+gelten für beliebige ganze Zahlen $a$, $b$ und $c$. (Wegen der Kommutativität der Multiplikation in $\mathbb{Z}$ folgt die Gültigkeit der einen unmittelbar aus der der anderen.
+
+Daneben bilden die algebraischen Strukturen $(\mathbb{Z}_m,\{+,\cdot\})$ mit $$ 
+  \mathbb{Z}_m=\left\{[0],[1],[2],...,[m-1]\right\} $$ 
+und den Operationen $$
+  [a]+[b]=[a+b]\mod m\quad\text{und}\quad [a]\cdot [b]=[a\cdot b]\mod m $$
+kommutative Ringe mit Einselement. Sie werden [Restklassenringe](https://de.wikipedia.org/wiki/Restklassenring) genannt.
+
+**Beispiel 2.** Für ein beliebiges $n\in\mathbb{N}$ bildet die Menge der reellen Matrizen vom Typ $(n,n)$ mit der gewöhnlichen Addition und Multiplikation von Matrizen einen nichtkommutativen Ring mit Einselement.
+
+Unter Benutzung der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lassen sich die Rechenoperationen für reelle Matrizen symbolisch durchführen. Prüfen Sie die Axiome in Definition 1 durch Rechnung. Die (bezüglich Matrixmultiplikation) inverse Matrix einer quadratischen Matrix $A$ lässt sich durch die Funktion `inv(A)` berechnen, das Matrixprodukt zweier Matrizen ist mittels `inner(A,B)` ausführbar.
+
+```algebrite
+A=[[a11,a12],[a21,a22]]
+B=[[b11,b12],[b21,b22]]
+A+B
+shape(A+B)
+inv(A)
+inner(A,inv(A))
+inner(A,I)
+```
+@Algebrite.eval
+
+**Bemerkung 1.** Wir vereinbaren, dass beim gleichzeitigen Auftreten beider Operationen $\ast_2$ stärker bindet als $\ast_1$, also $$ a\ast_1 b\ast_2 c=a\ast_1(b\ast_2 c) $$ Hiermit lassen sich die Klammern beispielsweise in Beispiel 1 $$
+   a\cdot(b+c)=a\cdot b+a\cdot c\quad\text{sowie}\quad (b+c)\cdot a=b\cdot a+c\cdot a $$
+und allgemein in Definition 1 weglassen.
+
+>**Definition 2.** Eine algebraische Struktur $K=(M,\ast_1,\ast_2)$ heißt [Körper](https://de.wikipedia.org/wiki/K%C3%B6rper_%28Algebra%29) falls 
+>
+>1. $(M,\ast_1)$ eine kommutative Gruppe mit neutralem Element $e_1$ bildet ~~und~~
+>2. $(M\setminus\{e_1\},\ast_2)$ eine kommutative Gruppe mit neutralem Element $e_2$ bildet ~~und~~  
+>3. das Distributivgesetz $$
+  a\ast_2(b\ast_1 c)=a\ast_2 b\ast_1 a\ast_2 c $$ für beliebige Elemente $a\in M$, $b\in M$ und $c\in M$ gilt.
+
+**Beispiel 3.** Die Mengen der rationalen Zahlen $\mathbb{Q}$ und reellen Zahlen $\mathbb{R}$ bilden jeweils bezogen auf Addition und Multiplikation einen Körper, kurz $$ (\mathbb{Q},+,\cdot) \quad\text{bzw.}\quad (\mathbb{R},+,\cdot) $$
+Auch die im folgenden Abschnitt eingeführten [komplexen Zahlen](https://de.wikipedia.org/wiki/Komplexe_Zahl) bilden mit diesen Operationen einen Körper $(\mathbb{C},+,\cdot)$. Siehe Abschnitt [Komplexe Zahlen](#Komplexe-Zahlen).
+
+**Bemerkung 2.** Ringe und Körper sind mittels zweier verschiedener Operationen festgelegt. Um Missverständnis bei den im Abschnitt [Gruppen und Halbgruppen](#gruppen-und-halbgruppen) eingeführten Bezeichnungen zu vermeiden, wird mit Blick auf die Bezeichnungen in den angeführten Beispielen vereinbart:
+
+| bisher   | neu vereinbart  | Bemerkung   |
+| :--------- | :--------- | :--------- |
+| $a\ast_1 b$     | $a+b$     | additive Verknüpfung zweier Elemente     |
+| $a\ast_2 b$     | $a\cdot b$     | multiplikative Verknüpfung zweier Elemente     |
+| $a\ast_1 e_1=a$     | $a+0=a$     | neutrales Element der Addition, kurz 'Null'     |
+| $a\ast_2 e_2=a$     | $a\cdot 1=a$     | neutrales Element der Multiplikation, kurz: 'Eins'     |
+| $a\ast_1 a^{-1}=e_1$     | $a+(-a)=0$     | zu $a$ inverses Element bezüglich Addition     |
+| $a\ast_2 a^{-1}=e_2$ mit $a\not=e_1$     | $a\cdot\frac{1}{a}=a\cdot a^{-1}=1$ mit $a\not=0$     | zu $a$ inverses Element bezüglich Multiplikation     |
+
+Daneben lassen sich vereinbaren: $$
+  \underbrace{a+a+...+a}_{k-\text{mal}}=k\cdot a\quad\text{und}\quad\underbrace{a\cdot a\cdot ...\cdot a}_{k-\text{mal}}=a^k  $$
+worin $k\in\mathbb{Z}$ beliebig gewählt werden kann.
+
+In Verallgemeinerung des Begriffs einer Untergruppe lassen sich algebraische Unter- und Oberstrukturen von Ringen und Körpern definieren.
+
+>**Definition 3.** Seien $(R,+,\cdot)$ ein Ring und $(K,+,\cdot)$ ein Körper.
+>
+>1. $U\subseteq R$ heißt ein [Unterring](https://de.wikipedia.org/wiki/Ring_%28Algebra%29#Unter-_und_Oberstrukturen) von $R$, falls $(U,+,\cdot)$ einen Ring bildet.
+>2. Ein Unterring $I$ von $R$ heißt [Ideal](https://de.wikipedia.org/wiki/Ideal_%28Ringtheorie%29), falls für alle $a\in R$ und alle $b\in I$ gelten $a\cdot b\in I$ und $b\cdot a\in I$.
+>3. $U\subseteq K$ heißt [Unterkörper](https://mathepedia.de/Unter-_und_Oberkoerper.html) von $K$, falls $(U,+,\cdot)$ einen Körper bildet.
+
+**Beispiel 4.** $(\mathbb{Q},+,\cdot)$ ist ein Unterkörper von $(\mathbb{R},+,\cdot)$. 
+
+Die Menge $2\mathbb{Z}$ der geraden ganzen Zahlen ist ein Ideal im Ring $\mathbb{Z}$ aller ganzen Zahlen. Hingegen bilden die ungeraden ganzen Zahlen, $\mathbb{Z}\setminus 2\mathbb{Z}$ kein Ideal in $\mathbb{Z}$, da das Produkt einer jeden ungeraden Zahl mit einer geraden ganzen Zahl gerade ist.
+
+Analog zum Festlegung der Strukturgleichheit von Gruppen definieren wir für Ringe beziehungsweise Körper:
+
+>**Definition 4.** Zwei Ringe beziehungsweise Körper $$
+  (R_1,+_1,\cdot_1)\quad\text{und}\quad(R_2,+_2,\cdot_2) $$
+> heißen [homomorph](https://de.wikipedia.org/wiki/Homomorphismus), falls eine Abbildung $\phi:R_1\to R_2$ existiert, mit der die Gleichungen $$
+  \phi(a+_1 b)=\phi(a)+_2\phi(b)\quad\text{und}\quad \phi(a\cdot_1 b)=\phi(a)\cdot_2\phi(b) $$
+> für alle $a\in R_1$ und $b\in R_1$ gelten.
+>
+>Die Ringe beziehungsweise Körper heißen **isomorph**, wenn $\phi$ ein bijektiver Homomorphismus ist.
+
+>**Definition 5.** Sei $(K,+,\cdot)$ ein Körper und $a\not\in K$. Bildet $K\cup\{a\}$ ebenfalls einen Körper, dann heißt $K(a)=K\cup\{a\}$ **Erweiterungskörper** von $K$.
+
+**Beispiel 5.** $\mathbb{Q}(\sqrt{2})$ ist ein Erweiterungskörper von $\mathbb{Q}$. 
+
+* Dieser besitzt die (gleichen) neutralen Elemente $0$ beziehungsweise $1$ bezüglich der Addition beziehungsweise Multiplikation, denn diese sind auch neutrale Elemente in $\mathbb{R}\ni\sqrt{2}$.
+* Wegen $\sqrt{2}^2=2$ kommen in $\mathbb{Q}(\sqrt{2})$ Produkte $b\cdot\sqrt{2}$ vor. Werden außerdem beliebige Zahlen in $\mathbb{Q}(\sqrt{2})$ addiert, entstehen Zahlen der Form $$
+  a+b\cdot\sqrt{2}\quad\text{mit}\quad a\in\mathbb{Q}\,,\;b\in\mathbb{Q} $$ Die Menge $\mathbb{Q}(\sqrt{2})$ ist abgeschlossen unter Addition und Multiplikation.
+* Zu jedem Element $a+b\cdot\sqrt{2}$ existiert ein eindeutig bestimmtes inverses Element bezüglich der Addition $$
+  -a-b\cdot\sqrt{2}\in\mathbb{Q}(\sqrt{2})\quad\leadsto\quad (a+b\cdot\sqrt{2})+(-a-b\cdot\sqrt{2})=(a-a)+(b-b)\cdot\sqrt{2}=0+0\cdot\sqrt{2} $$
+* Ebenso existiert zu $a+b\cdot\sqrt{2}$ ein eindeutig bestimmtes inverses Element bezüglich der Multiplikation $$
+  -\frac{a}{2\cdot b^2-a}+\frac{b}{2\cdot b^2-a}\cdot\sqrt{2} $$
+
 
 ### Komplexe Zahlen
 
@@ -709,7 +643,7 @@ $$
 
 Unter Benutzung der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lassen sich die Lösungen obiger Gleichungen interaktiv berechnen. Ausgaben, welche den Ausdruck $i$ enthalten, bezeichnen keine reelle Lösung.
 
-```javascript
+```algebrite
 a=x^2-1
 b=x^2+1
 c=x^2+p*x+q
@@ -745,7 +679,7 @@ Das Rechnen mit reellen Zahlen lässt sich auf imaginäre Zahlen übertragen.
 
 Unter Benutzung der Javascript-Bibliothek [Algebrite](http://algebrite.org/) können unter Verwendung des Bezeichners $i$ interaktiv reelle und imaginäre Zahlen verknüpft werden.
 
-```javascript
+```algebrite
 i^2
 simplify(2*i+a*i)
 1/(i^3)
@@ -764,7 +698,7 @@ $$ (engl.: ~~c~~omplex numbers).
 
 Die in der Javascript-Bibliothek [Algebrite](http://algebrite.org/) zur Verfügung stehenden Befehle `real(.)` beziehungsweise `imag(.)` geben den Real- beziehungsweise Imaginärteil einer komplexen Zahl zurück.
 
-```javascript
+```algebrite
 z=2+5*i
 real(z)
 imag(z)
@@ -806,7 +740,7 @@ $$ heißt $\bar{z}=a+(-1)\cdot b\cdot i$ die zu $z$ [komplex konjugierte Zahl](h
 
 In der Javascript-Bibliothek [Algebrite](http://algebrite.org/) steht zur Bildung der komplex konjugierten Zahl der Befehl `conj(.)` zur Verfügung. Testen Sie diesen Befehl an den Zahlen aus Beispiel 4.
 
-```javascript
+```algebrite
 z=3+2*i
 zc=conj(z)
 zc
@@ -899,7 +833,7 @@ In der Javascript-Bibliothek [Algebrite](http://algebrite.org/) kann die kartesi
     \end{array}\right.
 $$ für jedes $z\in\mathbb{C}$ mit $a\not=0$.
 
-```javascript
+```algebrite
 z=3/2*(cos(pi/6)+i*sin(pi/6))
 rect(z)
 w=-3-2*i
@@ -1025,7 +959,7 @@ $$
 
 Mit Hilfe der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lässt sich das Verfahren zur Bildung des Produktes zweier komplexer Zahlen interaktiv prüfen. Der Befehl `float(x)` gibt einen rationalen Näherungswert (Gleitkommazahl) einer reellen Zahl $x$ zurück.
 
-```javascript
+```algebrite
 z=3/2*(cos(pi/3)+i*sin(pi/3))
 w=2*(cos(pi/6)+i*sin(pi/6))
 abs(z*w)
@@ -1239,7 +1173,7 @@ Mit Hilfe der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lassen si
   w^n=z\quad\leftrightarrow\quad p(w):=w^n-z=0
 $$ mit Hilfe des Befehls `roots(p(w),w)` beziehungsweise `nroots(p(w),w)` (numerisch) interaktiv berechnen. Das erste Argument zwischen den Klammern der Befehle gibt den Term $p(w)$ der impliziten Gleichungsdarstellung an, das zweite Argument die Variable, nach der die Gleichung gelöst werden soll.
 
-```javascript
+```algebrite
 z=-1
 n=2
 roots(w^n-z,w)
@@ -1528,6 +1462,179 @@ Hingegen entfällt die erste Antwortoption, da dort nicht $\frac{\varphi}{2}$, s
 [^1]: Die bei der Angabe von $\mathbb{H}$ abweichenden Multiplikationsregeln sind aus Gründen der Lesbarkeit gewählt und werden im folgenden Abschnitt erklärt.
 
 [^2]: Bei Angabe der Quaternion $Q_\varphi$ ist nicht nur die Drehachse anzugeben, sondern auf deren Richtungssinn festzulegen. Der Drehwinkel wird bezüglich des gewählten Richtungssinns angegeben - 'plus' beziehungsweise 'minus'.
+
+
+### Vektorräume
+
+
+In den vorangegangenen Abschnitten haben wir Operationen auf Mengen, Gruppen und Isomorphismen kennengelernt. Nun sollen die bereits bekannten Objekte Vektor und Matrix – beides zentrale Begriffe in der Sprache der Computergrafik - in dieser Sytematik betrachtet werden. Dabei soll deutlich werden, dass Vektoren und Matrizen nicht nur Zahlenschemen, sondern geometrische Objekte mit algebraischen Eigenschaften sind.
+
+>**Definition 1.** Sei $K$ ein Zahlkörper. Eine Menge $V$ heißt [Vektorraum](https://de.wikipedia.org/wiki/Vektorraum) über $K$ , wenn folgende Bedingungen erfüllt sind:
+>
+> 1. $(V, +)$ ist eine **kommutative Gruppe**, d. h. die Verknüpfung ist assoziativ, kommutativ mit dem neutralen Element $o$, jedes Element $v\in V$ hat ein inverses Element $-v \in V$.
+> 2. Es gibt eine **Skalarmultiplikation** $K \times V \to V$, $(\lambda, v) \mapsto \lambda v$, die folgende Eigenschaften erfüllt:
+>    - $\lambda(\mu v) = (\lambda\mu)v$ für alle $\lambda, \mu \in K$ und alle $v\in V$,
+>    - $1 \cdot v = v$ für alle $v\in V$,
+>    - $(\lambda + \mu)v = \lambda v + \mu v$ für alle $\lambda, \mu \in K$ und alle $v\in V$,
+>    - $\lambda(v+w) = \lambda v + \lambda w$ für alle $\lambda \in K$ sowie alle $v\in V$ und $w\in V$.
+>
+> Die Elemente von $V$ heißen **Vektoren**, die Elemente von $K$ **Skalare**.
+
+**Bemerkung 1.** In der Definition eines Vektorraums $V$ wird auf zwei Operationen Bezug genommen: der Addition von zwei (oder auch endlich vielen) Vektoren bzw. der Multiplikation eines Vektors mit einer Zahl aus dem Skalarbereich $K$. Man rechnet mit Vektoren $v\in V$ und Skalaren $\lambda\in K$ nach den vorstehenden Rechenregeln, ohne zunächst auf die geometrische Darstellung der Vektoren Bezug zu nehmen.
+
+Die Addition von Vektoren aus $V=\mathbb{R}^k$ $(k\in\mathbb{N})$ und Vielfachbildung von Vektoren mit einem Skalar aus $K=\mathbb{R}$ sind komponentenweise erklärt. Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) können die Rechenregeln für Vektoren aus $V$ nachgerechnet werden.
+
+``` javascript
+A = [[a],[b]]
+B = [[c],[d]]
+A + B - (B + A)
+transpose(A)
+```
+@Algebrite.eval
+
+Für Vektoren $v_i\in\mathbb{R}^k$ mit $i\in\{1,2,\ldots,n\}$ und Skalare $\lambda_i\in\mathbb{R}$ heißt
+$$
+  \sum_{i=1}^n{\left(\lambda_i\cdot v_i\right)}\in\mathbb{R}^k
+$$
+eine **Linearkombination** der Vektoren $v_i$. Diese ist also wieder ein Vektor.
+
+Ein zentraler Begriff im Kontext der Vektorräume ist der der linearen Unabhängigkeit von Vektoren.
+
+>**Definition.** Die Vektoren $v_i\in \mathbb{R}^k$ mit $i\in\{1,2,\ldots,n\}$ heißen **linear unabhängig**, falls
+>$$
+  \sum_{i=0}^n{\left(\lambda_i\cdot v_i\right)}=o\;\rightarrow\;(\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
+$$ worin $o$ den Nullvektor in $V$ bezeichnet. Andernfalls wird die Menge $\{v_1,...,v_n\}$ linear abhängig genannt.
+
+**Bemerkung 2.** Die vorstehende Definition besteht aus einer Implikation: Der Vordersatz ist eine vektorwertige, lineare Gleichung in den unbekannten Koeffizienten $\lambda_i$, deren rechte Seite der Nullvektor in $\mathbb{R}^k$ ist. Der Nachsatz umfasst die Aussage, dass alle Koeffizienten als Lösungen dieser Gleichung 'Null' sind.
+
+Das heißt, die lineare Unabhängigkeit der Vektoren $v_i$ ist daran gekoppelt, dass die vektorvertige, lineare Gleichung in Definition ~~nur~~ für das Nulltupel $$
+  (\lambda_0,\lambda_1,\ldots,\lambda_n)=(0,0,\ldots,0)
+$$ lösbar ist. Diese wird auch *triviale Lösung* genannt. Existiert andernfalls ~~daneben~~ ein $$
+  (\lambda_0,\lambda_1,\ldots,\lambda_n)\not=(0,0,\ldots,0)
+$$ als Lösungstupel dieser Gleichung, so heißt die Menge der Vektoren $\left\{v_i|\, i\in\{1,2,...,n\}\right\}$ linear abhängig.
+
+**Beispiel 1.** Es wird der Vektorraum $V=\mathbb{R}^2$ betrachtet.
+
+1. Für die Vektoren $$
+  v_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\quad\text{und}\quad
+  v_2=\begin{pmatrix} 1 \\ -1 \end{pmatrix}
+$$ ist die Menge $\{v_1,v_2\}$ linear unabhängig, da gilt $$
+  \lambda_1\cdot v_1+\lambda_2\cdot v_2=
+  \lambda_1\cdot\begin{pmatrix} 2 \\ 1 \end{pmatrix}+\lambda_2\cdot\begin{pmatrix} 1 \\ -1 \end{pmatrix}=
+  \begin{pmatrix} 2\cdot\lambda_1+\lambda_2 \\ \lambda_1-\lambda_2 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}=o\quad\leftrightarrow\quad (\lambda_1,\lambda_2)=(0,0)
+$$ Es existiert nur das Paar von Koeffizienten $(\lambda_1,\lambda_2)=(0,0)$ als Lösung der linearen Gleichung.
+2. Für die Vektoren $$
+  u_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\quad\text{und}\quad
+  u_2=\begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$ ist die Menge $\{u_1,u_2\}$ linear abhängig, da zum Beispiel gilt $$
+  0\cdot u_1+7\cdot u_2=
+  0\cdot\begin{pmatrix} 2 \\ 1 \end{pmatrix}+7\cdot\begin{pmatrix} 0 \\ 0 \end{pmatrix}=
+  \begin{pmatrix} 0 \\ 0 \end{pmatrix}=o
+$$ Es existiert ein Paar von Koeffizienten $(\lambda_1,\lambda_2)=(0,7)\not=(0,0)$ als Lösung dieser linearen Gleichung. Mit selbigem Ansatz folgt, dass die einelementige Menge $\{u_1\}$ linear unabhängig ist, währenddessen $\{u_2\}$ linear abhängig ist.[^4]
+3. Für die Vektoren $$
+  w_1=\begin{pmatrix} 2 \\ 1 \end{pmatrix}\,,\quad
+  w_2=\begin{pmatrix} 1 \\ 1 \end{pmatrix}\quad\text{und}\quad
+  w_3=\begin{pmatrix} -1 \\ 2 \end{pmatrix}
+$$ besteht die Menge $\{w_1,w_2,w_3\}$ aus linear abhängigen Vektoren, da gilt $$
+  -3\cdot w_1+5\cdot w_2-w_3=o
+$$ Bitte nachrechnen!
+
+**Beispiel 2.** Mit Hilfe der linearen Unabhängigkeit von Vektoren lässt sich etwa nachweisen, dass sich die Diagonalen in einem Parallelogramm halbieren. Gegeben ist hierfür ein Parallelogramm mit den Eckpunkten $A$, $B$, $C$ und $D$, die Seiten $[A,B]$ bzw. $[A,D]$ werden durch die Vektoren $a$ bzw. $b$ aufgespannt. Es wird vorausgesetzt, dass die Vektoren $a$ und $b$ linear unabhängig sind. Siehe nachstehende Abbildung.
+
+![Diagonalen](img/geo-bild31.png "_Fig._ Parallelogramm mit Diagonalen. Die Diagonalen schneiden einander in ihrem Mittelpunkt.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 615px;" -->
+
+Für den Nachweis wird das Dreieck mit den Eckpunkten $A$, $B$ und $M$ betrachtet, worin $M$ den gemeinsamen Punkt der Diagonalen bezeichnet. Es gilt offensichtlich die Vektorgleichheit $$
+  \overrightarrow{AM}+\overrightarrow{MB}+\overrightarrow{BA}=o
+$$ mit dem Nullvektor $o$. Unter Benutzung der Vektoren $a$ und $b$ schreibt sich diese Identität $$
+  t\cdot(a+b)+s\cdot(a-b)-a=o\quad\leftrightarrow\quad a\cdot(t+s-1)+b\cdot(t-s)=o
+$$ worin $t$ und $s$ zu bestimmende reelle parameter bezeichnen. Da $a$ und $b$ linear unabhängig vorausgesetzt werden, ist diese Gleichung genau dann $o$, wenn beide Koeffizienten verschwinden, d. h. $$
+  t+s-1=0\quad\wedge\quad t-s=0
+$$ Das ist ein System aus zwei linearen Gleichungen in den zu bestimmenden Parametern $t$ und $s$ mit den Lösungen $t=s=\frac{1}{2}$. Damit ergeben sich die Vektoren $$
+  \overrightarrow{AM}=\frac{1}{2}\cdot\overrightarrow{AC}=\frac{1}{2}\cdot(a+b)\quad\text{und}\quad
+  \overrightarrow{MB}=\frac{1}{2}\cdot\overrightarrow{DB}
+$$
+
+$\square$
+
+Im nachstehenden Video ist der Beweis anhand der Figur $ABCD$ ausgeführt.
+
+!?[Diagonalen](https://www.youtube.com/watch?v=1SGRLDFTaFE&t=169s)
+
+Punkte $P$ der Ebene bzw. des dreidimensionalen Raumes werden mit ihren Ortsvektoren bezüglich eines Ortsvektorraumes identifiziert.
+$$ P(x,y,z) \leftrightarrow p=\begin{pmatrix} x \\ y \\ z \end{pmatrix} $$
+Bezüglich der kanonischen Basis im Ortsvektorraum stellt sich $p$ dar
+$$
+  p=\begin{pmatrix} x \\ y \\ z \end{pmatrix} =
+  x\cdot\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} +
+  y\cdot\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} +
+  z\cdot\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}
+$$
+Die Koordinaten von $P$ sind hierin die Koeffizienten der Linearkombination der Basisvektoren.
+
+Matrizen
+========
+
+Die Menge der reellen Matrizen gleichen Typs bilden bezüglich der erklärten Addition und Skalarvielfachbildung einen reellen Vektorraum, genügen also den gleichen Rechengesetzen / Axiomen wie Vektoren (aus $\mathbb{R}^k$). Vergleiche Bemerkung 1 in diesem Abschnitt.
+
+Für das Rechnen mit **quadratischen Matrizen** benötigen wir des Weiteren *inverse Matrix*, *Determinante* etc.
+
+Mit Hilfe der Javascript Bibliothek [Algebrite](http://algebrite.org/) ist nachfolgend die Berechnung der Inversen -, der Adjunkten - und der Determinante einer quadratischen Matrix ausgeführt.
+
+``` javascript
+A=[[a,b],[c,d]]
+inv(A)
+adj(A)
+det(A)
+inv(A)-adj(A)/det(A)
+```
+@Algebrite.eval
+
+Sicher gewusst?
+===============
+
+Sie können Ihr Wissen gern bei der Beantwortung der nachstehenden Fragen testen.
+
+**Frage 1.** Eine reelle quadratische Matrix $A$ heißt regulär, falls gilt:
+
+[[ ]] $\det{A}$ ist gleich Null
+[[X]] $\det{A}$ ist verschieden von Null
+[[X]] Die inverse Matrix $A^{-1}$ zu $A$ existiert.
+[[?]] Die inverse Matrix $A^{-1}$ existiert nicht für singuläre Matrizen.
+****************************************
+
+Eine quadratische Matrix wird regulär genannt, falls $\det{A}$ nicht den Wert Null besitzt.
+
+Die inverse Matrix $A^{-1}$ berechnet sich mittels
+$$
+  A^{-1}=\frac{1}{\det{A}}\cdot\mathop{\rm adj}{A}
+$$
+Diese existiert somit nur zu regulären Matrizen.
+
+****************************************
+
+**Frage 2.** Die Funktionen $f_i:\mathbb{R}\rightarrow\mathbb{R}$ mit
+$$
+  f_0(x)=1\,,\quad f_1(x)=x\,,\quad f_2(x)=x^2
+$$
+sind linear unabhängig[^2], da für alle $x$:
+
+[(X)] die nachstehende Implikation gilt $$\sum_{i=0}^2{\left(\lambda_i\cdot f_i(x)\right)}=0\;\rightarrow\;(\lambda_0,\lambda_1,\lambda_2)=(0,0,0)$$
+[( )] die Gleichung $$\sum_{i=0}^2{\left(\lambda_i\cdot f_i(x)\right)}=0$$ die Lösung $(\lambda_0,\lambda_1,\lambda_2)=(0,0,0)$ besitzt.
+[[?]] Das geordnete Dreitupel $(\lambda_0,\lambda_1,\lambda_2)=(0,0,0)$ ist unabhängig von den gewählten Funktionen immer eine Lösung.
+****************************************
+
+Die Null gesetzte Linearkombination ergibt
+$$
+  \lambda_0+\lambda_1\cdot x+\lambda_2\cdot x^2=0
+$$
+und ist für alle $x$ genau dann gleich Null, wenn für alle Koeffizienten $\lambda_i=0$ gilt.
+
+****************************************
+
+[^1]: Die Rechenregeln werden zur axiomatischen Festlegung eines Vektorraumes genutzt. Hier ist zusätzlich $1\cdot x=x$ zu fordern.
+
+[^2]: Die Funktionen bilden sogar die Monombasis im Vektorraum aller reellen Polynomfunktionen vom Grad $n\leq 2$.
 
 
 ## Analytische Geometrie
@@ -2612,7 +2719,7 @@ Die [Bernsteinpolynome](https://de.wikipedia.org/wiki/Bézierkurve) lassen sich 
   B_i^n(t)=\binom{n}{i}\cdot(1-t)^{n-i}\cdot t^i\,,\quad n\in\mathbb{N}\,,i\in\mathbb{N}\,,i\leq n
 $$ worin für die Bernsteinpolynome zweiten Grades $n=2$ zu setzen ist.
 
-```javascript
+```algebrite
 B2=binomial(2,m)*t^m*(1-t)^(2-m)
 B02=subst(0,m,B2)
 B12=subst(1,m,B2)
@@ -2633,7 +2740,7 @@ $$ d. h. die Trägergerade der Strecke $\left[P_0^1,P_1^1\right]$ aus der vorlet
   2\cdot(p_1-p_0) \quad\text{bzw.}\quad 2\cdot(p_2-p_1)
 $$ die Tangentenvektoren in $X(0)=P_0$ beziehungsweise $X(1)=P_2$.
 
-```javascript
+```algebrite
 d(B02)
 d(B12)
 d(B22)
@@ -2701,7 +2808,7 @@ $$
   1=1^n=(t+(1-t))^n=\sum_{i=0}^n{\binom{n}{i}\cdot t^i\cdot (1-t)^{n-i}}=\sum_{i=0}^n{B_i^n(t)}
 $$ unter Benutzung des [Binomischen Lehrsatzes](https://de.wikipedia.org/wiki/Binomischer_Lehrsatz). $\square$
 
-```javascript
+```algebrite
 n=3
 sum(binomial(n,i)*t^i*(1-t)^(n-i),i,0,n)
 ```
@@ -2814,7 +2921,7 @@ Die Abbildung von Punkten der Ebene beziehungsweise des dreidimensionalen Raumes
   A=\mathrm{diag}{(1,1)}\,,\quad a=(2,-3)^\top
 $$ worin $A$ die zweireihige Einheitsmatrix ist, beschreibt eine Translation aller Punkte $X$ der Ebene $\mathcal{A}^2$ mit dem Translationsvektor $a$.
 
-```javascript
+```algebrite
 A=[[1,0],[0,1]]
 a=[[2],[-3]]
 x=[[x1],[x2]]
@@ -2826,7 +2933,7 @@ dot(A,x)+a
   A=\mathrm{diag}{(1,1,0)}\,,\quad a=(0,0,0)^\top
 $$ beschreibt die Projektion aller Punkte $X$ des dreidimensionalen Raumes $\mathcal{A}^3$ in die Ebene $z=0$ (*"Grundrissprojektion"*).
 
-```javascript
+```algebrite
 A=[[1,0,0],[0,1,0],[0,0,0]]
 a=[[0],[0],[0]]
 x=[[x1],[x2],[x3]]
@@ -2852,7 +2959,7 @@ Eigenschaft 1
 
 Die Koordinaten des Bildpunktes $X'$ unter einer affinen Abbildung $\alpha$ berechnen sich linear in den Koordinaten des Urbildes $X$.
 
-```javascript
+```algebrite
 A=[[a11,a12,a13],[a21,a22,a23],[a31,a32,a33]]
 a=[[a1],[a2],[a3]]
 x=[[x1],[x2],[x3]]
@@ -5365,7 +5472,7 @@ $$
 
 Mit Hilfe der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lässt sich die Berechnung der Transformationsmatrix $A\in\mathbb{R}^{3,3}$ und des Translationsvektors $a\in\mathbb{R}^3$ zu gegebenen Vektoren $r$ und $n$ sowie der reellen Zahl $d$ interaktiv berechnen. Vergleiche Satz 1.
 
-```javascript
+```algebrite
 r=[0,0,1]
 n=[0,0,1]
 d=0
