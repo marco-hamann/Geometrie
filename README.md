@@ -379,7 +379,7 @@ Die in der Tabelle angegebene Abbildung $$ \phi:\{0,1,a,b\}\to\{e,f,g,h\} $$ der
 
 Die Gruppen $K_4$ und die Permutationsgruppe $P=(\{e,f,g,h\},\circ)$ sind somit zueinander isomorph (strukturgleich).
 
-**Beispiel 4.** Gegeben ist die Gruppe $\mathbb{Z}_4=(\{0,1,2,3\},+)$ mit der Addition modulo $4$ als Gruppenoperation. An der Verknüpfungstabelle ist zu erkennen, dass die Gruppenoperation kommutativ ist. Daneben ist zu erkennen, dass neben $0$ (neutrales Element bezüglich $+$) nur das Element 2 zu sich selbst invers ist, $1$ und $3$ sind jeweils zueinander invers, allgemein ist $$ a^{-1}=(4-a)\mod 4 $$ zum Element $a$ invers.
+**Beispiel 4.** Gegeben ist die Gruppe $\mathbb{Z}_4=(\{0,1,2,3\},+)$ mit der Addition [modulo](https://de.wikipedia.org/wiki/Modulare_Arithmetik) $4$ als Gruppenoperation. An der Verknüpfungstabelle ist zu erkennen, dass die Gruppenoperation kommutativ ist. Daneben ist zu erkennen, dass neben $0$ (neutrales Element bezüglich $+$) nur das Element 2 zu sich selbst invers ist, $1$ und $3$ sind jeweils zueinander invers, allgemein ist $$ a^{-1}\equiv (4-a)\mod 4 $$ zum Element $a$ invers.
 
 <!-- data-type="none" -->
 | $+$ | $0$ | $1$ | $2$ | $3$ |
@@ -389,7 +389,7 @@ Die Gruppen $K_4$ und die Permutationsgruppe $P=(\{e,f,g,h\},\circ)$ sind somit 
 | $2$ | $2$ | $3$ | $0$ | $1$ |
 | $3$ | $3$ | $0$ | $1$ | $2$ |
 
-Daneben wird die Gruppe $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$ (ohne 'Null') mit der Multiplikation modulo $5$ als Gruppenoperation betrachtet. Hier ist $1$ das neutrale Element, da $1\cdot x=x\mod 5$ für alle $x$ aus $\mathbb{Z}_5$ ist. Die Gruppenoperation ist kommutativ. Aus der Verknüpfungstabelle können die bezüglich $\cdot$ zueinander inversen Elemente abgelesen werden.
+Daneben wird die Gruppe $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$ (ohne 'Null') mit der Multiplikation [modulo](https://de.wikipedia.org/wiki/Modulare_Arithmetik) $5$ als Gruppenoperation betrachtet. Hier ist $1$ das neutrale Element, da $1\cdot x\equiv x\mod 5$ für alle $x$ aus $\mathbb{Z}_5$ ist. Die Gruppenoperation ist kommutativ. Aus der Verknüpfungstabelle können die bezüglich $\cdot$ zueinander inversen Elemente abgelesen werden.
 
 <!-- data-type="none" -->
 | $\cdot$ | $1$ | $2$ | $3$ | $4$ |
@@ -488,12 +488,12 @@ Die zu prüfende Gleichung $\phi(a+b)=\phi(a)\cdot\phi(b)$ bestätigt sich in de
 [[?]] Prüfen Sie, in welchen Antwortoptionen die Operationszeichen korrekt gesetzt sind. Ebenso, ob entsprechend der Verknüpfungstabellen korrekt berechnet / zugeordnet wurde.
 ****************************************
 
-1. Nicht wahr: Es berechnen sich schrittweise $2+3=1\mod 4$ und $\phi(1)=3$, letzteres entsprechend der gewählten bijektiven Abbildung $\phi$. Vergleichen Sie mit der fünften Antwortoption.
+1. Nicht wahr: Es berechnen sich schrittweise $2+3\equiv 1\mod 4$ und $\phi(1)=3$, letzteres entsprechend der gewählten bijektiven Abbildung $\phi$. Vergleichen Sie mit der fünften Antwortoption.
 2. Nicht wahr: Die bijektive Abbildung $\phi$ bildet Elemente der Gruppe $\mathbb{Z}_4=(\{0,1,2,3\},+)$ ab, wonach $2\cdot 3$ in dieser Gruppe nicht erklärt ist.
-3. Wahr: Die bijektive Abbildung $\phi$ bildet in die Gruppe $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$ ab. Hier berechnen sich $\phi(2)\cdot\phi(3)=4\cdot 2=3\mod 5$.
+3. Wahr: Die bijektive Abbildung $\phi$ bildet in die Gruppe $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$ ab. Hier berechnen sich $\phi(2)\cdot\phi(3)=4\cdot 2\equiv 3\mod 5$.
 4. Nicht wahr: Die bijektive Abbildung $\phi$ bildet in die Gruppe $\mathbb{Z}_5-\{0\}=(\{1,2,3,4\},\cdot)$ ab, wonach $\phi(2)+\phi(3)$ in dieser Gruppe nicht erklärt ist.
-5. Wahr: Es berechnen sich schrittweise $2+3=1\mod 4$ und $\phi(1)=3$, letzteres entsprechend der gewählten bijektiven Abbildung $\phi$.
-6. Nicht wahr: Es berechnen sich schrittweise $\phi(2)\cdot\phi(3)=4\cdot 2=3\mod 5$. Vergleichen Sie mit der dritten Antwortoption.
+5. Wahr: Es berechnen sich schrittweise $2+3\equiv 1\mod 4$ und $\phi(1)=3$, letzteres entsprechend der gewählten bijektiven Abbildung $\phi$.
+6. Nicht wahr: Es berechnen sich schrittweise $\phi(2)\cdot\phi(3)=4\cdot 2\equiv 3\mod 5$. Vergleichen Sie mit der dritten Antwortoption.
 
 ****************************************
 
@@ -522,9 +522,9 @@ festgelegt sind. Bezüglich jeder dieser Operationen ergibt sich eine der bereit
 gelten für beliebige ganze Zahlen $a$, $b$ und $c$. (Wegen der Kommutativität der Multiplikation in $\mathbb{Z}$ folgt die Gültigkeit der einen unmittelbar aus der der anderen.
 
 Daneben bilden die algebraischen Strukturen $(\mathbb{Z}_m,\{+,\cdot\})$ mit $$ 
-  \mathbb{Z}_m=\left\{[0],[1],[2],...,[m-1]\right\} $$ 
+  \mathbb{Z}_m=\left\{[0]_m,[1]_m,[2]_m,...,[m-1]_m\right\} $$ 
 und den Operationen $$
-  [a]+[b]=[a+b]\mod m\quad\text{und}\quad [a]\cdot [b]=[a\cdot b]\mod m $$
+  [a]_m+[b]_m=[a+b]_m\quad\text{und}\quad [a]_m\cdot [b]_m=[a\cdot b]_m $$
 kommutative Ringe mit Einselement. Sie werden [Restklassenringe](https://de.wikipedia.org/wiki/Restklassenring) genannt.
 
 **Beispiel 2.** Für ein beliebiges $n\in\mathbb{N}$ bildet die Menge der reellen Matrizen vom Typ $(n,n)$ mit der gewöhnlichen Addition und Multiplikation von Matrizen einen nichtkommutativen Ring mit Einselement.
@@ -545,6 +545,8 @@ inner(A,I)
 **Bemerkung 1.** Wir vereinbaren, dass beim gleichzeitigen Auftreten beider Operationen $\ast_2$ stärker bindet als $\ast_1$, also $$ a\ast_1 b\ast_2 c=a\ast_1(b\ast_2 c) $$ Hiermit lassen sich die Klammern beispielsweise in Beispiel 1 $$
    a\cdot(b+c)=a\cdot b+a\cdot c\quad\text{sowie}\quad (b+c)\cdot a=b\cdot a+c\cdot a $$
 und allgemein in Definition 1 weglassen.
+
+---
 
 >**Definition 2.** Eine algebraische Struktur $K=(M,\ast_1,\ast_2)$ heißt [Körper](https://de.wikipedia.org/wiki/K%C3%B6rper_%28Algebra%29) falls 
 >
@@ -579,9 +581,41 @@ In Verallgemeinerung des Begriffs einer Untergruppe lassen sich algebraische Unt
 >2. Ein Unterring $I$ von $R$ heißt [Ideal](https://de.wikipedia.org/wiki/Ideal_%28Ringtheorie%29), falls für alle $a\in R$ und alle $b\in I$ gelten $a\cdot b\in I$ und $b\cdot a\in I$.
 >3. $U\subseteq K$ heißt [Unterkörper](https://mathepedia.de/Unter-_und_Oberkoerper.html) von $K$, falls $(U,+,\cdot)$ einen Körper bildet.
 
-**Beispiel 4.** $(\mathbb{Q},+,\cdot)$ ist ein Unterkörper von $(\mathbb{R},+,\cdot)$. 
+**Beispiel 4.** 
 
-Die Menge $2\mathbb{Z}$ der geraden ganzen Zahlen ist ein Ideal im Ring $\mathbb{Z}$ aller ganzen Zahlen. Hingegen bilden die ungeraden ganzen Zahlen, $\mathbb{Z}\setminus 2\mathbb{Z}$ kein Ideal in $\mathbb{Z}$, da das Produkt einer jeden ungeraden Zahl mit einer geraden ganzen Zahl gerade ist.
+1. Die Menge $2\mathbb{Z}$ der geraden ganzen Zahlen ist ein Ideal im Ring $\mathbb{Z}$ aller ganzen Zahlen. Hingegen bilden die ungeraden ganzen Zahlen, $\mathbb{Z}\setminus 2\mathbb{Z}$ kein Ideal in $\mathbb{Z}$, da das Produkt einer jeden ungeraden Zahl mit einer geraden ganzen Zahl gerade ist.
+2. $(\mathbb{Q},+,\cdot)$ ist ein Unterkörper von $(\mathbb{R},+,\cdot)$
+
+Mit Blick auf die Restklassenringe $\mathbb{Z}_m$ gilt folgende Aussage.
+
+**Satz 1.** Ist $p\in\mathbb{N}$ eine Primzahl, so ist der Restklassenring $\mathbb{Z}_p$ mit der Addition und Multiplikation modulo $p$ ein Körper.
+
+**Beweis.** Wir setzen die Ringstruktur vorraus und untersuchen hier nur die Existenz des inversen Elements $a^{-1}$ für $a\in\{2,3,...,p-1\}$. Hierfür wird die Folge $$
+  \left[a^0\right]_p\,,\;\left[a^1\right]_p\,,\;\left[a^2\right]_p\,,\;...\,,\;\left[a^{p-1}\right]_p $$ 
+betrachtet. Hierbei gilt für alle $k$ die Beziehung $$
+  a^k\not\equiv 0\mod p $$ 
+denn sonst existierte ein $n\in\mathbb{N}\setminus\{0\}$ mit $$
+  a^k=n\cdot p\quad\rightarrow\quad p\;|\; a^k\;(\text{lies:}\;p\;\text{teilt}\;a^k)\quad\stackrel{p\;\text{prim}}{\longrightarrow}\quad p\;|\; a\quad\rightarrow\quad p<a $$ 
+was zum Widerspruch führt. Folglich existieren mindestens zwei Folgeglieder mit dem gleichen Rest $$
+  a^{k_1}\equiv a^{k_2}\mod p $$
+Ohne Beschränkung der Allgemeinheit kann hierbei $k_1< k_2$ angenommen werden. Hieraus folgt schrittweise $$
+  a^{k_1}\cdot a^{k_2-k_1}=a^{k_1}\quad\rightarrow\quad 1\equiv a^{k_2-k_1}\mod p\equiv a^{k_2-k_1-1}\cdot a\mod p\quad\rightarrow\quad a^{-1}\equiv a^{k_2-k_1-1}\mod p $$
+
+$\square$
+
+**Beispiel 5.** In $\mathbb{Z}_5-\{0\}$ (mit der Multiplikation als Operation) hat ~~jedes~~ Element $a\in\{1,2,3,4\}$ ein eindeutig bestimmtes inverses Element $$
+  1^{-1}\equiv 1\mod 5\,,\quad 2^{-1}\equiv 3\mod 5\,,\quad 3^{-1}\equiv 2\mod 5\quad\text{und}\quad 4^{-1}\equiv 4\mod 5 $$
+Überprüfen lassen sich die gebildeten Inversen durch Multiplikation, z. B.: $$
+  2\cdot 2^{-1}\equiv 2\cdot 3\equiv 1\mod 5 $$
+Vergleiche die Gruppentafel in Beispiel 4 im Abschnitt [Gruppen und Halbgruppen](#gruppen-und-halbgruppen).
+
+Demgegenüber besitzen in $\mathbb{Z}_4-\{0\}=(\{1,2,3\},\cdot)$ zwar die Elemente $1$ und $3$ inverse Elemente $$
+  1^{-1}\equiv 1\mod 4\quad\text{und}\quad 3^{-1}\equiv 3\mod 4 $$
+jedoch besitzt das Element $a=2$ kein multiplikativ inverses Element, denn es berechnen sich $$ 
+  2\cdot 1\equiv 2\mod 4\,,\quad 2\cdot 2\equiv 0\mod 4\quad\text{sowie}\quad 2\cdot 3\equiv 2\mod 4 $$ 
+Keines der Produkte ergibt das bezüglich der Multiplikation neutrale Element.
+
+---
 
 Analog zum Festlegung der Strukturgleichheit von Gruppen definieren wir für Ringe beziehungsweise Körper:
 
@@ -595,7 +629,7 @@ Analog zum Festlegung der Strukturgleichheit von Gruppen definieren wir für Rin
 
 >**Definition 5.** Sei $(K,+,\cdot)$ ein Körper und $a\not\in K$. Bildet $K\cup\{a\}$ ebenfalls einen Körper, dann heißt $K(a)=K\cup\{a\}$ **Erweiterungskörper** von $K$.
 
-**Beispiel 5.** $\mathbb{Q}(\sqrt{2})$ ist ein Erweiterungskörper von $\mathbb{Q}$. 
+**Beispiel 6.** $\mathbb{Q}(\sqrt{2})$ ist ein Erweiterungskörper von $\mathbb{Q}$. 
 
 * Dieser besitzt die (gleichen) neutralen Elemente $0$ beziehungsweise $1$ bezüglich der Addition beziehungsweise Multiplikation, denn diese sind auch neutrale Elemente in $\mathbb{R}\ni\sqrt{2}$.
 * Wegen $\sqrt{2}^2=2$ kommen in $\mathbb{Q}(\sqrt{2})$ Produkte $b\cdot\sqrt{2}$ vor. Werden außerdem beliebige Zahlen in $\mathbb{Q}(\sqrt{2})$ addiert, entstehen Zahlen der Form $$
@@ -628,28 +662,13 @@ $$ schließlich $x^2+1>0$ folgt.
 
 Demnach gibt es kein $x\in\mathbb{R}$, dass die Gleichung $x^2+1=0$ löst.
 
-**Bemerkung 1.** Die Formel zur Lösung quadratischer Gleichungen $$
-  x^2+p\cdot x+q=0\quad\leftrightarrow\quad x_{1,2}=-\frac{p}{2}\pm\sqrt{\frac{p^2}{4}-q}
-$$ gestattet eine Fallunterscheidung zur Anzahl der reellen Lösungen in Abhängigkeit der reellen Koeffizienten der Gleichung.
-
-Für die Lösungen $x_1$ und $x_2$ gelten mit dem Radikanten[^2] $\frac{p^2}{4}-q=\frac{1}{4}\cdot(p^2-4\cdot q)$ der Wurzel $$
- \left\{\begin{array}{lcl}
-         x_1\in\mathbb{R},\;x_2\in\mathbb{R}\;\text{mit}\; x_1\neq x_2 & \text{falls} & p^2-4\cdot q>0 \\
-         x_1\in\mathbb{R},\;x_2\in\mathbb{R}\;\text{mit}\; x_1= x_2 & \text{falls} & p^2-4\cdot q=0 \\
-         \not\exists\, x_{1,2}\in\mathbb{R} & \text{falls} & p^2-4\cdot q<0
-        \end{array}
- \right.
-$$
-
 Unter Benutzung der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lassen sich die Lösungen obiger Gleichungen interaktiv berechnen. Ausgaben, welche den Ausdruck $i$ enthalten, bezeichnen keine reelle Lösung.
 
 ```algebrite
 a=x^2-1
 b=x^2+1
-c=x^2+p*x+q
 roots(a)
 roots(b)
-roots(c)
 ```
 @Algebrite.eval
 
@@ -686,7 +705,7 @@ simplify(2*i+a*i)
 ```
 @Algebrite.eval
 
-Die uneingeschränkte Anwendung der Rechengesetze für reelle Zahlen auf imaginäre Zahlen führt auf die Definition einer komplexen Zahl.
+Die Anwendung der Rechengesetze für reelle Zahlen auf imaginäre Zahlen führt auf die Definition einer komplexen Zahl.
 
 >**Definition 3.** Eine [komplexe Zahl](https://de.wikipedia.org/wiki/Komplexe_Zahl) ist ein Ausdruck der Form $$
   z=a+ib\quad\text{mit}\quad a\in\mathbb{R},\; b\in\mathbb{R},\; i^2=-1
@@ -705,9 +724,11 @@ imag(z)
 ```
 @Algebrite.eval
 
-Die reellen Zahlen sind in den komplexen Zahlen enthalten, d. h. es gilt $\mathbb{R}\subset \mathbb{C}$, da $$
+**Bemerkung 1.** Die reellen Zahlen sind in den komplexen Zahlen enthalten, d. h. es gilt $\mathbb{R}\subset \mathbb{C}$, da $$
   (bi-bi=(b-b)\cdot i=0\cdot i=0)\quad\Rightarrow\quad (z=a+0i=a\,(\in\mathbb{R}))
-$$ Speziell ist $z=0+0i=0$. Damit folgt auch $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}\subset\mathbb{C}$. Wie im Abschnitt [Mengen](#Mengen) vereinbaren wir $\mathbb{C}^\times=\mathbb{C}\setminus\{0\}$.
+$$ Speziell ist $z=0+0i=0$. Damit folgt auch $$
+  \mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}\subset\mathbb{C} $$
+Wir vereinbaren $\mathbb{C}^\times=\mathbb{C}\setminus\{0\}$.
 
 Die Begriffe 'imaginäre Einheit', 'imaginäre Zahl' und 'komplexe Zahl' werden im nachstehenden Video im Kontext der Lösung quadratischer Gleichungen an einem Beispiel erläutert.
 
@@ -844,7 +865,7 @@ arg(w)
 
 **Bemerkung 4.** Das Argument ist zumeist im *Bogenmaß* anzugeben oder wird im Bogenmaß berechnet. Dies ist eine reelle Zahl. Hierbei gilt die folgende Umrechnung zwischen Bogen- und Gradmaß: $$
   \frac{b_\varphi}{2\pi}=\frac{\varphi}{360^\circ}\quad\leftrightarrow\quad
-  b_\varphi==\frac{\varphi}{360^\circ}\cdot 2\pi\quad\leftrightarrow\quad
+  b_\varphi=\frac{\varphi}{360^\circ}\cdot 2\pi\quad\leftrightarrow\quad
   \varphi=\frac{b_\varphi}{2\pi}\cdot 360^\circ
 $$ wenn $b_\varphi$ den Winkel im Boden- und $\varphi$ den Winkel im Gradmaß bezeichnen.
 
@@ -881,7 +902,6 @@ Im nachstehendem Video wird die Darstellung der komplex konjugierten Zahl in der
 Grundrechenoperationen
 ===
 
-Auf der Menge der komplexen Zahlen lassen sich die Grundrechenoperationen definieren. Dies erfolgt mit der Maßgabe, dass die für das Rechnen in $\mathbb{R}$ bekannten Rechengesetze auch für das Rechnen mit komplexen Zahlen gelten.
 
 >**Definition 7.**  Gegeben seien zwei beliebige komplexe Zahlen $z_k=a_k+{i} b_k$ mit $a_k=\operatorname{Re}{z_k}$, $b_k=\operatorname{Im}{z_k}$, $i^2=-1$ und $k\in\{1,2\}$. Es sind die Grundrechenoperationen erklärt:
 >
@@ -896,7 +916,6 @@ Auf der Menge der komplexen Zahlen lassen sich die Grundrechenoperationen defini
 >
 > Besteht nicht die Gefahr einer Verwechslung, sollen im Folgenden die für $\mathbb{R}$ gebräuchlichen Rechenzeichen auch für das Rechnen in $\mathbb{C}$ verwendet werden.
 
-**Bemerkung 5.** Die Grundrechenoperationen in $\mathbb{C}$ werden auf das Rechnen in $\mathbb{R}$ zurückgeführt. Dort geltende Rechenregeln wie Kommutativität, Assoziativität und Distributivität lassen sich auf das Rechnen in $\mathbb{C}$ übertragen und lassen sich forthin nutzen.
 
 In den nachstehenden Videos werden die Grundrechenoperationen an Beispielen erläutert.
 
@@ -924,6 +943,12 @@ $$
 $$
 
 $\square$
+
+Mit Hilfe der eingeführten Operationen Addition und Multiplikation lassen sich nun die Axiome eines Körpers prüfen. Es ergibt sich der folgende Satz.
+
+>**Satz 2.** Die algebraische Struktur $(\mathbb{C},+,\cdot)$ bildet einen Körper.
+
+---
 
 Addition und Multiplikation komplexer Zahlen lassen sich in der Gaußschen Zahlenebene geometrisch interpretieren.
 
@@ -967,7 +992,7 @@ float(arg(z*w))
 ```
 @Algebrite.eval
 
-**Bemerkung 6.** Durch Bilden der Summe sind Argumente $\varphi=\varphi_1+\varphi_2$ mit $\varphi\in\mathbb{R}$ außerhalb des Grundintervalls möglich. Für das Hauptargument gilt $\varphi+2k\cdot\pi\in(-\pi,\pi]$ für ein $k\in\mathbb{Z}$.
+**Bemerkung 5.** Durch Bilden der Summe sind Argumente $\varphi=\varphi_1+\varphi_2$ mit $\varphi\in\mathbb{R}$ außerhalb des Grundintervalls möglich. Für das Hauptargument gilt $\varphi+2k\cdot\pi\in(-\pi,\pi]$ für ein $k\in\mathbb{Z}$.
 
 Die geometrischen Interpretationen von Summe und Produkt lassen sich zur Beschreibung von Bewegungen der Ebene anwenden.
 
@@ -1001,55 +1026,6 @@ $$
 $$ Beide Teilbewegungen überlagern sich ungestört.[^3]
 
 
-Betrag einer komplexen Zahl
-===
-
-
->**Proposition 2.** Für den Betrag beliebiger komplexer Zahlen $z$, beziehungsweise $z_1$ beziehungsweise $z_2$ gelten:
->
->1. $|z|\in\mathbb{R}$ mit $|z|\geq0$. Speziell ist $|z|=0\leftrightarrow z=0$
->2. $|z|^2=z\cdot\bar{z}$
->3. $|z_1\cdot z_2|=|z_1|\cdot|z_2|$
->4. Dreiecksungleichung $|z_1+z_2|\leq|z_1|+|z_2|$
-
-**Beweis.** Für den Nachweis der Eigenschaften wird die komplexe Zahl $z=a+i\cdot b$ mit $a=\operatorname{Re}{z}$, $b=\operatorname{Im}{z}$ und $i^2=-1$ betrachtet. Entsprechende Bezeichnungen werden für $z_1$ und $z_2$ verwendet.
-
-1. Die erste Eigenschaft folgt unmittelbar aus der Definition des Betrages $$
-  |z|=\sqrt{a^2+b^2}\geq0\quad\text{und}\quad \sqrt{a^2+b^2}=0\;\leftrightarrow\; a=b=0
-$$
-2. Für das Produkt $z\cdot \bar{z}$ einer Zahl mit ihrer komplexkonjugierten Zahl ergibt sich $$
-  z\cdot \bar{z}=(a+i\cdot b)\cdot (a-i\cdot b)=a^2+b^2+i\cdot(ab-ba)=a^2+b^2=|z|^2
-$$
-3. Mit der Eigenschaft 2 folgt für das Produkt schrittweise $$
-  |z_1\cdot z_2|^2=(z_1\cdot z_2)\cdot\overline{(z_1\cdot z_2)}=
-  (z_1\cdot z_2)\cdot(\bar{z}_1\cdot \bar{z}_2)=
-  z_1\cdot \bar{z}_1\cdot z_2\cdot\bar{z}_2=
-  |z_1|^2\cdot|z_2|^2
-$$ Die hierin verwendete Eigenschaft $\overline{z_1\cdot z_2}=\bar{z}_1\cdot\bar{z}_2$ lässt sich direkt aus der Definition des Produktes komplexer Zahlen ableiten. Ihr Nachweis ist eine Übungsaufgabe. Unter Benutzung von Eigenschaft 1 lässt sich hieraus Eigenschaft 3 ableiten.
-4. Mit der Eigenschaft 2 folgt ebenso für die Summe $$
-  \begin{split}
-    |z_1+z_2|^2 & = (z_1+z_2)\cdot\overline{(z_1+z_2)} = (z_1+z_2)\cdot{(\bar{z}_1+\bar{z}_2)} \\
-    & = z_1\cdot\bar{z}_1+z_2\cdot\bar{z}_2+z_1\cdot\bar{z}_2+z_2\cdot\bar{z}_1=
-    |z_1|^2+|z_2|^2+z_1\cdot\bar{z}_2+\overline{z_1\cdot\bar{z}_2}
-  \end{split}
-$$ Hierin ist die Teilsumme $z_1\cdot\bar{z}_2+\overline{z_1\cdot\bar{z}_2}$ reell und es gilt unter Verwendung von Eigenschaft 3 $$
-  z_1\cdot\bar{z}_2+\overline{z_1\cdot\bar{z}_2}=2\cdot\operatorname{Re}{(z_1\cdot \bar{z}_2)}\leq 2\cdot|z_1\cdot \bar{z}_2|=2\cdot|z_1|\cdot|\bar{z}_2|=2\cdot|z_1|\cdot|z_2|
-$$ Die hierin verwendete Eigenschaft $\overline{z_1+ z_2}=\bar{z}_1+\bar{z}_2$ lässt sich direkt aus der Definition der Summe komplexer Zahlen ableiten. Ihr Nachweis ist eine Übungsaufgabe. Damit folgt unter Benutzung von 1. und der strengen Monotonie der reellen Quadtratwurzelfunktion $$
-  |z_1+z_2|^2\leq |z_1|^2+|z_2|^2+2\cdot|z_1|\cdot|z_2|=\left(|z_1|+|z_2|\right)^2\quad\leftrightarrow\quad
-  |z_1+z_2|\leq |z_1|+|z_2|
-$$
-
-$\square$
-
-Im nachstehenden Video wird die Eigenschaft 2 aus Proposition 2 erläutert.
-
-!?[Betrag-komplex](https://www.youtube.com/watch?v=stftUv1NZp4&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=11 "Daniel Jung, Quadrat des Betrages einer komplexen Zahl $z$ als Produkt von $z$ mit deren komplex konjugierter Zahl.")
-
-**Beispiel 9.** Die Teilmenge komplexer Zahlen $$
-  M=\left\{z\in\mathbb{C}\,||z-z_1|<\epsilon\,,\epsilon>0\,,z_1\in\mathbb{C}\right\}
-$$ ist das Innere einer Kreisscheibe in der Gaußschen Zahlenebene um den Punkt $z_1$ mit Radius $\epsilon>0$, die $\epsilon$_Umgebung von $z_1$ genannt wird.
-
-
 Potenzieren und Radizieren komplexer Zahlen
 ===
 
@@ -1058,7 +1034,7 @@ Das Potenzieren komplexer Zahlen mit natürlichen Exponenten lässt sich mithilf
   z^n:=z\cdot z\cdot z\cdot ...\cdot z
 $$ wobei das Produkt auf der rechten Seite $n$-mal den Faktor $n$ enthält.
 
-**Beispiel 10.** Für $z=i$ mit $i^2=-1$ gelten $i^3=-i$, $i^4=1$, $i^5=i$ usw.
+**Beispiel 9.** Für $z=i$ mit $i^2=-1$ gelten $i^3=-i$, $i^4=1$, $i^5=i$ usw.
 
 Allgemein gilt: $$
   i^n=\left\{\begin{array}{rcl}
@@ -1088,13 +1064,13 @@ $$ benutzt, wonach die (wiederholte) Multiplikation mit $i$ eine Drehung um den 
 
 !?[Potenz-komplex](https://www.youtube.com/watch?v=UbhXdiUwaP8&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=6 "Daniel Jung, Komplexe Zahlen, Potenzen von $i$ verdeutlicht am Einheitskreis")
 
->**Satz 3.** Es ist $z\in\mathbb{C}$ mit $z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})$ beliebig gegeben. Für die $n$-te Potenz gilt $$
+>**Satz 2.** Es ist $z\in\mathbb{C}$ mit $z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})$ beliebig gegeben. Für die $n$-te Potenz gilt $$
   z^n=r^n\cdot(\cos{(n\cdot\varphi)}+i\cdot\sin{(n\cdot\varphi)})
 $$ mit $n\in\mathbb{N}^\times$.
 
 **Beweis.** Der Nachweis lässt sich unmittelbar unter Nutzung der Rechenregeln für die Multiplikation komplexer Zahlen sowie der Potenzgesetze führen und wird als Übungsaufgabe gegeben.
 
-**Beispiel 11.** Gegeben ist die komplexe Zahl $z=-\frac{3}{2}+\frac{1}{2}\cdot\sqrt{3}\cdot i$, worin $i^2=-1$. Gesucht ist die Potenz $z^6$.
+**Beispiel 10.** Gegeben ist die komplexe Zahl $z=-\frac{3}{2}+\frac{1}{2}\cdot\sqrt{3}\cdot i$, worin $i^2=-1$. Gesucht ist die Potenz $z^6$.
 
 1. Zunächst wird $z$ in Polarform dargestellt. Für den Betrag von $z$ ergibt sich $$
   r=|z|=\sqrt{\left(-\frac{3}{2}\right)^2+\left(\frac{1}{2}\cdot\sqrt{3}\right)^2}=\sqrt{3}
@@ -1107,11 +1083,11 @@ $$
   z^6=\left(\sqrt{3}\cdot\left(\cos{\left(\frac{5}{6}\cdot\pi\right)}+i\cdot\sin{\left(\frac{5}{6}\cdot\pi\right)}\right)\right)^6=
   \sqrt{3}^6\cdot\left(\cos{\left(6\cdot\frac{5}{6}\cdot\pi\right)}+i\cdot\sin{\left(6\cdot\frac{5}{6}\cdot\pi\right)}\right)=
   27\cdot\left(\cos{\pi}+i\cdot\sin{\pi}\right)=-27
-$$ Beim vorletzten Schritt wurde die Periodizität von Sinus und Kosinus genutzt, um in das Hauptargument $\phi\in(-\pi,\pi]$ umzurechnen. Vergleiche Bemerkung 6.
+$$ Beim vorletzten Schritt wurde die Periodizität von Sinus und Kosinus genutzt, um in das Hauptargument $\phi\in(-\pi,\pi]$ umzurechnen.
 
 Aus dem vorstehenden Satz ergibt sich durch Spezifikation von $r=|z|=1$ die nachstehende Formel.
 
->**Satz 4.** Für $\varphi\in\mathbb{R}$ und $n\in\mathbb{N}^\times$ gilt $$
+>**Satz 3.** Für $\varphi\in\mathbb{R}$ und $n\in\mathbb{N}^\times$ gilt $$
   \left(\cos{\varphi}+i\cdot\sin{\varphi}\right)^n=\cos{(n\cdot\varphi)}+i\cdot\sin{(n\cdot\varphi)}
 $$ (*Moivre*sche Formel)
 
@@ -1119,7 +1095,7 @@ Eine Umkehrung des Potenzierens ist das Radizieren: In einer Gleichung $w^n=z$ i
 
 >**Definition 8.** Es seien $z\in\mathbb{C}$ und $n\in\mathbb{N}$ mit $n\geq 2$ beliebig gegeben. Jede komplexe Zahl $w$ mit $w^n=z$ heißt eine [komplexe n-te Wurzel](https://de.wikipedia.org/wiki/Wurzel_%28Mathematik%29#Wurzeln_aus_komplexen_Zahlen) der Zahl $z$.[^4]
 
->**Satz 5.** Es seien $z\in\mathbb{C}$ mit der Polardarstellung $$
+>**Satz 4.** Es seien $z\in\mathbb{C}$ mit der Polardarstellung $$
   z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})\,,\quad r\in(0,\infty),\;\varphi\in(-\pi,\pi]
 $$ und $n\in\mathbb{N}$ mit $n\geq 2$ beliebig gegeben. Die komplexe Zahl $$
   w_k=\sqrt[n]{r}\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right)
@@ -1137,7 +1113,7 @@ $$ folgt $(w_k)^n=z$ für jede Wahl $k$.
 
 $\square$
 
-**Beispiel 12.** Zu berechnen sind
+**Beispiel 11.** Zu berechnen sind
 
 1. die $4$-ten komplexen Wurzeln der Zahl $z=1$, d. h. alle Lösungen der Gleichung $w^4=1$. Die rechte Seite lässt sich in Polarform darstellen $$
   z=1=\cos{0}+i\sin{0}\quad\leftrightarrow\quad (r,\varphi)=(1,0)
@@ -1167,7 +1143,7 @@ $$ Nach Einsetzen in die Formel für $w_k$ in Satz 5 ergeben sich unmittelbar $$
   \end{split}
 $$ Bei der Wurzel $w_2$ wurde der Hauptwert des Arguments $$
   \frac{17}{12}\cdot\pi-2\pi=-\frac{7}{12}\cdot\pi\in(-\pi,\pi]
-$$ angegeben, vergleiche Bemerkung 4.
+$$ angegeben.
 
 Mit Hilfe der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lassen sich die komplexen $n$-ten Wurzeln einer komplexen Zahl als Lösungen einer Polynomgleichung $$
   w^n=z\quad\leftrightarrow\quad p(w):=w^n-z=0
@@ -1187,9 +1163,9 @@ $$ mit Argument $\textcolor{blue}{\varphi}$ und Betrag $\textcolor{purple}{r}$.
 
 !?[Wurzel-komplex](https://www.youtube.com/watch?v=BKdqTn2iO4s "MathePeter, komplexe Zahlen radizieren.")
 
-**Bemerkung 7.** Im Gegensatz zur reellen $n$-ten Wurzel ist die komplexe $n$-te Wurzel nicht eindeutig bestimmt. Im Beispiel 12 wurden jeweils $n$ Wurzeln zum Wurzelexponenten $n$ berechnet. Wird $z$ in $(w_k)^n=z$ unter Verwendung des Hauptwertes des Argumentes $\varphi\in(-\pi,\pi]$ dargestellt, so heißt $w_0$ jeweils *Hauptwurzel* von $z$. Die Wurzelwerte $w_k$ mit $k\in\{1,2,...,n-1\}$ werden $k$-te *Nebenwurzel* von $z$ genannt.
+**Bemerkung 6.** Im Gegensatz zur reellen $n$-ten Wurzel ist die komplexe $n$-te Wurzel nicht eindeutig bestimmt. Im Beispiel 12 wurden jeweils $n$ Wurzeln zum Wurzelexponenten $n$ berechnet. Wird $z$ in $(w_k)^n=z$ unter Verwendung des Hauptwertes des Argumentes $\varphi\in(-\pi,\pi]$ dargestellt, so heißt $w_0$ jeweils *Hauptwurzel* von $z$. Die Wurzelwerte $w_k$ mit $k\in\{1,2,...,n-1\}$ werden $k$-te *Nebenwurzel* von $z$ genannt.
 
-**Satz 6.** Alle komplexen $n$-ten Wurzeln einer Zahl $z\in\mathbb{C}$ liegen in der Gaußschen Zahlenebene auf einem Kreis um den Ursprung des Koordinatensystems und bilden die Eckpunkte eines regelmäßigen $n$-Ecks.
+**Satz 5.** Alle komplexen $n$-ten Wurzeln einer Zahl $z\in\mathbb{C}$ liegen in der Gaußschen Zahlenebene auf einem Kreis um den Ursprung des Koordinatensystems und bilden die Eckpunkte eines regelmäßigen $n$-Ecks.
 
 **Beweis.** Die beiden Eigenschaften lassen sich direkt aus den Argumenten und Beträgen der Zahlen $w_k$ schließen. Nach Satz 5 und Beispiel 12 sind diese in Polarform gegeben.
 
@@ -1204,7 +1180,7 @@ $$ d. h. die Differenz der Argumente zweier 'benachbarter' Wurzeln ist unabhäng
 
 $\square$
 
-**Bemerkung 8.** Vergleiche Beispiel 5: Die komplexen Zahlen $z_1$ bis $z_6$ erfüllen die Gleichung $z^6=2^{12}=4^6$, sind also als komplexe $6$-te Wurzeln von $4096$ auffassbar. Sie bilden ein regelmäßiges Sechseck, dessen Umkreis den Koordinatenursprung als Mittelpunkt besitzt und den Radius $4$.
+**Bemerkung 7.** Vergleiche Beispiel 5: Die komplexen Zahlen $z_1$ bis $z_6$ erfüllen die Gleichung $z^6=2^{12}=4^6$, sind also als komplexe $6$-te Wurzeln von $4096$ auffassbar. Sie bilden ein regelmäßiges Sechseck, dessen Umkreis den Koordinatenursprung als Mittelpunkt besitzt und den Radius $4$.
 
 
 Sicher gewusst
