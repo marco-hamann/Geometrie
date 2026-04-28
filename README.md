@@ -9,6 +9,8 @@ language: de
 
 comment:  Dieser Kurs richtet sich an Studierende der Hochschule für Technik und Wirtschaft Dresden im Studiengang Bachelor Medieninformatik im 2. Semester.
 
+import: https://raw.githubusercontent.com/liaTemplates/JSXGraph/main/README.md
+
 import: https://raw.githubusercontent.com/LiaTemplates/tiny-turtle/master/README.md
 
 import: https://raw.githubusercontent.com/liaTemplates/algebrite/master/README.md
@@ -433,7 +435,7 @@ Aus der geometrischen Interpretation der Gruppen $\mathbb{Z}_4$ und $K_4$ als Sy
 
 <p>
   <em>Quelle:</em> <a href="https://www.geogebra.org/m/nJNcyCDk">GeoGebra</a>
-  von <a href="https://www.geogebra.org/u/mattgig">Matthias Giger</a>  
+  von <a href="https://www.geogebra.org/u/mattgig">Matthias Giger</a>
   ist unter der Lizenz <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> verfügbar.  
 </p>
 
@@ -639,13 +641,33 @@ Analog zum Festlegung der Strukturgleichheit von Gruppen definieren wir für Rin
 * Ebenso existiert zu $a+b\cdot\sqrt{2}$ ein eindeutig bestimmtes inverses Element bezüglich der Multiplikation $$
   -\frac{a}{2\cdot b^2-a}+\frac{b}{2\cdot b^2-a}\cdot\sqrt{2} $$
 
+**Bemerkung 3.** Im Kontext der Modellierung von Bewegungen der Ebene ist die Körpererweiterung der reellen Zahlen $$
+  \mathbb{C}=\left\{a+b\cdot i\,|\, a\in\mathbb{R}\,,\;b\in\mathbb{R}\,,\;i^2=-1\right\}$$ 
+zu nennen. Die [komplexen Zahlen](https://de.wikipedia.org/wiki/Komplexe_Zahl) $\mathbb{C}$ bilden Addition und Multiplikation mit den neutralen Elementen $0$ und $1$ einen Oberkörper der reellen Zahlen.
+ 
+Sicher gewusst
+===
+
+Testen Sie Ihr Wissen aus diesem Abschnitt bei der Beantwortung der nachstehenden Fragen.
+
+**Frage 1.** Bildet die algebraische Struktur $$
+  \left(\left\{a+b\cdot\sqrt{5}\,|\, a\in\mathbb{Q}\,,,\;b\in\mathbb{Q}\right\},+,\cdot\right) $$
+einen Körper?
+
+<!-- data-randomize -->
+[[(Ja)|Nein]]
+[[?]] Führen Sie den Nachweis analog zu Beispiel 6.
+
+
 
 ### Komplexe Zahlen
 
+In diesem Abschnitt wird speziell der Körper der komplexen Zahlen betrachtet. Während die Lösbarkeit von Gleichungen erste Begriffsbildungen motiviert, wird der Zahlkörper als Erweiterungskörper der reellen Zahlen konstruiert $$
+  \mathbb{C}=\mathbb{R}(i)\quad\text{mit}\quad i\not\in\mathbb{R} $$
+Anschließend rückt die Verwendung komplexer Zahlen bei der Beschreibung geometrischer Sachverhalte im Fokus: beispielsweise komplexe Zahlen als Lösungen von Kreisteilungsgleichungen oder zur Beschreibung ebener Bewegungen.
 
-Motivation
+Die imaginäre Einheit
 ===
-
 
 **Beispiel 1.** Quadratische Gleichungen in der reellen Variablen $x$ besitzen maximal zwei Lösungen: zum Beispiel $$
   x^2-1=(x+1)\cdot(x-1)=0\quad\leftrightarrow\quad x_1=1\;\vee\;x_2=-1
@@ -657,8 +679,7 @@ $$ Die letztere Gleichung besitzt keine reelle Lösung, denn es gilt genau einer
 
 1. Für beliebige Werte $x\geq0$ gilt, dass $x^2\geq0$ und somit $x^2+1>0$ folgt.
 2. Für beliebige Werte $x<0$ folgt in gleicher Weise, dass mit $-x>0$ und $$
-  (-x)\cdot(-x)=(-1)^2\cdot x^2=x^2>0
-$$ schließlich $x^2+1>0$ folgt.
+  (-x)\cdot(-x)=(-1)^2\cdot x^2=x^2>0 $$ schließlich $x^2+1>0$ folgt.
 
 Demnach gibt es kein $x\in\mathbb{R}$, dass die Gleichung $x^2+1=0$ löst.
 
@@ -672,48 +693,21 @@ roots(b)
 ```
 @Algebrite.eval
 
-
-Konstruktion der komplexen Zahlen
-===
-
+Hier wird zunächst ein Element $i\not\in\mathbb{R}$ eingeführt, um das die reellen Zahlen erweitert werden.
 
 >**Definition 1.** Die Zahl $i$ mit $i^2=-1$ heißt [imaginäre Einheit](https://de.wikipedia.org/wiki/Imagin%C3%A4re_Zahl).[^1]
 
-Die in Beispiel 1 betrachtete Gleichung $x^2+1$ ergibt mit dieser Definition $$
-  i^2+1=-1+1=0\quad\text{und}\quad
-  (-i)^2+1=(-1\cdot i)^2=(-1)^2\cdot i^2=1\cdot(-1)+1=0
-$$ nach Annahme der Gültigkeit der Potenzgesetze für die in Definition 1 erklärte imaginäre Einheit. Damit besitzt die Gleichung $x^2+1$ die beiden Lösungen $x_{1,2}=\pm i$.
+Die zuvor betrachtete Gleichung $x^2+1$ ergibt mit dieser Definition $i^2+1=-1+1=0$.
 
->**Definition 2.** Eine Zahl $b\cdot i=bi$ mit $b\in\mathbb{R}$ und $i^2=-1$ heißt *imaginäre Zahl*.
+Der Körper der komplexen Zahlen
+===
 
-Das Rechnen mit reellen Zahlen lässt sich auf imaginäre Zahlen übertragen.
-
-**Beispiel 2.** Es berechnen sich
-
-1. $3i+2i+ci=(5+c)\cdot i\;\text{für}\; c\in\mathbb{R}$
-2. $pi\cdot qi=pq\cdot i^2=-pq\;\text{für}\; p\in\mathbb{R},\; q\in\mathbb{R}$
-3. $i^5=i^{2+2+1}=i^2\cdot i^2\cdot i=(-1)\cdot(-1)\cdot i=i$
-4. $i^{4n+1}=i^{4n}\cdot i^3=(i^2\cdot i^2)^n\cdot i^2\cdot i=1^n\cdot(-1)\cdot i=-1 \;\forall n\in\mathbb{N}$
-5. $$\frac{1}{i^3}=\frac{1}{i^2\cdot i}=-\frac{1}{i}=-\frac{i}{i^2}=-\frac{i}{(-1)}=i$$
-
-Unter Benutzung der Javascript-Bibliothek [Algebrite](http://algebrite.org/) können unter Verwendung des Bezeichners $i$ interaktiv reelle und imaginäre Zahlen verknüpft werden.
-
-```algebrite
-i^2
-simplify(2*i+a*i)
-1/(i^3)
-```
-@Algebrite.eval
-
-Die Anwendung der Rechengesetze für reelle Zahlen auf imaginäre Zahlen führt auf die Definition einer komplexen Zahl.
-
->**Definition 3.** Eine [komplexe Zahl](https://de.wikipedia.org/wiki/Komplexe_Zahl) ist ein Ausdruck der Form $$
-  z=a+ib\quad\text{mit}\quad a\in\mathbb{R},\; b\in\mathbb{R},\; i^2=-1
+>**Definition 2.** Eine [komplexe Zahl](https://de.wikipedia.org/wiki/Komplexe_Zahl) ist ein Ausdruck der Form $$
+  z=a+b\cdot i\quad\text{mit}\quad a\in\mathbb{R},\; b\in\mathbb{R},\; i^2=-1
 $$ Die darin auftretende Zahl $a$ wird *Realteil* von $z$ genannt, während der Koeffizient $b$ von $i$ den *Imaginärteil* von $z$ bezeichnet. Man schreibt $$
   a=\operatorname{Re}{z}\,,\quad b=\operatorname{Im}{z}
 $$ Die Menge aller komplexen Zahlen wird angegeben mit $$
-  \mathbb{C}=\left\{z=a+ib\,|\, (a\in\mathbb{R})\,\wedge\, (b\in\mathbb{R})\,\wedge\,(i^2=-1)\right\}
-$$ (engl.: ~~c~~omplex numbers).
+  \mathbb{C}=\left\{z=a+b\cdot i\,|\, (a\in\mathbb{R})\,\wedge\, (b\in\mathbb{R})\,\wedge\,(i^2=-1)\right\} $$ (engl.: complex numbers).
 
 Die in der Javascript-Bibliothek [Algebrite](http://algebrite.org/) zur Verfügung stehenden Befehle `real(.)` beziehungsweise `imag(.)` geben den Real- beziehungsweise Imaginärteil einer komplexen Zahl zurück.
 
@@ -724,94 +718,142 @@ imag(z)
 ```
 @Algebrite.eval
 
-**Bemerkung 1.** Die reellen Zahlen sind in den komplexen Zahlen enthalten, d. h. es gilt $\mathbb{R}\subset \mathbb{C}$, da $$
-  (bi-bi=(b-b)\cdot i=0\cdot i=0)\quad\Rightarrow\quad (z=a+0i=a\,(\in\mathbb{R}))
-$$ Speziell ist $z=0+0i=0$. Damit folgt auch $$
-  \mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}\subset\mathbb{C} $$
-Wir vereinbaren $\mathbb{C}^\times=\mathbb{C}\setminus\{0\}$.
+Es werden auf der Menge $\mathbb{C}$ zwei zweistellige Operationen eingeführt.
 
-Die Begriffe 'imaginäre Einheit', 'imaginäre Zahl' und 'komplexe Zahl' werden im nachstehenden Video im Kontext der Lösung quadratischer Gleichungen an einem Beispiel erläutert.
+>**Definition 3.**  Gegeben seien zwei beliebige komplexe Zahlen $$
+  z_k=a_k+b_k\cdot i\quad\text{mit}\quad a_k=\operatorname{Re}{z_k}\,,\;b_k=\operatorname{Im}{z_k}\,,\; i^2=-1\quad\text{und}\quad k\in\{1,2\} $$
+> Es sind die Operationen **Addition** und **Multiplikation** erklärt: $$
+  z_1\textcolor{purple}{+}z_2=(a_1+i\cdot b_1)\textcolor{purple}{+}(a_2+i\cdot b_2):=(a_1+a_2)\textcolor{purple}{+}(b_1+b_2)\dot i $$
+> beziehungsweise $$
+  z_1\textcolor{purple}{\cdot}z_2=(a_1+i\cdot b_1)\textcolor{purple}{\cdot}(a_2+i\cdot b_2):=(a_1\cdot a_2-b_1\cdot b_2)+(a_1\cdot b_2+b_1\cdot a_2)\dot i $$
 
-!?[komplexe Zahl](https://www.youtube.com/watch?v=XQblFqzoMYo&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=2 "Daniel Jung, Komplexe Zahlen, Einführung, imaginäre Einheit")
+Unmittelbar ergeben sich aus den eingeführten Operationen.
 
->**Definition 4.** Es sind $z_1\in\mathbb{C}$ und $z_2\in\mathbb{C}$ mit $$
-  z_j=a_j+i\cdot b_j\,,\quad a_j=\operatorname{Re}{z_j}\,,\quad  b_j=\operatorname{Im}{z_j}\,,\quad i^2=-1
-$$ zwei beliebige komplexe Zahlen. Die Zahlen $z_1$ und $z_2$ heißen **gleich**, kurz $z_1=z_2$, falls $$ a_1=a_2\quad\text{und}\quad b_1=b_2
-$$ für die Real- und Imaginärteile gelten.
+>**Proposition 1.** $(\mathbb{C},+)$ ist eine kommutative Guppe mit dem neutralen Element $0+0\cdot i\in\mathbb{C}$.
 
-**Beispiel 3.** Gegeben sind zwei von Parametern $a\in\mathbb{R}$ und $b\in\mathbb{R}$ abhängige komplexe Zahlen $$
-  z_1=a^2+1-2a\cdot i\,,\quad z_2=-2a+i\cdot(b+a)\,,\quad i^2=-1
-$$ Es gilt $$
-  z_1=z_2\quad\leftrightarrow\quad \operatorname{Re}{z_1}=\operatorname{Re}{z_2}\;\wedge\;\operatorname{Im}{z_1}=\operatorname{Im}{z_2}
-$$ Hieraus ergibt sich das System von zwei Gleichungen in den Parametern $a$ und $b$ $$
-  \left.\begin{array}{ccc} a^2+1 & = & -2a \\ -2a & = & b+a \end{array}\right\}=
-  \left\{\begin{array}{ccc} (a+1)^2 & = & 0 \\ b & = & -3a \end{array}\right.
-$$ mit den Lösungen $a_1=a_2=-1$ und $b=3$. Es ergibt sich nach Einsetzen $z_1=z_2=2+2i$.
+**Beweis.** Der Nachweis folgt unmittelbar aus der Definition dieser Operation, nach der die Addition komplexer Zahlen der reellen Addition in Real- und Imaginärteil entspricht. Da $(\mathbb{R},+)$ eine kommutative Gruppe ist, folgt hieraus die entsprechende Eigenschaft in $(\mathbb{C},+)$.
 
->**Definition 5.** Zu einer Zahl $z\in\mathbb{C}$ mit $$
-  z=a+i\cdot b\,,\quad a=\operatorname{Re}{z}\,,\quad  b=\operatorname{Im}{z}\,,\quad i^2=-1
-$$ heißt $\bar{z}=a+(-1)\cdot b\cdot i$ die zu $z$ [komplex konjugierte Zahl](https://de.wikipedia.org/wiki/Konjugation).
+$\square$
 
-**Beispiel 4.** Zu bestimmen sind jeweils die komplex konjugierten Zahlen. Es gilt wie zuvor $i^2=-1$.
+**Bemerkung 1.** Mit der vorstehenden Proposition existiert für jede Zahl $z\in\mathbb{C}$ mit $z=a+i\cdot b$ genau eine komplexe Zahl $-z=-a-b\cdot i$ mit $$
+  z+(-z)=(a+b\cdot i)+(-a-b\cdot i)=(a-a)+(b-b)\cdot i=0+0\cdot i $$
+Die Zahl $-z$ wird zu $z$ invers bezüglich der Addition genannt.
 
-1. $z_1=3+2i$. Hieraus lassen sich $\operatorname{Re}{z_1}=3$ und $\operatorname{Im}{z_1}=2$ ablesen. Für die komplex konjugierte Zahl folgt nach obiger Definition $\bar{z}_1=3+(-1)\cdot 2i=3-2i$.
-2. $z_2=-i$. Es sind $\operatorname{Re}{z_2}=0$ und $\operatorname{Im}{z_2}=-1$ und somit $\bar{z}_2=0+(-1)\cdot (-i)=i$.
-3. $z_3=7.1$ Es sind $\operatorname{Re}{z_3}=7.1$ und $\operatorname{Im}{z_2}=0$ und somit $\bar{z}_3=z_3=7.1$.
-4. $z_4=a^2+1-2a\cdot i$ mit $a\in\mathbb{R}$. Hier sind in Abhängigkeit des Parameters $\operatorname{Re}{z_4}=a^2+1$ und $\operatorname{Im}{z_4}=-2a$, woraus sich die komplex konjugierte Zahl $\bar{z}_4=a^2+1+2a\cdot i$ ergibt.
+>**Proposition 2.** $(\mathbb{C}\setminus\{0+0\cdot i\},\cdot)$ ist eine kommutative Guppe mit dem neutralen Element $1+0\cdot i\in\mathbb{C}$.
 
-In der Javascript-Bibliothek [Algebrite](http://algebrite.org/) steht zur Bildung der komplex konjugierten Zahl der Befehl `conj(.)` zur Verfügung. Testen Sie diesen Befehl an den Zahlen aus Beispiel 4.
+**Beweis.** Die Multiplikation ist in $\mathbb{C}$abgeschlossen. Die Eigenschaften Assoziativität und Kommutativität für die multiplikative Verknüpfung lassen sich direkt nachrechnen. Ebenso bestätigt sich durch Nachrechnen von $z\cdot (1+0\cdot i)=z$ für alle $z\in\mathbb{C}$ das neutrale Element bezogen auf die Multiplikation.
+
+Für eine beliebige komplexe Zahl $z=a+b\cdot i$ mit $a^2+b^2\not=0$ ist $$
+  z^{-1}=\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\cdot i $$
+das bezüglich Multiplikation das inverse Element, denn für dessen Produkt mit $z$ gilt $$
+  z\cdot z^{-1}=(a+b\cdot i)\cdot \left(\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\cdot i\right)
+  =\left(\frac{a\cdot a}{a^2+b^2}-\frac{-b\cdot b}{a^2+b^2}\right)+\left(\frac{a\cdot b}{a^2+b^2}+\frac{a\cdot (-b)}{a^2+b^2}\right)\cdot i
+  =1+0\cdot i $$
+
+$\square$
+
+Mit Hilfe der Javascript-Bibliothek [Algebrite](http://algebrite.org/) berechnet sich das multiplikativ Inverse einer komplexen Zahl mittels `z^(-1)`.
 
 ```algebrite
-z=3+2*i
-zc=conj(z)
-zc
-x=real(z)
-y=imag(z)
-w=x-y*i
-test(zc=w,wahr,falsch)
+z=2+5*i
+z^(-1)
+z*z^(-1)
 ```
 @Algebrite.eval
 
-**Bemerkung 2.** Aus dem vorstehenden Beispiel lassen sich unmittelbar für beliebige komplexe Zahlen $z\in\mathbb{C}$ ableiten:
+Unter Verwendung der vorgenannten beiden Gruppen begründet sich die algebraische Struktur von $(\mathbb{C},+,\cdot)$.
 
-1. Für Zahlen $z\in\mathbb{C}$ mit $\operatorname{Im}{z}=0$ folgt $\bar{z}=z$ und umgekehrt.
-2. Für Zahlen $z\in\mathbb{C}$ mit $\operatorname{Re}{z}=0$ folgt $\bar{z}=-z$ und umgekehrt.
-3. Der Realteil einer komplexen Zahl $z$ lässt sich bestimmen über $$
-  \operatorname{Re}{z}=\frac{1}{2}\cdot\left(z+\bar{z}\right)
-$$
-4. Der Imaginärteil einer komplexen Zahl $z$ lässt sich bestimmen über $$
-  \operatorname{Re}{z}=\frac{1}{2}\cdot\left(z-\bar{z}\right)
-$$
+>**Satz 3.** Die algebraische Struktur $(\mathbb{C},+,\cdot)$ bildet einen Körper. Im Einzelnen bilden
+>
+>1. $(\mathbb{C},+)$ eine kommutative Gruppe mit dem neutralen Element $0$ und 
+>2. $(\mathbb{C}\setminus\{0+0\cdot i\},\cdot)$ eine kommutative Gruppe mit dem neutralen Element $1$.
+>3. Es gilt das Distributivgesetz $z\cdot(w+u)=z\cdot w+z\cdot u$ für beliebige komplexe Zahlen $z\in\mathbb{C}$, $w\in\mathbb{C}$ und $u\in\mathbb{C}$.
 
-Der Nachweis dieser Aussagen ist eine Übungsaufgabe.
+**Beweis.** Den verbleibenden Nachweis der Distributivregel empfehlen wir als Übungsaufgabe.
 
+$\square$
 
-Darstellungen komplexer Zahlen
+**Bemerkung 2.** Mit der Summe - beziehungsweise dem Produkt $$
+  (a_1+0\cdot i)+(a_2+0\cdot i)=(a_1+a_2+0\cdot i)\quad\text{bzw.}\quad
+  (a_1+0\cdot i)\cdot(a_2+0\cdot i)=(a_1\cdot a_2+0\cdot i) $$ 
+gibt es eine Einbettungsabbbildung $\mathbb{R}\to\mathbb{C}$. Jede reelle Zahl $x\in\mathbb{R}$ lässt sich mit $x+0\cdot i\in\mathbb{C}$ identifizieren. Mithin schreiben wir im Folgenden $$
+  0+0\cdot i=0\quad\text{bzw.}\quad 1+0\cdot i=1 $$ 
+für die neutralen Elemente der Addition beziehungsweise Multiplikation in $\mathbb{C}$.
+
+Die Multiplikation komplexer Zahlen lässt sich als eine lineare Abbildung beschreiben: Für eine beliebig, aber fest gewählte komplexe Zahl $c=a+b\cdot i$ mit $a\in\mathbb{R}$ und $b\in\mathbb{R}$ ist $$
+  \kappa_c:\mathbb{C}\to\mathbb{C}\,,\quad z\mapsto c\cdot z=a\cdot x-b\cdot y+i\cdot(b\cdot x+a\cdot y) $$
+für $z=x+y\cdot i$ mit $x\in\mathbb{R}$ und $by\in\mathbb{R}$ sowie $i^2=-1$. Wird $\mathbb{C}$ mit $\mathbb{R}^2$ identifiziert, so schreibt sich $\kappa_c$ als Matrix-Vektor-Produkt $$
+  \kappa_c\begin{pmatrix} x \\ y \end{pmatrix}=\begin{pmatrix} a & -b \\ b & a \end{pmatrix}\cdot\begin{pmatrix} x \\ y \end{pmatrix} $$
+Wir prüfen den nachstehenden Satz.
+
+>**Satz 4.** Die Abbildung $\phi:\mathbb{C}\to\mathcal{C}$ mit $$
+  z=a+b\cdot i\mapsto\begin{pmatrix} a & -b \\ b & a \end{pmatrix}=\phi(z) $$
+> für beliebige $a\in\mathbb{R}$ sowie $b\in\mathbb{R}$ bildet die komplexen Zahlen auf die Menge $$
+  \mathcal{C}=\left\{\left.\begin{pmatrix} a & -b \\ b & a \end{pmatrix}\right|\;a\in\mathbb{R}\,,\;b\in\mathbb{R}\right\} $$
+> ab. Bezüglich der gewöhnlichen Addition und Multiplikation von Matrizen sind die Bedingungen $$
+  \phi(z_1+z_2)=\phi(z_1)+\phi(z_2)\quad\text{sowie}\quad \phi(z_1\cdot z_2)=\phi(z_1)\cdot\phi(z_2) $$
+> erfüllt, wonach $\phi$ einen Isomorphismus des Körpers $(\mathbb{C},+,\cdot)$ auf den Körper $(\mathcal{C},+,\cdot)$ beschreibt.
+
+**Beweis.** Die reellen zweireihigen Matrizen bilden mit der gewöhnlichen Addition und Matrixmultiplikation einen nichtkommutativen Ring mit Einselement, siehe Beispiel 2 im Abschnitt [Ringe und Körper](#ringe-und-körper). 
+
+Die Addition komplexer Zahlen einerseits, die Addition von Matrizen anderseits sind komponentenweise erklärt, woraus unmittelbar die Gültigkeit der Bedingung $$
+  \phi(z_1+z_2)=\phi(z_1)+\phi(z_2) $$
+folgt. Die zweite Bedingung rechnen wir direkt nach. Für die linke Seite gilt: $$
+  \phi(z_1\cdot z_2)=\phi((a_1+i\cdot b_1)+(a_2+i\cdot b_2))=\phi((a_1a_2-b_1b_2)+i\cdot(b_1a_2+a_1b_2))=\begin{pmatrix} a_1a_2-b_1b_2 & -b_1a_2-a_1b_2 \\ b_1a_2+a_1b_2 & a_1a_2-b_1b_2 \end{pmatrix} $$
+Die rechte Seite berechnet sich mit gleichem Ergebnis: $$
+  \phi(z_1)\cdot\phi(z_2)=\begin{pmatrix} a_1 & -b_1 \\ b_1 & a_1 \end{pmatrix}\cdot\begin{pmatrix} a_2 & -b_2 \\ b_2 & a_2 \end{pmatrix}=\begin{pmatrix} a_1a_2-b_1b_2 & -b_1a_2-a_1b_2 \\ b_1a_2+a_1b_2 & a_1a_2-b_1b_2 \end{pmatrix} $$
+
+Speziell ergeben sich unter $\phi$ $$
+  O=\phi(0)=\phi(0+0\cdot i)=\begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}\,,\quad
+  E=\phi(1)=\phi(1+0\cdot i)=\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}\quad\text{sowie}\quad
+  I=\phi(i)=\phi(0+1\cdot i)=\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} $$
+mit $$
+  O+Z=Z+O=Z\,,\quad E\cdot Z=Z\cdot E=Z\quad\text{sowie}\quad I^2=-E $$
+für alle $Z\in\mathcal{C}$. Die Matrizen $O$ beziehungsweise $E$ verhalten sich somit wie die neutralen Elemente bezüglich Addition beziehungsweise Multiplikation in $\mathbb{C}$, und $I$ entspricht der imaginären Einheit. 
+
+Hieraus folgt schließlich mit Präposition 2 $$
+  Z^{-1}=\phi\left(z^{-1}\right)=\phi\left(\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}\cdot i\right)=\frac{1}{a^2+b^2}\cdot\begin{pmatrix} a & b \\ -b & a \end{pmatrix} $$
+für beliebige Matrizen $Z\in\mathcal{C}\setminus\{O\}$, d. h. das multiplikativ inverse Element lässt sich als Matrixinverse berechnen.
+
+$\square$
+
+In der [Referenz](http://algebrite.org/docs/latest-stable/reference.html) der Funktionen der Javascript-Bibliothek Algebrite kann zur Bildung der Matrixinverse einer quadratischen reellen Matrix $A$ der Befehl `inv(a)` benutzt werden.
+
+```algebrite
+c=1+i*2
+c11=real(c)
+c22=c11
+c21=imag(c)
+c12=-c21
+C=[[c11,c12],[c21,c22]]
+inv(C)
+```
+@Algebrite.eval
+
+Visualisierung der Operationen
 ===
 
+Addition und Multiplikation komplexer Zahlen lassen unterschiedliche geometrische Interpretationen zu, die ohne Anspruch auf Umfänglichkeit hier besprochen werden.
 
-Komplexe Zahlen $z\in\mathbb{C}$ mit der Darstellung $$
-  z=a+b\cdot i\,,\quad \operatorname{Re}{z}=a\,,\quad \operatorname{Im}{z}=b\,,\quad i^2=-1
-$$ stellen geordnete Paare reeller Zahlen dar, d. h. $$
-  z=a+b\cdot i\quad\leftrightarrow\quad (a,b)\in\mathbb{R}^2
-$$ Sie lassen sich somit als kartesische Koordinaten von Punkten in einer Ebene umkehrbar eindeutig identifizieren. In dieser Zuordnung entsprechen
+<!-- style="background-color: lightgray;"-->
+>[Gaußsche Zahlenebene](https://mathepedia.de/Gauszsche_Zahlenebene.html). Komplexe Zahlen $z\in\mathbb{C}$ mit der Darstellung $$
+  z=a+b\cdot i\,,\quad \operatorname{Re}{z}=a\,,\quad \operatorname{Im}{z}=b\,,\quad i^2=-1 $$ 
+>stellen geordnete Paare reeller Zahlen dar, d. h. $$
+  z=a+b\cdot i\quad\leftrightarrow\quad (a,b)\in\mathbb{R}^2 $$ 
+>Sie lassen sich somit als kartesische Koordinaten von Punkten in einer Ebene umkehrbar eindeutig identifizieren. In dieser Zuordnung entsprechen
+>
+>1. die erste Koordinatenachse der reellen Zahlgeraden. Diese wird nachfolgend **reelle Achse** genannt. An dieser werden die Realteile komplexer Zahlen als Koordinaten abgetragen.
+>2. die Punkte auf der zweiten Koordinatenachse den imaginären Zahlen. Diese Achse wird daher als **imaginäre Achse** bezeichnet. An dieser werden die Imaginärteile komplexer Zahlen als Koordinaten abgetragen.
+>
+>Die Darstellung komplexer Zahlen als Punkte in beschriebenen Koordinatensystem wird **Gaußsche Zahlenebene** genannt. Die reelle Zahlengerade wird geometrisch durch eine zusätzliche Dimension zur "komplexen Zahlgerade" erweitert.
 
-1. die erste Koordinatenachse der reellen Zahlgeraden. Diese wird nachfolgend **reelle Achse** genannt. An dieser werden die Realteile komplexer Zahl (als Koordinaten) abgetragen.
-2. die Punkte auf der zweiten Koordinatenachse den imaginären Zahlen. Diese Achse wird daher als **imaginäre Achse** bezeichnet. An dieser werden die Imaginärteile komplexer Zahl (als Koordinaten) abgetragen.
-
-Die Darstellung komplexer Zahlen als Punkte in beschriebenen Koordinatensystem wird [Gaußsche Zahlenebene](https://mathepedia.de/Gauszsche_Zahlenebene.html) genannt. Die reelle Zahlengerade wird geometrisch durch eine zusätzliche Dimension zur "komplexen Zahlgerade" erweitert.
-
-![Gaußsche Zahlenebene](img/geo-bild58.png "_Fig._ Darstellung einer komplexen Zahl $z$ als Punkt / Koordinatenpaar in der Gaußschen Zahlenebene. Der zu $z$ gehörende Zeiger zeigt vom Koordinatenursprung nach $z$.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 900px;" -->
-
-**Beispiel 5.** In der Gaußschen Zahlenebene ist ein regelmäßiges Sechseck ('Zirkelmuster') mit Eckpunkten auf dem Umkreis mit Mittelpunkt $O(0,0)$ und Radius $r=4$ gegeben. Ein Eckpunkt liegt auf der reellen Achse.
+**Beispiel 2.** In der Gaußschen Zahlenebene ist ein regelmäßiges Sechseck ('Zirkelmuster') mit Eckpunkten auf dem Umkreis mit Mittelpunkt $O(0,0)$ und Radius $r=4$ gegeben. Ein Eckpunkt liegt auf der reellen Achse.
 
 Zu bestimmen ist die kartesische Form der zu den Eckpunkten gehörenden komplexen Zahlen.
 
-![Gaußsche Zahlenebene 1](img/geo-bild59.png "_Fig._ Regelmäßiges Sechseck in der Gaußschen Zahlenebene.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 900px;" -->
-
 Die Zeiger durch die Eckpunkte schließen mit der positiv orientierten reellen Achse Winkel der Größen $$
-  \alpha\in\{0^\circ,60^\circ,120^\circ,180^\circ,240^\circ,300^\circ\}
-$$ ein. Aus dem eingetragenen rechtwinkligen Dreieck lassen sich hiermit die kartesischen Koordinaten $(4\cdot\cos{\alpha},4\cdot\sin{\alpha})$ der Eckpunkte bestimmen. Zu diesen gehören somit die komplexen Zahlen
+  \alpha\in\{0^\circ,60^\circ,120^\circ,180^\circ,240^\circ,300^\circ\} $$ 
+ein. Aus dem eingetragenen rechtwinkligen Dreieck lassen sich hiermit die kartesischen Koordinaten $(4\cdot\cos{\alpha},4\cdot\sin{\alpha})$ der Eckpunkte bestimmen. Zu diesen gehören somit die komplexen Zahlen
 
 * $z_1=4\cdot\cos{0^\circ}+4\cdot\sin{0^\circ}\cdot i=4$
 * $z_2=4\cdot\cos{60^\circ}+4\cdot\sin{60^\circ}\cdot i=2+2\sqrt{3}\cdot i$
@@ -820,27 +862,24 @@ $$ ein. Aus dem eingetragenen rechtwinkligen Dreieck lassen sich hiermit die kar
 * $z_5=4\cdot\cos{240^\circ}+4\cdot\sin{240^\circ}\cdot i=-2-2\sqrt{3}\cdot i$
 * $z_6=4\cdot\cos{300^\circ}+4\cdot\sin{300^\circ}\cdot i=2-2\sqrt{3}\cdot i$
 
-**Bemerkung 3.** Die Ordnungsrelationen 'kleiner als', 'größer als' in der Menge der reellen Zahlen lassen sich nicht auf $\mathbb{C}$ übertragen. Insbesondere gibt es keine positiven oder negativen komplexen Zahlen.
+Aus den vorstehenden geometrischen Überlegungen lässt sich verallgemeinern: Jede Zahl $z\in\mathbb{C}^\times$ beziehungsweise jeder Punkt in der Gaußschen Zahlenebene ist eindeutig darstellbar als geordnetes Paar 
 
-Mit den vorstehenden Abbildungen lässt sich jedem Punkt / jeder Zahl $z\in\mathbb{C}^\times$ in der Gaußschen Zahlenebene umkehrbar eindeutig zuordnen:
+1. kartesischer Koordinaten $(a,b)\in\mathbb{R}^2$ mit $a=\operatorname{Re}{z}$ und $b=\operatorname{Im}{z}$. Die Darstellung $z=a+i\cdot b$ aus Definition 2 wird **kartesische Form** der komplexen Zahl genannt.
+2. $(r,\varphi)\in(0,\infty)\times (-\pi,\pi]$ mit Abstand $r$ von $z$ zum Koordinatenursprung sowie dem Winkel $\varphi$, den der Zeiger zu $z$ mit der positiv orientierten reellen Achse im Grundintervall einschließt.
 
-1. das geordnete Paar kartesischer Koordinaten $(a,b)\in\mathbb{R}^2$ mit $a=\operatorname{Re}{z}$ und $b=\operatorname{Im}{z}$. Die Darstellung $z=a+i\cdot b$ aus Definition 3 wird **kartesische Form** der komplexen Zahl genannt.
-2. das Paar $(r,\varphi)\in(0,\infty)\times (-\pi,\pi]$ mit Abstand $r$ von $z$ zum Koordinatenursprung sowie dem Winkel $\varphi$, den der Zeiger zu $z$ mit der positiv orientierten reellen Achse im Grundintervall einschließt.
-3. Der Zahl $z=0$ entsprechen umkehrbar eindeutig die kartesischen Koordinaten $(a,b)=(0,0)$, jedoch ist für $r=0$ der Winkel $\varphi$ in der Polarform nicht eindeutig bestimmt.
+Der Zahl $z=0$ entsprechen umkehrbar eindeutig die kartesischen Koordinaten $(a,b)=(0,0)$, jedoch ist für $r=0$ der Winkel $\varphi$ in der Polarkoordinatenform nicht eindeutig bestimmt.
 
->**Definition 6.** Die Koordinaten $(r,\varphi)$ eines vom Koordinatenursprung verschiedenen Punktes in der Gaußschen Zahlenebene werden [Polarkoordinaten](https://de.wikipedia.org/wiki/Polarkoordinaten) genannt. Die Darstellung $$
-  z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})\,,\quad r\in(0,\infty)\,,\quad \varphi\in(-\pi,\pi]\,,\quad i^2=-1
-$$ wird als trigonometrische beziehungsweise **Polarfom** von $z\in\mathbb{C}^\times$ bezeichnet. Darin heißt $r$ **Betrag** und $\varphi$ **Argument** von $z$.
+>**Definition 4.** Die Koordinaten $(r,\varphi)$ eines vom Koordinatenursprung verschiedenen Punktes in der Gaußschen Zahlenebene werden [Polarkoordinaten](https://de.wikipedia.org/wiki/Polarkoordinaten) genannt. Die Darstellung $$
+  z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})\,,\quad r\in(0,\infty)\,,\quad \varphi\in(-\pi,\pi]\,,\quad i^2=-1 $$ 
+>wird als trigonometrische beziehungsweise **Polarkoordinatenform** von $z\in\mathbb{C}^\times$ bezeichnet. Darin heißt $r$ **Betrag** und $\varphi$ **Argument** von $z$.
 
 Für die Umrechnung zwischen kartesischen und Polarkoordinaten nutzt man das in den vorstehenden Abbildungen eingetragene Koordinatendreieck.
 
 1. Es sei $z$ in der kartesischen Form gegeben, d. h. $z=a+i\cdot b$ gemäß Definition 3. Des Weiteren wird $a^2+b^2\not=0$ vorausgesetzt. Dann berechnen sich dessen Polarkoorinaten vermöge $$
   |z|=r=\sqrt{a^2+b^2}\quad\text{und weiter}\quad
-  \varphi=\left\{\begin{array}{rcc} \arccos{\left(\frac{a}{r}\right)} & \text{für} & b\geq0 \\ -\arccos{\left(\frac{a}{r}\right)} & \text{für} & b<0\end{array}\right.
-$$ woraus sich die Polarform von $z$ ableiten lässt.
-2. Es sei umgekehrt $z$ in Polarform gegeben, d. h. $z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})$ gemäß Definition 6. Hieraus folgen durch Ausmultiplizieren $$
-  a=r\cdot\cos{\varphi}\quad\text{und}\quad b=r\cdot\sin{\varphi}
-$$ für den Real- bzw. Imaginärteil in der kartesischen Form von $z$.
+  \varphi=\left\{\begin{array}{rcc} \arccos{\left(\frac{a}{r}\right)} & \text{für} & b\geq0 \\ -\arccos{\left(\frac{a}{r}\right)} & \text{für} & b<0\end{array}\right. $$ woraus sich die Polarkoordinatenform von $z$ ableiten lässt.
+2. Es sei umgekehrt $z$ in Polarkoordinatenform gegeben, d. h. $z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})$ gemäß Definition 6. Hieraus folgen durch Ausmultiplizieren $$
+  a=r\cdot\cos{\varphi}\quad\text{und}\quad b=r\cdot\sin{\varphi} $$ für den Real- bzw. Imaginärteil in der kartesischen Form von $z$.
 
 In der Javascript-Bibliothek [Algebrite](http://algebrite.org/) kann die kartesische Darstellungsform einer komplexen Zahl $z$ mit dem Befehl `rect(z)` berechnet werden. Zur Berechnung des Betrages und des Argumentes von $z$ werden die Befehle `abs(z)` bzw. `arg(z)` zur Verfügung gestellt. Letzterer verwendet zur Berechnung des Argumentes in $\varphi\in(-\pi,\pi]$ anstelle des 'Arcuskosinus' den 'Arcustangens' mit $$
   \varphi=\left\{
@@ -863,18 +902,18 @@ arg(w)
 ```
 @Algebrite.eval
 
-**Bemerkung 4.** Das Argument ist zumeist im *Bogenmaß* anzugeben oder wird im Bogenmaß berechnet. Dies ist eine reelle Zahl. Hierbei gilt die folgende Umrechnung zwischen Bogen- und Gradmaß: $$
+**Bemerkung 3.** Das Argument ist zumeist im *Bogenmaß* anzugeben oder wird im Bogenmaß berechnet. Dies ist eine reelle Zahl. Hierbei gilt die folgende Umrechnung zwischen Bogen- und Gradmaß: $$
   \frac{b_\varphi}{2\pi}=\frac{\varphi}{360^\circ}\quad\leftrightarrow\quad
-  b_\varphi=\frac{\varphi}{360^\circ}\cdot 2\pi\quad\leftrightarrow\quad
-  \varphi=\frac{b_\varphi}{2\pi}\cdot 360^\circ
-$$ wenn $b_\varphi$ den Winkel im Boden- und $\varphi$ den Winkel im Gradmaß bezeichnen.
+  b_\varphi==\frac{\varphi}{360^\circ}\cdot 2\pi\quad\leftrightarrow\quad
+  \varphi=\frac{b_\varphi}{2\pi}\cdot 360^\circ $$ 
+wenn $b_\varphi$ den Winkel im Boden- und $\varphi$ den Winkel im Gradmaß bezeichnen.
 
-Werden im Gegensatz zu Definition 6 Winkel $\varphi\in\mathbb{R}$ zugelassen, so legen $(r,\varphi)$ und $(r,\varphi+2k\pi)$ mit $k\in\mathbb{Z}$ dieselbe komplexe zahl $z$ fest, da nach [Additionstheoremen](https://de.wikipedia.org/wiki/Formelsammlung_Trigonometrie#Additionstheoreme) für Sinus und Kosinus $$
+Werden im Gegensatz zur vorstehenden Definition Winkel $\varphi\in\mathbb{R}$ zugelassen, so legen $(r,\varphi)$ und $(r,\varphi+2k\pi)$ mit $k\in\mathbb{Z}$ dieselbe komplexe Zahl $z$ fest, da nach [Additionstheoremen](https://de.wikipedia.org/wiki/Formelsammlung_Trigonometrie#Additionstheoreme) für Sinus und Kosinus $$
   \sin{(\varphi+2k\pi)}=\cos{\varphi}\cdot\sin{(2k\pi)}+\sin{\varphi}\cdot\cos{(2k\pi)}=\sin{\varphi}\quad\text{und}\quad
-  \cos{(\varphi+2k\pi)}=\cos{\varphi}\cdot\cos{(2k\pi)}-\sin{\varphi}\cdot\sin{(2k\pi)}=\cos{\varphi}
-$$ Der Winkel $\varphi$ mit $\varphi\in(-\pi,\pi]$ wird *Hauptwert* des Arguments von $z$ genannt.
+  \cos{(\varphi+2k\pi)}=\cos{\varphi}\cdot\cos{(2k\pi)}-\sin{\varphi}\cdot\sin{(2k\pi)}=\cos{\varphi} $$ 
+Der Winkel $\varphi$ mit $\varphi\in(-\pi,\pi]$ wird *Hauptwert* des Arguments von $z$ genannt.
 
-**Beispiel 6.** Umzurechnen sind kartesische - und Polardarstellung einer komplexen Zahl.
+**Beispiel 3.** Umzurechnen sind kartesische - und Polardarstellung einer komplexen Zahl.
 
 1. Gegeben ist die Zahl $z_1=3+i\cdot \sqrt{3}$, d. h. in kartesischer Form. Es lassen sich aus dieser Real- und Imaginärteil der komplexen Zahl ablesen $$
   a_1=3\quad\text{und}\quad b_1=\sqrt{3}
@@ -891,81 +930,27 @@ $$ Hieraus lassen sich unmittelbar Rel- und Imaginärteil der komplexen Zahl ber
   a_2=\operatorname{Re}{z_2}=r_2\cdot\cos{\varphi_2}=\frac{1}{8}\cdot\sqrt{2}\,,\quad
   b_2=\operatorname{Im}{z_2}=r_2\cdot\sin{\varphi_2}=\frac{1}{8}\cdot\sqrt{2}
 $$ woraus sich $z_2$ in kartesischer Form ergibt $$
-  z_2=\frac{1}{8}\cdot\sqrt{2}+i\cdot\frac{1}{8}\cdot\sqrt{2}
-$$
+  z_2=\frac{1}{8}\cdot\sqrt{2}+i\cdot\frac{1}{8}\cdot\sqrt{2} $$
 
-Im nachstehendem Video wird die Darstellung der komplex konjugierten Zahl in der Polarform hergeleitet.
+Eine geometrische Interpretation von Operationen komplexer Zahlen ist nachstehend beschrieben.
 
-!?[Darstellung-komplex](https://www.youtube.com/watch?v=ZPh2ZFVAZ_w&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=10 "Daniel Jung, Polarform der komplex konjugierten Zahl")
-
-
-Grundrechenoperationen
-===
-
-
->**Definition 7.**  Gegeben seien zwei beliebige komplexe Zahlen $z_k=a_k+{i} b_k$ mit $a_k=\operatorname{Re}{z_k}$, $b_k=\operatorname{Im}{z_k}$, $i^2=-1$ und $k\in\{1,2\}$. Es sind die Grundrechenoperationen erklärt:
+<!-- style="background-color: lightgray;"-->
+>Addition und Multiplikation komplexer Zahlen lassen sich in der Gaußschen Zahlenebene visualisieren.
 >
->1. *Addition* $$
-  z_1\oplus z_2=(a_1+i\cdot b_1)\oplus(a_2+i\cdot b_2):=(a_1+a_2)+i\cdot(b_1+b_2) $$
->2. *Subtraktion* $$
-  z_1\ominus z_2=(a_1+i\cdot b_1)\ominus(a_2+i\cdot b_2):=(a_1-a_2)+i\cdot (b_1-b_2) $$
->3. *Multiplikation* $$
-  z_1\odot z_2=(a_1+i\cdot b_1)\odot(a_2+i\cdot b_2):=(a_1\cdot a_2-b_1\cdot b_2)+i\cdot (a_1\cdot b_2+b_1\cdot a_2) $$
->4. *Division* (vorausgesetzt $z_2\not=0$) $$
-  z_1\oslash z_2=(a_1+i\cdot b_1)\oslash(a_2+i\cdot b_2):=\frac{a_1\cdot a_2+b_1\cdot b_2}{a_2^2+b_2^2}+i\cdot \frac{b_1\cdot a_2-a_1\cdot b_2}{a_2^2+b_2^2} $$
->
-> Besteht nicht die Gefahr einer Verwechslung, sollen im Folgenden die für $\mathbb{R}$ gebräuchlichen Rechenzeichen auch für das Rechnen in $\mathbb{C}$ verwendet werden.
-
-
-In den nachstehenden Videos werden die Grundrechenoperationen an Beispielen erläutert.
-
-!?[Rechnen-komplex](https://www.youtube.com/watch?v=Ea4BjgzMIno&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=5 "Daniel Jung, Rechnen mit komplexen Zahlen, Summe, Differenz, Produkt")
-
-!?[Division-komplex](https://www.youtube.com/watch?v=knJiK08sWf0&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=4 "Daniel Jung, Rechnen mit komplexen Zahlen, Quotient, Teilen mit Reellmachen des Nenners")
-
->**Proposition 1.** Für jede Zahl $z\in\mathbb{C}^\times$ mit $z=a+i\cdot b$ gemäß obiger Definition existiert jeweils genau eine komplexe Zahl, für die gilt:
->
->1. $(-z)+z=0$. Die Zahl $-z$ wird zu $z$ invers bezüglich der Addition genannt und berechnet sich $$
-  -z=-a-i\cdot b
-$$
->2. $z^{-1}\cdot z=1$. Die Zahl $z^{-1}$ heißt zu $z$ invers bezüglich der Multiplikation und berechnet sich $$
-  z^{-1}=\frac{1}{z}=\frac{a}{a^2+b^2}-i\cdot\frac{b}{a^2+b^2}
-$$
-
-**Beweis.** Mit den Eingeführten Operationen folgt unmittelbar:
-
-1. $z+(-z)=(a+i\cdot b)+(-a-i\cdot b)=(a+(-a))+i\cdot(b+(-b))=0+i\cdot 0=0$
-2. Analog folgt für das Produkt $$
-  z\cdot z^{-1}=(a+i\cdot b)\cdot \left(\frac{a}{a^2+b^2}-i\cdot\frac{b}{a^2+b^2}\right)
-  =\left(\frac{a\cdot a}{a^2+b^2}-\frac{-b\cdot b}{a^2+b^2}\right)+i\cdot\left(\frac{a\cdot b}{a^2+b^2}+\frac{a\cdot (-b)}{a^2+b^2}\right)
-  =1+i\cdot 0
-  =1
-$$
-
-$\square$
-
-Mit Hilfe der eingeführten Operationen Addition und Multiplikation lassen sich nun die Axiome eines Körpers prüfen. Es ergibt sich der folgende Satz.
-
->**Satz 2.** Die algebraische Struktur $(\mathbb{C},+,\cdot)$ bildet einen Körper.
-
----
-
-Addition und Multiplikation komplexer Zahlen lassen sich in der Gaußschen Zahlenebene geometrisch interpretieren.
-
-1. Der **Summe** $z_1+z_2$ entspricht die dem Ursprung des Koordinatensystems gegenüberliegende Ecke im von $0$, $z_1$ und $z_2$ aufgespannten Parallelogramm. Für die Bildung der Summe ist das Rechnen in der kartesischen Form sinnvoll.
-2. Für die Polardarstellung des **Produktes** $z_1\cdot z_2$ erhält man $$
+>1. Der **Summe** $z_1+z_2$ entspricht die dem Ursprung des Koordinatensystems gegenüberliegende Ecke im von $0$, $z_1$ und $z_2$ aufgespannten Parallelogramm. Für die Bildung der Summe ist das Rechnen in der kartesischen Form sinnvoll.
+>2. Für die Polardarstellung des **Produktes** $z_1\cdot z_2$ erhält man $$
   |z_1\cdot z_2|=|z_1|\cdot |z_2|\quad\text{und}\quad
-  \varphi_{z_1\cdot z_2}=\varphi_{z_1}+\varphi_{z_2}
-$$ d. h. es sind "Beträge zu multiplizieren und Argumente zu addieren." Denn es gilt mit $$
+  \varphi_{z_1\cdot z_2}=\varphi_{z_1}+\varphi_{z_2} $$ 
+>d. h. es sind "Beträge zu multiplizieren und Argumente zu addieren." Denn es gilt mit $$
   z_1=r_1\cdot(\cos{\varphi_1}+i\cdot\sin{\varphi_1})\,,\quad
-  z_2=r_2\cdot(\cos{\varphi_2}+i\cdot\sin{\varphi_2})
-$$ für das Produkt unter Nutzung der [Additionstheoreme](https://de.wikipedia.org/wiki/Formelsammlung_Trigonometrie#Additionstheoreme) für Sinus und Kosinus $$
+  z_2=r_2\cdot(\cos{\varphi_2}+i\cdot\sin{\varphi_2}) $$ 
+>für das Produkt unter Nutzung der [Additionstheoreme](https://de.wikipedia.org/wiki/Formelsammlung_Trigonometrie#Additionstheoreme) für Sinus und Kosinus $$
   \begin{split}
     z_1\cdot z_2 & = (r_1\cdot r_2)\cdot(\cos{\varphi_1}+i\cdot\sin{\varphi_1})\cdot(\cos{\varphi_2}+i\cdot\sin{\varphi_2}) \\
     & = (r_1\cdot r_2)\cdot(\cos{\varphi_1}\cdot\cos{\varphi_2}+i^2\cdot\sin{\varphi_1}\cdot\sin{\varphi_2}+i\cdot\sin{\varphi_1}\cdot\cos{\varphi_2}+i\cdot\cos{\varphi_1}\cdot\sin{\varphi_2}) \\
     & = (r_1\cdot r_2)\cdot(\cos{(\varphi_1+\varphi_2)}+i\cdot\sin{(\varphi_1+\varphi_2)})
-  \end{split}
-$$ Hierfür erweist sich die Darstellung in Polarform als günstig.
+  \end{split} $$ 
+>Hierfür erweist sich die Darstellung in Polarkoordinatenform als günstig.
 
 In den nachstehenden Abbildungen sind beide Operationen dargestellt.
 
@@ -973,14 +958,13 @@ In den nachstehenden Abbildungen sind beide Operationen dargestellt.
 
 ![Produkt](img/mat-bild-15.png "_Fig._ Für das Produkt zweier komplexer Zahlen berechnet man dessen Betrag als Produkt der Beträge der Faktoren, die Summe der Argumente der Faktoren ergibt das Argument des Produktes. ")
 
-**Beispiel 7.** Gegeben sind die beiden Zahlen $$
+**Beispiel 4.** Gegeben sind die beiden Zahlen $$
   z_1=\frac{3}{2}\cdot\left(\cos{\left(\frac{\pi}{3}\right)}+i\cdot\sin{\left(\frac{\pi}{3}\right)}\right)\quad\text{und}\quad
-  z_2=2\cdot\left(\cos{\left(\frac{\pi}{6}\right)}+i\cdot\sin{\left(\frac{\pi}{6}\right)}\right)
-$$ Das Produkt der Beträge von $z_1$ und $z_2$ ergibt $|z_1|\cdot|z_2|=\frac{3}{2}\cdot 2=3$, die Argumente addieren sich zu $$
-  \frac{\pi}{3}+\frac{\pi}{6}=\frac{\pi}{2}
-$$ Hieraus ergibt sich das Produkt $$
-  z_1\cdot z_2=2\cdot\left(\cos{\left(\frac{\pi}{2}\right)}+i\cdot\sin{\left(\frac{\pi}{2}\right)}\right)
-$$
+  z_2=2\cdot\left(\cos{\left(\frac{\pi}{6}\right)}+i\cdot\sin{\left(\frac{\pi}{6}\right)}\right) $$ 
+Das Produkt der Beträge von $z_1$ und $z_2$ ergibt $|z_1|\cdot|z_2|=\frac{3}{2}\cdot 2=3$, die Argumente addieren sich zu $$
+  \frac{\pi}{3}+\frac{\pi}{6}=\frac{\pi}{2} $$ 
+Hieraus ergibt sich das Produkt $$
+  z_1\cdot z_2=2\cdot\left(\cos{\left(\frac{\pi}{2}\right)}+i\cdot\sin{\left(\frac{\pi}{2}\right)}\right) $$
 
 Mit Hilfe der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lässt sich das Verfahren zur Bildung des Produktes zweier komplexer Zahlen interaktiv prüfen. Der Befehl `float(x)` gibt einen rationalen Näherungswert (Gleitkommazahl) einer reellen Zahl $x$ zurück.
 
@@ -992,49 +976,71 @@ float(arg(z*w))
 ```
 @Algebrite.eval
 
-**Bemerkung 5.** Durch Bilden der Summe sind Argumente $\varphi=\varphi_1+\varphi_2$ mit $\varphi\in\mathbb{R}$ außerhalb des Grundintervalls möglich. Für das Hauptargument gilt $\varphi+2k\cdot\pi\in(-\pi,\pi]$ für ein $k\in\mathbb{Z}$.
+**Bemerkung 4.** Durch Bilden der Summe sind Argumente $\varphi=\varphi_1+\varphi_2$ mit $\varphi\in\mathbb{R}$ außerhalb des Grundintervalls möglich. Für das Hauptargument gilt $\varphi+2k\cdot\pi\in(-\pi,\pi]$ für ein $k\in\mathbb{Z}$.
 
 Die geometrischen Interpretationen von Summe und Produkt lassen sich zur Beschreibung von Bewegungen der Ebene anwenden.
 
-1. Ebene *Translationen* (Schiebungen) lassen sich durch Addition komplexer Zahlen beschreiben: Bezeichnet $P(a,b)\leftrightarrow z=a+i\cdot b$ einen Punkt der Ebene in allgemeiner Lage sowie $v=(x,y)\in\mathbb{R}^2\leftrightarrow z_v=x+i\cdot y$ eine beliebige, aber feste Richtung, so beschreibt $$
-  z\mapsto z^\prime=z+z_v
-$$ die Translation von $z$ (in Richtung $z_v$) nach $z^\prime$. Soll $z$ stetig in die feste Richtung $v$ verschoben werden, so kann beispielsweise $$
-  t\in[0,1]\mapsto z_v(t)=t\cdot (x+i\cdot y)
-$$ verwendet werden.
-2. Ebene *Drehungen* um den Koordinatenursprung $O(0,0)$ mit Winkel $\varphi$ lassen sich durch Multiplikation mit einer komplexen Zahl darstellen. Bezeichnet $P(r,\alpha)\leftrightarrow z=r\cdot(\cos{\alpha}+i\cdot\sin{\alpha})$ wie zuvor einen Punkt der Ebene in allgemeiner Lage sowie $z_\varphi=\cos{\varphi}+i\cdot\sin{\varphi}$ eine zum Drehwinkel $\varphi$ gebildete komplexe Zahl, so beschreibt $$
-  z\mapsto z^\prime=z\cdot z_\varphi=r\cdot 1\cdot(\cos{(\alpha+\varphi)}+i\cdot\sin{(\alpha+\varphi)})
-$$ die Drehung von $z$ um $0$ nach $z^\prime$. Für ein kontinuierliches Drehen ist der Drehwinkel $$
-  \phi\in[0,\varphi]\mapsto z_\phi=\cos{\phi}+i\cdot\sin{\phi}
-$$ zu verwenden.
+<!-- style="background-color: lightgray;"-->
+>1. Ebene **Translationen** (Schiebungen) lassen sich durch Addition komplexer Zahlen beschreiben: Bezeichnet $P(a,b)\leftrightarrow z=a+i\cdot b$ einen Punkt der Ebene in allgemeiner Lage sowie $v=(x,y)\in\mathbb{R}^2\leftrightarrow z_v=x+i\cdot y$ eine beliebige, aber feste Richtung, so beschreibt $$
+  z\mapsto z^\prime=z+z_v $$ die Translation von $z$ (in Richtung $z_v$) nach $z^\prime$. Soll $z$ stetig in die feste Richtung $v$ verschoben werden, so kann beispielsweise $$
+  t\in[0,1]\mapsto z_v(t)=t\cdot (x+i\cdot y) $$ verwendet werden.
+>2. Ebene **Drehungen** um den Koordinatenursprung $O(0,0)$ mit Winkel $\varphi$ lassen sich durch Multiplikation mit einer komplexen Zahl darstellen. Bezeichnet $P(r,\alpha)\leftrightarrow z=r\cdot(\cos{\alpha}+i\cdot\sin{\alpha})$ wie zuvor einen Punkt der Ebene in allgemeiner Lage sowie $z_\varphi=\cos{\varphi}+i\cdot\sin{\varphi}$ eine zum Drehwinkel $\varphi$ gebildete komplexe Zahl, so beschreibt $$
+  z\mapsto z^\prime=z\cdot z_\varphi=r\cdot 1\cdot(\cos{(\alpha+\varphi)}+i\cdot\sin{(\alpha+\varphi)}) $$ die Drehung von $z$ um $0$ nach $z^\prime$. Für ein kontinuierliches Drehen ist der Drehwinkel $$
+  \phi\in[0,\varphi]\mapsto z_\phi=\cos{\phi}+i\cdot\sin{\phi} $$ zu verwenden.
 
-**Beispiel 8.** Ebene Rollkurven lassen sich als Ortskurven $c$ von Punkten $P$ erzeugen, die fest mit einer entlang einer Kurve $k_0$ abrollenden Kreisscheibe $k$ verbunden sind.
+**Beispiel 5.** Ebene Rollkurven lassen sich als Ortskurven $c$ von Punkten $P$ erzeugen, die fest mit einer entlang einer Kurve $k_0$ abrollenden Kreisscheibe $k$ verbunden sind. Eine Parametrisierung dieser Ortkurven kann unter Benutzung komplexer Zahlen erfolgen. 
 
-Ein interaktives Beispiel von Rollkurven, die durch Abrollen eines Kreises entlang einer Geraden entstehen, findet sich unter [Zykloiden](https://www.geogebra.org/m/Vjp9xEKc). Eine Parametrisierung dieser Ortkurven kann unter Benutzung komplexer Zahlen erfolgen. Im Beispiel gelten:
+Im Beispiel rollt $k$ mit Radius $r>0$ entlang der reellen Achse (entspricht hier $k_0$) in der Gaußschen Zahlenebene ab. Wir legen fest:
 
-1. Der Punkt $P$ sei auf der Kreisscheibe fest vorgegeben. Liegt $k$ zu Beginn des Bewegungsvorgangs mit $M$ im Koordinatenursprung in der Gaußschen Ebene, so sind $$
-  M=O\;\leftrightarrow\; z_M=0\quad \text{sowie}\quad z_P=\lambda\cdot i
-$$ mit festem $\lambda<0$ und $|\lambda|=\overline{PM}$.
-2. Das kontinuierliche Drehen von $k$ um den Mittelpunkt $M$ lässt sich durch Multiplikation von $z_P$ mit $$
-  \varphi\in[0,\infty)\mapsto z_\varphi=\cos{(-\varphi)}+i\cdot\sin{(-\varphi)}
-$$ modellieren. (Das Drehen erfolgt hier im Uhrzeigersinn.) Hieraus ergibt sich $$
-  \varphi\mapsto z^\prime(\varphi)=z_P\cdot z_\varphi=\lambda\cdot i\cdot\left(\cos{(-\varphi)}+i\cdot\sin{(-\varphi)}\right)=
-  \lambda\cdot\sin{\varphi}+i\cdot \lambda\cdot\cos{\varphi}
-$$
-3. Der Kreis $k$ soll kontinuierlich entlang einer Geraden $k_0$ rollen. Hierdurch bewegt sich $M$ im Abstand $r>0$ zu $k_0$. Seine Bewegung ist beschrieben durch $z_M=\varphi\cdot r$ und somit $$
-  \varphi\in[0,\infty)\mapsto z^{\prime\prime}(\varphi)=z^\prime+z_M=
-  (\lambda\cdot\sin{\varphi}+\varphi\cdot r)+i\cdot \lambda\cdot\cos{\varphi}
-$$ Beide Teilbewegungen überlagern sich ungestört.[^3]
+1. Der Punkt $P$ sei auf der Kreisscheibe fest vorgegeben. Liegt $k$ zu Beginn des Bewegungsvorgangs mit $M$ auf der imaginären Achse, so sind $$
+  z_M=r\cdot i \quad \text{sowie}\quad z_P=(r-a)\cdot i $$ mit festem $a=\overline{PM}>0$.
+2. Das kontinuierliche Drehen von $k$ um den Mittelpunkt $M$ lässt sich durch Multiplikation von $z_P-r\cdot i$ mit $$
+  \varphi\in[0,\infty)\mapsto z_\varphi=\cos{(-\varphi)}+i\cdot\sin{(-\varphi)} $$ modellieren: Das Drehen erfolgt hier im Uhrzeigersinn, wonach der Winkel $-\varphi$ gesetzt wird. Das Ergebnis der Drehung ist mit $r\cdot i$ zu addieren. Hieraus berechnet sich $$
+  \varphi\mapsto z^\prime(\varphi)=(z_P-r\cdot i)\cdot z_\varphi+r\cdot i=-a\cdot i\cdot\left(\cos{(-\varphi)}+i\cdot\sin{(-\varphi)}\right)+r\cdot i=-a\cdot\sin{\varphi}+i\cdot(r-a\cdot\cos{\varphi}) $$
+3. Beim Abrollen von $k$ bewegt sich $M$ bei einem Drehwinkel $-\varphi$ entlang der reellen Achse um $\varphi\cdot r$. Seine Bewegung ist beschrieben durch $$
+  \varphi\in[0,\infty)\mapsto z^{\prime\prime}(\varphi)=z^\prime+\varphi\cdot r=\varphi\cdot r-a\cdot\sin{\varphi}+i\cdot(r-a\cdot\cos{\varphi}) $$ Beide Teilbewegungen überlagern sich ungestört.[^3]
 
+Ein interaktives Beispiel von Rollkurven, die durch Abrollen eines Kreises entlang einer Geraden entstehen, kann in der nachstehenden interaktiven Anwendung nachvollzogen werden.
+
+<div style="width: 100%; max-width: 822px; margin: 0 auto; padding: 0; box-sizing: border-box; position: relative;">
+  <div style="position: relative; width: 100%; height: 0; padding-bottom: 59.85%;">
+    <iframe
+      scrolling="no"
+      title="Zykloide mit Animation"
+      src="https://www.geogebra.org/material/iframe/id/TpRzSZz4/width/822/height/492/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/true/sdz/true/ctl/false"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 1px solid #ccc; border-radius: 8px;"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>
+
+**Hinweis:** Vollziehen Sie die Entstehung der Zykloide beim Abrollen des Kreises auf einer Geraden nach. Verändern Sie den Radius des Abrollkreises sowie den Abstand des Kurvenpunktes $P$ vom Kreismittelpunkt, um Größe und Form der Zykloide zu variieren.
+
+**Quelle:** [Geogebra](https://www.geogebra.org/m/Vjp9xEKc) von [Michael Holzapfel](https://www.geogebra.org/u/m.holzapfel) ist unter der Lizenz [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) verfügbar.
+
+Aufbauend auf Proposition 2 ergibt sich der folgende Satz.
+
+>**Satz 5.** Die algebraische Struktur $S^1=(U,\cdot)$, bestehend aus der Menge $$
+  U=\left\{z\in\mathbb{C}\,|\,|z|=1\right\} $$
+> mit der Multiplikation komplexer Zahlen bildet eine Untergruppe von $(\mathbb{C},\cdot)$, die [Kreisgruppe](https://de.wikipedia.org/wiki/Kreisgruppe) genannt wird.
+
+**Beweis.** Es ist $U\subset\mathbb{C}$ mit $1\in U$. Mit $z\in U$ ist nach Proposition 2 auch $z^(-1)\in U$. Ebenso folgt aus der Multiplikation komplexer Zahlen in Polardarstellung, dass mit $z\in U$ und $w\in U$ auch $z\cdot w\in U$ folgt.
+
+$\square$
+
+Ist $z\in U$ in Polardarstellung gegeben und wird der Isomorphismus aus Satz 4 benutzt, lassen sich Drehungen der Ebene durch zweireihige Matrizen der Form $$
+  Z=\phi(z)=\phi(\cos{\varphi}+i\cdot\sin{\varphi})=\begin{pmatrix} \cos{\varphi} & -\sin{\varphi} \\ \sin{\varphi} & \cos{\varphi} \end{pmatrix} $$
+beschrieben, worin $\varphi\in\mathbb{R}$ den Drehwinkel im Bogenmaß bezeichnet. Diese Abbildungen beziehungsweise Matrizen werden im Abschnitt [Drehungen](#drehungen) näher untersucht.
 
 Potenzieren und Radizieren komplexer Zahlen
 ===
 
-
 Das Potenzieren komplexer Zahlen mit natürlichen Exponenten lässt sich mithilfe der Multiplikation erklären. Seien $n\in\mathbb{N}^\times$ und $z=a+i\cdot b$ wie in Definition 3. Dann ist $$
-  z^n:=z\cdot z\cdot z\cdot ...\cdot z
-$$ wobei das Produkt auf der rechten Seite $n$-mal den Faktor $n$ enthält.
+  z^n:=z\cdot z\cdot z\cdot ...\cdot z $$ 
+wobei das Produkt auf der rechten Seite $n$-mal den Faktor $n$ enthält.
 
-**Beispiel 9.** Für $z=i$ mit $i^2=-1$ gelten $i^3=-i$, $i^4=1$, $i^5=i$ usw.
+**Beispiel 6.** Für $z=i$ mit $i^2=-1$ gelten $i^3=-i$, $i^4=1$, $i^5=i$ usw.
 
 Allgemein gilt: $$
   i^n=\left\{\begin{array}{rcl}
@@ -1042,8 +1048,8 @@ Allgemein gilt: $$
   i & \text{für} & n=4\cdot k+1,\; k\in\mathbb{N} \\
   -1 & \text{für} & n=4\cdot k+2,\; k\in\mathbb{N} \\
   -i & \text{für} & n=4\cdot k+3,\; k\in\mathbb{N}
-  \end{array}\right.
-$$ Die Allgemeingültigkeit der Aussage erfolgt in zwei Schritten:
+  \end{array}\right. $$ 
+Die Allgemeingültigkeit der Aussage erfolgt in zwei Schritten:
 
 1. Für den Fall $n=4\cdot k$ mit vollständiger Induktion.
 * *Induktionsanfang.* Für $k=1$ ist $n=4\cdot 1=4$ und $i^4=1$ (wahr).
@@ -1053,101 +1059,80 @@ $$ (wahre Aussage) Damit ist $i^{4\cdot k}=1$ für alle $k\in\mathbb{N}^\times$.
 2. Unter Verwendung der Nachfolgerfunktion $S:n\mapsto S(n)=n+1$ folgt außerdem $$
   i^{4\cdot k+1}=i^{4\cdot k}\cdot i^1=i\,,\quad
   i^{4\cdot k+2}=i^{4\cdot k}\cdot i^2=-1\quad\text{sowie}\quad
-  i^{4\cdot k+3}=i^{4\cdot k}\cdot i^3=-i
-$$ für alle $k\in\mathbb{N}^\times$.
+  i^{4\cdot k+3}=i^{4\cdot k}\cdot i^3=-i $$ 
+für alle $k\in\mathbb{N}^\times$.
 
 $\square$
 
-Die vorstehende Aussage zu Potenzen von $i$ mit natürlichem Exponenten ist im folgenden Video von erläutert. Hierbei wird Polardarstellung $$
-  i=1\cdot(\cos{90^\circ}+i\cdot\sin{90^\circ})
-$$ benutzt, wonach die (wiederholte) Multiplikation mit $i$ eine Drehung um den Ursprung des Koordinatensystems mit Drehwinkel $90^\circ$ bewirkt.
-
-!?[Potenz-komplex](https://www.youtube.com/watch?v=UbhXdiUwaP8&list=PLLTAHuUj-zHgrAfietLRb01pO1mtji8qn&index=6 "Daniel Jung, Komplexe Zahlen, Potenzen von $i$ verdeutlicht am Einheitskreis")
-
->**Satz 2.** Es ist $z\in\mathbb{C}$ mit $z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})$ beliebig gegeben. Für die $n$-te Potenz gilt $$
-  z^n=r^n\cdot(\cos{(n\cdot\varphi)}+i\cdot\sin{(n\cdot\varphi)})
-$$ mit $n\in\mathbb{N}^\times$.
+>**Satz 6.** Es ist $z\in\mathbb{C}$ mit $z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})$ beliebig gegeben. Für die $n$-te Potenz gilt $$
+  z^n=r^n\cdot(\cos{(n\cdot\varphi)}+i\cdot\sin{(n\cdot\varphi)}) $$ 
+mit $n\in\mathbb{N}^\times$.
 
 **Beweis.** Der Nachweis lässt sich unmittelbar unter Nutzung der Rechenregeln für die Multiplikation komplexer Zahlen sowie der Potenzgesetze führen und wird als Übungsaufgabe gegeben.
 
-**Beispiel 10.** Gegeben ist die komplexe Zahl $z=-\frac{3}{2}+\frac{1}{2}\cdot\sqrt{3}\cdot i$, worin $i^2=-1$. Gesucht ist die Potenz $z^6$.
+$\square$
 
-1. Zunächst wird $z$ in Polarform dargestellt. Für den Betrag von $z$ ergibt sich $$
-  r=|z|=\sqrt{\left(-\frac{3}{2}\right)^2+\left(\frac{1}{2}\cdot\sqrt{3}\right)^2}=\sqrt{3}
-$$ woraus sich das Argument von $z$ unter Beachtung $\operatorname{Im}{z}>0$ berechnet $$
-  \varphi=\arccos{\left(\frac{-\frac{3}{2}}{\sqrt{3}}\right)}=\arccos{\left(-\frac{\sqrt{3}}{2}\right)}=\frac{5}{6}\cdot\pi
-$$  $z$ besitzt damit die Polarform $$
-  z=\sqrt{3}\cdot\left(\cos{\left(\frac{5}{6}\cdot\pi\right)}+i\cdot\sin{\left(\frac{5}{6}\cdot\pi\right)}\right)
-$$
+**Beispiel 7.** Gegeben ist die komplexe Zahl $z=-\frac{3}{2}+\frac{1}{2}\cdot\sqrt{3}\cdot i$, worin $i^2=-1$. Gesucht ist die Potenz $z^6$.
+
+1. Zunächst wird $z$ in Polarkoordinatenform dargestellt. Für den Betrag von $z$ ergibt sich $$
+  r=|z|=\sqrt{\left(-\frac{3}{2}\right)^2+\left(\frac{1}{2}\cdot\sqrt{3}\right)^2}=\sqrt{3} $$ woraus sich das Argument von $z$ unter Beachtung $\operatorname{Im}{z}>0$ berechnet $$
+  \varphi=\arccos{\left(\frac{-\frac{3}{2}}{\sqrt{3}}\right)}=\arccos{\left(-\frac{\sqrt{3}}{2}\right)}=\frac{5}{6}\cdot\pi $$  $z$ besitzt damit die Polarkoordinatenform $$
+  z=\sqrt{3}\cdot\left(\cos{\left(\frac{5}{6}\cdot\pi\right)}+i\cdot\sin{\left(\frac{5}{6}\cdot\pi\right)}\right) $$
 2. Nach dem vorstehenden Satz folgt für die zu berechnende Potenz $$
   z^6=\left(\sqrt{3}\cdot\left(\cos{\left(\frac{5}{6}\cdot\pi\right)}+i\cdot\sin{\left(\frac{5}{6}\cdot\pi\right)}\right)\right)^6=
   \sqrt{3}^6\cdot\left(\cos{\left(6\cdot\frac{5}{6}\cdot\pi\right)}+i\cdot\sin{\left(6\cdot\frac{5}{6}\cdot\pi\right)}\right)=
-  27\cdot\left(\cos{\pi}+i\cdot\sin{\pi}\right)=-27
-$$ Beim vorletzten Schritt wurde die Periodizität von Sinus und Kosinus genutzt, um in das Hauptargument $\phi\in(-\pi,\pi]$ umzurechnen.
-
-Aus dem vorstehenden Satz ergibt sich durch Spezifikation von $r=|z|=1$ die nachstehende Formel.
-
->**Satz 3.** Für $\varphi\in\mathbb{R}$ und $n\in\mathbb{N}^\times$ gilt $$
-  \left(\cos{\varphi}+i\cdot\sin{\varphi}\right)^n=\cos{(n\cdot\varphi)}+i\cdot\sin{(n\cdot\varphi)}
-$$ (*Moivre*sche Formel)
+  27\cdot\left(\cos{\pi}+i\cdot\sin{\pi}\right)=-27 $$ 
+Beim vorletzten Schritt wurde die Periodizität von Sinus und Kosinus genutzt, um in das Hauptargument $\phi\in(-\pi,\pi]$ umzurechnen.
 
 Eine Umkehrung des Potenzierens ist das Radizieren: In einer Gleichung $w^n=z$ ist dabei bei gegebenem Exponenten $n$ und gegebenem Potenzwert $z$ die Basis $w$ der Potenz gesucht.
 
->**Definition 8.** Es seien $z\in\mathbb{C}$ und $n\in\mathbb{N}$ mit $n\geq 2$ beliebig gegeben. Jede komplexe Zahl $w$ mit $w^n=z$ heißt eine [komplexe n-te Wurzel](https://de.wikipedia.org/wiki/Wurzel_%28Mathematik%29#Wurzeln_aus_komplexen_Zahlen) der Zahl $z$.[^4]
+>**Definition 5.** Es seien $z\in\mathbb{C}$ und $n\in\mathbb{N}$ mit $n\geq 2$ beliebig gegeben. Jede komplexe Zahl $w$ mit $w^n=z$ heißt eine [komplexe n-te Wurzel](https://de.wikipedia.org/wiki/Wurzel_%28Mathematik%29#Wurzeln_aus_komplexen_Zahlen) der Zahl $z$.[^4]
 
->**Satz 4.** Es seien $z\in\mathbb{C}$ mit der Polardarstellung $$
-  z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})\,,\quad r\in(0,\infty),\;\varphi\in(-\pi,\pi]
-$$ und $n\in\mathbb{N}$ mit $n\geq 2$ beliebig gegeben. Die komplexe Zahl $$
-  w_k=\sqrt[n]{r}\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right)
-$$ ist für jeden Indexwert $k\in\{0,1,...,n-1\}$ eine komplexe $n$-te Wurzel von $z$. Der Ausdruck $\sqrt[n]{r}$ in der vorstehenden Formel bezeichnet die eindeutig bestimmte reelle $n$-te Wurzel von $r$.
+>**Satz 7.** Es seien $z\in\mathbb{C}$ mit der Polardarstellung $$
+  z=r\cdot(\cos{\varphi}+i\cdot\sin{\varphi})\,,\quad r\in(0,\infty),\;\varphi\in(-\pi,\pi] $$ und $n\in\mathbb{N}$ mit $n\geq 2$ beliebig gegeben. Die komplexe Zahl $$
+  w_k=\sqrt[n]{r}\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right) $$ 
+> ist für jeden Indexwert $k\in\{0,1,...,n-1\}$ eine komplexe $n$-te Wurzel von $z$. Der Ausdruck $\sqrt[n]{r}$ in der vorstehenden Formel bezeichnet die eindeutig bestimmte reelle $n$-te Wurzel von $r$.
 
 **Beweis.** Für jedes $k$ gilt nach dem Gesetz zum Potenzieren eines Produktes sowie Satz 3 $$
   \begin{split}
   (w_k)^n & =\left[\sqrt[n]{r}\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right)\right]^n = \left(\sqrt[n]{r}\right)^n\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right)^n \\
   & = r\cdot \left(\cos{\left(n\cdot\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(n\cdot\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right) \\
   & = r\cdot \left(\cos{\left(\varphi+2\cdot k\cdot\pi\right)}+i\cdot\sin{\left(\varphi+2\cdot k\cdot\pi\right)}\right)
-  \end{split}
-$$ Unter Benutzung der Periodizität von Sinus und Kosinus $$
-  \cos{\left(\varphi+2\cdot k\cdot\pi\right)}=\cos{\varphi}\quad\text{und}\quad \sin{\left(\varphi+2\cdot k\cdot\pi\right)}=\sin{\varphi}
-$$ folgt $(w_k)^n=z$ für jede Wahl $k$.
+  \end{split} $$ 
+Unter Benutzung der Periodizität von Sinus und Kosinus $$
+  \cos{\left(\varphi+2\cdot k\cdot\pi\right)}=\cos{\varphi}\quad\text{und}\quad \sin{\left(\varphi+2\cdot k\cdot\pi\right)}=\sin{\varphi} $$ 
+folgt $(w_k)^n=z$ für jede Wahl $k$.
 
 $\square$
 
-**Beispiel 11.** Zu berechnen sind
+**Beispiel 8.** Zu berechnen sind
 
-1. die $4$-ten komplexen Wurzeln der Zahl $z=1$, d. h. alle Lösungen der Gleichung $w^4=1$. Die rechte Seite lässt sich in Polarform darstellen $$
-  z=1=\cos{0}+i\sin{0}\quad\leftrightarrow\quad (r,\varphi)=(1,0)
-$$ Nach Einsetzen in die Formel für $w_k$ in Satz 5 ergeben sich unmittelbar $$
+1. die $4$-ten komplexen Wurzeln der Zahl $z=1$, d. h. alle Lösungen der Gleichung $w^4=1$. Die rechte Seite lässt sich in Polarkoordinatenform darstellen $$
+  z=1=\cos{0}+i\sin{0}\quad\leftrightarrow\quad (r,\varphi)=(1,0) $$ Nach Einsetzen in die Formel für $w_k$ in Satz 5 ergeben sich unmittelbar $$
   \begin{split}
     w_0 & =\sqrt[4]{1}\cdot\left(\cos{\left(\frac{0}{4}\right)}+i\cdot\sin{\left(\frac{0}{4}\right)}\right)=1 \\
     w_1 & =\sqrt[4]{1}\cdot\left(\cos{\left(\frac{0+2\cdot\pi}{4}\right)}+i\cdot\sin{\left(\frac{0+2\cdot\pi}{4}\right)}\right)=i \\
     w_2 & =\sqrt[4]{1}\cdot\left(\cos{\left(\frac{0+2\cdot 2\cdot\pi}{4}\right)}+i\cdot\sin{\left(\frac{0+2\cdot 2\cdot\pi}{4}\right)}\right)=-1 \\
     w_3 & =\sqrt[4]{1}\cdot\left(\cos{\left(\frac{0+2\cdot 3\cdot\pi}{4}\right)}+i\cdot\sin{\left(\frac{0+2\cdot 3\cdot\pi}{4}\right)}\right)=-i
-  \end{split}
-$$ Offensichtlich gelten $1^4=1$, $i^4=1$, $(-1)^4=1$ und $(-i)^4=(-1)^4\cdot i^4=1$.
-2. die $2$-ten komplexen Wurzeln der Zahl $z=-1$, d. h. alle Lösungen der Gleichung $w^2=-1$. Die rechte Seite lässt sich in Polarform darstellen $$
-  z=1=\cos{\pi}+i\sin{\pi}\quad\leftrightarrow\quad (r,\varphi)=(1,\pi)
-$$ Nach Einsetzen in die Formel für $w_k$ in Satz 5 ergeben sich unmittelbar $$
+  \end{split} $$ Offensichtlich gelten $1^4=1$, $i^4=1$, $(-1)^4=1$ und $(-i)^4=(-1)^4\cdot i^4=1$.
+2. die $2$-ten komplexen Wurzeln der Zahl $z=-1$, d. h. alle Lösungen der Gleichung $w^2=-1$. Die rechte Seite lässt sich in Polarkoordinatenform darstellen $$
+  z=1=\cos{\pi}+i\sin{\pi}\quad\leftrightarrow\quad (r,\varphi)=(1,\pi) $$ Nach Einsetzen in die Formel für $w_k$ in Satz 5 ergeben sich unmittelbar $$
   \begin{split}
     w_0 & =\sqrt{1}\cdot\left(\cos{\left(\frac{\pi}{2}\right)}+i\cdot\sin{\left(\frac{\pi}{2}\right)}\right)=i \\
     w_1 & =\sqrt{1}\cdot\left(\cos{\left(\frac{\pi+2\cdot\pi}{2}\right)}+i\cdot\sin{\left(\frac{\pi+2\cdot\pi}{2}\right)}\right)=-i
-  \end{split}
-$$ $z=-1$ besitzt demnach zwar keine reelle Quadratwurzel, jedoch die beiden komplexen Wurzeln $\pm i$. Vergleiche Definition 1.
-3. die $3$-ten komplexen Wurzeln der Zahl $z=1+i$, d. h. alle Lösungen der Gleichung $w^3=1+i$. Die rechte Seite lässt sich in Polarform darstellen $$
-  z=\sqrt{5}\cdot\left(\cos{\left(\frac{\pi}{4}\right)}+i\sin{\left(\frac{\pi}{4}\right)}\right)\quad\leftrightarrow\quad (r,\varphi)=\left(\sqrt{5},\frac{\pi}{4}\right)
-$$ Nach Einsetzen in die Formel für $w_k$ in Satz 5 ergeben sich unmittelbar $$
+  \end{split} $$ $z=-1$ besitzt demnach zwar keine reelle Quadratwurzel, jedoch die beiden komplexen Wurzeln $\pm i$. Vergleiche Definition 1.
+3. die $3$-ten komplexen Wurzeln der Zahl $z=1+i$, d. h. alle Lösungen der Gleichung $w^3=1+i$. Die rechte Seite lässt sich in Polarkoordinatenform darstellen $$
+  z=\sqrt{5}\cdot\left(\cos{\left(\frac{\pi}{4}\right)}+i\sin{\left(\frac{\pi}{4}\right)}\right)\quad\leftrightarrow\quad (r,\varphi)=\left(\sqrt{5},\frac{\pi}{4}\right) $$ Nach Einsetzen in die Formel für $w_k$ in Satz 5 ergeben sich unmittelbar $$
   \begin{split}
     w_0 & =\sqrt[3]{\sqrt{5}}\cdot\left(\cos{\left(\frac{\frac{\pi}{4}}{3}\right)}+i\cdot\sin{\left(\frac{\frac{\pi}{4}}{3}\right)}\right)=\sqrt[6]{5}\cdot\left(\cos{\left(\frac{\pi}{12}\right)}+i\cdot\sin{\left(\frac{\pi}{12}\right)}\right) \\
     w_1 & =\sqrt[3]{\sqrt{5}}\cdot\left(\cos{\left(\frac{\frac{\pi}{4}+2\cdot\pi}{3}\right)}+i\cdot\sin{\left(\frac{\frac{\pi}{4}+2\cdot\pi}{3}\right)}\right)=\sqrt[6]{5}\cdot\left(\cos{\left(\frac{3}{4}\cdot\pi\right)}+i\cdot\sin{\left(\frac{3}{4}\cdot\pi\right)}\right) \\
     w_2 & =\sqrt[3]{\sqrt{5}}\cdot\left(\cos{\left(\frac{\frac{\pi}{4}+2\cdot 2\cdot\pi}{3}\right)}+i\cdot\sin{\left(\frac{\frac{\pi}{4}+2\cdot 2\cdot\pi}{3}\right)}\right)=\sqrt[6]{5}\cdot\left(\cos{\left(\frac{17}{12}\cdot\pi\right)}+i\cdot\sin{\left(\frac{17}{12}\cdot\pi\right)}\right)=\sqrt[6]{5}\cdot\left(\cos{\left(-\frac{7}{12}\cdot\pi\right)}+i\cdot\sin{\left(-\frac{7}{12}\cdot\pi\right)}\right)
-  \end{split}
-$$ Bei der Wurzel $w_2$ wurde der Hauptwert des Arguments $$
-  \frac{17}{12}\cdot\pi-2\pi=-\frac{7}{12}\cdot\pi\in(-\pi,\pi]
-$$ angegeben.
+  \end{split} $$ Bei der Wurzel $w_2$ wurde der Hauptwert des Arguments $$
+  \frac{17}{12}\cdot\pi-2\pi=-\frac{7}{12}\cdot\pi\in(-\pi,\pi] $$ angegeben.
 
 Mit Hilfe der Javascript-Bibliothek [Algebrite](http://algebrite.org/) lassen sich die komplexen $n$-ten Wurzeln einer komplexen Zahl als Lösungen einer Polynomgleichung $$
-  w^n=z\quad\leftrightarrow\quad p(w):=w^n-z=0
-$$ mit Hilfe des Befehls `roots(p(w),w)` beziehungsweise `nroots(p(w),w)` (numerisch) interaktiv berechnen. Das erste Argument zwischen den Klammern der Befehle gibt den Term $p(w)$ der impliziten Gleichungsdarstellung an, das zweite Argument die Variable, nach der die Gleichung gelöst werden soll.
+  w^n=z\quad\leftrightarrow\quad p(w):=w^n-z=0 $$ 
+mit Hilfe des Befehls `roots(p(w),w)` beziehungsweise `nroots(p(w),w)` (numerisch) interaktiv berechnen. Das erste Argument zwischen den Klammern der Befehle gibt den Term $p(w)$ der impliziten Gleichungsdarstellung an, das zweite Argument die Variable, nach der die Gleichung gelöst werden soll.
 
 ```algebrite
 z=-1
@@ -1157,81 +1142,49 @@ nroots(w^n-z,w)
 ```
 @Algebrite.eval
 
-Im nachstehenden Video wird das Radizieren unter Verwendung der Exponentialdarstellung erläutert und an einem Beispiel erklärt. Den Zusammenhang zwischen der Exponentialdarstelung zur oben benutzten Polardarstellung erhält man durch den Übergang $$
-  z=\textcolor{purple}{r}\cdot\exp{(\textcolor{blue}{\varphi}\cdot i)}=\textcolor{purple}{r}\cdot{(\cos{\textcolor{blue}{\varphi}}+i\cdot\sin{\textcolor{blue}{\varphi}})}
-$$ mit Argument $\textcolor{blue}{\varphi}$ und Betrag $\textcolor{purple}{r}$.
+**Bemerkung 5.** Im Gegensatz zur reellen $n$-ten Wurzel ist die komplexe $n$-te Wurzel nicht eindeutig bestimmt. Im Beispiel 12 wurden jeweils $n$ Wurzeln zum Wurzelexponenten $n$ berechnet. Wird $z$ in $(w_k)^n=z$ unter Verwendung des Hauptwertes des Argumentes $\varphi\in(-\pi,\pi]$ dargestellt, so heißt $w_0$ jeweils *Hauptwurzel* von $z$. Die Wurzelwerte $w_k$ mit $k\in\{1,2,...,n-1\}$ werden $k$-te *Nebenwurzel* von $z$ genannt.
 
-!?[Wurzel-komplex](https://www.youtube.com/watch?v=BKdqTn2iO4s "MathePeter, komplexe Zahlen radizieren.")
+>**Satz 6.** Alle komplexen $n$-ten Wurzeln einer Zahl $z\in\mathbb{C}$ liegen in der Gaußschen Zahlenebene auf einem Kreis um den Ursprung des Koordinatensystems und bilden die Eckpunkte eines regelmäßigen $n$-Ecks.
 
-**Bemerkung 6.** Im Gegensatz zur reellen $n$-ten Wurzel ist die komplexe $n$-te Wurzel nicht eindeutig bestimmt. Im Beispiel 12 wurden jeweils $n$ Wurzeln zum Wurzelexponenten $n$ berechnet. Wird $z$ in $(w_k)^n=z$ unter Verwendung des Hauptwertes des Argumentes $\varphi\in(-\pi,\pi]$ dargestellt, so heißt $w_0$ jeweils *Hauptwurzel* von $z$. Die Wurzelwerte $w_k$ mit $k\in\{1,2,...,n-1\}$ werden $k$-te *Nebenwurzel* von $z$ genannt.
-
-**Satz 5.** Alle komplexen $n$-ten Wurzeln einer Zahl $z\in\mathbb{C}$ liegen in der Gaußschen Zahlenebene auf einem Kreis um den Ursprung des Koordinatensystems und bilden die Eckpunkte eines regelmäßigen $n$-Ecks.
-
-**Beweis.** Die beiden Eigenschaften lassen sich direkt aus den Argumenten und Beträgen der Zahlen $w_k$ schließen. Nach Satz 5 und Beispiel 12 sind diese in Polarform gegeben.
+**Beweis.** Die beiden Eigenschaften lassen sich direkt aus den Argumenten und Beträgen der Zahlen $w_k$ schließen. Nach Satz 5 und Beispiel 12 sind diese in Polarkoordinatenform gegeben.
 
 1. Nach Satz des Pythagoras gilt für jede Wahl $\varphi$: $$
-  |\cos{\varphi}+i\cdot\sin{\varphi}|=\sqrt{(\cos{\varphi})^2+(\sin{\varphi})^2}=1
-$$ Damit folgt für den Abstand von $w_k$ zum Koordinatenursprung des Koordinatensystems $$
-  |w_k|=\left|\sqrt[n]{r}\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right)\right|=\left|\sqrt[n]{r}\right|\cdot\left|\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right|=\left|\sqrt[n]{r}\right|
-$$ d. h. unabhängig von der Wahl $k\in\{0,1,...,n-1\}$.
+  |\cos{\varphi}+i\cdot\sin{\varphi}|=\sqrt{(\cos{\varphi})^2+(\sin{\varphi})^2}=1 $$ Damit folgt für den Abstand von $w_k$ zum Koordinatenursprung des Koordinatensystems $$
+  |w_k|=\left|\sqrt[n]{r}\cdot\left(\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right)\right|=\left|\sqrt[n]{r}\right|\cdot\left|\cos{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}+i\cdot\sin{\left(\frac{\varphi+2\cdot k\cdot\pi}{n}\right)}\right|=\left|\sqrt[n]{r}\right| $$ d. h. unabhängig von der Wahl $k\in\{0,1,...,n-1\}$.
 2. Für die Argumente zweier Wurzelwerte $w_j$ und $w_{j+1}$ mit $j\in\{0,1,...,n-1\}$ und $j+1\in\{0,1,...,n-1\}$[^5] gilt: $$
-  \left(\frac{\varphi+2\cdot (j+1)\cdot\pi}{n}\right)-\left(\frac{\varphi+2\cdot j\cdot\pi}{n}\right)=\frac{2\cdot\pi}{n}
-$$ d. h. die Differenz der Argumente zweier 'benachbarter' Wurzeln ist unabhängig von der Wahl $k\in\{0,1,...,n-1\}$. Der Vollwinkel wird in $n$ gleichgroße Winkel geteilt.
+  \left(\frac{\varphi+2\cdot (j+1)\cdot\pi}{n}\right)-\left(\frac{\varphi+2\cdot j\cdot\pi}{n}\right)=\frac{2\cdot\pi}{n} $$ d. h. die Differenz der Argumente zweier 'benachbarter' Wurzeln ist unabhängig von der Wahl $k\in\{0,1,...,n-1\}$. Der Vollwinkel wird in $n$ gleichgroße Winkel geteilt.
 
 $\square$
 
 **Bemerkung 7.** Vergleiche Beispiel 5: Die komplexen Zahlen $z_1$ bis $z_6$ erfüllen die Gleichung $z^6=2^{12}=4^6$, sind also als komplexe $6$-te Wurzeln von $4096$ auffassbar. Sie bilden ein regelmäßiges Sechseck, dessen Umkreis den Koordinatenursprung als Mittelpunkt besitzt und den Radius $4$.
+
+Ein interaktives Beispiel zu den $n$-ten Wurzeln einer komplexen Zahl ist in der nachstehenden Abbildung dargestellt. Wegen der Eigenschaften im vorstehenden Satz wird die Gleichung $z^n=a+b\cdot i$ **Kreisteilungsgleichung** genannt.
+
+<div style="width: 100%; max-width: 900px; margin: 0 auto; padding: 0; box-sizing: border-box; position: relative;">
+  <div style="position: relative; width: 100%; height: 0; padding-bottom: 61.11%;">
+    <iframe
+      scrolling="no"
+      title="Kreisteilungsgleichung"
+      src="https://www.geogebra.org/material/iframe/id/pDTVH3Sb/width/900/height/550/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/true/ld/true/sdz/true/ctl/false"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 1px solid #ccc; border-radius: 8px;"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+</div>
+
+**Hinweis:** Vollziehen Sie die Entstehung der $n$-ten Einheitswurzeln in der Gaußschen Zahlenebene nach. Verändern Sie den Exponenten $n$ und beobachten Sie, wie die Lösungen der Gleichung $z^n = a+b\cdot i$ auf dem Kreis um $0$ mit Radius $({a+b\cdot i})^{\frac{1}{n}}$ gleichmäßig verteilt liegen. Variieren Sie ebenso $a+b\cdot i$ durch Ziehen des Punktes in der Gaußschen Zahlenebene.
+
+**Quelle:** [Geogebra](https://www.geogebra.org/m/pDTVH3Sb) von [Andreas Lindner](https://www.geogebra.org/u/lindner) ist unter der Lizenz [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) verfügbar.
 
 
 Sicher gewusst
 ===
 
 
-Testen Sie Ihr Wissen in diesem Abschnitt und Beantworten Sie die folgenden Fragen.
+Testen Sie Ihr Wissen in diesem Abschnitt beim Beantworten der nachstehenden Fragen.
 
-**Frage 1.** Stellen Sie die folgenden komplexen Zahlen durch Punkte in der Gaußschen Zahlenebene dar.
-
-![Gaußsche Zahlenebene 2](img/mat-bild-12.png "_Fig._ Darstellung komplexer Zahlen $z$ in der Gaußschen Zahlenebene. Jede Zahl $z$ wird durch einen vom Koordinatenursprung nach $z$ weisenden Zeiger dargestellt.")<!-- style="display: block; margin-left: auto; margin-right: auto; max-width: 900px;" -->
-
-[[$a$] [$b$] [$c$] [$d$] [$e$] [$f$] [$g$] [$h$]]
-[( ) ( ) ( ) ( ) ( ) ( ) ( ) (X)] $3-4\cdot i$
-[( ) ( ) (X) ( ) ( ) ( ) ( ) ( )] $-4+3\cdot i$
-[( ) ( ) ( ) ( ) (X) ( ) ( ) ( )] $3\cdot i$
-[( ) ( ) ( ) ( ) ( ) (X) ( ) ( )] $3+4\cdot i$
-[( ) ( ) ( ) ( ) ( ) ( ) (X) ( )] $-\frac{3}{2}\cdot i$
-[( ) (X) ( ) ( ) ( ) ( ) ( ) ( )] $\frac{3}{2}\left(\cos{\left(\frac{3}{4}\pi\right)}+\sin{\left(\frac{3}{4}\pi\right)}\cdot i\right)$
-[( ) ( ) ( ) (X) ( ) ( ) ( ) ( )] $\cos{\left(\frac{1}{3}\pi\right)}-\sin{\left(\frac{1}{3}\pi\right)}\cdot i$
-[(X) ( ) ( ) ( ) ( ) ( ) ( ) ( )] $\sin{\left(\frac{2}{3}\pi\right)}+\cos{\left(\frac{2}{3}\pi\right)}\cdot i$
-[[?]] Bestimmen Sie Real- und Imaginärteil der komplexen Zahlen und interpretieren Sie diese als kartesische Koordinaten dieser Zahl in der Gaußschen Zahlenebene. Vergleichen Sie ggf. mit der Polardarstellung (trigonometrischen -) der komplexen Zahl.
-****************************************
-
-Die komplexen Zahlen sind in der vorstehenden Abbildung dargestellt.
-
-1. Die ersten fünf komplexen Zahlen liegen in kartesischer Form vor. Es ergeben sich die nachstehenden Koordinatenpaare $$
-  3-4\cdot i\;\leftrightarrow\; (3,-4)\,,\quad
-  -4+3\cdot i\;\leftrightarrow\; (-4,3)\,,\quad
-  3\cdot i\;\leftrightarrow\; (0,3)\,,\quad
-  3+4\cdot i\;\leftrightarrow\; (3,4)\quad\text{und}\quad
-  -\frac{3}{2}\cdot i\;\leftrightarrow\; \left(0,-\frac{3}{2}\right)
-$$
-2. Die sechste Zahl ist in Polardarstellung gegeben $$ \frac{3}{2}\left(\cos{\left(\frac{3}{4}\pi\right)}+\sin{\left(\frac{3}{4}\pi\right)}\cdot i\right) $$ Der zur komplexen Zahl gehörende Zeiger schließt mit der reellen Achse einen Winkel $3/4\cdot\pi=135^\circ$ ein und besitzt die Länge $\frac{3}{2}$.
-3. Beachten Sie, dass die komplexe Zahl unter Benutzung der Symmetrie für Sinus bzw. Kosinus $$
-  \cos{\left(\frac{1}{3}\pi\right)}-\sin{\left(\frac{1}{3}\pi\right)}\cdot i=\cos{\left(-\frac{1}{3}\pi\right)}+\sin{\left(-\frac{1}{3}\pi\right)}\cdot i
-$$ in der Polarform angegeben werden kann: Argument und Betrag lassen sich hieraus direkt ablesen $$
-  \varphi=-\frac{1}{3}\cdot \pi\,,\quad r=|z|=1
-$$
-4. Analog lässt sich unter Beachtung der Quadrantenbeziehungen für Sinus und Kosinus $$
-  \begin{split}
-  \sin{\left(\frac{2}{3}\pi\right)}+\cos{\left(\frac{2}{3}\pi\right)}\cdot i  \\
-  & =\cos{\left(\frac{2}{3}\pi-\frac{1}{2}\pi\right)}-\sin{\left(\frac{2}{3}\pi-\frac{1}{2}\pi\right)}\cdot i  \\
-  & =\cos{\left(\frac{1}{6}\pi\right)}-\sin{\left(\frac{1}{6}\pi\right)}\cdot i  \\
-  & =\cos{\left(-\frac{1}{6}\pi\right)}+\sin{\left(-\frac{1}{6}\pi\right)}\cdot i
-  \end{split}
-$$ in Polardarstellung überführen. Alternativ lässt sich die letzte Zahl mit $-i$ multiplizieren, was einer Drehung dieser Zahl um den Koordinatenursprung mit Drehwinkel $-\frac{\pi}{2}$ entspricht.
-
-****************************************
-
-**Frage 2.** Zu berechnen sind die zu Zahlen $z\in\mathbb{C}$ bezüglich der Multiplikation inversen Zahlen $z^{-1}$. Diese sind in kartesischer Form anzugeben.
+**Frage 1.** Zu berechnen sind die zu Zahlen $z\in\mathbb{C}$ bezüglich der Multiplikation inversen Zahlen $z^{-1}$. Diese sind in kartesischer Form anzugeben.
 
 [[$1+2\cdot i$] [$2+i$] [$1-2\cdot i$]]
 [( ) (X) ( )]  $\frac{2}{5}-\frac{1}{5}\cdot i$
@@ -1246,9 +1199,46 @@ $$ in Polardarstellung überführen. Alternativ lässt sich die letzte Zahl mit 
 
 ****************************************
 
+**Frage 2.** Eine Drehung der Ebene um den Punkt mit den Koordinaten $(2,-1)$ mit dem Winkel $\varphi$ kann unter Benutzung komplexer Zahlen beschrieben werden durch eine Abbildung $$
+  z\in\mathbb{C}\mapsto \rho(z)\in\mathbb{C} $$
+mit $z=x+i\cdot y$, $x\in\mathbb{R}$, $y\in\mathbb{R}$ und $i^2=-1$.
+
+Wählen Sie die korrekte Darstellung von $\rho(z)$.
+
+<!-- data-randomize -->
+[(X)] $\rho(z)=z_\varphi\cdot(z-(2-i))+(2-i)$ mit $z_\varphi=\cos{\varphi}+i\cdot\sin{\varphi}$
+[( )] $\rho(z)=z_\varphi\cdot(z-(2-i))+(2-i)$ mit $z_\varphi=\sin{\varphi}+i\cdot\cos{\varphi}$
+[( )] $\rho(z)=z_\varphi\cdot(z-(2-i))$ mit $z_\varphi=\cos{\varphi}+i\cdot\sin{\varphi}$
+[( )] $\rho(z)=z_\varphi\cdot(z-(2-i))$ mit $z_\varphi=\sin{\varphi}+i\cdot\cos{\varphi}$
+[( )] $\rho(z)=z_\varphi\cdot z+(2-i)$ mit $z_\varphi=\cos{\varphi}+i\cdot\sin{\varphi}$
+[( )] $\rho(z)=z_\varphi\cdot z+(2-i)$ mit $z_\varphi=\sin{\varphi}+i\cdot\cos{\varphi}$
+[( )] $\rho(z)=z_\varphi\cdot z$ mit $z_\varphi=\cos{\varphi}+i\cdot\sin{\varphi}$
+[( )] $\rho(z)=z_\varphi\cdot z$ mit $z_\varphi=\sin{\varphi}+i\cdot\cos{\varphi}$
+[[?]] Eine Drehung lässt sich durch Multiplikation mit einer komplexen Zahl vom Betrag 'Eins' beschreiben, eine Translation mittels Addition mit einer komplexen Zahl.
+****************************************
+
+Die Multiplikation mit der komplexen Zahl $z_\varphi=\cos{\varphi}+i\cdot\sin{\varphi}$ bedeutet eine Drehung der Gaußschen Zahlenebene um $0$ mit dem Drehwinkel $\varphi\in\mathbb{R}$. Mit $$
+  \cos{\varphi}=\sin{\left(\frac{\pi}{2}-\varphi\right)}\quad\text{und}\quad\sin{\varphi}=\cos{\left(\frac{\pi}{2}-\varphi\right)} $$
+beschreibt $$
+  z_\varphi=\sin{\varphi}+i\cdot\cos{\varphi}=\cos{\left(\frac{\pi}{2}-\varphi\right)}+i\cdot \sin{\left(\frac{\pi}{2}-\varphi\right)} $$
+eine Drehung um $0$ mit dem im Allgemeinen abweichenden Drehwinkel $\frac{\pi}{2}-\varphi$.
+
+Die betrachtete Drehung erfolgt um den zu $u=2-i$ gehörenden Punkt. Um diese Drehung in komplexen Zahlen darzustellen, wird die Gaußsche Zahlenebene zunächst in Richtung $0-u=-u$ verschoben **(Subtraktion mit $u$)**<!-- style="color: red"-->, anschließend die Drehung um $0$ ausgeführt **(Multiplikation mit $z_\varphi$)**<!-- style="color: blue"--> und anschließend die Ebene wieder in umgekehrter Richtung verschoben **(Addition von $u$)**<!-- style="color: magenta"-->. $$
+  \rho(z)=\textcolor{blue}{(\cos{\varphi}+i\cdot\sin{\varphi})\cdot}(z\textcolor{red}{-(2-i)})\textcolor{magenta}{+(2-i)} $$
+
+****************************************
+
+**Frage 3.** Die Kreisteilungsgleichung $$
+  z^3=1 $$
+besitzt drei Lösungen und zwar
+
+<!-- data-randomize -->
+[[( $\left\{1,-\frac{1}{2}+\frac{\sqrt{3}}{2}\cdot i,-\frac{1}{2}-\frac{\sqrt{3}}{2}\cdot i\right\}$ ) | $\left\{1,i,-i\right\}$ | $\left\{1,-\frac{\sqrt{3}}{2}+\frac{1}{2}\cdot i,-\frac{\sqrt{3}}{2}-\frac{1}{2}\cdot i\right\}$ ]]
+[[?]] Nutzen Sie zur Beantwortung, dass die Lösungen der Kreisteilungsgleichung ein gleichseitiges Dreieck bilden. Die Zahl $z=1$ löst diese Kreisteilungsgleichung. Sie bestimmt damit den Kreis um $0$, auf dem die anderen beiden Lösungen liegen. D. h. die restlichen Lösungen obiger Gleichung besitzen jeweils den Betrag 'Eins'. Nach dem vorstehenden Satz besitzen schließen die Zeiger zu je zweien der komplexen Lösungen einen Winkel von $2/3\pi$.
+
 [^1]: Achtung: In der Wechselstromtechnik wird der Bezeichner $i$ als Formelzeichen für die Wechselstromstärke verwendet.
 
-[^2]: Der Ausdruck $D:=\frac{p^2}-4\cdot q$ wird [Diskriminante](https://de.wikipedia.org/wiki/Diskriminante) der quadratischen Gleichung genannt.
+[^2]: Der Ausdruck $D:=p^2-4\cdot q$ wird [Diskriminante](https://de.wikipedia.org/wiki/Diskriminante) der quadratischen Gleichung genannt.
 
 [^3]: Die Lage von $P$ bezüglich $k$ kann beschrieben werden mithilfe des Parameters $\mu=\overline{PM}/r$, worin $M$ den Mittelpunkt und $r$ den Radius von $k$ bezeichnen. Es werden unterschieden: Für eine Lage $P$ mit $\mu=0\;\leftrightarrow\;\overline{PM}=0$ fällt die Kurve $c$ mit der Ortskurve von $M$ zusammen, die den festen Abstand $r$ von $k_0$ besitzt. Für eine Lage $P$ mit $ \mu\in(0,1)\;\leftrightarrow\;\overline{PM}\in(0,r)$ befindet sich der Punkt $P$ im Kreisinneren von $k$ und erzeugt eine sogenannte *verkürzte* Rollkurve $c$. Für eine Lage $P$ mit $\mu=1\;\leftrightarrow\;\overline{PM}=r$ erzeugt der Punkt $P\in k$ eine sogenannte *gewöhnliche* Rollkurve $c$. Für eine Lage $P$ mit $\mu>1\;\leftrightarrow\;\overline{PM}>r$ befindet sich der Punkt $P$ außerhalb von $k$ und erzeugt eine sogenannte *verlängerte* Rollkurve $c$.
 
@@ -1261,7 +1251,6 @@ $$ in Polardarstellung überführen. Alternativ lässt sich die letzte Zahl mit 
 
 Definition
 ===
-
 
 Komplexe Zahlen bilden die Grundlage zur Beschreibung ebener Bewegungsvorgänge, die beispielsweise in ebenen [Koppelgetrieben](https://de.wikipedia.org/wiki/Koppelgetriebe) entstehen und Gegenstand der ebenen Kinematik beziehungsweise Robotik sind.
 
@@ -2004,7 +1993,7 @@ $$ berechnen mit Hilfe des nachstehenden Schemas.
 >2. Darstellung des Koordinatenursprungs $U$ des "neuen" Koordinatensystems in der Basis des "alten" Koordinatensystems: $$
   u=\sum_{i=1}^d{u_i\cdot e_i}
 $$ bezeichnet den Ortsvektor zu $U$
->3. Darstellung des Koordinatenvektors $x$ bzw. $x^\prime$ eines Punktes $X$ bezüglichdes "alten" beziehungsweise "neuen" Koordinatensystems $$
+>3. Darstellung des Koordinatenvektors $x$ bzw. $x^\prime$ eines Punktes $X$ bezüglich des "alten" beziehungsweise "neuen" Koordinatensystems $$
   x=B\cdot x^\prime+u\quad\leftrightarrow\quad x^\prime=B^{-1}\cdot x-B^{-1}\cdot u
 $$
 
@@ -5582,7 +5571,6 @@ Aus Gründen der Übersichtlichkeit ist die Fläche als wireframe geplottet. Alt
 - matplotlib
 - numpy
 ```
-
 ``` python @PyScript.repl
 import numpy as np
 import matplotlib.pyplot as plt
